@@ -15,37 +15,20 @@ namespace OnboardingSoftware.Data.Repositories
             : base(context)
         { }
 
-        public async Task<IEnumerable<Vjestina>> GetAllWithArtistAsync()
+        public async Task<IEnumerable<Vjestina>> GetAllWithAplikantiAsync()
         {
             return await OnboardingSoftwareDbContext.Vjestine
                 .Include(m => m.Aplikanti)
                 .ToListAsync();
         }
 
-        public async Task<Vjestina> GetWithArtistByIdAsync(int id)
+        public async Task<Vjestina> GetWithAplikantiByIdAsync(int id)
         {
             return await OnboardingSoftwareDbContext.Vjestine
                 .Include(m => m.Aplikanti)
-                .SingleOrDefaultAsync(m => m.ID == id); ;
+                .SingleOrDefaultAsync(m => m.ID == id);
         }
 
-        public async Task<IEnumerable<Vjestina>> GetAllWithArtistByArtistIdAsync(int vjestinaId)
-        {
-            return await OnboardingSoftwareDbContext.Vjestine
-                .Include(m => m.Aplikanti)
-                .Where(m => m.ID == vjestinaId)
-                .ToListAsync();
-        }
-
-        Task<Vjestina> IVjestinaRepository.GetWithArtistByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<IEnumerable<Vjestina>> IVjestinaRepository.GetAllWithArtistByArtistIdAsync(int vjestinaId)
-        {
-            throw new NotImplementedException();
-        }
 
         private OnboardingSoftwareDbContext OnboardingSoftwareDbContext
         {

@@ -15,21 +15,20 @@ namespace OnboardingSoftware.Data.Repositories
             : base(context)
         { }
         
-        public async Task<IEnumerable<Aplikant>> GetAllWithMusicsAsync()
+        public async Task<IEnumerable<Aplikant>> GetAllWithVjestineAsync()
         {
             return await OnboardingSoftwareDbContext.Aplikanti
                 .Include(a => a.Vjestine)
                 .ToListAsync();
         }
 
-        Task<IEnumerable<Aplikant>> IAplikantRepository.GetAllWithMusicsAsync()
-        {
-            throw new NotImplementedException();
-        }
 
-        Task<Aplikant> IAplikantRepository.GetWithMusicsByIdAsync(int id)
+        public async Task<Aplikant> GetWithVjestineByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await OnboardingSoftwareDbContext.Aplikanti
+                .Include(a => a.Vjestine)
+                .Where(a => a.ID == id)
+                .FirstOrDefaultAsync();
         }
 
         private OnboardingSoftwareDbContext OnboardingSoftwareDbContext

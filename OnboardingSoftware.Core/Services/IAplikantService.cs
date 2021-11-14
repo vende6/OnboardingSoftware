@@ -9,10 +9,10 @@ namespace OnboardingSoftware.Core.Services
 {
     public interface IAplikantService
     {
-        Task<IEnumerable<Aplikant>> GetAllArtists();
-        Task<Aplikant> GetArtistById(int id);
-        Task<Aplikant> CreateArtist(Aplikant newArtist);
-        Task UpdateArtist(Aplikant artistToBeUpdated, Aplikant artist);
-        Task DeleteArtist(Aplikant artist);
+        Task<IEnumerable<Aplikant>> GetAllAplikants();
+        Task<Aplikant> GetAplikantById(int id);
+        Task<Aplikant> CreateAplikant(Aplikant newArtist);
+        Task UpdateAplikant(Aplikant artistToBeUpdated, Aplikant artist);
+        Task DeleteAplikant(Aplikant artist);
     }
 }

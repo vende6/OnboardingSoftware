@@ -9,8 +9,7 @@ namespace OnboardingSoftware.Core.Repositories
 {
     public interface IVjestinaRepository : IRepository<Vjestina>
     {
-        Task<IEnumerable<Vjestina>> GetAllWithArtistAsync();
-        Task<Vjestina> GetWithArtistByIdAsync(int id);
-        Task<IEnumerable<Vjestina>> GetAllWithArtistByArtistIdAsync(int artistId);
+        Task<IEnumerable<Vjestina>> GetAllWithAplikantiAsync();
+        Task<Vjestina> GetWithAplikantiByIdAsync(int id);
     }
 }

@@ -9,7 +9,7 @@ namespace OnboardingSoftware.Core.Repositories
 {
     public interface IAplikantRepository : IRepository<Aplikant>
     {
-        Task<IEnumerable<Aplikant>> GetAllWithMusicsAsync();
-        Task<Aplikant> GetWithMusicsByIdAsync(int id);
+        Task<IEnumerable<Aplikant>> GetAllWithVjestineAsync();
+        Task<Aplikant> GetWithVjestineByIdAsync(int id);
     }
 }
