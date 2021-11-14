@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace OnboardingSoftware.Core.Models
 {
-    public class Vjestina
+    public class Obrazovanje
     {
-        public Vjestina()
+        public Obrazovanje()
         {
             this.Aplikanti = new HashSet<Aplikant>();
         }
         public int ID { get; set; }
-        public string Naziv { get; set; }
+        public string Fakultet { get; set; }
+        public string Smjer { get; set; }
+        public string Lokacija { get; set; }
         public virtual ICollection<Aplikant> Aplikanti { get; set; }
     }
 }

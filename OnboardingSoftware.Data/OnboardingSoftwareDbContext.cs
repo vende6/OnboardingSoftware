@@ -14,6 +14,7 @@ namespace OnboardingSoftware.Data
     {
         public DbSet<Aplikant> Aplikanti { get; set; }
         public DbSet<Vjestina> Vjestine { get; set; }
+        public DbSet<Interes> Interesi { get; set; }
 
         public OnboardingSoftwareDbContext(DbContextOptions<OnboardingSoftwareDbContext> options)
             : base(options)

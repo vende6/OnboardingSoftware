@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace OnboardingSoftware.Core.Models
 {
-    public class Vjestina
+    public class Interes
     {
-        public Vjestina()
+        public Interes()
         {
             this.Aplikanti = new HashSet<Aplikant>();
         }

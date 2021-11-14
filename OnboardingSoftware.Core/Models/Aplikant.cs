@@ -12,6 +12,11 @@ namespace OnboardingSoftware.Core.Models
         public Aplikant()
         {
             this.Vjestine = new HashSet<Vjestina>();
+            this.Interesi = new HashSet<Interes>();
+            this.Testovi = new HashSet<Test>();
+            this.Poslovi = new HashSet<Posao>();
+            this.Obrazovanje = new HashSet<Obrazovanje>();
+            this.Iskustvo = new HashSet<Iskustvo>();
         }
         public int ID { get; set; }
         public string Email { get; set; }
@@ -29,7 +34,12 @@ namespace OnboardingSoftware.Core.Models
         public string LokacijaZaposlenja { get; set; }
         public string TrenutnaPozicija { get; set; }
         public string Industrija { get; set; }
-
         public virtual ICollection<Vjestina> Vjestine { get; set; }
+        public virtual ICollection<Interes> Interesi { get; set; }
+        public virtual ICollection<Test> Testovi { get; set; }
+        public virtual ICollection<Posao> Poslovi { get; set; }
+        public virtual ICollection<Obrazovanje> Obrazovanje { get; set; }
+        public virtual ICollection<Iskustvo> Iskustvo { get; set; }
+
     }
 }
