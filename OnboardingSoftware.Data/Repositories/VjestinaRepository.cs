@@ -18,14 +18,14 @@ namespace OnboardingSoftware.Data.Repositories
         public async Task<IEnumerable<Vjestina>> GetAllWithAplikantiAsync()
         {
             return await OnboardingSoftwareDbContext.Vjestine
-                .Include(m => m.Aplikanti)
+                .Include(m => m.AplikantVjestina)
                 .ToListAsync();
         }
 
         public async Task<Vjestina> GetWithAplikantiByIdAsync(int id)
         {
             return await OnboardingSoftwareDbContext.Vjestine
-                .Include(m => m.Aplikanti)
+                .Include(m => m.AplikantVjestina)
                 .SingleOrDefaultAsync(m => m.ID == id);
         }
 

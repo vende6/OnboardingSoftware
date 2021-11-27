@@ -18,7 +18,7 @@ namespace OnboardingSoftware.Data.Repositories
         public async Task<IEnumerable<Aplikant>> GetAllWithVjestineAsync()
         {
             return await OnboardingSoftwareDbContext.Aplikanti
-                .Include(a => a.Vjestine)
+                .Include(a => a.AplikantVjestina)
                 .ToListAsync();
         }
 
@@ -26,7 +26,7 @@ namespace OnboardingSoftware.Data.Repositories
         public async Task<Aplikant> GetWithVjestineByIdAsync(int id)
         {
             return await OnboardingSoftwareDbContext.Aplikanti
-                .Include(a => a.Vjestine)
+                .Include(a => a.AplikantVjestina)
                 .Where(a => a.ID == id)
                 .FirstOrDefaultAsync();
         }

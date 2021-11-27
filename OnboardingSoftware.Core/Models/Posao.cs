@@ -10,7 +10,8 @@ namespace OnboardingSoftware.Core.Models
     {
         public Posao()
         {
-            this.Aplikanti = new HashSet<Aplikant>();
+            //this.Aplikanti = new HashSet<Aplikant>();
+            this.AplikantPosao = new HashSet<AplikantPosao>();
         }
         public int ID { get; set; }
         public string Naziv { get; set; }
@@ -21,6 +22,9 @@ namespace OnboardingSoftware.Core.Models
         public Lokacija Lokacija { get; set; }
         public int TestID { get; set; }
         public virtual Test Test { get; set; }
-        public virtual ICollection<Aplikant> Aplikanti { get; set; }
+
+        //public virtual ICollection<Aplikant> Aplikanti { get; set; }
+        public virtual ICollection<AplikantPosao> AplikantPosao { get; set; }
+
     }
 }

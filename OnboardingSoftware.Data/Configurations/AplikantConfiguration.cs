@@ -17,8 +17,53 @@ namespace OnboardingSoftware.Data.Configurations
                 .HasKey(m => m.ID);
 
             builder
-                .Property(m => m.Adresa)
+                .Property(m => m.Email)
                 .IsRequired();
+
+            builder
+               .Property(m => m.Lozinka)
+               .IsRequired();
+
+            builder
+                .Property(m => m.Ime)
+                .IsRequired();
+
+            builder
+                .Property(m => m.Prezime)
+                .IsRequired();
+
+            builder
+                .Property(m => m.BrojTelefona)
+                .IsRequired();
+
+            builder
+               .Property(m => m.MjestoRodjenja)
+               .IsRequired();
+
+            builder
+               .Property(m => m.DatumRodjenja)
+               .IsRequired();
+
+            builder
+               .Property(m => m.Adresa)
+               .IsRequired();
+
+            builder
+                .Property(m => m.JeVerifikovan)
+                .IsRequired();
+
+            builder
+               .Property(m => m.StatusZaposlenja)
+               .IsRequired();
+
+            builder
+               .Property(m => m.LokacijaZaposlenja)
+               .IsRequired();
+
+            builder
+               .Property(m => m.TrenutnaPozicija)
+               .IsRequired();
+
 
         }
     }
