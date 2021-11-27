@@ -20,7 +20,7 @@ namespace OnboardingSoftware.Core.Models
         public string LokacijaPozicije { get; set; }
         public string OpisPozicije { get; set; }
         public DateTime DatumPocetka { get; set; }
-        public DateTime? DatumZavrsetka { get; set; }
+        public DateTime DatumZavrsetka { get; set; }
         public bool JeTrenutnoZaposlen { get; set; }
         public byte[] Dokument { get; set; }
 

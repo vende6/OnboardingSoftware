@@ -19,6 +19,14 @@ namespace OnboardingSoftware.Data.Configurations
             builder
                 .Property(x => x.Tekst)
                 .IsRequired();
+
+            builder
+                .Property(x => x.Tip)
+                .IsRequired();
+
+            builder
+                .Property(x => x.RedniBroj)
+                .IsRequired();
         }
     }
 }

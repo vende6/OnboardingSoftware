@@ -17,6 +17,30 @@ namespace OnboardingSoftware.Data.Configurations
                 .HasKey(x => x.ID);
 
             builder
+                .Property(x => x.RadnaPozicija)
+                .IsRequired();
+
+            builder
+                .Property(x => x.TipUgovora)
+                .IsRequired();
+
+            builder
+                .Property(x => x.NazivKompanije)
+                .IsRequired();
+
+            builder
+                .Property(x => x.LokacijaPozicije)
+                .IsRequired();
+
+            builder
+                .Property(x => x.OpisPozicije)
+                .IsRequired();
+
+            builder
+                .Property(x => x.DatumPocetka)
+                .IsRequired();
+
+            builder
                 .Property(x => x.JeTrenutnoZaposlen)
                 .IsRequired();
         }

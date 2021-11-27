@@ -52,6 +52,12 @@ namespace OnboardingSoftware.Data
             builder
                 .ApplyConfiguration(new TestConfiguration());
             builder
+                .ApplyConfiguration(new LokacijaConfiguration());
+            builder
+                .ApplyConfiguration(new PitanjeConfiguration());
+            builder
+                .ApplyConfiguration(new OdgovorConfiguration());
+            builder
                 .ApplyConfiguration(new AplikantVjestinaConfiguration());
             builder
                 .ApplyConfiguration(new AplikantInteresConfiguration());

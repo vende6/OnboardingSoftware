@@ -19,6 +19,14 @@ namespace OnboardingSoftware.Data.Configurations
             builder
                 .Property(x => x.Fakultet)
                 .IsRequired();
+
+            builder
+                .Property(x => x.Smjer)
+                .IsRequired();
+
+            builder
+                .Property(x => x.Lokacija)
+                .IsRequired();
         }
     }
 }

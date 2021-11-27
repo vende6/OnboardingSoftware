@@ -19,6 +19,26 @@ namespace OnboardingSoftware.Data.Configurations
             builder
                 .Property(x => x.Naziv)
                 .IsRequired();
+
+            builder
+                .Property(x => x.Tip)
+                .IsRequired();
+
+            builder
+                .Property(x => x.Pocetak)
+                .IsRequired();
+
+            builder
+                .Property(x => x.Kraj)
+                .IsRequired();
+
+            builder
+                .Property(x => x.BrojPitanja)
+                .IsRequired();
+
+            builder
+                .Property(x => x.OsvojeniProcenat)
+                .IsRequired();
         }
     }
 }

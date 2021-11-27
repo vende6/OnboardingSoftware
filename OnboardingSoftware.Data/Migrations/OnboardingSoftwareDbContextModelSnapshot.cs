@@ -205,7 +205,7 @@ namespace OnboardingSoftware.Data.Migrations
                     b.Property<DateTime>("DatumPocetka")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DatumZavrsetka")
+                    b.Property<DateTime>("DatumZavrsetka")
                         .HasColumnType("datetime2");
 
                     b.Property<byte[]>("Dokument")
@@ -215,18 +215,23 @@ namespace OnboardingSoftware.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("LokacijaPozicije")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NazivKompanije")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OpisPozicije")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RadnaPozicija")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipUgovora")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
@@ -242,12 +247,15 @@ namespace OnboardingSoftware.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Adresa")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Naziv")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Opis")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Sektor")
@@ -266,12 +274,15 @@ namespace OnboardingSoftware.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Fakultet")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Lokacija")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Smjer")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
@@ -331,15 +342,18 @@ namespace OnboardingSoftware.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("RedniBroj")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tekst")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TestID")
                         .HasColumnType("int");
 
                     b.Property<string>("Tip")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
@@ -357,21 +371,25 @@ namespace OnboardingSoftware.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Kategorija")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("LokacijaID")
                         .HasColumnType("int");
 
                     b.Property<string>("Naziv")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Opis")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TestID")
                         .HasColumnType("int");
 
                     b.Property<string>("Tip")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
@@ -391,15 +409,18 @@ namespace OnboardingSoftware.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("BrojPitanja")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Kraj")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Naziv")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OsvojeniProcenat")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Pocetak")
@@ -409,6 +430,7 @@ namespace OnboardingSoftware.Data.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Tip")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Trajanje")
