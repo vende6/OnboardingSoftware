@@ -19,7 +19,7 @@ namespace OnboardingSoftware.Data.Migrations
                     Prezime = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BrojTelefona = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MjestoRodjenja = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DatumRodjenja = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DatumRodjenja = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Adresa = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Slika = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     JeVerifikovan = table.Column<bool>(type: "bit", nullable: false),

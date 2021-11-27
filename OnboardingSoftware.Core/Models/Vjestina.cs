@@ -10,13 +10,10 @@ namespace OnboardingSoftware.Core.Models
     {
         public Vjestina()
         {
-            //this.Aplikanti = new HashSet<Aplikant>();
             this.AplikantVjestina = new HashSet<AplikantVjestina>();
         }
         public int ID { get; set; }
         public string Naziv { get; set; }
-        //public virtual ICollection<Aplikant> Aplikanti { get; set; }
-
         public virtual ICollection<AplikantVjestina> AplikantVjestina { get; set; }
     }
 }

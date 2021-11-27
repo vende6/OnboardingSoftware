@@ -10,7 +10,6 @@ namespace OnboardingSoftware.Core.Models
     {
         public Test()
         {
-            //this.Aplikanti = new HashSet<Aplikant>();
             this.AplikantTest = new HashSet<AplikantTest>();
         }
 
@@ -23,8 +22,6 @@ namespace OnboardingSoftware.Core.Models
         public string BrojPitanja { get; set; }
         public string OsvojeniProcenat { get; set; }
         public byte[] Slika { get; set; }
-
-        //public virtual ICollection<Aplikant> Aplikanti { get; set; }
         public virtual ICollection<AplikantTest> AplikantTest { get; set; }
 
     }

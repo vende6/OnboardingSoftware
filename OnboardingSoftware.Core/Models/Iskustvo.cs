@@ -10,7 +10,6 @@ namespace OnboardingSoftware.Core.Models
     {
         public Iskustvo()
         {
-            //this.Aplikanti = new HashSet<Aplikant>();
             this.AplikantIskustvo = new HashSet<AplikantIskustvo>();
         }
         public int ID { get; set; }
@@ -23,8 +22,6 @@ namespace OnboardingSoftware.Core.Models
         public DateTime DatumZavrsetka { get; set; }
         public bool JeTrenutnoZaposlen { get; set; }
         public byte[] Dokument { get; set; }
-
-        //public virtual ICollection<Aplikant> Aplikanti { get; set; }
         public virtual ICollection<AplikantIskustvo> AplikantIskustvo { get; set; }
     }
 }

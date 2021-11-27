@@ -14,8 +14,6 @@ namespace OnboardingSoftware.Core.Models
         }
         public int ID { get; set; }
         public string Naziv { get; set; }
-
-        //public virtual ICollection<Aplikant> Aplikanti { get; set; }
         public virtual ICollection<AplikantInteres> AplikantInteres { get; set; }
 
     }

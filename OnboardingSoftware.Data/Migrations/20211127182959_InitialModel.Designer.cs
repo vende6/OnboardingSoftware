@@ -10,7 +10,7 @@ using OnboardingSoftware.Data;
 namespace OnboardingSoftware.Data.Migrations
 {
     [DbContext(typeof(OnboardingSoftwareDbContext))]
-    [Migration("20211127172057_InitialModel")]
+    [Migration("20211127182959_InitialModel")]
     partial class InitialModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,9 +39,8 @@ namespace OnboardingSoftware.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DatumRodjenja")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DatumRodjenja")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()

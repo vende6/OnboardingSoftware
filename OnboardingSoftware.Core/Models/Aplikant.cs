@@ -11,13 +11,6 @@ namespace OnboardingSoftware.Core.Models
     {
         public Aplikant()
         {
-            //this.Vjestine = new HashSet<Vjestina>();
-            //this.Interesi = new HashSet<Interes>();
-            //this.Testovi = new HashSet<Test>();
-            //this.Poslovi = new HashSet<Posao>();
-            //this.Obrazovanje = new HashSet<Obrazovanje>();
-            //this.Iskustvo = new HashSet<Iskustvo>();
-
             this.AplikantVjestina = new HashSet<AplikantVjestina>();
             this.AplikantInteres = new HashSet<AplikantInteres>();
             this.AplikantTest = new HashSet<AplikantTest>();
@@ -32,7 +25,7 @@ namespace OnboardingSoftware.Core.Models
         public string Prezime { get; set; }
         public string BrojTelefona { get; set; }
         public string MjestoRodjenja { get; set; }
-        public string DatumRodjenja { get; set; }
+        public DateTime DatumRodjenja { get; set; }
         public string Adresa { get; set; }
         public byte[] Slika { get; set; }
         public bool JeVerifikovan { get; set; }
@@ -41,14 +34,6 @@ namespace OnboardingSoftware.Core.Models
         public string LokacijaZaposlenja { get; set; }
         public string TrenutnaPozicija { get; set; }
         public string Industrija { get; set; }
-       //  public virtual ICollection<Vjestina> Vjestine { get; set; }
-       //  public virtual ICollection<Interes> Interesi { get; set; }
-       //  public virtual ICollection<Test> Testovi { get; set; }
-       //  public virtual ICollection<Posao> Poslovi { get; set; }
-       //  public virtual ICollection<Obrazovanje> Obrazovanje { get; set; }
-       //  public virtual ICollection<Iskustvo> Iskustvo { get; set; }
-
-        // Many-to-many
         public virtual ICollection<AplikantVjestina> AplikantVjestina { get; set; }
         public virtual ICollection<AplikantInteres> AplikantInteres { get; set; }
         public virtual ICollection<AplikantTest> AplikantTest { get; set; }
