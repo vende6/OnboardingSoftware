@@ -19,6 +19,7 @@ namespace OnboardingSoftware.Data.Repositories
         {
             return await OnboardingSoftwareDbContext.Aplikanti
                 .Include(a => a.AplikantVjestina)
+                .ThenInclude(b => b.Vjestina)
                 .ToListAsync();
         }
 

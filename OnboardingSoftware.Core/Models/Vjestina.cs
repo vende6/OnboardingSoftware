@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace OnboardingSoftware.Core.Models
 {
@@ -14,6 +15,8 @@ namespace OnboardingSoftware.Core.Models
         }
         public int ID { get; set; }
         public string Naziv { get; set; }
+
+        [JsonIgnore]
         public virtual ICollection<AplikantVjestina> AplikantVjestina { get; set; }
     }
 }
