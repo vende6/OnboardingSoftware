@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:OnboardingSoftware.App.ViewModels"
+             x:Class="OnboardingSoftware.App.Views.ViewRegister"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="{StaticResource PageBackground}"
+             Shell.NavBarIsVisible="False"
+             Padding="5">
+    <ContentPage.BindingContext>
+        <viewmodels:RegisterViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!--<StackLayout>
+            <StackLayout Orientation="Vertical" Margin="15,15,0,0" HorizontalOptions="Center">
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png"  />
+            </StackLayout>
+            --><!--IMPLEMENT LISTVIEW INSTEAD--><!--
+            <StackLayout Padding="20">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Entry x:Name="firstname" Placeholder="Firstname" Grid.Row="0" ></Entry>
+
+                    <Entry x:Name="lastname" Placeholder="Lastname" Grid.Row="1" ></Entry>
+                 
+                    <Entry x:Name="username" Placeholder="Username" Grid.Row="2" ></Entry>
+                 
+                    <Entry x:Name="password" Placeholder="Password" Grid.Row="3" ></Entry>
+                    
+                    <Picker x:Name="pickerLocation" Grid.Row="4" Title="Place od residence"/>
+
+                    <Button x:Name="registerBtn" Text="Register" HorizontalOptions="Center" Margin="0,32,0,0"
+                            Command="{Binding NavigateCommand}" CommandParameter="//home/conditions"
+                        Grid.Row="5"  BackgroundColor="#13818d" TextColor="White"></Button>
+
+                    <Label x:Name="redirectLogin" Text="Already have an account?" VerticalOptions="End" HorizontalOptions="Center" TextDecorations="Underline" Grid.Row="6">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="//login" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                </Grid>
+
+            </StackLayout>
+        </StackLayout>-->
+        <AbsoluteLayout>
+            <CarouselView
+            x:Name="TheCarousel"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            IndicatorView="indicatorview">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <AbsoluteLayout>
+                        <StackLayout
+                            AbsoluteLayout.LayoutBounds=
+                            "0.5,0.3,AutoSize,AutoSize"
+                            AbsoluteLayout.LayoutFlags=
+                            "PositionProportional"
+                            HorizontalOptions="Center">
+                            <Label
+                                FontSize="Title"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding .}"
+                                VerticalOptions="Center" />
+                        </StackLayout>
+                    </AbsoluteLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView
+            x:Name="indicatorview"
+            AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            IndicatorColor="LightGray"
+            IndicatorSize="10"
+            SelectedIndicatorColor="Black" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

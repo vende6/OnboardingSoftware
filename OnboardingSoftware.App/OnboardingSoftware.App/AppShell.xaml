@@ -1,46 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
        xmlns:local="clr-namespace:OnboardingSoftware.App.Views"
-       Title="OnboardingSoftware.App"
+       xmlns:core="clr-namespace:FoodsNGoods"
+       FlyoutBehavior="Flyout"
+       FlyoutHeaderBehavior="CollapseOnScroll"
+       Title="OnboardingSoftware"
        x:Class="OnboardingSoftware.App.AppShell">
 
     <!--
-        The overall app visual hierarchy is defined here, along with navigation.
-    
-        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXX|                            |XXXXXXXX
+        XXXXXXX'                              'XXXXXXX
+        XXXXXx.                                .xNXXXX
+        XXXNo.        ,ll;.        .;ll,        .oNXXX
+        XXX|.         ,OXNo.      .oNXO,          cXXX
+        XX|            'XXNx.    .xNXX'            |XX
+        X|              .xXXX.  .XXXx.              |X
+        |                .xXXOllOXXx.                |
+        |                .xXXXccXXXx.                |
+        X|              .XXXx.  .xXXX.              |X
+        XXc            ,OXNd.    .dNXO,            cXX
+        XXXl.         ;XXXo.      .oNXX;         .lXXX
+        XXXNd.        'cc,          ,cc'        .dNXXX
+        XXXXXx.                                .xXXXXX
+        XXXXXXO'                              'OXXXXXX
+        XXXXXXXX|                            |XXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+        Shell is an all new way to quickly get started with your application. There are 3 levels to a Shell app:
+        * ShellItem: populates the Flyout menu along with special menu items
+        * ShellSection: groups of 1 or more ContentPage displayed as bottom tabs
+        * ShellContent: a ContentPage host. Multiple ShellContent within a ShellSection are navigable by top tabs
+
+        For more details about building apps with Shell, visit these resources:
+        * MSDN Article: https://aka.ms/xf-msdn
+        * Preview Documentation: https://aka.ms/xf-shell-docs
+        * Blog Introduction: https://aka.ms/xf-40-blog
+
+        PLEASE give us feedback on your experience: good, bad, and ugly.
+        https://www.surveymonkey.com/r/VTJNWTM
+
+        Thanks for trying out this preview! 
+
+        - David Ortinau, Senior Program Manager for Mobile Dev Tools [david.ortinau@microsoft.com]
     -->
 
+    <!-- 
+        Styles and Resources 
+    -->
     <Shell.Resources>
         <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
-            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
-            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
 
-    <TabBar>
-        <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
-    </TabBar>
+    <!-- Your Pages -->
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="300" Margin="5,5,5,5">
+            <Image Source="{core:ImageResource OnboardingSoftware.App.Images.logo.jpg}"
+                   Aspect="AspectFill" 
+                   HeightRequest="300" 
+                   BackgroundColor="#edece7"
+                   HorizontalOptions="FillAndExpand"/>
+            <Label Text="Foods 'n' Goods" TextColor="Black" FontSize="20" FontFamily="Italic" Margin="7,0,0,5" HorizontalOptions="Start" VerticalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        </Grid>
+    </Shell.FlyoutHeader>
 
-    <!--
-        If you would like to navigate to this content you can do so by calling
-        await Shell.Current.GoToAsync("//LoginPage");
+    <FlyoutItem  Route="home"  Title="Login" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="login" ContentTemplate="{DataTemplate local:ViewLogin}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Register" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="register" ContentTemplate="{DataTemplate local:ViewRegister}"/>
+    </FlyoutItem>
+
+
+    <!-- Optional Templates 
+    // These may be provided inline as below or as separate classes.
+
+    // This header appears at the top of the Flyout.
+    <Shell.FlyoutHeaderTemplate>
+	<DataTemplate>
+            <Grid>ContentHere</Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    // ItemTemplate is for ShellItems as displayed in a Flyout
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                Bindable Properties: Title, Icon
+            </ContentView>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    // MenuItemTemplate is for MenuItems as displayed in a Flyout
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                Bindable Properties: Text, Icon
+            </ContentView>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
     -->
-    <TabBar>
-        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-    </TabBar>
-
 
 </Shell>

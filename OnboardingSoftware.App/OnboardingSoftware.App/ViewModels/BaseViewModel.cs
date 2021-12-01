@@ -1,16 +1,18 @@
-﻿using OnboardingSoftware.App.Models;
-using OnboardingSoftware.App.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+
 using Xamarin.Forms;
+
+using OnboardingSoftware.App.Models;
+using OnboardingSoftware.App.Services;
+using OnboardingSoftware.Api;
 
 namespace OnboardingSoftware.App.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : ExtendedBindableObject
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;
         public bool IsBusy
@@ -27,7 +29,7 @@ namespace OnboardingSoftware.App.ViewModels
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
-            [CallerMemberName] string propertyName = "",
+            [CallerMemberName]string propertyName = "",
             Action onChanged = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingStore, value))

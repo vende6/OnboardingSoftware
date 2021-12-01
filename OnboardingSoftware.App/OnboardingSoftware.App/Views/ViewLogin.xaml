@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:viewmodels="clr-namespace:OnboardingSoftware.App.ViewModels"
+             xmlns:behaviors="clr-namespace:OnboardingSoftware.App.Behaviors"
+             xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters"
+             x:Class="OnboardingSoftware.App.Views.ViewLogin"
+             BackgroundColor="{StaticResource PageBackground}"
+             Shell.NavBarIsVisible="False"
+             Padding="5">
+    <ContentPage.BindingContext>
+        <viewmodels:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ValidationErrorConverter x:Key="ValidationErrorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <!-- 
+        TODO:
+        
+        SET TRANSLATIONS 
+        SET DESIGN TEMPLATE
+        APPSHELL + NAVIGATION FROM LOGIN
+        SETUP MVVM , COMMANDS, VALIDATIONS 
+        -->
+
+        <!-- LOGO -->
+        <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0">
+            <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+            <Label Text="TOB" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+        </StackLayout>
+
+        <!-- LOGIN FORM -->
+        <StackLayout Orientation="Vertical" Grid.Row="1" Margin="40,50,40,0" Spacing="0">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" Color="DarkRed"></ActivityIndicator>
+            <Entry x:Name="username" Placeholder="Username" Text="{Binding Username.Value, Mode=TwoWay}" >
+                <Entry.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateUsernameCommand}" />
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="{Binding Username.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="13" FontSize="Micro" />
+
+
+            <Entry x:Name="password" Placeholder="Password" Text="{Binding Password.Value, Mode=TwoWay}">
+                <Entry.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="{Binding Password.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="12" FontSize="Micro"/>
+
+
+            <Label Text="Forgotten password?" TextDecorations="Underline" TextColor="SkyBlue" Margin="0,30,0,0" HorizontalOptions="Center"
+                   FontSize="{OnIdiom Phone={OnPlatform iOS=Micro, Android=Small}, Tablet={OnPlatform iOS=Micro, Android=Small}}"
+                   />
+        </StackLayout>
+
+        <!-- BOTTOM -->
+        <StackLayout  Grid.Row="2" VerticalOptions="End">
+            <Button Text="Login"  BackgroundColor="#13818d" TextColor="White" Command="{Binding LoginCommand}" 	CommandParameter="//home/conditions"
+            HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="100" >
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsValidForm}" Value="False">
+                        <Setter Property="IsEnabled" Value="False"></Setter>
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+
+            <Label x:Name="redirectRegister" Text="Don't have an account yet?" VerticalOptions="End" HorizontalOptions="Center" TextDecorations="Underline" Grid.Row="3" Margin="0,30,0,40">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RegisterCommand}" CommandParameter="//home/register" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+    </Grid>
+</ContentPage>
