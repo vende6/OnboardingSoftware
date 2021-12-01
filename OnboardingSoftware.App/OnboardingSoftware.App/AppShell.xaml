@@ -75,7 +75,7 @@
                    HeightRequest="300" 
                    BackgroundColor="#edece7"
                    HorizontalOptions="FillAndExpand"/>
-            <Label Text="Foods 'n' Goods" TextColor="Black" FontSize="20" FontFamily="Italic" Margin="7,0,0,5" HorizontalOptions="Start" VerticalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label Text="OnboardingSoftware" TextColor="Black" FontSize="20" FontFamily="Italic" Margin="7,0,0,5" HorizontalOptions="Start" VerticalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
         </Grid>
     </Shell.FlyoutHeader>
 
@@ -85,6 +85,10 @@
 
     <FlyoutItem Route="home" Title="Register" FlyoutIcon="tab_feed.png">
         <ShellContent Route="register" ContentTemplate="{DataTemplate local:ViewRegister}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Verify" FlyoutIcon="tab_feed.png">
+    <ShellContent Route="verify" ContentTemplate="{DataTemplate local:ViewVerify}"/>
     </FlyoutItem>
 
 

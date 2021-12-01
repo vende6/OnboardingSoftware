@@ -13,6 +13,7 @@ namespace OnboardingSoftware.App
             InitializeComponent();
             Routing.RegisterRoute(nameof(ViewLogin), typeof(ViewLogin));
             Routing.RegisterRoute(nameof(ViewRegister), typeof(ViewRegister));
+            Routing.RegisterRoute(nameof(ViewVerify), typeof(ViewVerify));
         }
 
     }

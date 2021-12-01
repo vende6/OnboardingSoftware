@@ -17,14 +17,6 @@ namespace OnboardingSoftware.App.Views
             try
             {
                 InitializeComponent();
-                var list = new List<string>
-            {
-                "Hey",
-                "Did you check the",
-                "The CarouselView",
-                "In Xamarin.Forms?"
-            };
-                TheCarousel.ItemsSource = list;
             }
             catch (Exception ex)
             {
