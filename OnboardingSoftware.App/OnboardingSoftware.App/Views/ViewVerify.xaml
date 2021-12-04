@@ -41,6 +41,8 @@
                                         <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
                                     </Entry.Behaviors>
                                 </Entry>
+
+                                <Button Text="Finish"></Button>
                             </StackLayout>
                         </AbsoluteLayout>
                     </DataTemplate>

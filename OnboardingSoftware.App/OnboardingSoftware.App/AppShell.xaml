@@ -91,6 +91,14 @@
     <ShellContent Route="verify" ContentTemplate="{DataTemplate local:ViewVerify}"/>
     </FlyoutItem>
 
+    <FlyoutItem Route="home" Title="Skill" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="skill" ContentTemplate="{DataTemplate local:ViewSkill}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Interest" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="interest" ContentTemplate="{DataTemplate local:ViewInterest}"/>
+    </FlyoutItem>
+
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
