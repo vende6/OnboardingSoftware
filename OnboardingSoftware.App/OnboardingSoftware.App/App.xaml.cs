@@ -9,11 +9,15 @@ namespace OnboardingSoftware.App
     public partial class App : Application
     {
 
+        static public double ScreenWidth;
+        static public double ScreenHeight;
+
         public App()
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            Settings.SetPhoneRatio();
+
             MainPage = new AppShell();
         }
 

@@ -14,6 +14,9 @@ namespace OnboardingSoftware.App
             Routing.RegisterRoute(nameof(ViewLogin), typeof(ViewLogin));
             Routing.RegisterRoute(nameof(ViewRegister), typeof(ViewRegister));
             Routing.RegisterRoute(nameof(ViewVerify), typeof(ViewVerify));
+            Routing.RegisterRoute(nameof(ViewSkill), typeof(ViewSkill));
+            Routing.RegisterRoute(nameof(ViewInterest), typeof(ViewInterest));
+            Routing.RegisterRoute(nameof(ViewProfile), typeof(ViewProfile));
         }
 
     }

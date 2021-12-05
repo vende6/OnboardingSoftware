@@ -8,6 +8,9 @@ using Xamarin.Forms;
 using OnboardingSoftware.App.Models;
 using OnboardingSoftware.App.Services;
 using OnboardingSoftware.Api;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Threading;
 
 namespace OnboardingSoftware.App.ViewModels
 {
@@ -15,6 +18,8 @@ namespace OnboardingSoftware.App.ViewModels
     {
 
         bool isBusy = false;
+        public bool _sendingPhoto = true;
+
         public bool IsBusy
         {
             get { return isBusy; }
@@ -52,5 +57,26 @@ namespace OnboardingSoftware.App.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+
+        public virtual async Task OnAppearing()
+        {
+            var output = string.Format("ViewModel: {0} is visible", GetType().Name);
+            Debug.WriteLine(output);
+
+            await Task.FromResult(true);
+        }
+
+        public virtual async Task OnDisappearing()
+        {
+            var output = string.Format("ViewModel: {0} is disappearing", GetType().Name);
+            Debug.WriteLine(output);
+
+            IsBusy = false;
+
+            await Task.FromResult(true);
+        }
+
+        internal CancellationTokenSource cts;
     }
 }

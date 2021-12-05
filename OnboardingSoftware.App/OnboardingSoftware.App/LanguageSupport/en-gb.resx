@@ -1,0 +1,954 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>ADD</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="AcceptAndLogin" xml:space="preserve">
+    <value>Save and login</value>
+  </data>
+  <data name="ForgottenPassword" xml:space="preserve">
+    <value>Forgot your username or password?</value>
+  </data>
+  <data name="Goal" xml:space="preserve">
+    <value>Goal</value>
+  </data>
+  <data name="Leader" xml:space="preserve">
+    <value>Your leader</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="TermsAccept" xml:space="preserve">
+    <value>ACCEPT</value>
+  </data>
+  <data name="TermsCancel" xml:space="preserve">
+    <value>CANCEL</value>
+  </data>
+  <data name="TermsCheckbox" xml:space="preserve">
+    <value>I accept terms and conditions</value>
+  </data>
+  <data name="TermsHeader" xml:space="preserve">
+    <value>Please read terms and conditions before you start using it.</value>
+  </data>
+  <data name="TermsTitle" xml:space="preserve">
+    <value>TERMS AND CONDITIONS</value>
+  </data>
+  <data name="Responsible" xml:space="preserve">
+    <value>Responsible</value>
+  </data>
+  <data name="Topic" xml:space="preserve">
+    <value>TOPIC</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="You" xml:space="preserve">
+    <value>You</value>
+  </data>
+  <data name="ChooseItem" xml:space="preserve">
+    <value>Choose item </value>
+  </data>
+  <data name="Conversation" xml:space="preserve">
+    <value>ONE-ON-ONE</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="Inbox" xml:space="preserve">
+    <value>Inbox</value>
+  </data>
+  <data name="Measurement" xml:space="preserve">
+    <value>Measurement</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="Motivation" xml:space="preserve">
+    <value>YOUR MOTIVATION</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SeniorManager" xml:space="preserve">
+    <value>Senior manager</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Todo" xml:space="preserve">
+    <value>To Do</value>
+  </data>
+  <data name="YourProfile" xml:space="preserve">
+    <value>Your profile</value>
+  </data>
+  <data name="Deadline" xml:space="preserve">
+    <value>DEADLINE</value>
+  </data>
+  <data name="EditTask" xml:space="preserve">
+    <value>EDIT TASK</value>
+  </data>
+  <data name="MotivationFactor" xml:space="preserve">
+    <value>MOTIVATION FACTOR</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="ProfileTitle" xml:space="preserve">
+    <value>UPDATE PROFILE</value>
+  </data>
+  <data name="GoodMorning" xml:space="preserve">
+    <value>Good morning!</value>
+  </data>
+  <data name="HomeViewMessage" xml:space="preserve">
+    <value>Show your organization what motivates you at work!</value>
+  </data>
+  <data name="AddGoal" xml:space="preserve">
+    <value>ADD GOAL </value>
+  </data>
+  <data name="Again" xml:space="preserve">
+    <value>GAP</value>
+  </data>
+  <data name="BiggestGaps" xml:space="preserve">
+    <value>The biggest gaps</value>
+  </data>
+  <data name="CompletedSales" xml:space="preserve">
+    <value>COMPLETED SALES</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date: </value>
+  </data>
+  <data name="DateNotSet" xml:space="preserve">
+    <value>Date not set</value>
+  </data>
+  <data name="DeadlineDetails" xml:space="preserve">
+    <value>Deadline</value>
+  </data>
+  <data name="DescriptionDetails" xml:space="preserve">
+    <value>Description: </value>
+  </data>
+  <data name="DescriptionTodo" xml:space="preserve">
+    <value>DESCRIPTION</value>
+  </data>
+  <data name="GetForgottenPassword" xml:space="preserve">
+    <value>Send lost password</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>Manager: </value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>MORE</value>
+  </data>
+  <data name="Msg" xml:space="preserve">
+    <value>Message: </value>
+  </data>
+  <data name="MyInbox" xml:space="preserve">
+    <value>My inbox</value>
+  </data>
+  <data name="NewGoal" xml:space="preserve">
+    <value>NEW GOAL</value>
+  </data>
+  <data name="NextCall" xml:space="preserve">
+    <value>Next call</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="ResponsibleDetails" xml:space="preserve">
+    <value>Responsible: </value>
+  </data>
+  <data name="ScheduledTime" xml:space="preserve">
+    <value>Scheduled time: </value>
+  </data>
+  <data name="SetNewGoals" xml:space="preserve">
+    <value>Would you like to set new goals?</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="StatusDetails" xml:space="preserve">
+    <value>Status: </value>
+  </data>
+  <data name="TitleMsg" xml:space="preserve">
+    <value>Title: </value>
+  </data>
+  <data name="WonContracts" xml:space="preserve">
+    <value>WON CONTRACTS</value>
+  </data>
+  <data name="YourAchievement" xml:space="preserve">
+    <value>YOUR ACHIEVEMENT</value>
+  </data>
+  <data name="YourDevelopment" xml:space="preserve">
+    <value>Your development</value>
+  </data>
+  <data name="YourGoals" xml:space="preserve">
+    <value>YOUR GOALS</value>
+  </data>
+  <data name="Less" xml:space="preserve">
+    <value>LESS</value>
+  </data>
+  <data name="Realized" xml:space="preserve">
+    <value>Achieved</value>
+  </data>
+  <data name="ReviewAchievement" xml:space="preserve">
+    <value>Review your goals and achieved values</value>
+  </data>
+  <data name="YourLeader" xml:space="preserve">
+    <value>Your Leader</value>
+  </data>
+  <data name="QuestionEvaluateFactor" xml:space="preserve">
+    <value>How do you feel about communication and feedback from your lider right now?</value>
+  </data>
+  <data name="Updating" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="DragUseButtons1" xml:space="preserve">
+    <value>Drag or use the buttons to increase or decrease quickly</value>
+  </data>
+  <data name="UpdatingText" xml:space="preserve">
+    <value>{0} days since the last update</value>
+  </data>
+  <data name="AddNewGoal" xml:space="preserve">
+    <value>Add new goal</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Factors" xml:space="preserve">
+    <value>Factors</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="NewMeasure" xml:space="preserve">
+    <value>NEW TASK</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Sort by</value>
+  </data>
+  <data name="ViewRankMax" xml:space="preserve">
+    <value>The total can't exceed 60.</value>
+  </data>
+  <data name="ViewRankMotivation" xml:space="preserve">
+    <value>MOTIVATION</value>
+  </data>
+  <data name="ViewRankNumbers" xml:space="preserve">
+    <value>You have {0} points left
+before you reach the limit.</value>
+  </data>
+  <data name="ViewRankQuestion" xml:space="preserve">
+    <value>What motivates you?</value>
+  </data>
+  <data name="ViewRankScale" xml:space="preserve">
+    <value>Your preferences and motivational factors are shown on a scale from 1 to 10</value>
+  </data>
+  <data name="GoalDetails" xml:space="preserve">
+    <value>Goal: </value>
+  </data>
+  <data name="UpdateStatus" xml:space="preserve">
+    <value>Update status and achieved value</value>
+  </data>
+  <data name="MotivationPulse" xml:space="preserve">
+    <value>MotivationPulse</value>
+  </data>
+  <data name="WhatGoal" xml:space="preserve">
+    <value>What goals are you working towards this period? 
+You can also add new goals</value>
+  </data>
+  <data name="WhatsImportant" xml:space="preserve">
+    <value>What motivates you at work?
+Register your preferences.</value>
+  </data>
+  <data name="Expectations" xml:space="preserve">
+    <value>How is your current assessment of the situation?</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="GoalOverview" xml:space="preserve">
+    <value>GOAL</value>
+  </data>
+  <data name="UpdateMeasurement" xml:space="preserve">
+    <value>UPDATE GOAL</value>
+  </data>
+  <data name="UpdateUpp" xml:space="preserve">
+    <value>UPDATE</value>
+  </data>
+  <data name="For" xml:space="preserve">
+    <value>for</value>
+  </data>
+  <data name="IncreaseDecreaseButton" xml:space="preserve">
+    <value>Use the buttons to increase or decrease a value</value>
+  </data>
+  <data name="StatusComment" xml:space="preserve">
+    <value>Write a status or comment</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="LoginExpired" xml:space="preserve">
+    <value>Your authentication is expired, please login again.</value>
+  </data>
+  <data name="UnauthorizedMessage" xml:space="preserve">
+    <value>You are now logged out, please re-login. This happens if your security token is expired.</value>
+  </data>
+  <data name="TimeoutMessage" xml:space="preserve">
+    <value>The server did not respond quickly enough. Please, try again or contact our support.</value>
+  </data>
+  <data name="AlertError" xml:space="preserve">
+    <value>Error...</value>
+  </data>
+  <data name="AlertErrorMessage" xml:space="preserve">
+    <value>An error occured! </value>
+  </data>
+  <data name="LoggedInMessage" xml:space="preserve">
+    <value>You've been successfully logged in. Thanks for using Emotivation service.</value>
+  </data>
+  <data name="LoggedInTitle" xml:space="preserve">
+    <value>Logged in</value>
+  </data>
+  <data name="LostPasswordTitle" xml:space="preserve">
+    <value>Password recovery</value>
+  </data>
+  <data name="ViewOverviewMotivation" xml:space="preserve">
+    <value>MOTIVATION</value>
+  </data>
+  <data name="ResponsiblePerson" xml:space="preserve">
+    <value>RESPONSIBLE</value>
+  </data>
+  <data name="ToDoSubtext" xml:space="preserve">
+    <value>What are you doing to reach your goals? See below for what tasks you are set to complete this period.</value>
+  </data>
+  <data name="TasksTitle" xml:space="preserve">
+    <value>YOUR TASKS</value>
+  </data>
+  <data name="MotivationFactorRank" xml:space="preserve">
+    <value>Motivation factors</value>
+  </data>
+  <data name="Bad" xml:space="preserve">
+    <value>Bad</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>Development</value>
+  </data>
+  <data name="Excelent" xml:space="preserve">
+    <value>Excelent</value>
+  </data>
+  <data name="ExtraBenefits" xml:space="preserve">
+    <value>Benefits</value>
+  </data>
+  <data name="FacilitationAndFlexibility" xml:space="preserve">
+    <value>Facilitation and flexibility</value>
+  </data>
+  <data name="FeedbackAndCommunication" xml:space="preserve">
+    <value>Communication and feedback</value>
+  </data>
+  <data name="Good" xml:space="preserve">
+    <value>Good</value>
+  </data>
+  <data name="IdentityAndVision" xml:space="preserve">
+    <value>Common identity and vision</value>
+  </data>
+  <data name="Involvement" xml:space="preserve">
+    <value>Codetermination</value>
+  </data>
+  <data name="RecruitmentAndOnboarding" xml:space="preserve">
+    <value>Recruitment and onboarding</value>
+  </data>
+  <data name="Salary" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="SenseOfAchievement" xml:space="preserve">
+    <value>Achievement</value>
+  </data>
+  <data name="SocialEnvironment" xml:space="preserve">
+    <value>Culture and social environment</value>
+  </data>
+  <data name="ClickOkNext" xml:space="preserve">
+    <value>Click next to continue or click OK to exit.</value>
+  </data>
+  <data name="EnableRecoverMessage" xml:space="preserve">
+    <value>You will receive an email then  you can reset your password.</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>NEXT</value>
+  </data>
+  <data name="NotValidEmail" xml:space="preserve">
+    <value>Invalid email format!</value>
+  </data>
+  <data name="NotValidPassword" xml:space="preserve">
+    <value>Password is not valid!</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OperationConfirmed" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>Operation failed</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>You prioritized this as:</value>
+  </data>
+  <data name="QuestionEvaluate" xml:space="preserve">
+    <value>How do you feel about</value>
+  </data>
+  <data name="UnableRecoverMessage" xml:space="preserve">
+    <value>We weren't able to recover your password. You may have entered the wrong username and we recommend that you try again or contact our support (/support).</value>
+  </data>
+  <data name="UpdatedPreference" xml:space="preserve">
+    <value>YOUR PREFERENCE IS UPDATED</value>
+  </data>
+  <data name="GoalUpdated" xml:space="preserve">
+    <value>Your goal has been updated.</value>
+  </data>
+  <data name="GoodWork" xml:space="preserve">
+    <value>GOOD WORK</value>
+  </data>
+  <data name="ThankFeedback" xml:space="preserve">
+    <value>Thank you for your feedback.</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>UPDATED</value>
+  </data>
+  <data name="UpdateRealizedGoal" xml:space="preserve">
+    <value>Update achieved goal</value>
+  </data>
+  <data name="UpdateSituation" xml:space="preserve">
+    <value>YOUR SITUATION IS UPDATED</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="NextCallHome" xml:space="preserve">
+    <value>NEXT ONE-ON-ONE</value>
+  </data>
+  <data name="QuestionnaireUpdate" xml:space="preserve">
+    <value>Questionnaire has been successfully answered and rating value updated.</value>
+  </data>
+  <data name="RatingUpdate" xml:space="preserve">
+    <value>Rating value has been successfully updated.</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>CHAT</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="UpdateStatusAndGoals" xml:space="preserve">
+    <value>Update status and achieved goals</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="LogoutText" xml:space="preserve">
+    <value>You are about to log out. Do you want to continue with this action?</value>
+  </data>
+  <data name="LogoutTitle" xml:space="preserve">
+    <value>Logging out</value>
+  </data>
+  <data name="MissingTemplate" xml:space="preserve">
+    <value>Application will not be functional until company has defined measurement period.</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="UnansweredQuestions" xml:space="preserve">
+    <value>Remember to answer questions from your employer!</value>
+  </data>
+  <data name="PreferenceUpdated" xml:space="preserve">
+    <value>Preference has been successfully updated.</value>
+  </data>
+  <data name="PlaceholderNewTodo" xml:space="preserve">
+    <value>Write a description of the target...</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="ChatTitle" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="ValidationMessage" xml:space="preserve">
+    <value>Please, make sure none of the fields is empty before submiting the form.</value>
+  </data>
+  <data name="TaskAdd" xml:space="preserve">
+    <value>Task has been successfully added</value>
+  </data>
+  <data name="TaskUpdate" xml:space="preserve">
+    <value>Task has been succesfully updated</value>
+  </data>
+  <data name="user_not_found" xml:space="preserve">
+    <value>Incorrect username or password</value>
+  </data>
+  <data name="wrong_username_password" xml:space="preserve">
+    <value>Incorrect username or password</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="loggin_recover_sent" xml:space="preserve">
+    <value>Incorrect username or password</value>
+  </data>
+  <data name="AddAchievement" xml:space="preserve">
+    <value>Achievement successfully added.</value>
+  </data>
+  <data name="MessageSent" xml:space="preserve">
+    <value>Message has been successfully sent.</value>
+  </data>
+  <data name="AppcenterError" xml:space="preserve">
+    <value>App Center was unable to delete your device.</value>
+  </data>
+  <data name="Hi" xml:space="preserve">
+    <value>Hi</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>PREVIOUS</value>
+  </data>
+  <data name="LanguageError" xml:space="preserve">
+    <value>Language error</value>
+  </data>
+  <data name="LanguageErrorMessage" xml:space="preserve">
+    <value>Language not set in company settings</value>
+  </data>
+  <data name="preference_value_less_than_current_rating" xml:space="preserve">
+    <value>Preference value is less than the current rating. Please, try again.</value>
+  </data>
+  <data name="RefreshToken" xml:space="preserve">
+    <value>Your session has been renewed!</value>
+  </data>
+  <data name="Conversations" xml:space="preserve">
+    <value>One-on-ones</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="YourGoal" xml:space="preserve">
+    <value>Goals</value>
+  </data>
+  <data name="YourMotivation" xml:space="preserve">
+    <value>Your motivation</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>Yesterday</value>
+  </data>
+  <data name="BadGatewayMessage" xml:space="preserve">
+    <value>Seems like server is not responding. Please, try again.</value>
+  </data>
+  <data name="CameraAvailable" xml:space="preserve">
+    <value>No camera available</value>
+  </data>
+  <data name="NoCamera" xml:space="preserve">
+    <value>No camera</value>
+  </data>
+  <data name="PermissionNotGranted" xml:space="preserve">
+    <value>Permission not granted</value>
+  </data>
+  <data name="AddNewMeasurement" xml:space="preserve">
+    <value>Add new task</value>
+  </data>
+  <data name="UpdateMeasure" xml:space="preserve">
+    <value>Update task</value>
+  </data>
+  <data name="UpdateRating" xml:space="preserve">
+    <value>Update current rating</value>
+  </data>
+  <data name="DateUndefined" xml:space="preserve">
+    <value>Undefined</value>
+  </data>
+  <data name="ReceivedPhoto" xml:space="preserve">
+    <value>You received a photo</value>
+  </data>
+  <data name="SentPhoto" xml:space="preserve">
+    <value>You sent a photo</value>
+  </data>
+  <data name="WriteMessage" xml:space="preserve">
+    <value>Write a message...</value>
+  </data>
+  <data name="GoalNotSet" xml:space="preserve">
+    <value>Goal is not set</value>
+  </data>
+  <data name="LanguageText" xml:space="preserve">
+    <value>Please, select one of the languages for the application</value>
+  </data>
+  <data name="LanguageTitle" xml:space="preserve">
+    <value>Select language</value>
+  </data>
+  <data name="APRIL" xml:space="preserve">
+    <value>APRIL</value>
+  </data>
+  <data name="AUGUST" xml:space="preserve">
+    <value>AUGUST</value>
+  </data>
+  <data name="DECEMBER" xml:space="preserve">
+    <value>DECEMBER</value>
+  </data>
+  <data name="FEBRUARY" xml:space="preserve">
+    <value>FEBRUARY</value>
+  </data>
+  <data name="ImprovementTitle" xml:space="preserve">
+    <value>See how you ranked all the motivation factors</value>
+  </data>
+  <data name="JANUARY" xml:space="preserve">
+    <value>JANUARY</value>
+  </data>
+  <data name="JUNE" xml:space="preserve">
+    <value>JUNE</value>
+  </data>
+  <data name="MARCH" xml:space="preserve">
+    <value>MARCH</value>
+  </data>
+  <data name="MAY" xml:space="preserve">
+    <value>MAY</value>
+  </data>
+  <data name="NOVEMBER" xml:space="preserve">
+    <value>NOVEMBER</value>
+  </data>
+  <data name="OCTOBER" xml:space="preserve">
+    <value>OCTOBER</value>
+  </data>
+  <data name="SEPTEMBER" xml:space="preserve">
+    <value>SEPTEMBER</value>
+  </data>
+  <data name="PreviousReview" xml:space="preserve">
+    <value>Review for previous period</value>
+  </data>
+  <data name="AddNewMeasurementDialog" xml:space="preserve">
+    <value>A new measure has been added.</value>
+  </data>
+  <data name="NewTargetNumber" xml:space="preserve">
+    <value>New target number is
+added to your goals.</value>
+  </data>
+  <data name="MeasurementPlaceholder" xml:space="preserve">
+    <value>Write a status or comment.....</value>
+  </data>
+  <data name="FirstProgressBarDescription" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="SecondProgressBarDescription" xml:space="preserve">
+    <value>Preference</value>
+  </data>
+  <data name="UpdatePreferenceMessage" xml:space="preserve">
+    <value>Go to NEXT or click OK to exit.</value>
+  </data>
+  <data name="UpdatePreferenceTitle" xml:space="preserve">
+    <value>YOUR PREFERENCE HAS BEEN UPDATED</value>
+    <comment>o</comment>
+  </data>
+  <data name="ViewRankNumbers2" xml:space="preserve">
+    <value>You have {0}
+ points left before you reach the limit.</value>
+  </data>
+  <data name="DevelopmentQuestion" xml:space="preserve">
+    <value>Do you think your organization facilitates a satisfactory degree of professional development?</value>
+  </data>
+  <data name="DevelopmentText" xml:space="preserve">
+    <value>By this we mean the opportunities you have at your workplace to learn something new and develop professionally by taking on new tasks and solving new problems. Being able to learn and be challenged, expands your competences. Many are motivated by this form of personal and professional development.</value>
+  </data>
+  <data name="ExtraBenefitsQuestion" xml:space="preserve">
+    <value>Are your organization’s available benefits motivating you in your day-to-day work?</value>
+  </data>
+  <data name="ExtraBenefitsText" xml:space="preserve">
+    <value>Do you think the organization’s available benefits are motivating in your everyday work life?</value>
+  </data>
+  <data name="FacilitationAndFlexibilityQuestion" xml:space="preserve">
+    <value>Do you think the organization facilitates and shows flexibility concerning your needs at work?</value>
+  </data>
+  <data name="FacilitationAndFlexibilityText" xml:space="preserve">
+    <value>Flexibility in the workplace is often important – especially if you have children or other forms of commitments. A flexible employer might facilitate flexible hours and the opportunity to use your extra hours for some time off, the opportunity to work from home or other locations, and flexibility regarding when to go on vacation. Further, it would be an employer who, in general, facilitates in a way so that you can perform your job in the best possible way.</value>
+  </data>
+  <data name="FeedbackAndCommunicationQuestion" xml:space="preserve">
+    <value>Do you think you are receiving satisfactory and relevant feedback and guidance concerning your work and performance?</value>
+  </data>
+  <data name="FeedbackAndCommunicationText" xml:space="preserve">
+    <value>For an employee it is crucial to receive feedback on the work situation and performance. How am I actually doing at my job? For guidance and instruction to work well, there needs to be open communication and room to asks questions. Follow-ups from managers, happening at a regular basis, that are constructive and includes clear goals, are very important.</value>
+  </data>
+  <data name="IdentityAndVisionQuestion" xml:space="preserve">
+    <value>Do you think the organization have a clear identity, common goal and vision?</value>
+  </data>
+  <data name="IdentityAndVisionText" xml:space="preserve">
+    <value>Some organizations succeed well in establishing a clear, common identity, making the employees proud to be representing and working for the company and feeling like they contribute to a community and something more than their own individual goals. There might be developed a set of values over time and a connection between the organization and the employees that they value and identify with. Common core values and a clear vision in an organization can make the work seem more meaningful.</value>
+  </data>
+  <data name="InvolvementQuestion" xml:space="preserve">
+    <value>Do you feel that you are able to influence your own work situation?</value>
+  </data>
+  <data name="InvolvementText" xml:space="preserve">
+    <value>Many thrive on having a clear impact on their own work situation and by working in a place where there is room to voice your own opinions. This can include what tasks your day should consist of and how you are supposed to perform them. To have a clear influence on your own day-to-day work and feel heard can be considered very important to many.</value>
+  </data>
+  <data name="RecruitmentAndOnboardingQuestion" xml:space="preserve">
+    <value>Did you experience the recruitment and onboarding process as professional, welcoming and motivating for new employees?</value>
+  </data>
+  <data name="RecruitmentAndOnboardingText" xml:space="preserve">
+    <value>First, it is crucial for an organization to find the right people – people who fit into the culture, has the right values and attitudes, and can grow together with the organization. Further, the onboarding is about getting new employees included into the organization’s culture, both social and professional, and for the employees to become a productive part of the company. Often, the recruitment- and onboarding processes can have a major impact on the employees’ first impression of the organization and influence the degree of motivation when starting the new position. It can also have a crucial impact on the employees wish to stay in the organization over time. When talking about recruitment and onboarding, we consider the interview process, how the employee has been welcomed, trained, guided and followed up, included in the environment, as well as degree of information given and practical issues being taken care of, like access cards, computers, work clothes etc.</value>
+  </data>
+  <data name="SalaryQuestion" xml:space="preserve">
+    <value>To what degree do today’s salary system motivate you?</value>
+  </data>
+  <data name="SalaryText" xml:space="preserve">
+    <value>Do you think the current payment structure is motivating in your everyday work life?</value>
+  </data>
+  <data name="SenseOfAchievementQuestion" xml:space="preserve">
+    <value>Do you feel that your employer enables you to achieve your tasks in the best way?</value>
+  </data>
+  <data name="SenseOfAchievementText" xml:space="preserve">
+    <value>To what degree you feel that you achieve your tasks at work and master the work situation can often have a direct impact on your future motivation and wish to learn and take on more tasks. Your own efforts are crucial, obviously, but it is also important to feel that new tasks and challenges assigned to you are realistic, adjusted to your level and facilitates a gradual professional development.</value>
+  </data>
+  <data name="SocialEnvironmentQuestion" xml:space="preserve">
+    <value>How satisfied are you with the organization’s social environment, cooperation and support from your colleagues?</value>
+  </data>
+  <data name="SocialEnvironmentText" xml:space="preserve">
+    <value>Do you think the organization has a good social environment, cooperation, and support between colleges?</value>
+  </data>
+  <data name="NoConnection" xml:space="preserve">
+    <value>Looks like you don't have internet connection</value>
+  </data>
+  <data name="FileViewerInfo" xml:space="preserve">
+    <value>By cIicking on the review file, it will be opened in the pdf viewer</value>
+  </data>
+  <data name="ManagerSignatureHeader" xml:space="preserve">
+    <value>Signed by manager</value>
+  </data>
+  <data name="ReviewFileHeader" xml:space="preserve">
+    <value>Review file</value>
+  </data>
+  <data name="ReviewsTitle" xml:space="preserve">
+    <value>Completed one-on-ones</value>
+  </data>
+  <data name="ReviewsHeader" xml:space="preserve">
+    <value>One-on-ones</value>
+  </data>
+  <data name="ReviewsNotFound" xml:space="preserve">
+    <value>We couldn't find any reviews for this user</value>
+  </data>
+  <data name="ReviewsText" xml:space="preserve">
+    <value>This gives you an overview of previously done one-on-one with your manager</value>
+  </data>
+  <data name="Sign" xml:space="preserve">
+    <value>Sign</value>
+  </data>
+  <data name="UserSignatureHeader" xml:space="preserve">
+    <value>Signed by you</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Your manager has signed the report from the one-on-one - now your turn!</value>
+  </data>
+  <data name="BlankComment" xml:space="preserve">
+    <value>Leader hasn't wrote any comment for this review yet</value>
+  </data>
+  <data name="CommentTitle" xml:space="preserve">
+    <value>Comment on current development</value>
+  </data>
+  <data name="DownloadPDFFile" xml:space="preserve">
+    <value>Download PDF File</value>
+  </data>
+  <data name="FileDownloaded" xml:space="preserve">
+    <value>File successfully downloaded to directory</value>
+  </data>
+  <data name="InvalidDownload" xml:space="preserve">
+    <value>This report cannot be downloaded until the leader has signed it.</value>
+  </data>
+  <data name="InvalidFileLoad" xml:space="preserve">
+    <value>File cannot be loaded or it loaded incorrectly. Please try again or contact support.</value>
+  </data>
+  <data name="SectionCommentTitle" xml:space="preserve">
+    <value>Section comment</value>
+  </data>
+  <data name="SectionDefaultComment" xml:space="preserve">
+    <value>Manager hasn't wrote any comment for this section</value>
+  </data>
+  <data name="ReportSignFailed" xml:space="preserve">
+    <value>Unable to sign the review. Please, try again or contact the support.</value>
+  </data>
+  <data name="LeaderNotSigned" xml:space="preserve">
+    <value>This report cannot be signed until leader has signed it first.</value>
+  </data>
+  <data name="Crucial" xml:space="preserve">
+    <value>Crucial</value>
+  </data>
+  <data name="GoalsAndAchievement" xml:space="preserve">
+    <value>Review your goals and achievement</value>
+  </data>
+  <data name="GreatExtent" xml:space="preserve">
+    <value>To a great extent</value>
+  </data>
+  <data name="Important" xml:space="preserve">
+    <value>Somewhat important</value>
+  </data>
+  <data name="NotImportant" xml:space="preserve">
+    <value>Not that important</value>
+  </data>
+  <data name="PrettyGreatExtent" xml:space="preserve">
+    <value>To a pretty great extent</value>
+  </data>
+  <data name="PrettyImportant" xml:space="preserve">
+    <value>Pretty important</value>
+  </data>
+  <data name="ReallyImportant" xml:space="preserve">
+    <value>Really important</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Send a message to your closest manager</value>
+  </data>
+  <data name="SmallExtent" xml:space="preserve">
+    <value>To a small extent</value>
+  </data>
+  <data name="SomeExtent" xml:space="preserve">
+    <value>To some extent</value>
+  </data>
+  <data name="VeryGreatExtent" xml:space="preserve">
+    <value>To a very great extent</value>
+  </data>
+  <data name="VeryLittleImportance" xml:space="preserve">
+    <value>Of very little importance</value>
+  </data>
+  <data name="VerySmallExtent" xml:space="preserve">
+    <value>To a very small extent</value>
+  </data>
+  <data name="ClosestManager" xml:space="preserve">
+    <value>Closest manager</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="DragUseButtons2" xml:space="preserve">
+    <value>Use a scale from 1 to 10 to range what factors motivates you at work, where 10 refers to something that is very important to you</value>
+  </data>
+</root>

@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>LEGG TIL</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beskrivelse</value>
+  </data>
+  <data name="AcceptAndLogin" xml:space="preserve">
+    <value>Lagre og logg inn</value>
+  </data>
+  <data name="ForgottenPassword" xml:space="preserve">
+    <value>Glemt brukernavn eller passord?</value>
+  </data>
+  <data name="Goal" xml:space="preserve">
+    <value>Mål</value>
+  </data>
+  <data name="Leader" xml:space="preserve">
+    <value>Lederen din</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>LOGG INN</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Passord</value>
+  </data>
+  <data name="TermsAccept" xml:space="preserve">
+    <value>VIDERE</value>
+  </data>
+  <data name="TermsCancel" xml:space="preserve">
+    <value>AVBRYT</value>
+  </data>
+  <data name="TermsCheckbox" xml:space="preserve">
+    <value>Jeg aksepterer villkårene for bruk av denne løsningen.</value>
+  </data>
+  <data name="TermsHeader" xml:space="preserve">
+    <value>Vennligst les gjennom villkårene for bruk av informasjon i løsningen før du starter å benytte denne.</value>
+  </data>
+  <data name="TermsTitle" xml:space="preserve">
+    <value>VILLKÅR FOR BRUK AV LØSNINGEN</value>
+  </data>
+  <data name="Responsible" xml:space="preserve">
+    <value>Ansvarlig</value>
+  </data>
+  <data name="Topic" xml:space="preserve">
+    <value>EMNE</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Brukernavn</value>
+  </data>
+  <data name="You" xml:space="preserve">
+    <value>Du</value>
+  </data>
+  <data name="ChooseItem" xml:space="preserve">
+    <value>Velg                                                                                                                                                                                           </value>
+  </data>
+  <data name="Conversation" xml:space="preserve">
+    <value>SAMTALER</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Avdeling</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-post</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Fullt navn</value>
+  </data>
+  <data name="Inbox" xml:space="preserve">
+    <value>Meldinger</value>
+  </data>
+  <data name="Measurement" xml:space="preserve">
+    <value>Dine Måltall</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobil</value>
+  </data>
+  <data name="Motivation" xml:space="preserve">
+    <value>DIN MOTIVASJON</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Søk</value>
+  </data>
+  <data name="SeniorManager" xml:space="preserve">
+    <value>Overordnet leder</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Hjem</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tittel</value>
+  </data>
+  <data name="Todo" xml:space="preserve">
+    <value>Dine tiltak</value>
+  </data>
+  <data name="YourProfile" xml:space="preserve">
+    <value>Din profil</value>
+  </data>
+  <data name="Deadline" xml:space="preserve">
+    <value>FRIST</value>
+  </data>
+  <data name="EditTask" xml:space="preserve">
+    <value>REDIGER TILTAK</value>
+  </data>
+  <data name="MotivationFactor" xml:space="preserve">
+    <value>MOTIVASJONSFAKTOR</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Gjennomførte</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Apen</value>
+  </data>
+  <data name="ProfileTitle" xml:space="preserve">
+    <value>OPPRETT PROFIL</value>
+  </data>
+  <data name="GoodMorning" xml:space="preserve">
+    <value>God morgen!</value>
+  </data>
+  <data name="HomeViewMessage" xml:space="preserve">
+    <value>Fortell virksomheten din hva som motiverer deg på jobb!</value>
+  </data>
+  <data name="AddGoal" xml:space="preserve">
+    <value>LEGG TIL MÅL</value>
+  </data>
+  <data name="Again" xml:space="preserve">
+    <value>IGJEN</value>
+  </data>
+  <data name="BiggestGaps" xml:space="preserve">
+    <value>De største gapene</value>
+  </data>
+  <data name="CompletedSales" xml:space="preserve">
+    <value>GJENNOMFØRTE SALGSMØTER</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Dato: </value>
+  </data>
+  <data name="DateNotSet" xml:space="preserve">
+    <value>Dato ikke satt</value>
+  </data>
+  <data name="DeadlineDetails" xml:space="preserve">
+    <value>Frist</value>
+  </data>
+  <data name="DescriptionDetails" xml:space="preserve">
+    <value>Beskrivelse: </value>
+  </data>
+  <data name="DescriptionTodo" xml:space="preserve">
+    <value>BESKRIVELSE</value>
+  </data>
+  <data name="GetForgottenPassword" xml:space="preserve">
+    <value>Hent glemt passord</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>Leder: </value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>MER</value>
+  </data>
+  <data name="Msg" xml:space="preserve">
+    <value>Melding: </value>
+  </data>
+  <data name="MyInbox" xml:space="preserve">
+    <value>Mine meldinger</value>
+  </data>
+  <data name="NewGoal" xml:space="preserve">
+    <value>NYTT MÅL</value>
+  </data>
+  <data name="NextCall" xml:space="preserve">
+    <value>Neste samtale</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Annet</value>
+  </data>
+  <data name="ResponsibleDetails" xml:space="preserve">
+    <value>Ansvarlig: </value>
+  </data>
+  <data name="ScheduledTime" xml:space="preserve">
+    <value>Planlagt tidspunkt: </value>
+  </data>
+  <data name="SetNewGoals" xml:space="preserve">
+    <value>Har du lyst til å sette deg nye mål?</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="StatusDetails" xml:space="preserve">
+    <value>Status: </value>
+  </data>
+  <data name="TitleMsg" xml:space="preserve">
+    <value>Tittel: </value>
+  </data>
+  <data name="WonContracts" xml:space="preserve">
+    <value>VUNNET KONTRAKTER</value>
+  </data>
+  <data name="YourAchievement" xml:space="preserve">
+    <value>DIN PRESTASJON</value>
+  </data>
+  <data name="YourDevelopment" xml:space="preserve">
+    <value>Din utvikling</value>
+  </data>
+  <data name="YourGoals" xml:space="preserve">
+    <value>DINE MÅL</value>
+  </data>
+  <data name="Less" xml:space="preserve">
+    <value>MINDRE</value>
+  </data>
+  <data name="Realized" xml:space="preserve">
+    <value>Realisert</value>
+  </data>
+  <data name="ReviewAchievement" xml:space="preserve">
+    <value>Gjennomgang av mål du har satt deg</value>
+  </data>
+  <data name="YourLeader" xml:space="preserve">
+    <value>Din leder</value>
+  </data>
+  <data name="QuestionEvaluateFactor" xml:space="preserve">
+    <value>Hvordan opplever du at kommunikasjon og tilbakemeldinger fra lederen din er på nåværende tidspunkt?</value>
+  </data>
+  <data name="Updating" xml:space="preserve">
+    <value>Oppdater</value>
+  </data>
+  <data name="DragUseButtons1" xml:space="preserve">
+    <value>Dra eller bruk knappene for å øke eller minske fort</value>
+  </data>
+  <data name="UpdatingText" xml:space="preserve">
+    <value>{0} dager side siden siste oppdateing</value>
+  </data>
+  <data name="AddNewGoal" xml:space="preserve">
+    <value>Legg til nye mål</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktiv</value>
+  </data>
+  <data name="Factors" xml:space="preserve">
+    <value>Faktorer</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Tiltak</value>
+  </data>
+  <data name="NewMeasure" xml:space="preserve">
+    <value>NYTT TILTAK</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Sorter på</value>
+  </data>
+  <data name="ViewRankMax" xml:space="preserve">
+    <value>Totalsummen kan ikke overstige 60.</value>
+  </data>
+  <data name="ViewRankMotivation" xml:space="preserve">
+    <value>DIN MOTIVASJON</value>
+  </data>
+  <data name="ViewRankNumbers" xml:space="preserve">
+    <value>Du har {0} poeng igjen
+før du når grensen.</value>
+  </data>
+  <data name="ViewRankQuestion" xml:space="preserve">
+    <value>Hva motiverer deg?</value>
+  </data>
+  <data name="ViewRankScale" xml:space="preserve">
+    <value>Dine preferanser og motivasjonsfaktorer prioritert på en en skala fra 1-10</value>
+  </data>
+  <data name="GoalDetails" xml:space="preserve">
+    <value>Mål:</value>
+  </data>
+  <data name="UpdateStatus" xml:space="preserve">
+    <value>Oppdater realiserte mål</value>
+  </data>
+  <data name="MotivationPulse" xml:space="preserve">
+    <value>MotivasjonsPulsen</value>
+  </data>
+  <data name="WhatGoal" xml:space="preserve">
+    <value>Hvile mål skal du jobbe mot denne perioden?
+Her kan du også legge til nye mål</value>
+  </data>
+  <data name="WhatsImportant" xml:space="preserve">
+    <value>Hva motiverer deg på jobb? 
+Registrer dine preferanser.</value>
+  </data>
+  <data name="Expectations" xml:space="preserve">
+    <value>Hvordan opplever du situasjonen på nåværende tidspunkt?</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Preferanser</value>
+  </data>
+  <data name="GoalOverview" xml:space="preserve">
+    <value>MÅL</value>
+  </data>
+  <data name="UpdateMeasurement" xml:space="preserve">
+    <value>OPPDATER MÅLTALL</value>
+  </data>
+  <data name="UpdateUpp" xml:space="preserve">
+    <value>OPPDATER</value>
+  </data>
+  <data name="For" xml:space="preserve">
+    <value>for</value>
+  </data>
+  <data name="IncreaseDecreaseButton" xml:space="preserve">
+    <value>Bruk knappene for å øke eller minske verdien</value>
+  </data>
+  <data name="StatusComment" xml:space="preserve">
+    <value>Skriv en status eller kommentar</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Oppdater</value>
+  </data>
+  <data name="BadGatewayMessage" xml:space="preserve">
+    <value>Får ikke kontaktet server, mulig oppgradering pågår.</value>
+  </data>
+  <data name="LoginExpired" xml:space="preserve">
+    <value>Din autentifisering er utgått. Vennligst logg inn pånytt.</value>
+  </data>
+  <data name="UnauthorizedMessage" xml:space="preserve">
+    <value>Du ble logget ut, dette skjer ofte etter inaktivitet. Vennligst logg inn på nytt.</value>
+  </data>
+  <data name="TimeoutMessage" xml:space="preserve">
+    <value>Serveren svarte ikke raskt nok. Vennligst prøv igjen eller kontakt vår support.</value>
+  </data>
+  <data name="AlertError" xml:space="preserve">
+    <value>Feil...</value>
+  </data>
+  <data name="AlertErrorMessage" xml:space="preserve">
+    <value>En feil oppsto </value>
+  </data>
+  <data name="LoggedInMessage" xml:space="preserve">
+    <value>Du er logget inn.
+Takk for at du har valgt å bruke eMotivation tjenesten!</value>
+  </data>
+  <data name="LoggedInTitle" xml:space="preserve">
+    <value>Logget inn</value>
+  </data>
+  <data name="LostPasswordTitle" xml:space="preserve">
+    <value>Glemt passord</value>
+  </data>
+  <data name="ViewOverviewMotivation" xml:space="preserve">
+    <value>MOTIVASJON</value>
+  </data>
+  <data name="ResponsiblePerson" xml:space="preserve">
+    <value>ANSVARLIG</value>
+  </data>
+  <data name="ToDoSubtext" xml:space="preserve">
+    <value>Hva skal du gjøre for å nå målene dine? 
+Her kan du se hvilke tiltak du skal gjennomføre denne perioden.</value>
+  </data>
+  <data name="TasksTitle" xml:space="preserve">
+    <value>DINE TILTAK</value>
+  </data>
+  <data name="MotivationFactorRank" xml:space="preserve">
+    <value>Motivasjonsfaktor </value>
+  </data>
+  <data name="Bad" xml:space="preserve">
+    <value>Veldig dårlig</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>Videreutvikling</value>
+  </data>
+  <data name="Excelent" xml:space="preserve">
+    <value>Veldig god</value>
+  </data>
+  <data name="ExtraBenefits" xml:space="preserve">
+    <value>Andre goder</value>
+  </data>
+  <data name="FacilitationAndFlexibility" xml:space="preserve">
+    <value>Tilrettelegging og fleksibilitet</value>
+  </data>
+  <data name="FeedbackAndCommunication" xml:space="preserve">
+    <value>Kommunikasjon og tilbakemeldinger</value>
+  </data>
+  <data name="Good" xml:space="preserve">
+    <value>Helt OK</value>
+  </data>
+  <data name="IdentityAndVision" xml:space="preserve">
+    <value>Felles identitet og tydelig visjon</value>
+  </data>
+  <data name="Involvement" xml:space="preserve">
+    <value>Medbestemmelse</value>
+  </data>
+  <data name="RecruitmentAndOnboarding" xml:space="preserve">
+    <value>Rekruttering og onboarding</value>
+  </data>
+  <data name="Salary" xml:space="preserve">
+    <value>Lønn</value>
+  </data>
+  <data name="SenseOfAchievement" xml:space="preserve">
+    <value>Mestring</value>
+  </data>
+  <data name="SocialEnvironment" xml:space="preserve">
+    <value>Kultur og sosialt miljø</value>
+  </data>
+  <data name="ClickOkNext" xml:space="preserve">
+    <value>Gå til neste eller OK for å avslutte.</value>
+  </data>
+  <data name="EnableRecoverMessage" xml:space="preserve">
+    <value>Du vil motta en e-post så kan du tilbakestille passordet ditt.</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>NESTE</value>
+  </data>
+  <data name="NotValidEmail" xml:space="preserve">
+    <value>Epost er ikke gyldig!</value>
+  </data>
+  <data name="NotValidPassword" xml:space="preserve">
+    <value>Passord er ikke gyldig!</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OperationConfirmed" xml:space="preserve">
+    <value>Bekreftelse</value>
+  </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>Operasjonen feilet</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Du prioriterte dette som:</value>
+  </data>
+  <data name="QuestionEvaluate" xml:space="preserve">
+    <value>Hvordan opplever du at</value>
+  </data>
+  <data name="UnableRecoverMessage" xml:space="preserve">
+    <value>Vi kunne ikke å tilbakestille passordet din. Du kan ha skrevet inn feil brukernavn og anbefaler vi at du prøver igjen, eller kontakter vår kundestøtte (/support).</value>
+  </data>
+  <data name="UpdatedPreference" xml:space="preserve">
+    <value>DIN PREFERENSE ER OPPDATERT</value>
+  </data>
+  <data name="GoalUpdated" xml:space="preserve">
+    <value>Dine måltall er oppdatert.</value>
+  </data>
+  <data name="GoodWork" xml:space="preserve">
+    <value>GODT JOBBA</value>
+  </data>
+  <data name="ThankFeedback" xml:space="preserve">
+    <value>Takk for din tilbakemelding.</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>OPPDATERT</value>
+  </data>
+  <data name="UpdateRealizedGoal" xml:space="preserve">
+    <value>Oppdater realiserte mål</value>
+  </data>
+  <data name="UpdateSituation" xml:space="preserve">
+    <value>DIN NÅSITUASJON ER OPPDATERT</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Hjem</value>
+  </data>
+  <data name="NextCallHome" xml:space="preserve">
+    <value>NESTE SAMTALE</value>
+  </data>
+  <data name="QuestionnaireUpdate" xml:space="preserve">
+    <value>Spørsmålene ble besvart og rangering er oppdatert.</value>
+  </data>
+  <data name="RatingUpdate" xml:space="preserve">
+    <value>Rangerings verdi ble oppdatert.</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>CHAT</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Emne</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UpdateStatusAndGoals" xml:space="preserve">
+    <value>Oppdater status og realiserte mål</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="LogoutText" xml:space="preserve">
+    <value>Du er i ferd med å logge ut, er du sikker på det?</value>
+  </data>
+  <data name="LogoutTitle" xml:space="preserve">
+    <value>Logger ut</value>
+  </data>
+  <data name="MissingTemplate" xml:space="preserve">
+    <value>Søknad vil ikke være funksjonell før selskapet har definert måleperiode.</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Informasjon</value>
+  </data>
+  <data name="UnansweredQuestions" xml:space="preserve">
+    <value>Husk å svare på spørsmålene fra arbeidsgiveren din!</value>
+  </data>
+  <data name="PreferenceUpdated" xml:space="preserve">
+    <value>Preferansen er oppdatert.</value>
+  </data>
+  <data name="PlaceholderNewTodo" xml:space="preserve">
+    <value>Skriv en beskrivelse av målet...</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logg ut</value>
+  </data>
+  <data name="ChatTitle" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="ValidationMessage" xml:space="preserve">
+    <value>Vær sikker på at ingen av feltene er tomme før du sender inn skjemaet.</value>
+  </data>
+  <data name="TaskAdd" xml:space="preserve">
+    <value>Oppgaven ble lagt til</value>
+  </data>
+  <data name="TaskUpdate" xml:space="preserve">
+    <value>Tiltaket er oppdatert</value>
+  </data>
+  <data name="user_not_found" xml:space="preserve">
+    <value>Feil brukernavn eller passord</value>
+  </data>
+  <data name="wrong_username_password" xml:space="preserve">
+    <value>Feil brukernavn eller passord</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Oppmerksomhet</value>
+  </data>
+  <data name="loggin_recover_sent" xml:space="preserve">
+    <value>Feil brukernavn eller passord</value>
+  </data>
+  <data name="AddAchievement" xml:space="preserve">
+    <value>Prestasjonen ble lagt til.</value>
+  </data>
+  <data name="MessageSent" xml:space="preserve">
+    <value>Meldingen er sendt.</value>
+  </data>
+  <data name="AppcenterError" xml:space="preserve">
+    <value>Appcenter kunne ikke slette enheten din.</value>
+  </data>
+  <data name="Hi" xml:space="preserve">
+    <value>Hei</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>FORRIGE</value>
+  </data>
+  <data name="LanguageError" xml:space="preserve">
+    <value>Språkfeil</value>
+  </data>
+  <data name="LanguageErrorMessage" xml:space="preserve">
+    <value>Språk ikke satt i selskapets innstillinger</value>
+  </data>
+  <data name="preference_value_less_than_current_rating" xml:space="preserve">
+    <value>Preferanseverdien er mindre enn nåværende vurdering.Vær så snill, prøv på nytt.</value>
+  </data>
+  <data name="RefreshToken" xml:space="preserve">
+    <value>Økten din er fornyet.</value>
+  </data>
+  <data name="Conversations" xml:space="preserve">
+    <value>Samtaler</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Melding</value>
+  </data>
+  <data name="YourGoal" xml:space="preserve">
+    <value>Dine mål</value>
+  </data>
+  <data name="YourMotivation" xml:space="preserve">
+    <value>Din motivasjon</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>I går</value>
+  </data>
+  <data name="CameraAvailable" xml:space="preserve">
+    <value>Ingen kamera tilgjengelig</value>
+  </data>
+  <data name="NoCamera" xml:space="preserve">
+    <value>Ingen kamera</value>
+  </data>
+  <data name="PermissionNotGranted" xml:space="preserve">
+    <value>Tillatelse ikke gitt</value>
+  </data>
+  <data name="AddNewMeasurement" xml:space="preserve">
+    <value>Legg til nytt tiltak</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>Rediger tiltak</value>
+  </data>
+  <data name="UpdateRating" xml:space="preserve">
+    <value>Oppdater nåsituasjon</value>
+  </data>
+  <data name="DateUndefined" xml:space="preserve">
+    <value>Udefinert</value>
+  </data>
+  <data name="ReceivedPhoto" xml:space="preserve">
+    <value>Du mottok et bilde</value>
+  </data>
+  <data name="SentPhoto" xml:space="preserve">
+    <value>Du sendte et bilde</value>
+  </data>
+  <data name="WriteMessage" xml:space="preserve">
+    <value>Skriv en beskjed...</value>
+  </data>
+  <data name="LanguageText" xml:space="preserve">
+    <value>Vennligst velg et av språkene for applikasjonen</value>
+  </data>
+  <data name="LanguageTitle" xml:space="preserve">
+    <value>Velg språk</value>
+  </data>
+  <data name="GoalNotSet" xml:space="preserve">
+    <value>Målet er ikke satt</value>
+  </data>
+  <data name="APRIL" xml:space="preserve">
+    <value>APRIL</value>
+  </data>
+  <data name="AUGUST" xml:space="preserve">
+    <value>AUGUST</value>
+  </data>
+  <data name="DECEMBER" xml:space="preserve">
+    <value>DESEMBER</value>
+  </data>
+  <data name="FEBRUARY" xml:space="preserve">
+    <value>FEBRUAR</value>
+  </data>
+  <data name="ImprovementTitle" xml:space="preserve">
+    <value>Her ser du hvordan du har rangert alle motivasjonsfaktorene</value>
+  </data>
+  <data name="JANUARY" xml:space="preserve">
+    <value>JANUAR</value>
+  </data>
+  <data name="JULY" xml:space="preserve">
+    <value>JULI</value>
+  </data>
+  <data name="JUNE" xml:space="preserve">
+    <value>JUNI</value>
+  </data>
+  <data name="MARCH" xml:space="preserve">
+    <value>MARS</value>
+  </data>
+  <data name="MAY" xml:space="preserve">
+    <value>MAI</value>
+  </data>
+  <data name="NOVEMBER" xml:space="preserve">
+    <value>NOVEMBER</value>
+  </data>
+  <data name="OCTOBER" xml:space="preserve">
+    <value>OKTOBER</value>
+  </data>
+  <data name="SEPTEMBER" xml:space="preserve">
+    <value>SEPTEMBER</value>
+  </data>
+  <data name="PreviousReview" xml:space="preserve">
+    <value>Anmeldelse av siste periode</value>
+  </data>
+  <data name="AddNewMeasurementDialog" xml:space="preserve">
+    <value>Nytt tiltak er lagt til</value>
+  </data>
+  <data name="NewTargetNumber" xml:space="preserve">
+    <value>Nytt måltall er lagt til dine mål.</value>
+  </data>
+  <data name="MeasurementPlaceholder" xml:space="preserve">
+    <value>Skriv en status eller kommentar…..</value>
+  </data>
+  <data name="FirstProgressBarDescription" xml:space="preserve">
+    <value>Nåsituasjon</value>
+  </data>
+  <data name="SecondProgressBarDescription" xml:space="preserve">
+    <value>Din preferanse</value>
+  </data>
+  <data name="UpdatePreferenceMessage" xml:space="preserve">
+    <value>Gå til neste eller OK for å avslutte.</value>
+  </data>
+  <data name="UpdatePreferenceTitle" xml:space="preserve">
+    <value>DIN PREFERANSE ER OPPDATERT</value>
+  </data>
+  <data name="ViewRankNumbers2" xml:space="preserve">
+    <value>Du har {0}
+ poeng igjen før du når grensen.</value>
+  </data>
+  <data name="DevelopmentQuestion" xml:space="preserve">
+    <value>Opplever du at selskapet legger til rette for en tilfredsstillende faglig utvikling?</value>
+  </data>
+  <data name="DevelopmentText" xml:space="preserve">
+    <value>Med videreutvikling menes mulighetene du har ved din arbeidsplass til å lære noe nytt og utvikle deg faglig ved å sette deg inn i nye problemstillinger og løse nye oppgaver. Det å ha mulighet til å lære seg noe nytt og bli utfordret på nye områder utvider den enkeltes kompetanseområder. Mange motiveres av å stadig utvikle sin kompetanse.</value>
+  </data>
+  <data name="ExtraBenefitsQuestion" xml:space="preserve">
+    <value>Opplever du at de godene selskapet tilbyr de ansatte i dag motiverer deg i arbeidshverdagen?</value>
+  </data>
+  <data name="ExtraBenefitsText" xml:space="preserve">
+    <value>Det er viktig å bli belønnet for arbeidet man gjør og verdiene man skaper for selskapet man jobber for, men ikke nødvendigvis alltid gjennom lønn eller bonus gitt i kroner. Mange setter pris på andre såkalte frynsegoder, som også kan benyttes utenfor arbeidstiden og eventuelt etter endt karriere.</value>
+  </data>
+  <data name="FacilitationAndFlexibilityQuestion" xml:space="preserve">
+    <value>Opplever du at det blir lagt til rette og utvist fleksibilitet for dine behov på arbeidsplassen?</value>
+  </data>
+  <data name="FacilitationAndFlexibilityText" xml:space="preserve">
+    <value>Fleksibilitet på arbeidsplassen er viktig for mange - kanskje spesielt om man har barn eller andre forpliktelser. En fleksibel arbeidsplass kan for eksempel legge til rette for fleksibel arbeidstid og muligheter for å opparbeide avspasering, muligheter for å arbeide hjemmefra eller fra andre lokasjoner og fleksibilitet rundt når man kan ta seg ferie. Utover dette handler det også om at arbeidsgiver generelt legger til rette for at du som arbeidstaker kan gjøre jobben din på best mulig måte.</value>
+  </data>
+  <data name="FeedbackAndCommunicationQuestion" xml:space="preserve">
+    <value>Opplever du at du får tilstrekkelige og relevante tilbakemeldinger og oppfølging vedrørende ditt arbeid og prestasjon?</value>
+  </data>
+  <data name="FeedbackAndCommunicationText" xml:space="preserve">
+    <value>For den enkelte er det vesentlig å få tilbakemeldinger på arbeidssituasjon og prestasjoner. Hvordan gjør jeg det egentlig i jobben min? God veiledning er avhengig av god kommunikasjonsflyt, åpenhet og rom for å stille spørsmål. Oppfølging fra ledere, med klare målsettinger og konstruktive, løpende tilbakemeldinger er viktig.</value>
+  </data>
+  <data name="IdentityAndVisionQuestion" xml:space="preserve">
+    <value>Opplever du at virksomheten har en godt forankret identitet, felles mål og en tydelig visjon?</value>
+  </data>
+  <data name="IdentityAndVisionText" xml:space="preserve">
+    <value>Noen virksomheter lykkes med å etablere en felles identitet knyttet til virksomheten som gjør at de ansatte er stolte av å representere og arbeide for selskapet og opplever at de bidrar til et fellesskap og noe mer enn bare sine egne individuelle mål. Det er gjerne over tid utviklet et sett av verdier og bånd mellom virksomheten og de ansatte som de ansatte verdsetter og identifiserer seg med. Felles kjerneverdier og en klar visjon i virksomheten kan bidra til at arbeidet føles meningsfullt.</value>
+  </data>
+  <data name="InvolvementQuestion" xml:space="preserve">
+    <value>Opplever du at du har innflytelse på din egen arbeidssituasjon i dag?</value>
+  </data>
+  <data name="InvolvementText" xml:space="preserve">
+    <value>Mange trives med å ha en klar innflytelse på egen arbeidssituasjon og jobbe et sted med rom for å komme med egne meninger. Dette kan være innenfor ulike områder som f. eks. hvilke oppgaver som bør utføres og hvordan de bør utføres. Det å selv ha en klar innflytelse på egen arbeidshverdag og «ha et ord med i laget» kan for mange virke svært motiverende.</value>
+  </data>
+  <data name="RecruitmentAndOnboardingQuestion" xml:space="preserve">
+    <value>Opplever du dagens rekruttering- og onboardingsprosesser som gode, imøtekommende og motiverende for nye ansatte?</value>
+  </data>
+  <data name="RecruitmentAndOnboardingText" xml:space="preserve">
+    <value>Det er helt avgjørende for en bedrift å finne de riktige menneskene - som passer inn i kulturen, har de rette verdiene og holdningene og kan vokse sammen med organisasjonen. Deretter handler onboardingen om å raskest mulig komme inn i bedriftens kultur, både sosialt og faglig, og bli en produktiv del av bedriften. Ofte har både rekrutterings- og onboardingsprosessen mye å si for hva slags inntrykk en medarbeider får av virksomheten og hvilken motivasjon man har for å komme inn og gjøre sitt beste. Førsteinntrykket man får er viktig og kan ha mye å si for ønsket om å bli i virksomheten over lengre tid. Inklusiv i faktoren ligger blant annet rekruttering og intervjurunder, velkomst, opplæring, veiledning og oppfølging, inkludering i miljøet, informasjon og praktiske ting som adgangskort, PC, arbeidsklær osv.</value>
+  </data>
+  <data name="SalaryQuestion" xml:space="preserve">
+    <value>I hvilken grad motiverer dagens lønnssystem deg i arbeidshverdagen?</value>
+  </data>
+  <data name="SalaryText" xml:space="preserve">
+    <value>Opplever du at dagens lønnssystem motiverer deg i arbeidshverdagen?</value>
+  </data>
+  <data name="SenseOfAchievementQuestion" xml:space="preserve">
+    <value>Opplever du at forholdene er lagt til rette for at du skal lykkes med dine arbeidsoppgaver?</value>
+  </data>
+  <data name="SenseOfAchievementText" xml:space="preserve">
+    <value>Hvor godt man føler at man mestrer arbeidssituasjonen og - oppgavene sine kan ofte ha direkte innvirkning på videre motivasjon og ønsket om lære mer og ta på seg andre oppgaver. I tillegg til egen innsats er det også viktig at man opplever at nye oppgaver og utfordringer er realistiske, tilpasset eget arbeidsnivå og legger opp til gradvis kompetanseheving.</value>
+  </data>
+  <data name="SocialEnvironmentQuestion" xml:space="preserve">
+    <value>Hvor fornøyd er du med det sosiale miljøet, samarbeidet med og støtten fra kollegaene dine?</value>
+  </data>
+  <data name="SocialEnvironmentText" xml:space="preserve">
+    <value>Opplever du at det er et godt sosialt miljø, samarbeid og støtte mellom kollegaer ved arbeidsplassen?</value>
+  </data>
+  <data name="NoConnection" xml:space="preserve">
+    <value>Ser ut som du ikke har internettforbindelse</value>
+  </data>
+  <data name="FileViewerInfo" xml:space="preserve">
+    <value>Ved å klikke på fil vil den bli åpnet i pdf visningen</value>
+  </data>
+  <data name="ManagerSignatureHeader" xml:space="preserve">
+    <value>Signert av manager</value>
+  </data>
+  <data name="ReviewFileHeader" xml:space="preserve">
+    <value>Fil</value>
+  </data>
+  <data name="ReviewsHeader" xml:space="preserve">
+    <value>Gjennomførte samtaler</value>
+  </data>
+  <data name="ReviewsNotFound" xml:space="preserve">
+    <value>Vi fant ingen anmeldelser for denne brukeren</value>
+  </data>
+  <data name="ReviewsText" xml:space="preserve">
+    <value>Her ser du en oversikt over tidligere gjennomførte samtaler med din leder</value>
+  </data>
+  <data name="ReviewsTitle" xml:space="preserve">
+    <value>Gjennomførte samtaler</value>
+  </data>
+  <data name="Sign" xml:space="preserve">
+    <value>Signer</value>
+  </data>
+  <data name="UserSignatureHeader" xml:space="preserve">
+    <value>Signert av deg</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Lederen din har signert samtalen, vennligst gjør det samme!</value>
+  </data>
+  <data name="BlankComment" xml:space="preserve">
+    <value>Lederen har ikke skrevet noen kommentar for denne samtalen</value>
+  </data>
+  <data name="CommentTitle" xml:space="preserve">
+    <value>Kommenter strom utvikling</value>
+  </data>
+  <data name="DownloadPdfFile" xml:space="preserve">
+    <value>Last ned PDF-fil</value>
+  </data>
+  <data name="FileDownloaded" xml:space="preserve">
+    <value>Filen er lastet ned</value>
+  </data>
+  <data name="InvalidDownload" xml:space="preserve">
+    <value>Denne rapporten kan ikke lastes ned før lederen har signert den.</value>
+  </data>
+  <data name="InvalidFileLoad" xml:space="preserve">
+    <value>Filen kan ikke lastes inn eller lastet feil. Prøv igjen eller kontakt support.</value>
+  </data>
+  <data name="SectionCommentTitle" xml:space="preserve">
+    <value>Seksjonskommentar</value>
+  </data>
+  <data name="SectionDefaultComment" xml:space="preserve">
+    <value>Manager har ikke skrevet noen kommentar for denne delen</value>
+  </data>
+  <data name="Crucial" xml:space="preserve">
+    <value>Helt avgjørende</value>
+  </data>
+  <data name="GreatExtent" xml:space="preserve">
+    <value>I stor grad</value>
+  </data>
+  <data name="Important" xml:space="preserve">
+    <value>Middels viktig</value>
+  </data>
+  <data name="NotImportant" xml:space="preserve">
+    <value>Lite viktig</value>
+  </data>
+  <data name="PrettyGreatExtent" xml:space="preserve">
+    <value>I ganske stor grad</value>
+  </data>
+  <data name="PrettyImportant" xml:space="preserve">
+    <value>Ganske viktig</value>
+  </data>
+  <data name="ReallyImportant" xml:space="preserve">
+    <value>Veldig viktig</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Send en melding til din nærmeste leder</value>
+  </data>
+  <data name="SmallExtent" xml:space="preserve">
+    <value>I liten grad</value>
+  </data>
+  <data name="SomeExtent" xml:space="preserve">
+    <value>I noen grad</value>
+  </data>
+  <data name="VeryGreatExtent" xml:space="preserve">
+    <value>I svært stor grad</value>
+  </data>
+  <data name="VeryLittleImportance" xml:space="preserve">
+    <value>Veldig lite viktig</value>
+  </data>
+  <data name="VerySmallExtent" xml:space="preserve">
+    <value>I svært liten grad</value>
+  </data>
+  <data name="ReportSignFailed" xml:space="preserve">
+    <value>Kan ikke signere samtalen. Prøv igjen eller kontakt supporten.</value>
+  </data>
+  <data name="LeaderNotSigned" xml:space="preserve">
+    <value>Denne samtalen kan ikke signeres før lederen har signert den første.</value>
+  </data>
+  <data name="ClosestManager" xml:space="preserve">
+    <value>Nærmeste leder</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Stilling</value>
+  </data>
+  <data name="DragUseButtons2" xml:space="preserve">
+    <value>Her bruker du en skala fra 1 til 10 til å rangere hvilke faktorer som motiverer deg på jobb, hvor 10 tilsvarer noe som er veldig viktig for deg</value>
+  </data>
+</root>

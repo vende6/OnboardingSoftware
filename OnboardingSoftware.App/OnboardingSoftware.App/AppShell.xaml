@@ -2,10 +2,11 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
        xmlns:local="clr-namespace:OnboardingSoftware.App.Views"
-       xmlns:core="clr-namespace:FoodsNGoods"
+       xmlns:core="clr-namespace:OnboardingSoftware.App"
        FlyoutBehavior="Flyout"
        FlyoutHeaderBehavior="CollapseOnScroll"
        Title="OnboardingSoftware"
+
        x:Class="OnboardingSoftware.App.AppShell">
 
     <!--
@@ -97,6 +98,10 @@
 
     <FlyoutItem Route="home" Title="Interest" FlyoutIcon="tab_feed.png">
         <ShellContent Route="interest" ContentTemplate="{DataTemplate local:ViewInterest}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Profile" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="profile" ContentTemplate="{DataTemplate local:ViewProfile}"/>
     </FlyoutItem>
 
 

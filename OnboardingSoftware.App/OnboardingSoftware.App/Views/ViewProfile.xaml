@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OnboardingSoftware.App.Views.ViewProfile"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:OnboardingSoftware.App.Views"
+    xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels" 
+    xmlns:controls="clr-namespace:OnboardingSoftware.App.Controls" 
+    xmlns:extensions="clr-namespace:OnboardingSoftware.App.LanguageSupport"
+    x:Name="this"
+    ios:Page.UseSafeArea="true"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="Green"
+    Shell.TabBarIsVisible="True">
+
+    <ContentPage.BindingContext>
+        <viewModels:ProfileViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:SizeConverter x:Key="SizeConv" />
+            <Style x:Key="cardFrame" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderColor" Value="GhostWhite" />
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <RelativeLayout>
+            <controls:GradientColorStack
+                EndColor="Green"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.4}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                StartColor="DarkOliveGreen" />
+
+            <Image
+                Margin="10"
+                HeightRequest="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                HorizontalOptions="EndAndExpand"
+                WidthRequest="{Binding Source='25', Converter={StaticResource SizeConv}}">
+
+                <!--FontFamily="{StaticResource EsaconFontFamily}"
+                        Glyph="{Binding SettingsIcon}"-->
+                <Image.Source>
+                    <FontImageSource
+       Glyph="{Binding SettingsIcon}"
+                        Size="{Binding Source='100', Converter={StaticResource SizeConv}}"
+                        Color="White" />
+                </Image.Source>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <ci:CircleImage
+                Aspect="AspectFill"
+                HeightRequest="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                HorizontalOptions="EndAndExpand"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.915}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.018}"
+                Source="{Binding LanguageImage}"
+                WidthRequest="{Binding Source='25', Converter={StaticResource SizeConv}}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ChangeLanguageCommand}" />
+                </Image.GestureRecognizers>
+            </ci:CircleImage>
+
+            <StackLayout
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.15}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.05}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <ci:CircleImage
+                        Aspect="AspectFill"
+                        HeightRequest="{Binding Source='90', Converter={StaticResource SizeConv}}"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="{Binding ProfileImage}"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="{Binding Source='90', Converter={StaticResource SizeConv}}">
+                        <ci:CircleImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ToggleCameraGalleryCommand}" />
+                        </ci:CircleImage.GestureRecognizers>
+                    </ci:CircleImage>
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding IsVisibleCameraGallery}"
+                        Orientation="Horizontal"
+                        TranslationY="10">
+                        <Frame
+                            Margin="5,0,70,10"
+                            Padding="6"
+                            BackgroundColor="White"
+                            CornerRadius="14"
+                            HasShadow="False"
+                            HorizontalOptions="Start"
+                            VerticalOptions="End">
+                            <Image
+                                HeightRequest="{Binding Source='25', Converter={StaticResource SizeConv}}"
+                                VerticalOptions="Center"
+                                WidthRequest="{Binding Source='25', Converter={StaticResource SizeConv}}">
+                                <Image.Source>
+                                    <!--FontFamily="{StaticResource EsaconFontFamily}"
+                                        Glyph="{Binding CameraIcon}"-->
+                                    <FontImageSource
+                                    Glyph="{Binding CameraIcon}"
+                                        Size="{Binding Source='100', Converter={StaticResource SizeConv}}"
+                                        Color="DarkOliveGreen" />
+                                </Image.Source>
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding LoadCameraCommand}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+
+                        <Frame
+                            Margin="-16,0,0,10"
+                            Padding="6"
+                            BackgroundColor="White"
+                            CornerRadius="14"
+                            HasShadow="False"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="End">
+                            <Image HeightRequest="{Binding Source='25', Converter={StaticResource SizeConv}}" WidthRequest="{Binding Source='25', Converter={StaticResource SizeConv}}">
+                                <Image.Source>
+                                    <!--FontFamily="{StaticResource EsaconFontFamily}"
+                                        Glyph="{Binding GalleryIcon}"-->
+                                    <FontImageSource
+                                    Glyph="{Binding GalleryIcon}"
+                                        Size="{Binding Source='100', Converter={StaticResource SizeConv}}"
+                                        Color="DarkOliveGreen" />
+                                </Image.Source>
+
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding LoadGalleryCommand}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+                    </StackLayout>
+                    <ActivityIndicator
+                        HeightRequest="{Binding Source='40', Converter={StaticResource SizeConv}}"
+                        HorizontalOptions="CenterAndExpand"
+                        IsRunning="{Binding IsBusy}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="CenterAndExpand"
+                        Color="Turquoise" />
+
+                </Grid>
+
+            </StackLayout>
+
+            <!--<local:ConnectionView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />-->
+
+            <StackLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.21}">
+                <!--FontFamily="{StaticResource MarketProBold}"-->
+                <Label
+                    FontAttributes="Bold"
+                    
+                    FontSize="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding HeaderMessage}"
+                    TextColor="WhiteSmoke"
+                    VerticalOptions="EndAndExpand" />
+                <!--FontFamily="{StaticResource DomusRegular}"-->
+                <Label
+                    Margin="70,2"
+           
+                    FontSize="{Binding Source='17', Converter={StaticResource SizeConv}}"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="{extensions:TranslateExtension HomeViewMessage}"
+                    TextColor="WhiteSmoke"
+                    VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+
+            <Frame
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.25}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.42}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.05}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.43}"
+                Style="{StaticResource cardFrame}">
+                <!--FontFamily="{StaticResource DomusBold}"-->
+                <Label
+                    Margin="0,-13,0,0"
+                    
+                    FontSize="{Binding Source='12', Converter={StaticResource SizeConv}}"
+                    HeightRequest="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="2"
+                    Text="{Binding RandomMeasurement1Title}"
+                    TextColor="Gray"
+                    WidthRequest="{Binding Source='115', Converter={StaticResource SizeConv}}" />
+            </Frame>
+
+            <!--  Realized round bar  -->
+            <!--<controls:RoundedProgressBar
+                NumberSize="{Binding NummSize}"
+                Progress="{Binding AchievementsRealized}"
+                ProgressBarColor="{StaticResource NearViolet}"
+                ProgressGap="{Binding AchievementsRealized}"
+                ProgressMaxNumber="{Binding AchievementsTotal}"
+                ProgressNumberColor="{StaticResource NearViolet}"
+                ProgressText="{extensions:TranslateExtension Realized}"
+                ProgressTrackColor="{StaticResource NearSkyBlueCrayola}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.60}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.60}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.12}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.49}"
+                StrokeWidth="{Binding StrokeWidth}"
+                TextSize="{Binding TextSize}" />-->
+
+            <Frame
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.25}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.42}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.53}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.43}"
+                Style="{StaticResource cardFrame}">
+                <!--FontFamily="{StaticResource DomusBold}"-->
+                <Label
+                    Margin="0,-13,0,0"
+                 
+                    FontSize="{Binding Source='12', Converter={StaticResource SizeConv}}"
+                    HeightRequest="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="2"
+                    Text="{Binding RandomMeasurement2Title}"
+                    TextColor="Gray"
+                    WidthRequest="{Binding Source='115', Converter={StaticResource SizeConv}}" />
+
+            </Frame>
+
+            <!--  Complited round bar  -->
+            <!--<controls:RoundedProgressBar
+                NumberSize="{Binding NummSize}"
+                Progress="{Binding TasksRealized}"
+                ProgressBarColor="{StaticResource NearViolet}"
+                ProgressGap="{Binding TasksRealized}"
+                ProgressMaxNumber="{Binding TasksTotal}"
+                ProgressNumberColor="{StaticResource NearViolet}"
+                ProgressText="{extensions:TranslateExtension Realized}"
+                ProgressTrackColor="{StaticResource NearSkyBlueCrayola}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.60}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.60}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.595}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.49}"
+                StrokeWidth="{Binding StrokeWidth}"
+                TextSize="{Binding TextSize}" />-->
+
+            <Frame
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.25}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.42}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.05}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.7}"
+                Style="{StaticResource cardFrame}">
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Vertical"
+                    Spacing="0"
+                    VerticalOptions="Center">
+                    <Image
+                        Margin="4,0,4,3"
+                        HeightRequest="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                        WidthRequest="{Binding Source='30', Converter={StaticResource SizeConv}}">
+                        <Image.Source>
+                            <!--FontFamily="{StaticResource EsaconFontFamily}"
+                                Glyph="{Binding RocketIcon}"-->
+                            <FontImageSource
+                              Glyph="{Binding RocketIcon}"
+                                Size="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                                Color="#6de1fa" />
+                        </Image.Source>
+                    </Image>
+                    <!--FontFamily="{StaticResource DomusLight}"-->
+                    <Label
+                       
+                        FontSize="{Binding Source='14', Converter={StaticResource SizeConv}}"
+                        HorizontalTextAlignment="Center"
+                        Text="{extensions:TranslateExtension SetNewGoals}"
+                        TextColor="AliceBlue" />
+                    <!--FontFamily="{StaticResource DomusBold}"-->
+                    <Button
+                        Margin="0,5,0,0"
+                        BackgroundColor="Turquoise"
+                        Command="{Binding RedirectToAddAchievementCommand}"
+                        CommandParameter="home/measurement/create"
+                        ContentLayout="Right,10"
+                        CornerRadius="15"
+                   
+                        FontSize="{Binding Source='11', Converter={StaticResource SizeConv}}"
+                        HeightRequest="{Binding Source='35', Converter={StaticResource SizeConv}}"
+                        Text="{extensions:TranslateExtension AddGoal}"
+                        TextColor="White">
+                        <Button.Triggers>
+                            <DataTrigger
+                                Binding="{Binding IsPeriodDefined}"
+                                TargetType="{x:Type Button}"
+                                Value="False">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding IsPeriodDefined}"
+                                TargetType="{x:Type Button}"
+                                Value="True">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                        <Button.ImageSource>
+                            <!--FontFamily="{StaticResource EsaconFontFamily}"-->
+                            <!--Glyph="{Binding AddIcon}"-->
+                            <FontImageSource
+              
+                         Glyph="{Binding AddIcon}"
+                                Size="{Binding Source='15', Converter={StaticResource SizeConv}}"
+                                Color="White" />
+                        </Button.ImageSource>
+                    </Button>
+                </StackLayout>
+
+            </Frame>
+
+            <StackLayout
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.25}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.42}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.53}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.7}"
+                Spacing="0">
+                <!--FontFamily="{StaticResource DomusBold}"-->
+                <Label
+                    Padding="5"
+             
+                    FontSize="{Binding Source='12', Converter={StaticResource SizeConv}}"
+                    HorizontalTextAlignment="Center"
+                    Text="{extensions:TranslateExtension NextCallHome}"
+                    TextColor="Gray"
+                    VerticalTextAlignment="Center" />
+                <Frame
+                    Margin="20,0,20,0"
+                    Padding="5,5,5,5"
+                    BorderColor="DeepSkyBlue"
+                    CornerRadius="6"
+                    HasShadow="False"
+                    HeightRequest="{Binding Source='110', Converter={StaticResource SizeConv}}"
+                    HorizontalOptions="FillAndExpand"
+                    Style="{StaticResource cardFrame}">
+                    <StackLayout Spacing="0">
+                        <!--FontFamily="{StaticResource DomusBold}"-->
+                        <Label
+                            Padding="{OnIdiom Phone={OnPlatform iOS='5,8,5,5',
+                                                                Android='0'}}"
+                            FontAttributes="Bold"
+                      
+                            FontSize="20"
+                            HeightRequest="{OnIdiom Phone={OnPlatform iOS='50',
+                                                                      Android='50'}}"
+                            HorizontalTextAlignment="Center"
+                            LineBreakMode="WordWrap"
+                            LineHeight="0.65"
+                            MaxLines="2"
+                            Text="{Binding MeetingDate}"
+                            TextColor="Turquoise"
+                            VerticalTextAlignment="Center"
+                            WidthRequest="{OnIdiom Phone={OnPlatform iOS='100',
+                                                                     Android='70'}}" />
+                        <BoxView
+                            Margin="-5,0,-5,0"
+                            HeightRequest="1"
+                            Color="DeepSkyBlue" />
+                        <!--FontFamily="{StaticResource DomusSemiBold}"-->
+                        <Label
+                            Margin="0,3,0,0"
+                       
+                            FontSize="{Binding ReviewDayFontSize, Converter={StaticResource SizeConv}}"
+                            HorizontalOptions="Center"
+                            Text="{Binding MeetingDay}"
+                            TextColor="Turquoise" />
+                        <!--FontFamily="{StaticResource DomusLight}"-->
+                        <Label
+                  
+                            FontSize="Small"
+                            HorizontalOptions="Center"
+                            Text="{Binding MeetingTime}"
+                            TextColor="Turquoise" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
