@@ -224,7 +224,7 @@ namespace OnboardingSoftware.App.ViewModels
             }
         }
 
-        private ImageSource _profileImage = ImageSource.FromResource("OnboardingSoftware.App.Images.logo.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
+        private ImageSource _profileImage = ImageSource.FromResource("OnboardingSoftware.App.Images.circle-cropped.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
         public ImageSource ProfileImage
         {
             get
@@ -244,9 +244,9 @@ namespace OnboardingSoftware.App.ViewModels
 
 
             if (Settings.LanguageId == "nb-NO")
-                LanguageImage = ImageSource.FromResource("Motivation.Core.Images.flagg_norsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
+                LanguageImage = ImageSource.FromResource("OnboardingSoftware.App.Images.flagg-engelsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
             else
-                LanguageImage = ImageSource.FromResource("Motivation.Core.Images.flagg_engelsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
+                LanguageImage = ImageSource.FromResource("OnboardingSoftware.App.Images.flagg-norsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
 
             _currentPageSave = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
             _sendingPhoto = true;

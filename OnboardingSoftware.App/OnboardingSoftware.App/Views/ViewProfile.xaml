@@ -199,10 +199,31 @@
                     VerticalOptions="CenterAndExpand" />
             </StackLayout>
 
+            <StackLayout Orientation="Horizontal"
+                           RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.07}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.52}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.14}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.35}">
+               
+                <Button BackgroundColor="Black" Text="Interests "></Button>
+                <Button BackgroundColor="Black" Text="Skills"></Button>
+                <Button BackgroundColor="Black" Text="References"></Button>
+            </StackLayout>
+            
+            
+            
             <Frame
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                        Property=Height,
-                                                                       Factor=0.25}"
+                                                                       Factor=0.20}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                       Property=Width,
                                                                       Factor=0.42}"
@@ -211,7 +232,7 @@
                                                                   Factor=0.05}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
-                                                                  Factor=0.43}"
+                                                                  Factor=0.48}"
                 Style="{StaticResource cardFrame}">
                 <!--FontFamily="{StaticResource DomusBold}"-->
                 <Label
@@ -253,10 +274,27 @@
                 StrokeWidth="{Binding StrokeWidth}"
                 TextSize="{Binding TextSize}" />-->
 
+            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0"
+                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.55}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.3}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.11}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.45}">
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="Cognitive" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+            </StackLayout>
+
             <Frame
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                        Property=Height,
-                                                                       Factor=0.25}"
+                                                                       Factor=0.20}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                       Property=Width,
                                                                       Factor=0.42}"
@@ -265,7 +303,7 @@
                                                                   Factor=0.53}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
-                                                                  Factor=0.43}"
+                                                                  Factor=0.48}"
                 Style="{StaticResource cardFrame}">
                 <!--FontFamily="{StaticResource DomusBold}"-->
                 <Label
@@ -308,10 +346,27 @@
                 StrokeWidth="{Binding StrokeWidth}"
                 TextSize="{Binding TextSize}" />-->
 
+            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0"
+                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.55}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.315}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.58}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.45}">
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="Personality" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+            </StackLayout>
+
             <Frame
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                        Property=Height,
-                                                                       Factor=0.25}"
+                                                                       Factor=0.20}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                       Property=Width,
                                                                       Factor=0.42}"
@@ -320,7 +375,7 @@
                                                                   Factor=0.05}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
-                                                                  Factor=0.7}"
+                                                                  Factor=0.73}"
                 Style="{StaticResource cardFrame}">
                 <StackLayout
                     HorizontalOptions="Center"
@@ -388,10 +443,28 @@
 
             </Frame>
 
-            <StackLayout
+            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0"
+                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.20}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.42}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.05}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.7}">
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="Integrity" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+            </StackLayout>
+
+
+            <Frame
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                        Property=Height,
-                                                                       Factor=0.25}"
+                                                                       Factor=0.20}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                       Property=Width,
                                                                       Factor=0.42}"
@@ -400,67 +473,93 @@
                                                                   Factor=0.53}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
-                                                                  Factor=0.7}"
-                Spacing="0">
-                <!--FontFamily="{StaticResource DomusBold}"-->
-                <Label
-                    Padding="5"
-             
-                    FontSize="{Binding Source='12', Converter={StaticResource SizeConv}}"
-                    HorizontalTextAlignment="Center"
-                    Text="{extensions:TranslateExtension NextCallHome}"
-                    TextColor="Gray"
-                    VerticalTextAlignment="Center" />
-                <Frame
-                    Margin="20,0,20,0"
-                    Padding="5,5,5,5"
-                    BorderColor="DeepSkyBlue"
-                    CornerRadius="6"
-                    HasShadow="False"
-                    HeightRequest="{Binding Source='110', Converter={StaticResource SizeConv}}"
-                    HorizontalOptions="FillAndExpand"
-                    Style="{StaticResource cardFrame}">
-                    <StackLayout Spacing="0">
-                        <!--FontFamily="{StaticResource DomusBold}"-->
-                        <Label
-                            Padding="{OnIdiom Phone={OnPlatform iOS='5,8,5,5',
-                                                                Android='0'}}"
-                            FontAttributes="Bold"
-                      
-                            FontSize="20"
-                            HeightRequest="{OnIdiom Phone={OnPlatform iOS='50',
-                                                                      Android='50'}}"
-                            HorizontalTextAlignment="Center"
-                            LineBreakMode="WordWrap"
-                            LineHeight="0.65"
-                            MaxLines="2"
-                            Text="{Binding MeetingDate}"
-                            TextColor="Turquoise"
-                            VerticalTextAlignment="Center"
-                            WidthRequest="{OnIdiom Phone={OnPlatform iOS='100',
-                                                                     Android='70'}}" />
-                        <BoxView
-                            Margin="-5,0,-5,0"
-                            HeightRequest="1"
-                            Color="DeepSkyBlue" />
-                        <!--FontFamily="{StaticResource DomusSemiBold}"-->
-                        <Label
-                            Margin="0,3,0,0"
+                                                                  Factor=0.73}"
+                Style="{StaticResource cardFrame}">
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Vertical"
+                    Spacing="0"
+                    VerticalOptions="Center">
+                    <Image
+                        Margin="4,0,4,3"
+                        HeightRequest="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                        WidthRequest="{Binding Source='30', Converter={StaticResource SizeConv}}">
+                        <Image.Source>
+                            <!--FontFamily="{StaticResource EsaconFontFamily}"
+                                Glyph="{Binding RocketIcon}"-->
+                            <FontImageSource
+                              Glyph="{Binding RocketIcon}"
+                                Size="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                                Color="#6de1fa" />
+                        </Image.Source>
+                    </Image>
+                    <!--FontFamily="{StaticResource DomusLight}"-->
+                    <Label
                        
-                            FontSize="{Binding ReviewDayFontSize, Converter={StaticResource SizeConv}}"
-                            HorizontalOptions="Center"
-                            Text="{Binding MeetingDay}"
-                            TextColor="Turquoise" />
-                        <!--FontFamily="{StaticResource DomusLight}"-->
-                        <Label
-                  
-                            FontSize="Small"
-                            HorizontalOptions="Center"
-                            Text="{Binding MeetingTime}"
-                            TextColor="Turquoise" />
-                    </StackLayout>
-                </Frame>
+                        FontSize="{Binding Source='14', Converter={StaticResource SizeConv}}"
+                        HorizontalTextAlignment="Center"
+                        Text="{extensions:TranslateExtension SetNewGoals}"
+                        TextColor="AliceBlue" />
+                    <!--FontFamily="{StaticResource DomusBold}"-->
+                    <Button
+                        Margin="0,5,0,0"
+                        BackgroundColor="Turquoise"
+                        Command="{Binding RedirectToAddAchievementCommand}"
+                        CommandParameter="home/measurement/create"
+                        ContentLayout="Right,10"
+                        CornerRadius="15"
+                   
+                        FontSize="{Binding Source='11', Converter={StaticResource SizeConv}}"
+                        HeightRequest="{Binding Source='35', Converter={StaticResource SizeConv}}"
+                        Text="{extensions:TranslateExtension AddGoal}"
+                        TextColor="White">
+                        <Button.Triggers>
+                            <DataTrigger
+                                Binding="{Binding IsPeriodDefined}"
+                                TargetType="{x:Type Button}"
+                                Value="False">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding IsPeriodDefined}"
+                                TargetType="{x:Type Button}"
+                                Value="True">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                        <Button.ImageSource>
+                            <!--FontFamily="{StaticResource EsaconFontFamily}"-->
+                            <!--Glyph="{Binding AddIcon}"-->
+                            <FontImageSource
+              
+                         Glyph="{Binding AddIcon}"
+                                Size="{Binding Source='15', Converter={StaticResource SizeConv}}"
+                                Color="White" />
+                        </Button.ImageSource>
+                    </Button>
+                </StackLayout>
+
+            </Frame>
+
+            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0"
+                           RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.20}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.42}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.53}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.7}">
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="E-Intelligence" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
             </StackLayout>
+
+
+
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
