@@ -17,6 +17,7 @@ namespace OnboardingSoftware.App.ViewModels
     {
         public ProfileViewModel()
         {
+
             RocketIcon = IconFont.Rocket;
             SettingsIcon = IconFont.Settings;
             SetGaugeValues();
@@ -59,8 +60,8 @@ namespace OnboardingSoftware.App.ViewModels
             {
                 return new Command<string>(async (route) =>
                 {
-                    //if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
-                    //    await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.LanguageDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.LanguageDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
                 });
             }
         }
@@ -135,7 +136,6 @@ namespace OnboardingSoftware.App.ViewModels
                 RaisePropertyChanged(() => AddIcon);
             }
         }
-
 
         private string _settingsIcon = IconFont.Chat;
         public string SettingsIcon
@@ -241,7 +241,6 @@ namespace OnboardingSoftware.App.ViewModels
         public async override Task OnAppearing()
         {
             await base.OnAppearing();
-
 
             if (Settings.LanguageId == "nb-NO")
                 LanguageImage = ImageSource.FromResource("OnboardingSoftware.App.Images.flagg-engelsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);

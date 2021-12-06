@@ -9,6 +9,12 @@
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
             <Color x:Key="PageBackground">#edece7</Color>
+            <Color x:Key="BlurDialogBackgroundColor">#698000f4</Color>
+            <OnPlatform x:Key="EsaconFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="MotivationFontIcons" />
+                <On Platform="Android" Value="MotivationFontIcons.ttf#MotivationFontIcons" />
+                <!--<On Platform="UWP" Value="Assets/Fonts/materialdesignicons-webfont.ttf#Material Design Icons" />-->
+            </OnPlatform>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">

@@ -52,16 +52,15 @@
                 HorizontalOptions="EndAndExpand"
                 WidthRequest="{Binding Source='25', Converter={StaticResource SizeConv}}">
 
-                <!--FontFamily="{StaticResource EsaconFontFamily}"
-                        Glyph="{Binding SettingsIcon}"-->
                 <Image.Source>
                     <FontImageSource
        Glyph="{Binding SettingsIcon}"
+                        FontFamily="{StaticResource EsaconFontFamily}"
                         Size="{Binding Source='100', Converter={StaticResource SizeConv}}"
                         Color="White" />
                 </Image.Source>
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                    <TapGestureRecognizer Command="{Binding ChangeLanguageCommand}" /> <!--logout-->
                 </Image.GestureRecognizers>
             </Image>
 
@@ -125,9 +124,8 @@
                                 VerticalOptions="Center"
                                 WidthRequest="{Binding Source='25', Converter={StaticResource SizeConv}}">
                                 <Image.Source>
-                                    <!--FontFamily="{StaticResource EsaconFontFamily}"
-                                        Glyph="{Binding CameraIcon}"-->
                                     <FontImageSource
+                                        FontFamily="{StaticResource EsaconFontFamily}"
                                     Glyph="{Binding CameraIcon}"
                                         Size="{Binding Source='100', Converter={StaticResource SizeConv}}"
                                         Color="DarkOliveGreen" />
@@ -148,10 +146,9 @@
                             VerticalOptions="End">
                             <Image HeightRequest="{Binding Source='25', Converter={StaticResource SizeConv}}" WidthRequest="{Binding Source='25', Converter={StaticResource SizeConv}}">
                                 <Image.Source>
-                                    <!--FontFamily="{StaticResource EsaconFontFamily}"
-                                        Glyph="{Binding GalleryIcon}"-->
                                     <FontImageSource
-                                    Glyph="{Binding GalleryIcon}"
+                                   FontFamily="{StaticResource EsaconFontFamily}"
+                                        Glyph="{Binding GalleryIcon}"
                                         Size="{Binding Source='100', Converter={StaticResource SizeConv}}"
                                         Color="DarkOliveGreen" />
                                 </Image.Source>
@@ -211,7 +208,7 @@
                                                                   Factor=0.14}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
-                                                                  Factor=0.35}">
+                                                                  Factor=0.37}">
                
                 <Button BackgroundColor="Black" Text="Interests "></Button>
                 <Button BackgroundColor="Black" Text="Skills"></Button>

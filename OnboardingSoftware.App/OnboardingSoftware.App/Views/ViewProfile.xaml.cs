@@ -15,7 +15,15 @@ namespace OnboardingSoftware.App.Views
     {
         public ViewProfile()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         protected async override void OnAppearing()

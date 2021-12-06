@@ -15,10 +15,14 @@ namespace OnboardingSoftware.App.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            CachedImageRenderer.Init(true);
+            App.ScreenWidth = (Resources.DisplayMetrics.WidthPixels - 0.5f) / Resources.DisplayMetrics.Density;
+            App.ScreenHeight = (Resources.DisplayMetrics.HeightPixels - 0.5f) / Resources.DisplayMetrics.Density;
+            Rg.Plugins.Popup.Popup.Init(this);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental", "IndicatorView_Experimental");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            CachedImageRenderer.Init(true);
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

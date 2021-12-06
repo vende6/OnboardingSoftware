@@ -22,9 +22,13 @@ namespace OnboardingSoftware.App.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            CachedImageRenderer.Init();
+            Rg.Plugins.Popup.Popup.Init();
+            App.ScreenWidth = (double)UIScreen.MainScreen.Bounds.Width;
+            App.ScreenHeight = (double)UIScreen.MainScreen.Bounds.Height;
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental", "IndicatorView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            CachedImageRenderer.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
