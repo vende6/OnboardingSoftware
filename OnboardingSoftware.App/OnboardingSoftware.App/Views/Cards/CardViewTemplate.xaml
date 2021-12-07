@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnboardingSoftware.App.Views.Cards.CardViewTemplate">
+    <ContentView.Content>
+        <Frame IsClippedToBounds="True"  
+           HasShadow="True"  
+           Padding="0"  
+           BackgroundColor="White" >
+            <!--<Frame.OutlineColor>
+                <OnPlatform x:TypeArguments="Color"  
+                    Android="Gray"  
+                    iOS="Gray"/>
+            </Frame.OutlineColor>-->
+            <Frame.Margin>
+                <OnPlatform x:TypeArguments="Thickness"  
+                     Android="10"   
+                     iOS="10"/>
+            </Frame.Margin>
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <BoxView Color="{Binding color}" WidthRequest="7" />
+                <Frame HorizontalOptions="FillAndExpand" Margin="0,0,0,0" HasShadow="False"  >
+                
+                    <Grid VerticalOptions="CenterAndExpand" Padding="0" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Row="0" Grid.Column="0" >
+                            <Frame>
+                                <Image  Source="resource://OnboardingSoftware.App.Images.logo.png" HeightRequest="50" />
+                            </Frame>
+                        </StackLayout>
+
+
+                        <StackLayout Grid.Row="0" Grid.Column="1"  Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Name :"/>
+                                <Label Text="{Binding employee_name}"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Age :"/>
+                                <Label Text="{Binding employee_age}"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Salary :"/>
+                                <Label Text="{Binding employee_salary}"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Grid>
+                
+            </Frame>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

@@ -2,6 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
        xmlns:local="clr-namespace:OnboardingSoftware.App.Views"
+       xmlns:localtests="clr-namespace:OnboardingSoftware.App.Views.Tests"
        xmlns:core="clr-namespace:OnboardingSoftware.App"
        FlyoutBehavior="Flyout"
        FlyoutHeaderBehavior="CollapseOnScroll"
@@ -102,6 +103,27 @@
 
     <FlyoutItem Route="home" Title="Profile" FlyoutIcon="tab_feed.png">
         <ShellContent Route="profile" ContentTemplate="{DataTemplate local:ViewProfile}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Jobs" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="jobs" ContentTemplate="{DataTemplate local:ViewJobs}"/>
+    </FlyoutItem>
+
+
+    <FlyoutItem Route="home" Title="Cognitive" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="cognitive" ContentTemplate="{DataTemplate localtests:ViewCognitive}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Personality" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="personality" ContentTemplate="{DataTemplate localtests:ViewPersonality}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Integrity" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="integrity" ContentTemplate="{DataTemplate localtests:ViewIntegrity}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Emotional" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="emotional" ContentTemplate="{DataTemplate localtests:ViewEmotional}"/>
     </FlyoutItem>
 
 

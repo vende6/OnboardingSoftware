@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:OnboardingSoftware.App.ViewModels.Tests" 
+             xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters"
+             x:Class="OnboardingSoftware.App.Views.Tests.ViewEmotional">
+    <ContentPage.BindingContext>
+        <viewmodels:EmotionalViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NegateBooleanConverter x:Key="NegateBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+
+        <StackLayout VerticalOptions="CenterAndExpand" 
+                     IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
+                     HorizontalOptions="CenterAndExpand">
+
+            <Label Text="Emotivna inteligencija"/>
+            <Label Text="psychological" />
+            <Label Text="1h" />
+            <Label Text="20 questions" />
+
+            <Button Text="Start" Command="{Binding StartCommand}"></Button>
+        </StackLayout>
+
+        <CarouselView
+            ItemsSource="{Binding .}"
+            IsVisible="{Binding IsStarted}"
+            x:Name="TheCarousel"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            HorizontalOptions="CenterAndExpand" 
+            VerticalOptions="CenterAndExpand"
+            Shell.NavBarIsVisible="False"
+            IndicatorView="indicatorview">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <AbsoluteLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <StackLayout x:Name="slQuestion" IsVisible="true">
+                                <Label x:Name="lblQuestion"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       Text="What was the e-intelligence question?" />
+                                <Button x:Name="btnAnswerOne" Text="Yes" 
+				    IsEnabled="{Binding Answer1Enabled}" />
+                                <Button x:Name="btnAnswerTwo" Text="No" 
+				    IsEnabled="{Binding Answer2Enabled}" />
+                                <Button x:Name="btnAnswerThree" Text="Maybe" 
+				    IsEnabled="{Binding Answer3Enabled}" />
+                                <Label x:Name="lblMessage"
+                       FontAttributes="Italic"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding Message}" />
+                            </StackLayout>
+
+                            <ActivityIndicator x:Name="aiLoading"
+                               IsRunning="{Binding IsLoading}"
+                               IsVisible="{Binding IsLoading}"
+                               Color="Blue" />
+                        </StackLayout>
+                    </AbsoluteLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView
+            x:Name="indicatorview"
+            AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            IndicatorColor="LightGray"
+            IsVisible="{Binding IsStarted}"
+            IndicatorSize="10"
+            SelectedIndicatorColor="Black" />
+    </AbsoluteLayout>
+
+</ContentPage>

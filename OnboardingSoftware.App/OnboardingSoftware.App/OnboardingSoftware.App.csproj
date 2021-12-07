@@ -24,6 +24,7 @@
   <ItemGroup>
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.14" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.0" />
+    <PackageReference Include="WindowsAzure.MobileServices" Version="1.3.2" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
@@ -34,10 +35,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Cards\CardViewTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Dialogs\LanguageDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tests\ViewCognitive.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tests\ViewEmotional.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tests\ViewIntegrity.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tests\ViewPersonality.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\ViewInterest.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ViewJobs.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ViewLogin.xaml">
@@ -55,5 +74,9 @@
     <EmbeddedResource Update="Views\ViewVerify.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Cards\" />
   </ItemGroup>
 </Project>
