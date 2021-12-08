@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OnboardingSoftware.App.ViewModels
 {
-    class VerifyViewModel
+    public class VerifyViewModel : BaseViewModel
     {
     }
 }

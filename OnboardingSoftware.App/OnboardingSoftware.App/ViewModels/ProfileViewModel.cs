@@ -66,6 +66,55 @@ namespace OnboardingSoftware.App.ViewModels
             }
         }
 
+        public ICommand LogoutCommand
+        {
+            get
+            {
+                return new Command<string>(async (route) =>
+                {
+                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.LogoutDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+                });
+            }
+        }
+
+
+        public ICommand ReferencesCommand
+        {
+            get
+            {
+                return new Command<string>(async (route) =>
+                {
+                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.ReferenceDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+                });
+            }
+        }
+
+
+        public ICommand SkillsCommand
+        {
+            get
+            {
+                return new Command<string>(async (route) =>
+                {
+                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.SkillDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+                });
+            }
+        }
+
+        public ICommand InterestsCommand
+        {
+            get
+            {
+                return new Command<string>(async (route) =>
+                {
+                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.InterestDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+                });
+            }
+        }
 
         private ImageSource _languageImage;
         public ImageSource LanguageImage

@@ -16,9 +16,17 @@ namespace OnboardingSoftware.App.Views.Dialogs
 
         public LanguageDialog(string Title, string Text)
         {
-            InitializeComponent();
-            LabelTitle.Text = Title;
-            LabelBody.Text = Text;
+            try
+            {
+                InitializeComponent();
+                LabelTitle.Text = Title;
+                LabelBody.Text = Text;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
 
         }
     }

@@ -60,7 +60,7 @@
                         Color="White" />
                 </Image.Source>
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ChangeLanguageCommand}" /> <!--logout-->
+                    <TapGestureRecognizer Command="{Binding LogoutCommand}" /> <!--logout-->
                 </Image.GestureRecognizers>
             </Image>
 
@@ -74,11 +74,11 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.018}"
-                Source="{Binding LanguageImage}"
+                Source="{Binding ProfileImage}"
                 WidthRequest="{Binding Source='25', Converter={StaticResource SizeConv}}">
-                <Image.GestureRecognizers>
+                <ci:CircleImage.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ChangeLanguageCommand}" />
-                </Image.GestureRecognizers>
+                </ci:CircleImage.GestureRecognizers>
             </ci:CircleImage>
 
             <StackLayout
@@ -210,9 +210,9 @@
                                                                   Property=Height,
                                                                   Factor=0.37}">
                
-                <Button BackgroundColor="Black" Text="Interests "></Button>
-                <Button BackgroundColor="Black" Text="Skills"></Button>
-                <Button BackgroundColor="Black" Text="References"></Button>
+                <Button BackgroundColor="Black" Text="Interests " Command="{Binding InterestsCommand}"></Button>
+                <Button BackgroundColor="Black" Text="Skills" Command="{Binding SkillsCommand}"></Button>
+                <Button BackgroundColor="Black" Text="References" Command="{Binding ReferencesCommand}"></Button>
             </StackLayout>
             
             
