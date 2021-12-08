@@ -108,10 +108,10 @@
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
-            
-         
 
-            <Button Text="Apply" Command="{Binding CloseInfoCommand}"></Button>
+
+            <Button Text="Exit" Command="{Binding CloseInfoCommand}"></Button>
+            <Button Text="Apply" Command="{Binding ApplyCommand}"></Button>
         </StackLayout>
     </Frame>
 </pages:PopupPage>

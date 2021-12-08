@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:lv="clr-namespace:Xamarin.Forms.MultiSelectListView;assembly=Xamarin.Forms.MultiSelectListView"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels.Dialogs"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+             xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters" 
+                 xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:extensions="clr-namespace:OnboardingSoftware.App.LanguageSupport"
+                 x:Class="OnboardingSoftware.App.Views.Dialogs.ApplyDialog"
+             BackgroundColor="{Binding BlurDialogBackgroundColor}">
+    <pages:PopupPage.BindingContext>
+        <viewModels:ApplyDialogViewModel/>
+    </pages:PopupPage.BindingContext>
+
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <converters:SizeConverter x:Key="SizeConv"/>
+            <Style x:Key="cardFrame" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderColor" Value="GhostWhite" />
+            </Style>
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Top"
+                                   PositionOut="Top"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <Frame BorderColor="White" Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="20">
+        <StackLayout>
+            <Label x:Name="LabelTitle"
+                   Margin="3,0,3,10"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   HorizontalOptions="Center"
+                   FontSize="{Binding Source='25',Converter={StaticResource SizeConv}}"
+                   TextColor="Turquoise"
+                   LineHeight="1.1"
+                   VerticalTextAlignment="End"
+                   HorizontalTextAlignment="Start"/>
+
+            <Label x:Name="LabelBody"
+                   Margin="0,0,3,10"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
+                   TextColor="DarkBlue"
+                   LineHeight="1.1"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Center"/>
+
+            <Frame
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.20}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.42}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.53}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.73}"
+                Style="{StaticResource cardFrame}">
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Vertical"
+                    Spacing="0"
+                    VerticalOptions="Center">
+                    <Image
+                        Margin="4,0,4,3"
+                        HeightRequest="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                        WidthRequest="{Binding Source='30', Converter={StaticResource SizeConv}}">
+                        <Image.Source>
+                            <!--FontFamily="{StaticResource EsaconFontFamily}"
+                                Glyph="{Binding RocketIcon}"-->
+                            <FontImageSource
+                              Glyph="{Binding RocketIcon}"
+                                Size="{Binding Source='30', Converter={StaticResource SizeConv}}"
+                                Color="#6de1fa" />
+                        </Image.Source>
+                    </Image>
+                    <!--FontFamily="{StaticResource DomusLight}"-->
+                    <Label
+                       
+                        FontSize="{Binding Source='14', Converter={StaticResource SizeConv}}"
+                        HorizontalTextAlignment="Center"
+                        Text="{extensions:TranslateExtension SetNewGoals}"
+                        TextColor="AliceBlue" />
+                    <!--FontFamily="{StaticResource DomusBold}"-->
+                    <Button
+                        Margin="0,5,0,0"
+                        BackgroundColor="Turquoise"
+                        Command="{Binding RedirectToAddAchievementCommand}"
+                        CommandParameter="home/measurement/create"
+                        ContentLayout="Right,10"
+                        CornerRadius="15"
+                   
+                        FontSize="{Binding Source='11', Converter={StaticResource SizeConv}}"
+                        HeightRequest="{Binding Source='35', Converter={StaticResource SizeConv}}"
+                        Text="{extensions:TranslateExtension AddGoal}"
+                        TextColor="White">
+                        <Button.Triggers>
+                            <DataTrigger
+                                Binding="{Binding IsPeriodDefined}"
+                                TargetType="{x:Type Button}"
+                                Value="False">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding IsPeriodDefined}"
+                                TargetType="{x:Type Button}"
+                                Value="True">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                        <Button.ImageSource>
+                            <!--FontFamily="{StaticResource EsaconFontFamily}"-->
+                            <!--Glyph="{Binding AddIcon}"-->
+                            <FontImageSource
+              
+                         Glyph="{Binding AddIcon}"
+                                Size="{Binding Source='15', Converter={StaticResource SizeConv}}"
+                                Color="White" />
+                        </Button.ImageSource>
+                    </Button>
+                </StackLayout>
+
+            </Frame>
+
+            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0"
+                           RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.20}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=0.42}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.53}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.7}">
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="Skill" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+            </StackLayout>
+
+            <Label Text="Motivation letter"
+                   Margin="0,0,3,10"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
+                   TextColor="DarkBlue"
+                   LineHeight="1.1"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Center"/>
+
+            <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.lock.png" />
+            <Label Text="Skill" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+
+            <Button Text="Exit" Command="{Binding CloseInfoCommand}"></Button>
+            <Button Text="Submit" Command="{Binding SubmitCommand}"></Button>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

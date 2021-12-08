@@ -122,7 +122,7 @@
         <ShellContent Route="integrity" ContentTemplate="{DataTemplate localtests:ViewIntegrity}"/>
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="Emotional" FlyoutIcon="tab_feed.png">
+    <FlyoutItem Route="home" Title="e-Intelligence" FlyoutIcon="tab_feed.png">
         <ShellContent Route="emotional" ContentTemplate="{DataTemplate localtests:ViewEmotional}"/>
     </FlyoutItem>
 

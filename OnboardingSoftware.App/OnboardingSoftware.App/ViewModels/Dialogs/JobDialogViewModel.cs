@@ -1,4 +1,5 @@
-﻿using Rg.Plugins.Popup.Services;
+﻿using OnboardingSoftware.App.LanguageSupport;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,11 +26,19 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
         public ICommand DisplayNameCommand => new Command<Posao>(async posao =>
         {
             await Application.Current.MainPage.DisplayAlert("Selected Name", posao.Naziv, "OK");
+     
         });
 
         public ICommand FinishCommand => new Command<Posao>(async posao =>
         {
             Debug.WriteLine("---------- OnStart called!");
+        });
+
+        public ICommand ApplyCommand => new Command<Posao>(async posao =>
+        {
+           // if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.ApplyDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+
         });
 
         public async Task CloseInfo()
