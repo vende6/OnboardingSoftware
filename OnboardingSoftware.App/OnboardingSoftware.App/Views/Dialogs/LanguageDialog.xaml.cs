@@ -13,11 +13,13 @@ namespace OnboardingSoftware.App.Views.Dialogs
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LanguageDialog : PopupPage
     {
+
         public LanguageDialog(string Title, string Text)
         {
             InitializeComponent();
             LabelTitle.Text = Title;
             LabelBody.Text = Text;
+
         }
     }
 }

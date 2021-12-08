@@ -1,8 +1,10 @@
 ﻿using Rg.Plugins.Popup.Services;
+using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.MultiSelectListView;
 
 namespace OnboardingSoftware.App.ViewModels.Dialogs
 {
@@ -11,6 +13,22 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
         public LanguageDialogViewModel()
         {
             IsDomesticSelected = Settings.LanguageId == "nb-NO" ? true : false;
+
+            Vjestine = new MultiSelectObservableCollection<Vjestina>();
+
+            Vjestina vjestina = new Vjestina();
+            vjestina.Naziv = "Bertuzzi";
+            Vjestine.Add(vjestina);
+
+            Vjestine[0].IsSelected = true;
+
+            vjestina = new Vjestina();
+            vjestina.Naziv = "Bruna";
+            Vjestine.Add(vjestina);
+
+            vjestina = new Vjestina();
+            vjestina.Naziv = "Polly";
+            Vjestine.Add(vjestina);
         }
 
 
@@ -101,5 +119,28 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
                 RaisePropertyChanged(() => IsDomesticSelected);
             }
         }
+
+
+        //===================
+
+        public class Vjestina
+        {
+            public string ID { get; set; }
+            public string Naziv { get; set; }
+            public string IsSelected { get; set; }
+        }
+
+        public MultiSelectObservableCollection<Vjestina> Vjestine { get; }
+
+        public ICommand DisplayNameCommand => new Command<Vjestina>(async vjestina =>
+        {
+            await Application.Current.MainPage.DisplayAlert("Selected Name", vjestina.Naziv, "OK");
+        });
+
+        public ICommand FinishCommand => new Command<Vjestina>(async vjestina =>
+        {
+            Debug.WriteLine(Vjestine);
+            Debug.WriteLine("---------- OnStart called!");
+        });
     }
 }
