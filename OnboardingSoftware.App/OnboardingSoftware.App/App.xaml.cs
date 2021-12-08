@@ -1,4 +1,4 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
+﻿
 using OnboardingSoftware.App.Services;
 using OnboardingSoftware.App.Views;
 using System;
@@ -14,17 +14,17 @@ namespace OnboardingSoftware.App
         public static int Score = 0;
         public static string Username = "";
 
-        private static MobileServiceClient _mobileServiceClient;
+        //private static MobileServiceClient _mobileServiceClient;
 
-        public static MobileServiceClient MobileService
-        {
-            get
-            {
-                if (_mobileServiceClient == null)
-                    _mobileServiceClient = new MobileServiceClient("https://xamarinfestquiz.azurewebsites.net");
-                return _mobileServiceClient;
-            }
-        }
+        //public static MobileServiceClient MobileService
+        //{
+        //    get
+        //    {
+        //        if (_mobileServiceClient == null)
+        //            _mobileServiceClient = new MobileServiceClient("https://xamarinfestquiz.azurewebsites.net");
+        //        return _mobileServiceClient;
+        //    }
+        //}
     }
 
     public partial class App : Application

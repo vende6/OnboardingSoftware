@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using OnboardingSoftware.App.Cards.Common;
+﻿using OnboardingSoftware.App.Cards.Common;
 using OnboardingSotware.App.Cards.Model;
 using System;
 using System.Collections.Generic;
