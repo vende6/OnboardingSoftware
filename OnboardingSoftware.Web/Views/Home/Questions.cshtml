@@ -1,0 +1,49 @@
+﻿@model IEnumerable<OnboardingSoftware.Web.Models.PitanjeViewModel>
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Questions</h1>
+
+<p align="right">
+    <input type="button" value="Create" onclick="location.href='@Url.Action("CreateQuestion", "Home" )'" />
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tekst)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RedniBroj)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Tekst)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Tip)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.RedniBroj)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

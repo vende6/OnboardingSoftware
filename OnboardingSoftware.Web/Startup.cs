@@ -1,13 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using OnboardingSoftware.Web.Interfaces;
+using OnboardingSoftware.Web.Services;
 
 namespace OnboardingSoftware.Web
 {
@@ -23,6 +25,17 @@ namespace OnboardingSoftware.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var section = Configuration.GetSection(nameof(ApiEndpoint));
+            var userspaceConfig = section.Get<ApiEndpoint>();
+            services.AddSingleton(userspaceConfig);
+
+            services.AddTransient<ILinkService, LinkService>();
+            services.AddTransient<ITagService, TagService>();
+            services.AddTransient<IAuthService, AuthService>();
+
+            services.AddHttpClient<LinkService>();
+            services.AddHttpClient<TagService>();
+
             services.AddControllersWithViews();
         }
 
@@ -50,7 +63,7 @@ namespace OnboardingSoftware.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Login}/{id?}");
             });
         }
     }

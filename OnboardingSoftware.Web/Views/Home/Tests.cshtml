@@ -1,0 +1,55 @@
+﻿@model IEnumerable<OnboardingSoftware.Web.Models.TestViewModel>
+
+    @{
+    ViewData["Title"] = "Home page";
+    }
+
+    <h1>Tests</h1>
+
+    <p align="right">
+        <input type="button" value="Create" onclick="location.href='@Url.Action("CreateTest", "Home" )'" />
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Naziv)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BrojPitanja)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tip)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Trajanje)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Naziv)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.BrojPitanja)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Tip)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Trajanje)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

@@ -6,7 +6,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\circle-cropped.png" />
+    <None Remove="Images\flagg_engelsk.png" />
+    <None Remove="Images\flagg_norsk.png" />
+    <None Remove="Images\lock.png" />
+    <None Remove="Images\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\circle-cropped.png" />
+    <EmbeddedResource Include="Images\flagg_engelsk.png" />
+    <EmbeddedResource Include="Images\flagg_norsk.png" />
+    <EmbeddedResource Include="Images\lock.png" />
+    <Content Include="Images\logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeginCollectionItemCore" Version="1.1.0" />
+    <PackageReference Include="dotnet-stop-words" Version="1.1.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.39" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>

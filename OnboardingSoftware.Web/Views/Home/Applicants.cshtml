@@ -1,0 +1,64 @@
+﻿@model IEnumerable<OnboardingSoftware.Web.Models.AplikantViewModel>
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Applicants</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrojTelefona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumRodjenja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adresa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.BrojTelefona)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DatumRodjenja)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Adresa)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

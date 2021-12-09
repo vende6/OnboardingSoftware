@@ -1,0 +1,176 @@
+﻿@model OnboardingSoftware.Web.Models.AplikantViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="lineContainer">
+    <div class="left">
+        <h2>Create link</h2>
+    </div>
+    <div class="right" style="text-align:end">
+        <input type="submit" value="Submit" onclick="SubmitMyForm()" class="btn btn-primary" />
+    </div>
+</div>
+<hr />
+<div>
+    <label style="font-size:smaller" class="text-danger">@ViewBag.ErrorMessage</label>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" id="createform">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input id="linkUrl" asp-for="Email" onchange="UrlChanged()" style="width:400px;" class="form-control"  />
+                <span id="valmsg" style="display:none" asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label"></label>
+                <input id="linkUrl" asp-for="Ime" onchange="UrlChanged()" style="width:400px;" class="form-control"  />
+                <span id="valmsg" style="display:none" asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prezime" class="control-label"></label>
+                <input id="linkUrl" asp-for="Prezime" onchange="UrlChanged()" style="width:400px;" class="form-control" />
+                <span id="valmsg" style="display:none" asp-validation-for="Prezime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrojTelefona" class="control-label"></label>
+                <input id="linkUrl" asp-for="BrojTelefona" onchange="UrlChanged()" style="width:400px;" class="form-control" />
+                <span id="valmsg" style="display:none" asp-validation-for="BrojTelefona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumRodjenja" class="control-label"></label>
+                <input id="linkUrl" asp-for="DatumRodjenja" onchange="UrlChanged()" style="width:400px;" class="form-control" />
+                <span id="valmsg" style="display:none" asp-validation-for="DatumRodjenja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adresa" class="control-label"></label>
+                <input id="linkUrl" asp-for="Adresa" onchange="UrlChanged()" style="width:400px;" class="form-control"  />
+                <span id="valmsg" style="display:none" asp-validation-for="Adresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<input type="button" id="addtags" value="Submit" onclick="ShowTags()" class="btn btn-success" />*@
+                @*<input type="button" id="hidetags" value="Clear tags" onclick="HideTags()" class="btn btn-primary" />*@
+            </div>
+            <div id="tagItemsContainer" style="display:none">
+                @*@Html.EditorFor(Model => Model.TagResources)*@
+                @*@Html.DropDownListFor(model => model.DropdownResource.SelectedValue, Model.DropdownResource.TagResources, "Please select", new { id = "ddlCity" })*@
+            </div>
+            <label id="loader" class="text-danger" style="display:none">Data is loading..</label>
+            <div class="row" id="addtagbutton" style="display:none">
+                <div class="col-md-4">
+                    @*<input class="btn btn-info" type="button" id="btnAdd" value="Add another tag" />*@
+                </div>
+            </div>
+        </form>
+        <div>
+            <br /><a asp-action="Home">Back to homepage</a>
+        </div>
+    </div>
+</div>
+<style>
+    .lineContainer {
+        overflow: hidden;
+    }
+
+    .left {
+        width: 200px;
+        float: left;
+        vertical-align: central;
+    }
+
+    .right {
+        overflow: hidden;
+        vertical-align: central;
+    }
+</style>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+
+        var callOne = true;
+
+        window.onload = function () {
+            this.callOne = true;
+        };
+
+        function UrlChanged() {
+            callOne = true;
+        }
+
+        function ShowTags() {
+            //    document.getElementById('loader').style.display = 'block';
+            //    $.ajax({
+            //        async: true,
+            //        data: $('#createform').serialize(),
+            //        type: "POST",
+            //        url: '/Links/InitializeTags',
+            //        success: function (partialView) {
+            //            $('#tagItemsContainer').html(partialView);
+            //            document.getElementById('loader').style.display = 'none';
+            //        }
+            //    });
+            
+
+            //if (document.getElementById('linkUrl').value === "") {
+            //    document.getElementById('valmsg').style.display = 'block';
+            //    return;
+            //}
+            //document.getElementById('valmsg').style.display = 'none';
+            //document.getElementById('tagItemsContainer').style.display = 'block';
+            //document.getElementById('addtagbutton').style.display = 'block';
+            //document.getElementById('linkUrl').readOnly = true;
+        }
+
+        function HideTags() {
+            document.getElementById('tagItemsContainer').style.display = 'none';
+            document.getElementById('addtagbutton').style.display = 'none';
+            document.getElementById('linkUrl').readOnly = false;
+        }
+        $("#hidetags").on('click', function () {
+            $.ajax({
+                async: true,
+                data: $('#createform').serialize(),
+                type: "POST",
+                url: '/Links/ClearTags',
+                success: function (partialView) {
+                    $('#tagItemsContainer').html(partialView);
+                }
+            });
+        });
+
+        $("#btnAdd").on('click', function () {
+            $.ajax({
+                async: true,
+                data: $('#createform').serialize(),
+                type: "POST",
+                url: '/Links/AddTag',
+                success: function (partialView) {
+                    $('#tagItemsContainer').html(partialView);
+                }
+            });
+        });
+
+        $('#addtag').on('click', function () {
+            $.ajax({
+                async: false,
+                url: '/Links/AddTag'
+            }).success(function (partialView) {
+                $('#new-Tag').html(partialView);
+            });
+        });
+
+        function SubmitMyForm() {
+            if (document.getElementById('linkUrl').value === "") {
+                document.getElementById('valmsg').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('valmsg').style.display = 'none';
+            document.getElementById("createform").submit();
+        }      
+
+    </script>
+}

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<OnboardingSoftware.Web.Models.PosaoViewModel>
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Jobs</h1>
+
+<p align="right">
+    <input type="button" value="Create" onclick="location.href='@Url.Action("CreateJob", "Home" )'" />
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategorija)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lokacija)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Tip)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Kategorija)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Lokacija)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
