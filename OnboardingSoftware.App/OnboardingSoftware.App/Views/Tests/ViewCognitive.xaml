@@ -22,7 +22,7 @@
        
         <Label Text="cognitive"/>
             <Label Text="psychological"  />
-            <Label Text="60min" />
+            <Label Text="2min" />
             <Label Text="2 questions" />
 
         <Button Text="Start" Command="{Binding StartCommand}"></Button>

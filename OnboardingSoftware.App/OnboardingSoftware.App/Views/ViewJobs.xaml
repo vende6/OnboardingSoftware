@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:OnboardingSoftware.App.Views.Cards"
-             x:Class="OnboardingSoftware.App.Views.ViewJobs">
+             x:Class="OnboardingSoftware.App.Views.ViewJobs"
+             Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="Emplist" HasUnevenRows="True">

@@ -45,7 +45,7 @@
                    Grid.ColumnSpan="2"
                    HorizontalOptions="Center"
                    FontSize="{Binding Source='25',Converter={StaticResource SizeConv}}"
-                   TextColor="Turquoise"
+                   TextColor="#45cc57"
                    LineHeight="1.1"
                    VerticalTextAlignment="End"
                    HorizontalTextAlignment="Start"/>
@@ -79,8 +79,9 @@
                 <Label Text="Skill" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
             </StackLayout>
 
+            <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,30,3,10" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.mail.png" />
             <Label Text="Motivational letter"
-                   Margin="0,0,3,10"
+          
                    Grid.Row="1"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
@@ -90,10 +91,11 @@
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
 
-            <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.lock.png" />
 
-            <Button Text="Exit" Command="{Binding CloseInfoCommand}"></Button>
-            <Button Text="Submit" Command="{Binding SubmitCommand}"></Button>
+            <StackLayout VerticalOptions="EndAndExpand">
+            <Button Text="Exit" Command="{Binding CloseInfoCommand}" BackgroundColor="Green" VerticalOptions="EndAndExpand"></Button>
+                <Button Text="Submit" Command="{Binding SubmitCommand}" BackgroundColor="Green" VerticalOptions="EndAndExpand"></Button>
+            </StackLayout>
         </StackLayout>
     </Frame>
 </pages:PopupPage>

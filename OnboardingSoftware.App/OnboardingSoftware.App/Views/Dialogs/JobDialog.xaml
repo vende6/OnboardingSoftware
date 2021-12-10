@@ -31,7 +31,7 @@
     </pages:PopupPage.Animation>
     <Frame BorderColor="White" Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="20">
         <StackLayout>
-            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0">
+            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,0,0,0">
                 <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
                 <Label Text="TOB" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
             </StackLayout>
@@ -43,7 +43,7 @@
                    HorizontalOptions="Center"
                    FontSize="{Binding Source='27',Converter={StaticResource SizeConv}}"
                    FontAttributes="Bold"
-                   TextColor="Turquoise"
+                   TextColor="#45cc57"
                    LineHeight="1.1"
                    VerticalTextAlignment="End"
                    HorizontalTextAlignment="Start"/>
@@ -110,8 +110,8 @@
                    HorizontalTextAlignment="Center"/>
 
 
-            <Button Text="Exit" Command="{Binding CloseInfoCommand}"></Button>
-            <Button Text="Apply" Command="{Binding ApplyCommand}"></Button>
+            <Button Text="Exit" BackgroundColor="Green" Command="{Binding CloseInfoCommand}"></Button>
+            <Button Text="Apply" BackgroundColor="Green" Command="{Binding ApplyCommand}"></Button>
         </StackLayout>
     </Frame>
 </pages:PopupPage>

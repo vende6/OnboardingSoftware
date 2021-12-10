@@ -22,7 +22,7 @@
                      iOS="10"/>
             </Frame.Margin>
             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                <BoxView Color="{Binding color}" WidthRequest="7" />
+                <BoxView Color="#45cc57 " WidthRequest="3" />
                 <Frame HorizontalOptions="FillAndExpand" Margin="0,0,0,0" HasShadow="False"  >
                 
                     <Grid VerticalOptions="CenterAndExpand" Padding="0" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
@@ -49,7 +49,7 @@
                                 <Label Text="TOB"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Location: "/>
+                        
                                 <Label Text="Sarajevo, Federation of Bosnia and Herzegovina"/>
                             </StackLayout>
 

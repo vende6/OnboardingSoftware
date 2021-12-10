@@ -71,7 +71,7 @@
 
 
 
-                <Button Text="Logout" BackgroundColor="Green" Command="{Binding NavigateCommand}" CommandParameter="//home/login" VerticalOptions="EndAndExpand"></Button>
+                <Button Text="Logout" BackgroundColor="#45cc57" Command="{Binding NavigateCommand}" CommandParameter="//home/login" VerticalOptions="EndAndExpand"></Button>
             </StackLayout>
         </Frame>
     </Grid>

@@ -11,6 +11,7 @@
     <None Remove="Images\flagg_norsk.png" />
     <None Remove="Images\lock.png" />
     <None Remove="Images\logo.png" />
+    <None Remove="Images\mail.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,9 +22,12 @@
     <EmbeddedResource Include="Images\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Images\mail.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.4.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.4.0" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.14" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.0" />
     <PackageReference Include="Xam.Plugin.FilePicker" Version="1.1.0" />

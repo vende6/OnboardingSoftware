@@ -1,4 +1,7 @@
 ﻿
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using OnboardingSoftware.App.Services;
 using OnboardingSoftware.App.Views;
 using System;
@@ -44,6 +47,10 @@ namespace OnboardingSoftware.App
 
         protected override void OnStart()
         {
+            AppCenter.Start("android=eba7d888-16b0-471e-b740-532e0e1db415;" +
+                  "uwp={Your UWP App secret here};" +
+                  "ios={Your iOS App secret here}",
+                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()

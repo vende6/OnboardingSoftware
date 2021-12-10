@@ -15,7 +15,7 @@
     x:Name="this"
     ios:Page.UseSafeArea="true"
     Shell.NavBarIsVisible="False"
-    BackgroundColor="Green"
+    BackgroundColor="#159B15"
     Shell.TabBarIsVisible="True">
 
     <ContentPage.BindingContext>
@@ -37,14 +37,14 @@
     <ContentPage.Content>
         <RelativeLayout>
             <controls:GradientColorStack
-                EndColor="Green"
+                EndColor="#45cc57"
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                        Property=Height,
                                                                        Factor=0.4}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                       Property=Width,
                                                                       Factor=1}"
-                StartColor="DarkOliveGreen" />
+                StartColor="Green" />
 
             <Image
                 Margin="10"
@@ -128,7 +128,7 @@
                                         FontFamily="{StaticResource EsaconFontFamily}"
                                     Glyph="{Binding CameraIcon}"
                                         Size="{Binding Source='100', Converter={StaticResource SizeConv}}"
-                                        Color="DarkOliveGreen" />
+                                        Color="Black" />
                                 </Image.Source>
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding LoadCameraCommand}" />
@@ -150,7 +150,7 @@
                                    FontFamily="{StaticResource EsaconFontFamily}"
                                         Glyph="{Binding GalleryIcon}"
                                         Size="{Binding Source='100', Converter={StaticResource SizeConv}}"
-                                        Color="DarkOliveGreen" />
+                                        Color="Black" />
                                 </Image.Source>
 
                                 <Image.GestureRecognizers>
@@ -191,7 +191,7 @@
                     FontSize="{Binding Source='17', Converter={StaticResource SizeConv}}"
                     HorizontalOptions="CenterAndExpand"
                     HorizontalTextAlignment="Center"
-                    Text="Show the organization what motivates you."
+                    Text="Show the organization what motivates you"
                     TextColor="WhiteSmoke"
                     VerticalOptions="CenterAndExpand" />
             </StackLayout>

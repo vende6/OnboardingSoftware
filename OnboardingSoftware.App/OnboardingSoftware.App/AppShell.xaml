@@ -6,8 +6,8 @@
        xmlns:core="clr-namespace:OnboardingSoftware.App"
        FlyoutBehavior="Flyout"
        FlyoutHeaderBehavior="CollapseOnScroll"
+       FlyoutBackgroundColor="White"
        Title="OnboardingSoftware"
-
        x:Class="OnboardingSoftware.App.AppShell">
 
     <!--
@@ -71,61 +71,44 @@
 
     <!-- Your Pages -->
     <Shell.FlyoutHeader>
-        <Grid HeightRequest="300" Margin="5,5,5,5">
-            <Image Source="{core:ImageResource OnboardingSoftware.App.Images.logo.jpg}"
-                   Aspect="AspectFill" 
-                   HeightRequest="300" 
-                   BackgroundColor="#edece7"
+        <Grid HeightRequest="250" Margin="5,5,5,5">
+            <Image Source="{core:ImageResource OnboardingSoftware.App.Images.logo.png}"
+                   BackgroundColor="White"
+                   Opacity="0.8"
                    HorizontalOptions="FillAndExpand"/>
             <Label Text="OnboardingSoftware" TextColor="Black" FontSize="20" FontFamily="Italic" Margin="7,0,0,5" HorizontalOptions="Start" VerticalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
         </Grid>
     </Shell.FlyoutHeader>
 
-    <FlyoutItem  Route="home"  Title="Login" FlyoutIcon="tab_feed.png">
-        <ShellContent Route="login" ContentTemplate="{DataTemplate local:ViewLogin}"/>
+
+    <FlyoutItem Route="home" Title="Profile" FlyoutIcon="logo.png">
+        <ShellContent Route="profile" ContentTemplate="{DataTemplate local:ViewProfile}" />
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="Register" FlyoutIcon="tab_feed.png">
-        <ShellContent Route="register" ContentTemplate="{DataTemplate local:ViewRegister}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Route="home" Title="Verify" FlyoutIcon="tab_feed.png">
-    <ShellContent Route="verify" ContentTemplate="{DataTemplate local:ViewVerify}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Route="home" Title="Skill" FlyoutIcon="tab_feed.png">
-        <ShellContent Route="skill" ContentTemplate="{DataTemplate local:ViewSkill}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Route="home" Title="Interest" FlyoutIcon="tab_feed.png">
-        <ShellContent Route="interest" ContentTemplate="{DataTemplate local:ViewInterest}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Route="home" Title="Profile" FlyoutIcon="tab_feed.png">
-        <ShellContent Route="profile" ContentTemplate="{DataTemplate local:ViewProfile}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Route="home" Title="Jobs" FlyoutIcon="tab_feed.png">
+    <FlyoutItem Route="home" Title="Jobs" FlyoutIcon="logo.png">
         <ShellContent Route="jobs" ContentTemplate="{DataTemplate local:ViewJobs}"/>
     </FlyoutItem>
 
 
-    <FlyoutItem Route="home" Title="Cognitive" FlyoutIcon="tab_feed.png">
-        <ShellContent Route="cognitive" ContentTemplate="{DataTemplate localtests:ViewCognitive}"/>
+    <FlyoutItem Route="home" Title="Cognitive" FlyoutIcon="icon_feed.png">
+        <ShellContent Route="cognitive" ContentTemplate="{DataTemplate localtests:ViewCognitive}" />
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="Personality" FlyoutIcon="tab_feed.png">
-        <ShellContent Route="personality" ContentTemplate="{DataTemplate localtests:ViewPersonality}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Route="home" Title="Integrity" FlyoutIcon="tab_feed.png">
-        <ShellContent Route="integrity" ContentTemplate="{DataTemplate localtests:ViewIntegrity}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Route="home" Title="e-Intelligence" FlyoutIcon="tab_feed.png">
+    <FlyoutItem Route="home" Title="Emotional" FlyoutIcon="icon_feed.png">
         <ShellContent Route="emotional" ContentTemplate="{DataTemplate localtests:ViewEmotional}"/>
     </FlyoutItem>
 
+    <FlyoutItem Route="home" Title="Integrity" FlyoutIcon="icon_feed.png">
+        <ShellContent Route="integrity" ContentTemplate="{DataTemplate localtests:ViewIntegrity}" />
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Personality" FlyoutIcon="icon_feed.png">
+        <ShellContent Route="personality" ContentTemplate="{DataTemplate localtests:ViewPersonality}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Logout">
+        <ShellContent Route="login" ContentTemplate="{DataTemplate local:ViewLogin}"/>
+    </FlyoutItem>
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
