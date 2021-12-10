@@ -28,5 +28,12 @@ namespace OnboardingSoftware.App.ViewModels.Tests
         {
             IsStarted = !IsStarted;
         });
+
+        public ICommand FinishCommand => new Command(async vjestina =>
+        {
+            await Application.Current.MainPage.DisplayAlert("Done", "Results have been archived.", "OK");
+            Application.Current.MainPage = new AppShell();
+            await Shell.Current.GoToAsync("//home/profile");
+        });
     }
 }

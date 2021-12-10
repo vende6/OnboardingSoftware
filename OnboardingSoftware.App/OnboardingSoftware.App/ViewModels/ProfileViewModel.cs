@@ -73,7 +73,7 @@ namespace OnboardingSoftware.App.ViewModels
                 return new Command<string>(async (route) =>
                 {
                     if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
-                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.LogoutDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.LogoutDialog(Translation.Translate("LogoutTitle"), Translation.Translate("LogoutText")));
                 });
             }
         }
@@ -86,7 +86,7 @@ namespace OnboardingSoftware.App.ViewModels
                 return new Command<string>(async (route) =>
                 {
                     if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
-                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.ReferenceDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.ReferenceDialog("Select references", "Import references for the application" ));
                 });
             }
         }
@@ -99,7 +99,7 @@ namespace OnboardingSoftware.App.ViewModels
                 return new Command<string>(async (route) =>
                 {
                     if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
-                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.SkillDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.SkillDialog("Select skills", "Select skills for the application"));
                 });
             }
         }
@@ -111,7 +111,7 @@ namespace OnboardingSoftware.App.ViewModels
                 return new Command<string>(async (route) =>
                 {
                     if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
-                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.InterestDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.InterestDialog("Select interests", "Select interests for the application"));
                 });
             }
         }
@@ -291,10 +291,10 @@ namespace OnboardingSoftware.App.ViewModels
         {
             await base.OnAppearing();
 
-            if (Settings.LanguageId == "nb-NO")
-                LanguageImage = ImageSource.FromResource("OnboardingSoftware.App.Images.flagg-engelsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
+            if (Settings.LanguageId == "en-GB")
+                LanguageImage = ImageSource.FromResource("OnboardingSoftware.App.Images.flagg_engelsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
             else
-                LanguageImage = ImageSource.FromResource("OnboardingSoftware.App.Images.flagg-norsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
+                LanguageImage = ImageSource.FromResource("OnboardingSoftware.App.Images.flagg_engelsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
 
             _currentPageSave = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
             _sendingPhoto = true;
@@ -720,6 +720,21 @@ namespace OnboardingSoftware.App.ViewModels
             {
                 _strokeWidth = value;
                 RaisePropertyChanged(() => StrokeWidth);
+            }
+        }
+
+        public ICommand NavigateCommand
+        {
+            get
+            {
+                return new Command<string>(async (route) =>
+                {
+
+
+                    await Shell.Current.GoToAsync(route);
+
+
+                });
             }
         }
     }

@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewmodels="clr-namespace:OnboardingSoftware.App.ViewModels.Tests" 
              xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters"
-             x:Class="OnboardingSoftware.App.Views.Tests.ViewEmotional">
+               Shell.NavBarIsVisible="False"
+             x:Class="OnboardingSoftware.App.Views.Tests.ViewEmotional"
+             x:Name="this">
     <ContentPage.BindingContext>
         <viewmodels:EmotionalViewModel/>
     </ContentPage.BindingContext>
@@ -14,13 +16,13 @@
     </ContentPage.Resources>
     <AbsoluteLayout>
 
-        <StackLayout VerticalOptions="CenterAndExpand" 
+        <StackLayout VerticalOptions="CenterAndExpand" Margin="190,260,0,0"
                      IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
                      HorizontalOptions="CenterAndExpand">
 
-            <Label Text="Emotivna inteligencija"/>
+            <Label Text="e-intelligence"/>
             <Label Text="psychological" />
-            <Label Text="1h" />
+            <Label Text="60min" />
             <Label Text="20 questions" />
 
             <Button Text="Start" Command="{Binding StartCommand}"></Button>
@@ -30,7 +32,7 @@
             ItemsSource="{Binding .}"
             IsVisible="{Binding IsStarted}"
             x:Name="TheCarousel"
-            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutBounds="0.5,0.7,0.5,0.9"
             AbsoluteLayout.LayoutFlags="All"
             HorizontalOptions="CenterAndExpand" 
             VerticalOptions="CenterAndExpand"
@@ -42,19 +44,17 @@
                         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                             <StackLayout x:Name="slQuestion" IsVisible="true">
                                 <Label x:Name="lblQuestion"
-                       FontAttributes="Bold"
-                       FontSize="Large"
+                 
                        HorizontalTextAlignment="Center"
-                       Text="What was the e-intelligence question?" />
+                       Text="Question?" />
                                 <Button x:Name="btnAnswerOne" Text="Yes" 
 				    IsEnabled="{Binding Answer1Enabled}" />
                                 <Button x:Name="btnAnswerTwo" Text="No" 
 				    IsEnabled="{Binding Answer2Enabled}" />
-                                <Button x:Name="btnAnswerThree" Text="Maybe" 
+                                <Button x:Name="btnAnswerThree" Text="N/A" 
 				    IsEnabled="{Binding Answer3Enabled}" />
                                 <Label x:Name="lblMessage"
-                       FontAttributes="Italic"
-                       FontSize="Large"
+            
                        HorizontalTextAlignment="Center"
                        Text="{Binding Message}" />
                             </StackLayout>
@@ -63,6 +63,8 @@
                                IsRunning="{Binding IsLoading}"
                                IsVisible="{Binding IsLoading}"
                                Color="Blue" />
+
+                            <Button Text="Finish" Margin="0,0,0,-20" Command="{Binding Path=BindingContext.FinishCommand, Source={x:Reference Name=this}}"></Button>
                         </StackLayout>
                     </AbsoluteLayout>
                 </DataTemplate>

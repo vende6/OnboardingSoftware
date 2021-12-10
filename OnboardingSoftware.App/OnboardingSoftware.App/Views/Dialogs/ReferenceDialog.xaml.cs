@@ -1,4 +1,5 @@
-﻿using Rg.Plugins.Popup.Pages;
+﻿using Plugin.FilePicker;
+using Rg.Plugins.Popup.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,16 @@ namespace OnboardingSoftware.App.Views.Dialogs
             InitializeComponent();
             LabelTitle.Text = Title;
             LabelBody.Text = Text;
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            var file = await CrossFilePicker.Current.PickFile();
+
+            if (file != null)
+            {
+                lbl.Text = file.FileName;
+            }
         }
     }
 }

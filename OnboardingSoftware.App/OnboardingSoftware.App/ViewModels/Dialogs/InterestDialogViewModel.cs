@@ -17,22 +17,30 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
             Vjestine = new MultiSelectObservableCollection<Vjestina>();
 
             Vjestina vjestina = new Vjestina();
-            vjestina.Naziv = "Bertuzzi";
+            vjestina.Naziv = "Communication";
             Vjestine.Add(vjestina);
 
             Vjestine[0].IsSelected = true;
 
             vjestina = new Vjestina();
-            vjestina.Naziv = "Bruna";
+            vjestina.Naziv = "Leadership";
             Vjestine.Add(vjestina);
 
             vjestina = new Vjestina();
-            vjestina.Naziv = "Polly";
+            vjestina.Naziv = "Critical-thinking";
+            Vjestine.Add(vjestina);
+
+            vjestina = new Vjestina();
+            vjestina.Naziv = "Problem-solving";
+            Vjestine.Add(vjestina);
+
+            vjestina = new Vjestina();
+            vjestina.Naziv = "Teamwork";
             Vjestine.Add(vjestina);
         }
 
         public class Vjestina
-        {
+        {   
             public string ID { get; set; }
             public string Naziv { get; set; }
             public string IsSelected { get; set; }

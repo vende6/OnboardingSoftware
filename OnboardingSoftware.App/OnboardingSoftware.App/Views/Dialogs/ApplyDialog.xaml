@@ -61,85 +61,6 @@
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
 
-            <Frame
-                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                       Property=Height,
-                                                                       Factor=0.20}"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                      Property=Width,
-                                                                      Factor=0.42}"
-                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Width,
-                                                                  Factor=0.53}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Height,
-                                                                  Factor=0.73}"
-                Style="{StaticResource cardFrame}">
-                <StackLayout
-                    HorizontalOptions="Center"
-                    Orientation="Vertical"
-                    Spacing="0"
-                    VerticalOptions="Center">
-                    <Image
-                        Margin="4,0,4,3"
-                        HeightRequest="{Binding Source='30', Converter={StaticResource SizeConv}}"
-                        WidthRequest="{Binding Source='30', Converter={StaticResource SizeConv}}">
-                        <Image.Source>
-                            <!--FontFamily="{StaticResource EsaconFontFamily}"
-                                Glyph="{Binding RocketIcon}"-->
-                            <FontImageSource
-                              Glyph="{Binding RocketIcon}"
-                                Size="{Binding Source='30', Converter={StaticResource SizeConv}}"
-                                Color="#6de1fa" />
-                        </Image.Source>
-                    </Image>
-                    <!--FontFamily="{StaticResource DomusLight}"-->
-                    <Label
-                       
-                        FontSize="{Binding Source='14', Converter={StaticResource SizeConv}}"
-                        HorizontalTextAlignment="Center"
-                        Text="{extensions:TranslateExtension SetNewGoals}"
-                        TextColor="AliceBlue" />
-                    <!--FontFamily="{StaticResource DomusBold}"-->
-                    <Button
-                        Margin="0,5,0,0"
-                        BackgroundColor="Turquoise"
-                        Command="{Binding RedirectToAddAchievementCommand}"
-                        CommandParameter="home/measurement/create"
-                        ContentLayout="Right,10"
-                        CornerRadius="15"
-                   
-                        FontSize="{Binding Source='11', Converter={StaticResource SizeConv}}"
-                        HeightRequest="{Binding Source='35', Converter={StaticResource SizeConv}}"
-                        Text="{extensions:TranslateExtension AddGoal}"
-                        TextColor="White">
-                        <Button.Triggers>
-                            <DataTrigger
-                                Binding="{Binding IsPeriodDefined}"
-                                TargetType="{x:Type Button}"
-                                Value="False">
-                                <Setter Property="IsEnabled" Value="False" />
-                            </DataTrigger>
-                            <DataTrigger
-                                Binding="{Binding IsPeriodDefined}"
-                                TargetType="{x:Type Button}"
-                                Value="True">
-                                <Setter Property="IsEnabled" Value="True" />
-                            </DataTrigger>
-                        </Button.Triggers>
-                        <Button.ImageSource>
-                            <!--FontFamily="{StaticResource EsaconFontFamily}"-->
-                            <!--Glyph="{Binding AddIcon}"-->
-                            <FontImageSource
-              
-                         Glyph="{Binding AddIcon}"
-                                Size="{Binding Source='15', Converter={StaticResource SizeConv}}"
-                                Color="White" />
-                        </Button.ImageSource>
-                    </Button>
-                </StackLayout>
-
-            </Frame>
 
             <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0"
                            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
@@ -158,7 +79,7 @@
                 <Label Text="Skill" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
             </StackLayout>
 
-            <Label Text="Motivation letter"
+            <Label Text="Motivational letter"
                    Margin="0,0,3,10"
                    Grid.Row="1"
                    Grid.Column="0"
@@ -170,7 +91,6 @@
                    HorizontalTextAlignment="Center"/>
 
             <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.lock.png" />
-            <Label Text="Skill" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
 
             <Button Text="Exit" Command="{Binding CloseInfoCommand}"></Button>
             <Button Text="Submit" Command="{Binding SubmitCommand}"></Button>

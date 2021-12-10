@@ -20,10 +20,10 @@ namespace OnboardingSoftware.App
         private static readonly string RefreshTokenDefault = string.Empty;
 
         private const string LanguageKey = "language_key";
-        private static readonly string LanguageKeyDefault = "nb-NO";
+        private static readonly string LanguageKeyDefault = "en-GB";
 
         private const string QuestionsLanguageKey = "questions_language_key";
-        private static readonly string QuestionsLanguageKeyDefault = "nb-NO";
+        private static readonly string QuestionsLanguageKeyDefault = "en-GB";
 
         private const string HasUserSetLanguageKey = "has_user_set_language_key";
         private static readonly bool HasUserSetLanguageKeyDefault = false;

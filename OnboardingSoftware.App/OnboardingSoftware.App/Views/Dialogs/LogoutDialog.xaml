@@ -29,7 +29,22 @@
                                    ScaleIn="1.2"
                                    ScaleOut="0.8" />
     </pages:PopupPage.Animation>
-    <Frame BorderColor="White" Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="20">
+
+    <Grid BackgroundColor="Transparent">
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding CloseInfoCommand}" />
+        </Grid.GestureRecognizers>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.6*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.15*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="0.15*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Frame BorderColor="White" Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="20">
             <StackLayout>
                 <Label x:Name="LabelTitle"
                    Margin="3,0,3,10"
@@ -38,7 +53,7 @@
                    Grid.ColumnSpan="2"
                    HorizontalOptions="Center"
                    FontSize="{Binding Source='25',Converter={StaticResource SizeConv}}"
-                   TextColor="Turquoise"
+                   TextColor="Black"
                    LineHeight="1.1"
                    VerticalTextAlignment="End"
                    HorizontalTextAlignment="Start"/>
@@ -49,14 +64,15 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
-                   TextColor="DarkBlue"
+                   TextColor="Black"
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
 
 
 
-                <Button Text="Logout" Command="{Binding CloseInfoCommand}"></Button>
+                <Button Text="Logout" BackgroundColor="Green" Command="{Binding NavigateCommand}" CommandParameter="//home/login" VerticalOptions="EndAndExpand"></Button>
             </StackLayout>
         </Frame>
- </pages:PopupPage>
+    </Grid>
+</pages:PopupPage>

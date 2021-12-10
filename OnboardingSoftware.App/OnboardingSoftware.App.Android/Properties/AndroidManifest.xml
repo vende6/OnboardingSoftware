@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:networkSecurityConfig="@xml/network_security_config" android:versionCode="1" android:versionName="1.0" package="com.companyname.onboardingsoftware.app" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
-	<application android:label="OnboardingSoftware.App.Android" android:theme="@style/MainTheme"></application>
+	<application android:label="OnboardingSoftware.App.Android" android:theme="@style/MainTheme" android:icon="@drawable/logo"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>

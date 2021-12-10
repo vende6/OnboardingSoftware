@@ -54,33 +54,14 @@
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
 
-            <ListView x:Name="lvwUsers" 
-            HasUnevenRows="true"
-            SeparatorVisibility="Default" 
                      
-            ItemsSource="{Binding Vjestine}"
-                  lv:MultiSelect.Enable="true">
-                <ListView.Behaviors>
-                    <lv:SelectedItemBehavior Command="{Binding DisplayNameCommand}" PropertyName="Naziv"/>
-                </ListView.Behaviors>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <lv:SelectableCell x:Name="SelectableCell">
+           <StackLayout>
+                <Button Text="Import references" Clicked="Button_Clicked" HorizontalOptions="Center"  BackgroundColor="Black"
+               VerticalOptions="Center"/>
+                <Label Text="File Is :" x:Name="lbl"/>
+        </StackLayout>
 
-                            <lv:SelectableCell.DataView>
-                                <StackLayout Orientation="Vertical" Padding="0,0,0,0">
-                                    <Label Text="{Binding Naziv}" FontSize="17" ></Label>
-                                </StackLayout>
-                            </lv:SelectableCell.DataView>
-
-                        </lv:SelectableCell>
-
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-
-            </ListView>
-
-            <Button Text="Finish" Command="{Binding CloseInfoCommand}"></Button>
+        <Button Text="Finish" Command="{Binding CloseInfoCommand}" VerticalOptions="EndAndExpand"></Button>
         </StackLayout>
     </Frame>
 </pages:PopupPage>

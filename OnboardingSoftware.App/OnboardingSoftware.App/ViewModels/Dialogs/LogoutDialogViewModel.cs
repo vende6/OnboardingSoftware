@@ -17,5 +17,20 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
         }
         public ICommand CloseInfoCommand { get { return new Command(async () => await CloseInfo()); } }
 
+        public ICommand NavigateCommand
+        {
+            get
+            {
+                return new Command<string>(async (route) =>
+                {
+
+                    await PopupNavigation.Instance.PopAsync(true);
+                    await Shell.Current.GoToAsync(route);
+
+
+                });
+            }
+        }
+
     }
 }

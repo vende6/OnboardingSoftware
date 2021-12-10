@@ -118,7 +118,7 @@
                     </ci:CircleImage>
                 </StackLayout>
 
-                <StackLayout Grid.Column="1" Grid.Row="3">
+                <!--<StackLayout Grid.Column="1" Grid.Row="3">
                     <ci:CircleImage
                 HeightRequest="{Binding Source='80', Converter={StaticResource SizeConv}}"
                 WidthRequest="{Binding Source='75', Converter={StaticResource SizeConv}}"
@@ -145,7 +145,7 @@
                             </DataTrigger>
                         </ci:CircleImage.Triggers>
                     </ci:CircleImage>
-                </StackLayout>
+                </StackLayout>-->
 
                 <BoxView HeightRequest="1"
                      Margin="-20,10,-20,0"

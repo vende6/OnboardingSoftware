@@ -112,6 +112,7 @@ namespace OnboardingSoftware.App.ViewModels
                 //    await Shell.Current.GoToAsync(route);
                 //}
                 IsBusy = false;
+                await Shell.Current.GoToAsync(route);
             }
             catch (Exception ex)
             {

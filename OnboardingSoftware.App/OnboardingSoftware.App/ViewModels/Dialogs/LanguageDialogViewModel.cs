@@ -12,7 +12,7 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
     {
         public LanguageDialogViewModel()
         {
-            IsDomesticSelected = Settings.LanguageId == "nb-NO" ? true : false;
+            IsDomesticSelected = Settings.LanguageId == "en-GB" ? true : false;
 
             Vjestine = new MultiSelectObservableCollection<Vjestina>();
 
@@ -33,7 +33,7 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
 
 
         public ICommand SelectEnglishCommand { get { return new Command(async () => await SelectEnglishLanguage()); } }
-        public ICommand SelectNorwayCommand { get { return new Command(async () => await SelectNorwayLanguage()); } }
+        //public ICommand SelectNorwayCommand { get { return new Command(async () => await SelectNorwayLanguage()); } }
         public ICommand CloseInfoCommand { get { return new Command(async () => await CloseInfo()); } }
 
         private ImageSource _englishFlagImage = ImageSource.FromResource("OnboardingSoftware.App.Images.flagg_engelsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
@@ -50,27 +50,27 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
             }
         }
 
-        private ImageSource _norwayFlagImage = ImageSource.FromResource("OnboardingSoftware.App.Images.flagg_norsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
-        public ImageSource NorwayFlagImage
-        {
-            get
-            {
-                return _norwayFlagImage;
-            }
-            set
-            {
-                _norwayFlagImage = value;
-                RaisePropertyChanged(() => NorwayFlagImage);
-            }
-        }
+        //private ImageSource _norwayFlagImage = ImageSource.FromResource("OnboardingSoftware.App.Images.flagg_norsk.png", typeof(ImageResourceExtension).GetTypeInfo().Assembly);
+        //public ImageSource NorwayFlagImage
+        //{
+        //    get
+        //    {
+        //        return _norwayFlagImage;
+        //    }
+        //    set
+        //    {
+        //        _norwayFlagImage = value;
+        //        RaisePropertyChanged(() => NorwayFlagImage);
+        //    }
+        //}
 
         public async Task<bool> SelectEnglishLanguage()
         {
             IsClosed = true;
-            //Settings.LanguageId = "en-GB";
-            //Settings.HasUserSetLanguage = true;
+            Settings.LanguageId = "en-GB";
+            Settings.HasUserSetLanguage = true;
             //await SwaggerClient.Client.ApiUsersChangelanguageAsync(Settings.UserId, "en-GB");
-            App.Current.MainPage = new AppShell();
+            //App.Current.MainPage = new AppShell();
             //App.GotoDashboard();
             await PopupNavigation.Instance.PopAsync(true);
             return false;
@@ -78,10 +78,10 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
         public async Task<bool> SelectNorwayLanguage()
         {
             IsClosed = true;
-            //Settings.LanguageId = "nb-NO";
-            //Settings.HasUserSetLanguage = true;
+            Settings.LanguageId = "en-GB";
+            Settings.HasUserSetLanguage = true;
             //await SwaggerClient.Client.ApiUsersChangelanguageAsync(Settings.UserId, "nb-NO");
-            App.Current.MainPage = new AppShell();
+            //App.Current.MainPage = new AppShell();
             //App.GotoDashboard();
             await PopupNavigation.Instance.PopAsync(true);
             return true;

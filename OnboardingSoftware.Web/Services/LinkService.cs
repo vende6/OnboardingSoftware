@@ -170,8 +170,8 @@ namespace OnboardingSoftware.Web.Services
                 {
                     ID = "1",
                     Naziv = "Cognitive",
-                    BrojPitanja = "20",
-                    Trajanje = "60min",
+                    BrojPitanja = "2",
+                    Trajanje = "2min",
                     Tip = "N/A"
                 });
 
@@ -179,8 +179,8 @@ namespace OnboardingSoftware.Web.Services
                 {
                     ID = "2",
                     Naziv = "Personality",
-                    BrojPitanja = "20",
-                    Trajanje = "60min",
+                    BrojPitanja = "2",
+                    Trajanje = "2min",
                     Tip = "N/A"
                 });
 
@@ -188,8 +188,8 @@ namespace OnboardingSoftware.Web.Services
                 {
                     ID = "3",
                     Naziv = "Integrity",
-                    BrojPitanja = "20",
-                    Trajanje = "60min",
+                    BrojPitanja = "2",
+                    Trajanje = "2min",
                     Tip = "N/A"
                 });
 
@@ -197,8 +197,8 @@ namespace OnboardingSoftware.Web.Services
                 {
                     ID = "4",
                     Naziv = "e-Intelligence",
-                    BrojPitanja = "20",
-                    Trajanje = "60min",
+                    BrojPitanja = "2",
+                    Trajanje = "2min",
                     Tip = "N/A"
                 });
 
@@ -226,7 +226,7 @@ namespace OnboardingSoftware.Web.Services
                 questions.Add(new PitanjeViewModel
                 {
                     ID = 1,
-                    Tekst = "Question_1",
+                    Tekst = "Question?",
                     RedniBroj = "No.1",
                     Tip = "Cognitive"
                 });
@@ -234,7 +234,7 @@ namespace OnboardingSoftware.Web.Services
                 questions.Add(new PitanjeViewModel
                 {
                     ID = 2,
-                    Tekst = "Question_2",
+                    Tekst = "Question?",
                     RedniBroj = "No.2",
                     Tip = "Cognitive"
                 });
@@ -242,16 +242,16 @@ namespace OnboardingSoftware.Web.Services
                 questions.Add(new PitanjeViewModel
                 {
                     ID = 3,
-                    Tekst = "Question_3",
-                    RedniBroj = "No.3",
+                    Tekst = "Question?",
+                    RedniBroj = "No.1",
                     Tip = "Cognitive"
                 });
 
                 questions.Add(new PitanjeViewModel
                 {
                     ID = 4,
-                    Tekst = "Question_4",
-                    RedniBroj = "No.4",
+                    Tekst = "Question?",
+                    RedniBroj = "No.2",
                     Tip = "Cognitive"
                 });
 

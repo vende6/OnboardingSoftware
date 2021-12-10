@@ -32,16 +32,16 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Entry x:Name="email" Placeholder="email" Grid.Row="0" ></Entry>
+                    <Entry x:Name="email" Placeholder="Email" Grid.Row="0" ></Entry>
 
-                    <Entry x:Name="lozinka" Placeholder="lozinka" Grid.Row="1" ></Entry>
+                    <Entry x:Name="lozinka" Placeholder="Password" Grid.Row="1" ></Entry>
                  
-                    <Entry x:Name="ime" Placeholder="ime" Grid.Row="2" ></Entry>
+                    <Entry x:Name="ime" Placeholder="First name" Grid.Row="2" ></Entry>
 
-                    <Entry x:Name="prezime" Placeholder="prezime" Grid.Row="3" ></Entry>
+                    <Entry x:Name="prezime" Placeholder="Last name" Grid.Row="3" ></Entry>
 
                     <Button x:Name="registerBtn" Text="Register" HorizontalOptions="Center" Margin="0,32,0,0"
-                            Command="{Binding NavigateCommand}" CommandParameter="//home/conditions"
+                            Command="{Binding NavigateCommand}" CommandParameter="//home/profile"
                         Grid.Row="5"  BackgroundColor="#13818d" TextColor="White"></Button>
 
                     <Label x:Name="redirectLogin" Text="Already have an account?" VerticalOptions="End" HorizontalOptions="Center" TextDecorations="Underline" Grid.Row="6">
