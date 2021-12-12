@@ -384,7 +384,7 @@ namespace OnboardingSoftware.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TestID")
+                    b.Property<int?>("TestID")
                         .HasColumnType("int");
 
                     b.Property<string>("Tip")
@@ -602,9 +602,7 @@ namespace OnboardingSoftware.Data.Migrations
 
                     b.HasOne("OnboardingSoftware.Core.Models.Test", "Test")
                         .WithMany()
-                        .HasForeignKey("TestID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TestID");
 
                     b.Navigation("Lokacija");
 

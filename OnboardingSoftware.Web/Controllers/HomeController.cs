@@ -112,19 +112,19 @@ namespace OnboardingSoftware.Web.Controllers
         }
         public async Task<ActionResult> CreateJob([Bind("Naziv, Tip, Kategorija, Opis, Lokacija")] PosaoViewModel model)
         {
-            if (ModelState.IsValid) {
-                var response = await _posaoService.(model);
-                if (!response)
-                {
-                    ViewBag.ErrorMessage = errorMsg;
-                    return View(model);
-                }
-                return RedirectToAction("Home");
-            }
-            else
-            {
-                ViewBag.ErrorMessage = errorMsg;
-            }
+            //if (ModelState.IsValid) {
+            //    var response = await _posaoService.(model);
+            //    if (!response)
+            //    {
+            //        ViewBag.ErrorMessage = errorMsg;
+            //        return View(model);
+            //    }
+            //    return RedirectToAction("Home");
+            //}
+            //else
+            //{
+            //    ViewBag.ErrorMessage = errorMsg;
+            //}
 
             return View(model);
         }

@@ -10,7 +10,7 @@ using OnboardingSoftware.Data;
 namespace OnboardingSoftware.Data.Migrations
 {
     [DbContext(typeof(OnboardingSoftwareDbContext))]
-    [Migration("20211212113859_InitialModel")]
+    [Migration("20211212150058_InitialModel")]
     partial class InitialModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -386,7 +386,7 @@ namespace OnboardingSoftware.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TestID")
+                    b.Property<int?>("TestID")
                         .HasColumnType("int");
 
                     b.Property<string>("Tip")
@@ -604,9 +604,7 @@ namespace OnboardingSoftware.Data.Migrations
 
                     b.HasOne("OnboardingSoftware.Core.Models.Test", "Test")
                         .WithMany()
-                        .HasForeignKey("TestID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TestID");
 
                     b.Navigation("Lokacija");
 

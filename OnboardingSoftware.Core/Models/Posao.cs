@@ -19,7 +19,7 @@ namespace OnboardingSoftware.Core.Models
         public string Opis { get; set; }
         public int LokacijaID { get; set; }
         public Lokacija Lokacija { get; set; }
-        public int TestID { get; set; }
+        public int? TestID { get; set; }
         public virtual Test Test { get; set; }
         public virtual ICollection<AplikantPosao> AplikantPosao { get; set; }
 

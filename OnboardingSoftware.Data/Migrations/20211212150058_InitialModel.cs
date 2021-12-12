@@ -261,7 +261,7 @@ namespace OnboardingSoftware.Data.Migrations
                     Kategorija = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Opis = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LokacijaID = table.Column<int>(type: "int", nullable: false),
-                    TestID = table.Column<int>(type: "int", nullable: false)
+                    TestID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -277,7 +277,7 @@ namespace OnboardingSoftware.Data.Migrations
                         column: x => x.TestID,
                         principalTable: "Testovi",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
