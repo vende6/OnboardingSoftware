@@ -31,7 +31,6 @@ namespace OnboardingSoftware.Web.Controllers
 
         public HomeController(IAuthService authService, ITagService tagService, ILinkService linkService)
         {
-            //_linkService = linkService;
             _tagService = tagService;
             _authService = authService;
             _linkService = linkService;
@@ -40,7 +39,7 @@ namespace OnboardingSoftware.Web.Controllers
         public async Task<IActionResult> Applicants()
         {
             var links = await _linkService.GetLinks(userId);
-            return View();
+            return View(links);
         }
         [HttpGet]
         public async Task<IActionResult> Jobs()
