@@ -284,11 +284,20 @@ namespace OnboardingSoftware.Web.Services
             }
         }
         [HttpPost]
-        public async Task<bool> CreateJob(PosaoViewModel job)
+        public async Task<bool> CreateJob(PosaoViewModel posao)
         {
             try
             {
-                var obj = JsonConvert.SerializeObject(job);
+                SavePosaoResource posaoResource = new SavePosaoResource
+                {
+                    Naziv = posao.Naziv,
+                    Kategorija = posao.Kategorija,
+                    Lokacija = new LokacijaResource { Naziv = posao.Naziv },
+                    Opis = posao.Opis,
+                    Tip = posao.Tip
+                };
+
+                var obj = JsonConvert.SerializeObject(posaoResource);
                 var stringContent = new StringContent(obj, UnicodeEncoding.UTF8, MediaTypeNames.Application.Json);
 
                 var response = await _httpClient.PostAsync(linksUrl, stringContent);

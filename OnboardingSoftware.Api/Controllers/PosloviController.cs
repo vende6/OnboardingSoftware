@@ -37,7 +37,7 @@ namespace OnboardingSoftware.Api.Controllers
 
         // POST: api/poslovi
         [HttpPost("")]
-        public async Task<ActionResult<PosaoResource>> CreatePosao([FromBody] SavePosaoResource savePosaoResource)
+        public async Task<ActionResult<bool>> CreatePosao([FromBody] SavePosaoResource savePosaoResource)
         {
 
             //var validator = new SaveLinkResourceValidator();
@@ -46,13 +46,12 @@ namespace OnboardingSoftware.Api.Controllers
             //    return BadRequest(validationResult.Errors);
 
             var posaoToCreate = _mapper.Map<SavePosaoResource, Posao>(savePosaoResource);
-
             await _posaoService.CreatePosao(posaoToCreate);
        
 
             //await _userLinkService.CreateUserLink(new UserLink { LinkId = link.ID, TagId = tag.ID, UserId = Guid.Parse(userId) });
 
-            return Ok();
+            return Ok(true);
         }
 
     }
