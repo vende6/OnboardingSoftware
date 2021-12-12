@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using OnboardingSoftware.Api.Resources;
 using OnboardingSoftware.Core.Models;
 using OnboardingSoftware.Core.Services;
 using System;
@@ -14,16 +15,20 @@ namespace OnboardingSoftware.Api.Controllers
     public class PosloviController : ControllerBase
     {
         private readonly IPosaoService _posaoService;
+        private readonly IMapper _mapper;
         public PosloviController(IPosaoService posaoService, IMapper mapper)
         {
             this._posaoService = posaoService;
+            this._mapper = mapper;
         }
 
         [HttpGet("")]
-        public async Task<ActionResult<IEnumerable<Posao>>> GetAllPoslovi()
+        public async Task<ActionResult<IEnumerable<PosaoResource>>> GetAllPoslovi()
         {
             var poslovi = await this._posaoService.GetAllWithLokacija();
-            return Ok(poslovi);
+            var posaoResources = _mapper.Map<IEnumerable<Posao>, IEnumerable<PosaoResource>>(poslovi);
+
+            return Ok(posaoResources);
         }
     }
 }
