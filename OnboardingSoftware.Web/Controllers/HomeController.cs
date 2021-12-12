@@ -39,7 +39,7 @@ namespace OnboardingSoftware.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Applicants()
         {
-            //var links = await _linkService.getLinks(userId);
+            var links = await _linkService.GetLinks(userId);
             return View();
         }
         [HttpGet]
