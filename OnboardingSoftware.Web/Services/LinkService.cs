@@ -100,50 +100,50 @@ namespace OnboardingSoftware.Web.Services
                 List<PosaoViewModel> jobs = new List<PosaoViewModel>();
                 //if (!String.IsNullOrEmpty(userId))
                 //{
-                //    var response = await _httpClient.GetAsync(linksUrl);
-                //    string apiResponse = await response.Content.ReadAsStringAsync();
-                //    links = JsonConvert.DeserializeObject<List<LinkViewModel>>(apiResponse);
+                    var response = await _httpClient.GetAsync(linksUrl);
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    jobs = JsonConvert.DeserializeObject<List<PosaoViewModel>>(apiResponse);
                 //}
 
-                jobs.Add(new PosaoViewModel
-                {
-                    ID = "1",
-                    Naziv = "Back-end developer",
-                    Kategorija = "Fulltime",
-                    Lokacija = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    Opis = "N/A",
-                    Tip = "Contract · Mid-Senior Level"
-                });
+                //jobs.Add(new PosaoViewModel
+                //{
+                //    ID = "1",
+                //    Naziv = "Back-end developer",
+                //    Kategorija = "Fulltime",
+                //    Lokacija = "Sarajevo, Federation of Bosnia and Herzegovina",
+                //    Opis = "N/A",
+                //    Tip = "Contract · Mid-Senior Level"
+                //});
 
-                jobs.Add(new PosaoViewModel
-                {
-                    ID = "2",
-                    Naziv = "Back-end developer",
-                    Kategorija = "Fulltime",
-                    Lokacija = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    Opis = "N/A",
-                    Tip = "Contract · Mid-Senior Level"
-                });
+                //jobs.Add(new PosaoViewModel
+                //{
+                //    ID = "2",
+                //    Naziv = "Back-end developer",
+                //    Kategorija = "Fulltime",
+                //    Lokacija = "Sarajevo, Federation of Bosnia and Herzegovina",
+                //    Opis = "N/A",
+                //    Tip = "Contract · Mid-Senior Level"
+                //});
 
-                jobs.Add(new PosaoViewModel
-                {
-                    ID = "3",
-                    Naziv = "Back-end developer",
-                    Kategorija = "Fulltime",
-                    Lokacija = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    Opis = "N/A",
-                    Tip = "Contract · Mid-Senior Level"
-                });
+                //jobs.Add(new PosaoViewModel
+                //{
+                //    ID = "3",
+                //    Naziv = "Back-end developer",
+                //    Kategorija = "Fulltime",
+                //    Lokacija = "Sarajevo, Federation of Bosnia and Herzegovina",
+                //    Opis = "N/A",
+                //    Tip = "Contract · Mid-Senior Level"
+                //});
 
-                jobs.Add(new PosaoViewModel
-                {
-                    ID = "4",
-                    Naziv = "Back-end developer",
-                    Kategorija = "Fulltime",
-                    Lokacija = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    Opis = "N/A",
-                    Tip = "Contract · Mid-Senior Level"
-                });
+                //jobs.Add(new PosaoViewModel
+                //{
+                //    ID = "4",
+                //    Naziv = "Back-end developer",
+                //    Kategorija = "Fulltime",
+                //    Lokacija = "Sarajevo, Federation of Bosnia and Herzegovina",
+                //    Opis = "N/A",
+                //    Tip = "Contract · Mid-Senior Level"
+                //});
 
                 return jobs;
             }
@@ -284,12 +284,11 @@ namespace OnboardingSoftware.Web.Services
             }
         }
         [HttpPost]
-        public async Task<bool> CreateLink(LinkResource link)
+        public async Task<bool> CreateJob(PosaoViewModel job)
         {
             try
             {
-                link.UserId = userId;
-                var obj = JsonConvert.SerializeObject(link);
+                var obj = JsonConvert.SerializeObject(job);
                 var stringContent = new StringContent(obj, UnicodeEncoding.UTF8, MediaTypeNames.Application.Json);
 
                 var response = await _httpClient.PostAsync(linksUrl, stringContent);

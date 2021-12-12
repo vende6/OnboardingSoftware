@@ -10,7 +10,7 @@ using OnboardingSoftware.Data;
 namespace OnboardingSoftware.Data.Migrations
 {
     [DbContext(typeof(OnboardingSoftwareDbContext))]
-    [Migration("20211127182959_InitialModel")]
+    [Migration("20211212113859_InitialModel")]
     partial class InitialModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

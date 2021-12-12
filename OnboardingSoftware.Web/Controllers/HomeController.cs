@@ -29,23 +29,24 @@ namespace OnboardingSoftware.Web.Controllers
         public ITagService _tagService { get; private set; }
         public IAuthService _authService { get; private set; }
 
-        public HomeController(IAuthService authService, ILinkService linkService, ITagService tagService)
+        public HomeController(IAuthService authService, ITagService tagService, ILinkService linkService)
         {
-            _linkService = linkService;
+            //_linkService = linkService;
             _tagService = tagService;
             _authService = authService;
+            _linkService = linkService;
         }
         [HttpGet]
         public async Task<IActionResult> Applicants()
         {
-            var links = await _linkService.GetLinks(userId);
-            return View(links);
+            //var links = await _linkService.getLinks(userId);
+            return View();
         }
         [HttpGet]
         public async Task<IActionResult> Jobs()
         {
-            var links = await _linkService.GetJobs(userId);
-            return View(links);
+            var jobs = await _linkService.GetJobs(userId);
+            return View(jobs);
         }
         [HttpGet]
         public async Task<IActionResult> Tests()
@@ -109,8 +110,27 @@ namespace OnboardingSoftware.Web.Controllers
             //return RedirectToAction("Login");
             return RedirectToAction("Applicants");
         }
-        public async Task<ActionResult> CreateJob(PosaoViewModel model)/*[Bind("Name, SelectedTag, TagResources")] */
+        public async Task<ActionResult> CreateJob([Bind("Naziv, Tip, Kategorija, Opis, Lokacija")] PosaoViewModel model)
         {
+            if (ModelState.IsValid) {
+                var response = await _posaoService.(model);
+                if (!response)
+                {
+                    ViewBag.ErrorMessage = errorMsg;
+                    return View(model);
+                }
+                return RedirectToAction("Home");
+            }
+            else
+            {
+                ViewBag.ErrorMessage = errorMsg;
+            }
+
+            return View(model);
+        }
+       
+
+
             //if (!String.IsNullOrEmpty(model.Name))
             //{
             //    if (ModelState.IsValid)
@@ -139,8 +159,31 @@ namespace OnboardingSoftware.Web.Controllers
             //    }
             //}
 
-            return View(model);
-        }
+          //  return View(model);
+       // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public async Task<ActionResult> CreateQuestion(PitanjeViewModel model)
         {
@@ -153,6 +196,7 @@ namespace OnboardingSoftware.Web.Controllers
 
             return View(model);
         }
+
         protected List<TagResource> StripHtml(LinkResource link)
         {
             string siteContent = string.Empty;

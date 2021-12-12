@@ -15,6 +15,8 @@ namespace OnboardingSoftware.Data.Repositories
             : base(context)
         { }
         
+        
+
         public async Task<IEnumerable<Aplikant>> GetAllWithVjestineAsync()
         {
             return await OnboardingSoftwareDbContext.Aplikanti

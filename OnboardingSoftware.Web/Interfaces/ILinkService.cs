@@ -14,7 +14,7 @@ namespace OnboardingSoftware.Web.Interfaces
         Task<IEnumerable<TestViewModel>> GetTests(string userId);
         Task<IEnumerable<PitanjeViewModel>> GetQuestions(string userId);
         Task<LinkViewModel> GetLinkById(int id);
-         Task<bool> CreateLink(LinkResource link);
+         Task<bool> CreateJob(PosaoViewModel link);
          Task<LinkResource> CheckLinkForOccurance(string name);
     }
 }

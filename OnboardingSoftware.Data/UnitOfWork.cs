@@ -14,6 +14,7 @@ namespace OnboardingSoftware.Data
         private readonly OnboardingSoftwareDbContext _context;
         private VjestinaRepository _vjestinaRepository;
         private AplikantRepository _aplikantRepository;
+        private PosaoRepository _posaoRepository;
 
         public UnitOfWork(OnboardingSoftwareDbContext context)
         {
@@ -23,6 +24,8 @@ namespace OnboardingSoftware.Data
         public IVjestinaRepository Vjestine => _vjestinaRepository = _vjestinaRepository ?? new VjestinaRepository(_context);
 
         public IAplikantRepository Aplikanti => _aplikantRepository = _aplikantRepository ?? new AplikantRepository(_context);
+
+        public IPosaoRepository Poslovi => _posaoRepository = _posaoRepository ?? new PosaoRepository(_context);
 
         public async Task<int> CommitAsync()
         {
