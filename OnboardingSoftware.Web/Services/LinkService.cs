@@ -23,11 +23,13 @@ namespace OnboardingSoftware.Web.Services
         public HttpClient _httpClient { get; set; }
         private string jobsUrl;
         private string testsUrl;
+        private string questionsUrl;
         public LinkService(IHttpClientFactory httpClientFactory, ApiEndpoint apiEndpoint)
         {
             _httpClient = httpClientFactory.CreateClient();
             jobsUrl = apiEndpoint.JobsEndpointUrl;
             testsUrl = apiEndpoint.TestsEndpointUrl;
+            questionsUrl = apiEndpoint.QuestionsEndpointUrl;
 
             _httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue(JwtBearerDefaults.AuthenticationScheme, jwtToken);
@@ -221,42 +223,42 @@ namespace OnboardingSoftware.Web.Services
                 List<PitanjeViewModel> questions = new List<PitanjeViewModel>();
                 //if (!String.IsNullOrEmpty(userId))
                 //{
-                //    var response = await _httpClient.GetAsync(linksUrl);
-                //    string apiResponse = await response.Content.ReadAsStringAsync();
-                //    links = JsonConvert.DeserializeObject<List<LinkViewModel>>(apiResponse);
+                var response = await _httpClient.GetAsync(questionsUrl);
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                questions = JsonConvert.DeserializeObject<List<PitanjeViewModel>>(apiResponse);
                 //}
 
-                questions.Add(new PitanjeViewModel
-                {
-                    ID = 1,
-                    Tekst = "Question?",
-                    RedniBroj = "No.1",
-                    Tip = "Cognitive"
-                });
+                //questions.Add(new PitanjeViewModel
+                //{
+                //    ID = 1,
+                //    Tekst = "Question?",
+                //    RedniBroj = "No.1",
+                //    Tip = "Cognitive"
+                //});
 
-                questions.Add(new PitanjeViewModel
-                {
-                    ID = 2,
-                    Tekst = "Question?",
-                    RedniBroj = "No.2",
-                    Tip = "Cognitive"
-                });
+                //questions.Add(new PitanjeViewModel
+                //{
+                //    ID = 2,
+                //    Tekst = "Question?",
+                //    RedniBroj = "No.2",
+                //    Tip = "Cognitive"
+                //});
 
-                questions.Add(new PitanjeViewModel
-                {
-                    ID = 3,
-                    Tekst = "Question?",
-                    RedniBroj = "No.1",
-                    Tip = "Cognitive"
-                });
+                //questions.Add(new PitanjeViewModel
+                //{
+                //    ID = 3,
+                //    Tekst = "Question?",
+                //    RedniBroj = "No.1",
+                //    Tip = "Cognitive"
+                //});
 
-                questions.Add(new PitanjeViewModel
-                {
-                    ID = 4,
-                    Tekst = "Question?",
-                    RedniBroj = "No.2",
-                    Tip = "Cognitive"
-                });
+                //questions.Add(new PitanjeViewModel
+                //{
+                //    ID = 4,
+                //    Tekst = "Question?",
+                //    RedniBroj = "No.2",
+                //    Tip = "Cognitive"
+                //});
 
                 return questions;
             }
@@ -346,6 +348,38 @@ namespace OnboardingSoftware.Web.Services
                 var stringContent = new StringContent(obj, UnicodeEncoding.UTF8, MediaTypeNames.Application.Json);
 
                 var response = await _httpClient.PostAsync(testsUrl, stringContent);
+
+                //if (response.StatusCode == HttpStatusCode.Conflict)
+                //{
+                //    var errmsg = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result);
+                //    var id = Regex.Match(Convert.ToString(errmsg), @"'([^']*)").Groups[1].Value;
+                //    return new LinkResource { ID = Convert.ToInt32(id), Name = link.Name };
+                //}
+
+                //string apiResponse = await response.Content.ReadAsStringAsync();
+                //var createdLink = JsonConvert.DeserializeObject<LinkResource>(apiResponse);
+
+                //return createdLink;
+
+                return response.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        [HttpPost]
+        public async Task<bool> CreateQuestion(PitanjeViewModel pitanje)
+        {
+            try
+            {
+
+                var obj = JsonConvert.SerializeObject(pitanje);
+                var stringContent = new StringContent(obj, UnicodeEncoding.UTF8, MediaTypeNames.Application.Json);
+
+                var response = await _httpClient.PostAsync(questionsUrl, stringContent);
 
                 //if (response.StatusCode == HttpStatusCode.Conflict)
                 //{

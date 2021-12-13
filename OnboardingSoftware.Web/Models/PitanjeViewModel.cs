@@ -11,5 +11,6 @@ namespace OnboardingSoftware.Web.Models
         public string Tekst { get; set; }
         public string Tip { get; set; }
         public string RedniBroj { get; set; }
+        public int TestID { get; set; }
     }
 }

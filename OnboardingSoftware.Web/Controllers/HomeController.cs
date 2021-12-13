@@ -148,6 +148,26 @@ namespace OnboardingSoftware.Web.Controllers
         }
 
 
+        public async Task<ActionResult> CreateQuestion([Bind("Tekst, Tip, RedniBroj")] PitanjeViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var response = await _linkService.CreateQuestion(model);
+                if (!response)
+                {
+                    ViewBag.ErrorMessage = errorMsg;
+                    return View(model);
+                }
+            }
+            else
+            {
+                ViewBag.ErrorMessage = errorMsg;
+            }
+
+            return RedirectToAction("Tests");
+        }
+
+
 
         //if (!String.IsNullOrEmpty(model.Name))
         //{
