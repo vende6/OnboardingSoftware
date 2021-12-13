@@ -21,13 +21,13 @@ namespace OnboardingSoftware.Web.Services
     public class LinkService : ILinkService
     {
         public HttpClient _httpClient { get; set; }
-        private string linksUrl;
+        private string jobsUrl;
         private string testsUrl;
         public LinkService(IHttpClientFactory httpClientFactory, ApiEndpoint apiEndpoint)
         {
             _httpClient = httpClientFactory.CreateClient();
-            linksUrl = apiEndpoint.LinksEndpointUrl;
-            testsUrl = "https://localhost:44308/api/testovi";
+            jobsUrl = apiEndpoint.JobsEndpointUrl;
+            testsUrl = apiEndpoint.TestsEndpointUrl;
 
             _httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue(JwtBearerDefaults.AuthenticationScheme, jwtToken);
@@ -103,7 +103,7 @@ namespace OnboardingSoftware.Web.Services
                 List<PosaoViewModel> jobs = new List<PosaoViewModel>();
                 //if (!String.IsNullOrEmpty(userId))
                 //{
-                    var response = await _httpClient.GetAsync(linksUrl);
+                    var response = await _httpClient.GetAsync(jobsUrl);
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     jobs = JsonConvert.DeserializeObject<List<PosaoViewModel>>(apiResponse);
                 //}
@@ -269,23 +269,23 @@ namespace OnboardingSoftware.Web.Services
 
 
 
-        [HttpGet]
-        public async Task<LinkResource> CheckLinkForOccurance(string name)
-        {
-            try
-            {
-                var querystring = System.Web.HttpUtility.UrlEncode(name);
-                var response = await _httpClient.GetAsync(linksUrl + "/checkforoccurance/" + querystring);
-                string apiResponse = await response.Content.ReadAsStringAsync();
-                var link = JsonConvert.DeserializeObject<LinkResource>(apiResponse);
+        //[HttpGet]
+        //public async Task<LinkResource> CheckLinkForOccurance(string name)
+        //{
+        //    try
+        //    {
+        //        var querystring = System.Web.HttpUtility.UrlEncode(name);
+        //        var response = await _httpClient.GetAsync(linksUrl + "/checkforoccurance/" + querystring);
+        //        string apiResponse = await response.Content.ReadAsStringAsync();
+        //        var link = JsonConvert.DeserializeObject<LinkResource>(apiResponse);
 
-                return link;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        //        return link;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
         [HttpPost]
         public async Task<bool> CreateJob(PosaoViewModel posao)
         {
@@ -303,7 +303,7 @@ namespace OnboardingSoftware.Web.Services
                 var obj = JsonConvert.SerializeObject(posaoResource);
                 var stringContent = new StringContent(obj, UnicodeEncoding.UTF8, MediaTypeNames.Application.Json);
 
-                var response = await _httpClient.PostAsync(testsUrl, stringContent);
+                var response = await _httpClient.PostAsync(jobsUrl, stringContent);
 
                 //if (response.StatusCode == HttpStatusCode.Conflict)
                 //{

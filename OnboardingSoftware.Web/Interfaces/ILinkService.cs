@@ -16,6 +16,6 @@ namespace OnboardingSoftware.Web.Interfaces
         Task<LinkViewModel> GetLinkById(int id);
          Task<bool> CreateJob(PosaoViewModel link);
         Task<bool> CreateTest(TestViewModel link);
-        Task<LinkResource> CheckLinkForOccurance(string name);
+      //Task<LinkResource> CheckLinkForOccurance(string name);
     }
 }

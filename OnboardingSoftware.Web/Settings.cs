@@ -18,7 +18,7 @@ namespace OnboardingSoftware.Web
     public class ApiEndpoint
     {
         public string AuthEndpointUrl { get; set; }
-        public string LinksEndpointUrl { get; set; }
+        public string JobsEndpointUrl { get; set; }
         public string TestsEndpointUrl { get; set; }
         public string TagsEndpointUrl { get; set; }
     }
