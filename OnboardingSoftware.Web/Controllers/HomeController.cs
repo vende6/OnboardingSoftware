@@ -127,39 +127,58 @@ namespace OnboardingSoftware.Web.Controllers
 
             return RedirectToAction("Jobs");
         }
-       
+
+        public async Task<ActionResult> CreateTest([Bind("Naziv, Tip, Trajanje, BrojPitanja")] TestViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var response = await _linkService.CreateTest(model);
+                if (!response)
+                {
+                    ViewBag.ErrorMessage = errorMsg;
+                    return View(model);
+                }
+            }
+            else
+            {
+                ViewBag.ErrorMessage = errorMsg;
+            }
+
+            return RedirectToAction("Tests");
+        }
 
 
-            //if (!String.IsNullOrEmpty(model.Name))
-            //{
-            //    if (ModelState.IsValid)
-            //    {
-            //        if (String.IsNullOrEmpty(model.SelectedTag) || model.SelectedTag == "Add other" || model.SelectedTag == "Select tag category")
-            //        {
-            //            ViewBag.ErrorMessage = errorMsgGen;
-            //            return View(model);
-            //        }
 
-            //        //check for tag occurance
-            //        // var selectedTagExists = await _tagService.CheckTagForOccuranceAsync(model.Name, model.SelectedTag);
-            //        model.Name = model.Name.ToLower();
-            //        var response = await _linkService.CreateLink(model);
-            //        if (!response)
-            //        {
-            //            ViewBag.ErrorMessage = errorMsg;
-            //            return View(model);
-            //        }
-            //        return RedirectToAction("Home");
-            //    }
-            //    else
-            //    {
-            //        model.TagResources.Clear();
-            //        ViewBag.ErrorMessage = errorMsg;
-            //    }
-            //}
+        //if (!String.IsNullOrEmpty(model.Name))
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (String.IsNullOrEmpty(model.SelectedTag) || model.SelectedTag == "Add other" || model.SelectedTag == "Select tag category")
+        //        {
+        //            ViewBag.ErrorMessage = errorMsgGen;
+        //            return View(model);
+        //        }
 
-          //  return View(model);
-       // }
+        //        //check for tag occurance
+        //        // var selectedTagExists = await _tagService.CheckTagForOccuranceAsync(model.Name, model.SelectedTag);
+        //        model.Name = model.Name.ToLower();
+        //        var response = await _linkService.CreateLink(model);
+        //        if (!response)
+        //        {
+        //            ViewBag.ErrorMessage = errorMsg;
+        //            return View(model);
+        //        }
+        //        return RedirectToAction("Home");
+        //    }
+        //    else
+        //    {
+        //        model.TagResources.Clear();
+        //        ViewBag.ErrorMessage = errorMsg;
+        //    }
+        //}
+
+        //  return View(model);
+        // }
 
 
 
@@ -190,11 +209,11 @@ namespace OnboardingSoftware.Web.Controllers
             return View(model);
         }
 
-        public async Task<ActionResult> CreateTest(TestViewModel model)
-        {
+        //public async Task<ActionResult> CreateTest(TestViewModel model)
+        //{
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         protected List<TagResource> StripHtml(LinkResource link)
         {

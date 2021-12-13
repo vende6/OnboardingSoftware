@@ -12,6 +12,8 @@ namespace OnboardingSoftware.Core
         IAplikantRepository Aplikanti { get; }
         IVjestinaRepository Vjestine { get; }
         IPosaoRepository Poslovi { get; }
+        ITestRepository Testovi { get; }
+
         Task<int> CommitAsync();
     }
 }

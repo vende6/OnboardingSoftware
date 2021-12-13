@@ -22,10 +22,13 @@ namespace OnboardingSoftware.Web.Services
     {
         public HttpClient _httpClient { get; set; }
         private string linksUrl;
+        private string testsUrl;
         public LinkService(IHttpClientFactory httpClientFactory, ApiEndpoint apiEndpoint)
         {
             _httpClient = httpClientFactory.CreateClient();
             linksUrl = apiEndpoint.LinksEndpointUrl;
+            testsUrl = "https://localhost:44308/api/testovi";
+
             _httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue(JwtBearerDefaults.AuthenticationScheme, jwtToken);
         }
@@ -159,48 +162,48 @@ namespace OnboardingSoftware.Web.Services
             try
             {
                 List<TestViewModel> tests = new List<TestViewModel>();
-                //if (!String.IsNullOrEmpty(userId))
+               // if (!String.IsNullOrEmpty(userId))
+               // {
+                    var response = await _httpClient.GetAsync(testsUrl);
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    tests = JsonConvert.DeserializeObject<List<TestViewModel>>(apiResponse);
+              //  }
+
+                //tests.Add(new TestViewModel
                 //{
-                //    var response = await _httpClient.GetAsync(linksUrl);
-                //    string apiResponse = await response.Content.ReadAsStringAsync();
-                //    links = JsonConvert.DeserializeObject<List<LinkViewModel>>(apiResponse);
-                //}
+                //    ID = "1",
+                //    Naziv = "Cognitive",
+                //    BrojPitanja = "2",
+                //    Trajanje = "2min",
+                //    Tip = "N/A"
+                //});
 
-                tests.Add(new TestViewModel
-                {
-                    ID = "1",
-                    Naziv = "Cognitive",
-                    BrojPitanja = "2",
-                    Trajanje = "2min",
-                    Tip = "N/A"
-                });
+                //tests.Add(new TestViewModel
+                //{
+                //    ID = "2",
+                //    Naziv = "Personality",
+                //    BrojPitanja = "2",
+                //    Trajanje = "2min",
+                //    Tip = "N/A"
+                //});
 
-                tests.Add(new TestViewModel
-                {
-                    ID = "2",
-                    Naziv = "Personality",
-                    BrojPitanja = "2",
-                    Trajanje = "2min",
-                    Tip = "N/A"
-                });
+                //tests.Add(new TestViewModel
+                //{
+                //    ID = "3",
+                //    Naziv = "Integrity",
+                //    BrojPitanja = "2",
+                //    Trajanje = "2min",
+                //    Tip = "N/A"
+                //});
 
-                tests.Add(new TestViewModel
-                {
-                    ID = "3",
-                    Naziv = "Integrity",
-                    BrojPitanja = "2",
-                    Trajanje = "2min",
-                    Tip = "N/A"
-                });
-
-                tests.Add(new TestViewModel
-                {
-                    ID = "4",
-                    Naziv = "e-Intelligence",
-                    BrojPitanja = "2",
-                    Trajanje = "2min",
-                    Tip = "N/A"
-                });
+                //tests.Add(new TestViewModel
+                //{
+                //    ID = "4",
+                //    Naziv = "e-Intelligence",
+                //    BrojPitanja = "2",
+                //    Trajanje = "2min",
+                //    Tip = "N/A"
+                //});
 
                 return tests;
             }
@@ -300,7 +303,7 @@ namespace OnboardingSoftware.Web.Services
                 var obj = JsonConvert.SerializeObject(posaoResource);
                 var stringContent = new StringContent(obj, UnicodeEncoding.UTF8, MediaTypeNames.Application.Json);
 
-                var response = await _httpClient.PostAsync(linksUrl, stringContent);
+                var response = await _httpClient.PostAsync(testsUrl, stringContent);
 
                 //if (response.StatusCode == HttpStatusCode.Conflict)
                 //{
@@ -322,6 +325,51 @@ namespace OnboardingSoftware.Web.Services
                 return false;
             }
         }
+
+        [HttpPost]
+        public async Task<bool> CreateTest(TestViewModel test)
+        {
+            try
+            {
+                SaveTestResource testResource = new SaveTestResource
+                {
+                    Naziv = test.Naziv,
+                    Tip = test.Tip,
+                    Trajanje = test.Trajanje,
+                    BrojPitanja = test.BrojPitanja,
+                    OsvojeniProcenat="N/A",
+                    Pocetak=DateTime.Now,
+                    Kraj=DateTime.Now.AddMinutes(2)
+                };
+
+                var obj = JsonConvert.SerializeObject(testResource);
+                var stringContent = new StringContent(obj, UnicodeEncoding.UTF8, MediaTypeNames.Application.Json);
+
+                var response = await _httpClient.PostAsync(testsUrl, stringContent);
+
+                //if (response.StatusCode == HttpStatusCode.Conflict)
+                //{
+                //    var errmsg = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result);
+                //    var id = Regex.Match(Convert.ToString(errmsg), @"'([^']*)").Groups[1].Value;
+                //    return new LinkResource { ID = Convert.ToInt32(id), Name = link.Name };
+                //}
+
+                //string apiResponse = await response.Content.ReadAsStringAsync();
+                //var createdLink = JsonConvert.DeserializeObject<LinkResource>(apiResponse);
+
+                //return createdLink;
+
+                return response.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
+
         public Task<LinkViewModel> GetLinkById(int id)
         {
             throw new NotImplementedException();

@@ -19,6 +19,7 @@ namespace OnboardingSoftware.Web
     {
         public string AuthEndpointUrl { get; set; }
         public string LinksEndpointUrl { get; set; }
+        public string TestsEndpointUrl { get; set; }
         public string TagsEndpointUrl { get; set; }
     }
 }
