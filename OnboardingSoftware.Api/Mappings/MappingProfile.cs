@@ -29,6 +29,10 @@ namespace OnboardingSoftware.Api.Mappings
              .ForMember(x => x.Adresa, opt => opt.MapFrom(y => "N/A"))
              .ForMember(x => x.Opis, opt => opt.MapFrom(y => "N/A"))
              .ForMember(x => x.Sektor, opt => opt.MapFrom(y => "N/A"));
+
+            CreateMap<Pitanje, PitanjeResource>()
+                .ForMember(x => x.Test, opt => opt.MapFrom(y => y.Test.Naziv));
+            CreateMap<SavePitanjeResource, Pitanje>();
         }
     }
 }

@@ -46,6 +46,7 @@ namespace OnboardingSoftware.Api
             services.AddTransient<IAplikantService, AplikantService>();
             services.AddTransient<IPosaoService, PosaoService>();
             services.AddTransient<ITestService, TestService>();
+            services.AddTransient<IPitanjeService, PitanjeService>();
 
             services.AddDbContext<OnboardingSoftwareDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("OnboardingSoftware.Data")));
 
