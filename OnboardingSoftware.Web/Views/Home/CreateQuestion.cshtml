@@ -9,7 +9,7 @@
         <h2>Create question</h2>
     </div>
     <div class="right" style="text-align:end">
-        <input type="submit" value="Submit" onclick="history.back()" class="btn btn-primary" />
+        <input type="submit" value="Submit" onclick="SubmitMyForm()" class="btn btn-primary" />
     </div>
 </div>
 <hr />
@@ -18,7 +18,7 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" id="createform">
+        <form asp-action="CreateQuestion" id="createform">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Tekst" class="control-label"></label>
@@ -36,10 +36,10 @@
                 <span id="valmsg" style="display:none" asp-validation-for="RedniBroj" class="text-danger"></span>
             </div>
             <div class="form-group">
-                @*<input type="button" id="addtags" value="Submit" onclick="ShowTags()" class="btn btn-success" />*@
-                @*<input type="button" id="hidetags" value="Clear tags" onclick="HideTags()" class="btn btn-primary" />*@
+                <input type="button" id="addtags" value="Submit" onclick="ShowTags()" class="btn btn-success" />
+                <input type="button" id="hidetags" value="Clear tags" onclick="HideTags()" class="btn btn-primary" />
             </div>
-            <div id="tagItemsContainer" style="display:none">
+            <div id="tagItemsContainer">
                 @*@Html.EditorFor(Model => Model.TagResources)*@
                 @*@Html.DropDownListFor(model => model.DropdownResource.SelectedValue, Model.DropdownResource.TagResources, "Please select", new { id = "ddlCity" })*@
             </div>
@@ -79,6 +79,7 @@
 
         window.onload = function () {
             this.callOne = true;
+            ShowTags();
         };
 
         function UrlChanged() {
@@ -86,27 +87,27 @@
         }
 
     function ShowTags() {
-            //    document.getElementById('loader').style.display = 'block';
-            //    $.ajax({
-            //        async: true,
-            //        data: $('#createform').serialize(),
-            //        type: "POST",
-            //        url: '/Links/InitializeTags',
-            //        success: function (partialView) {
-            //            $('#tagItemsContainer').html(partialView);
-            //            document.getElementById('loader').style.display = 'none';
-            //        }
-            //    });
+                document.getElementById('loader').style.display = 'block';
+                $.ajax({
+                    async: true,
+                    data: $('#createform').serialize(),
+                    type: "POST",
+                    url: '/Home/InitializeTags',
+                    success: function (partialView) {
+                        $('#tagItemsContainer').html(partialView);
+                        document.getElementById('loader').style.display = 'none';
+                    }
+                });
 
 
-            //if (document.getElementById('linkUrl').value === "") {
-            //    document.getElementById('valmsg').style.display = 'block';
-            //    return;
-            //}
-            //document.getElementById('valmsg').style.display = 'none';
-            //document.getElementById('tagItemsContainer').style.display = 'block';
-            //document.getElementById('addtagbutton').style.display = 'block';
-            //document.getElementById('linkUrl').readOnly = true;
+            if (document.getElementById('linkUrl').value === "") {
+                document.getElementById('valmsg').style.display = 'block';
+                return;
+            }
+            document.getElementById('valmsg').style.display = 'none';
+            document.getElementById('tagItemsContainer').style.display = 'block';
+            document.getElementById('addtagbutton').style.display = 'block';
+            document.getElementById('linkUrl').readOnly = true;
         }
 
         function HideTags() {
@@ -119,7 +120,7 @@
                 async: true,
                 data: $('#createform').serialize(),
                 type: "POST",
-                url: '/Links/ClearTags',
+                url: '/Home/ClearTags',
                 success: function (partialView) {
                     $('#tagItemsContainer').html(partialView);
                 }
@@ -131,7 +132,7 @@
                 async: true,
                 data: $('#createform').serialize(),
                 type: "POST",
-                url: '/Links/AddTag',
+                url: '/Home/AddTag',
                 success: function (partialView) {
                     $('#tagItemsContainer').html(partialView);
                 }

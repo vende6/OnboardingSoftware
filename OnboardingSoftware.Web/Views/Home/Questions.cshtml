@@ -24,26 +24,32 @@
             <th>
                 @Html.DisplayNameFor(model => model.RedniBroj)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Test)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Tekst)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Tip)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.RedniBroj)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Tekst)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Tip)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.RedniBroj)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Test)
+            </td>
+        </tr>
         }
     </tbody>
 </table>

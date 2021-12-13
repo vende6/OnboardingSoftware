@@ -1,4 +1,4 @@
-﻿@model OnboardingSoftware.Web.Resources.LinkResource
+﻿@model OnboardingSoftware.Web.Models.PitanjeViewModel
 @*@Html.EditorFor(Model=>Model.DropdownResource.TagResources)*@
 
 @*@foreach (var item in Model.DropdownResource.TagResources)
@@ -13,10 +13,10 @@
         <input id="btnAddNewItem" class="btn btn-info" style="float:right;margin-left:5px;" type="button" value="Select" />
         <span id="newtagmsg" style="display:none" class="text-danger">Value already exists.</span>
 
-        @foreach (var item in Model.NewTagResources)
+        @*@foreach (var item in Model.NewTagResources)
         {
             <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">@item.Value @item.Text</div>
-        }
+        }*@
     </div>
 
 <script type="text/javascript">
