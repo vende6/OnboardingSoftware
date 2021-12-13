@@ -8,10 +8,10 @@
 
 @Html.DropDownListFor(model => model.SelectedTag, Model.TagResources, new { id = "ddtags", @class = "form-control" })
 
-    <div id="div_content" style="display:none;margin-top:5px;">
+    <div id="div_content" style="display:none;margin-top:15px;">
         <input id="txtNewOption" style="width:150px;float:left;" class="form-control" type="text" />
-        <input id="btnAddNewItem" class="btn btn-info" style="float:right;margin-left:5px;" type="button" value="Select" />
-        <span id="newtagmsg" style="display:none" class="text-danger">Value already exists.</span>
+        @*<input id="btnAddNewItem" class="btn btn-info" style="float:right;margin-left:5px;" type="button" value="Select" />
+        <span id="newtagmsg" style="display:none" class="text-danger">Value already exists.</span>*@
 
         @*@foreach (var item in Model.NewTagResources)
         {

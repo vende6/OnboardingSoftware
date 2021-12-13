@@ -12,8 +12,8 @@ namespace OnboardingSoftware.Web
         //public static string errorMsg = "User cannot add same link multiple times. " +
         //                    "Each link - tag relation must have a value. " +
         //                    "Link must have at least one tag associated with it. ";
-        public static string errorMsg = "Link already exists in that tag category.";
-        public static string errorMsgGen = "Selected tag category is not valid.";
+        public static string errorMsg = "";
+        public static string errorMsgGen = "";
     }
     public class ApiEndpoint
     {

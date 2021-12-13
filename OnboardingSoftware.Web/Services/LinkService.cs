@@ -47,47 +47,30 @@ namespace OnboardingSoftware.Web.Services
                 //    links = JsonConvert.DeserializeObject<List<LinkViewModel>>(apiResponse);
                 //}
 
-                links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
+                  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
                     Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
-                    BrojTelefona = "+38762173906", 
-                    DatumRodjenja = "09.05.1996", Email = "damirkrkalic11@gmail.com", 
+                    BrojTelefona = "+387 62 173 906", 
+                    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
                     MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
 
-                links.Add(new AplikantViewModel
-                {
-                    ID = 1,
-                    Ime = "Damir",
-                    Prezime = "Krkalic",
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    BrojTelefona = "+38762173906",
-                    DatumRodjenja = "09.05.1996",
-                    Email = "damirkrkalic11+1@gmail.com",
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-                });
+                  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
+                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
+                    BrojTelefona = "+387 62 173 906", 
+                    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
+                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
 
-                links.Add(new AplikantViewModel
-                {
-                    ID = 1,
-                    Ime = "Damir",
-                    Prezime = "Krkalic",
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    BrojTelefona = "+38762173906",
-                    DatumRodjenja = "09.05.1996",
-                    Email = "damirkrkalic11+2@gmail.com",
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-                });
+                  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
+                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
+                    BrojTelefona = "+387 62 173 906", 
+                    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
+                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
 
-                links.Add(new AplikantViewModel
-                {
-                    ID = 1,
-                    Ime = "Damir",
-                    Prezime = "Krkalic",
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    BrojTelefona = "+38762173906",
-                    DatumRodjenja = "09.05.1996",
-                    Email = "damirkrkalic11+3@gmail.com",
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-                });
+                  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
+                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
+                    BrojTelefona = "+387 62 173 906", 
+                    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
+                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
+            
 
                 return links;
             }
@@ -297,7 +280,7 @@ namespace OnboardingSoftware.Web.Services
                 {
                     Naziv = posao.Naziv,
                     Kategorija = posao.Kategorija,
-                    Lokacija = new LokacijaResource { Naziv = posao.Naziv },
+                    Lokacija = new LokacijaResource { Naziv = posao.Lokacija },
                     Opis = posao.Opis,
                     Tip = posao.Tip
                 };

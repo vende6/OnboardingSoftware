@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home page";
     }
 
-    <h1>Tests</h1>
+    <h4>Tests</h4>
 
     <p align="right">
         <input type="button" value="Create" onclick="location.href='@Url.Action("CreateTest", "Home" )'" />
@@ -13,19 +13,16 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.ID)
+                    Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Naziv)
+                    Type
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.BrojPitanja)
+                    Duration
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Tip)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Trajanje)
+                    Number of questions
                 </th>
                 <th></th>
             </tr>
@@ -35,19 +32,16 @@
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
-                <td>
                     @Html.DisplayFor(model => item.Naziv)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.BrojPitanja)
                 </td>
                 <td>
                     @Html.DisplayFor(model => item.Tip)
                 </td>
                 <td>
                     @Html.DisplayFor(model => item.Trajanje)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.BrojPitanja)
                 </td>
             </tr>
             }

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 
-<h1>Jobs</h1>
+<h4>Jobs</h4>
 
 <p align="right">
     <input type="button" value="Create" onclick="location.href='@Url.Action("CreateJob", "Home" )'" />
@@ -13,22 +13,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID)
+                Title
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Naziv)
+                Type
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tip)
+                Category
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Kategorija)
+                Description
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Opis)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lokacija)
+                Location
             </th>
             <th></th>
         </tr>
@@ -37,9 +34,6 @@
         @foreach (var item in Model)
         {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
             <td>
                 @Html.DisplayFor(model => item.Naziv)
             </td>

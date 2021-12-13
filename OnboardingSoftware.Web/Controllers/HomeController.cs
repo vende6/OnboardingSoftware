@@ -165,7 +165,7 @@ namespace OnboardingSoftware.Web.Controllers
                 ViewBag.ErrorMessage = errorMsg;
             }
 
-            return RedirectToAction("Tests");
+            return RedirectToAction("Questions");
         }
 
 
@@ -339,9 +339,9 @@ namespace OnboardingSoftware.Web.Controllers
                 model.TagResources.Insert(0, new SelectListItem { Text = item.Naziv, Value = item.ID });
             }
 
-            model.TagResources.Insert(0, new SelectListItem { Text = "Select tag category", Value = "0" });
-            model.TagResources.Insert(model.TagResources.Count, new SelectListItem { Text = "Add other", Value = "Add other" });
-            model.SelectedTag = "0";
+            //model.TagResources.Insert(0, new SelectListItem { Text = "Select tag category", Value = "0" });
+            //model.TagResources.Insert(model.TagResources.Count, new SelectListItem { Text = "Add other", Value = "Add other" });
+            //model.SelectedTag = "0";
 
             // suggest for new tags from content
             //var contentTags = StripHtml(model);

@@ -15,5 +15,7 @@ namespace OnboardingSoftware.Web.Models
         public string MjestoRodjenja { get; set; }
         public string DatumRodjenja { get; set; }
         public string Adresa { get; set; }
+
+        public string ImePrezime => Ime + " " + Prezime; 
     }
 }

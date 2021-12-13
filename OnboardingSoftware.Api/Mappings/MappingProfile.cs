@@ -16,7 +16,8 @@ namespace OnboardingSoftware.Api.Mappings
                 .ForMember(x => x.Lokacija, opt => opt.MapFrom(y => y.Lokacija.Naziv));
 
             CreateMap<SavePosaoResource, Posao>();
-            CreateMap<SavePosaoResource, Lokacija>();
+            CreateMap<SavePosaoResource, Lokacija>()
+                 .ForMember(x => x.Naziv, opt => opt.MapFrom(y => y.Lokacija.Naziv));
 
             CreateMap<Test, TestResource>();
             CreateMap<TestResource, Test>()

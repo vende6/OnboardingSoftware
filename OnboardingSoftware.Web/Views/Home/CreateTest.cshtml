@@ -6,10 +6,10 @@
 
 <div class="lineContainer">
     <div class="left">
-        <h2>Create test</h2>
+        <h4>Create test</h4>
     </div>
     <div class="right" style="text-align:end">
-        <input type="submit" value="Submit" onclick="SubmitMyForm()" class="btn btn-primary" />
+        <input type="submit" value="Submit" onclick="SubmitMyForm()" class="btn btn-dark" />
     </div>
 </div>
 <hr />
@@ -21,23 +21,23 @@
         <form asp-action="CreateTest" id="createform">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Naziv" class="control-label"></label>
-                <input id="linkUrl" asp-for="Naziv" onchange="UrlChanged()" style="width:400px;" class="form-control" />
+                <label asp-for="Naziv" class="control-label">Name</label>
+                <input id="linkUrl" asp-for="Naziv" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off"/>
                 <span id="valmsg" style="display:none" asp-validation-for="Naziv" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Tip" class="control-label"></label>
-                <input id="linkUrl" asp-for="Tip" onchange="UrlChanged()" style="width:400px;" class="form-control" />
+                <label asp-for="Tip" class="control-label">Type</label>
+                <input id="linkUrl" asp-for="Tip" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off"/>
                 <span id="valmsg" style="display:none" asp-validation-for="Tip" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Trajanje" class="control-label"></label>
-                <input id="linkUrl" asp-for="Trajanje" onchange="UrlChanged()" style="width:400px;" class="form-control" />
+                <label asp-for="Trajanje" class="control-label">Duration</label>
+                <input id="linkUrl" asp-for="Trajanje" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off"/>
                 <span id="valmsg" style="display:none" asp-validation-for="Trajanje" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BrojPitanja" class="control-label"></label>
-                <input id="linkUrl" asp-for="BrojPitanja" onchange="UrlChanged()" style="width:400px;" class="form-control" />
+                <label asp-for="BrojPitanja" class="control-label">Number of questions</label>
+                <input id="linkUrl" asp-for="BrojPitanja" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off"/>
                 <span id="valmsg" style="display:none" asp-validation-for="BrojPitanja" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -55,9 +55,6 @@
                 </div>
             </div>
         </form>
-        <div>
-            <br /><a asp-action="Applicants">Back to homepage</a>
-        </div>
     </div>
 </div>
 <style>
@@ -124,7 +121,7 @@
                 async: true,
                 data: $('#createform').serialize(),
                 type: "POST",
-                url: '/Links/ClearTags',
+                url: '/Home/ClearTags',
                 success: function (partialView) {
                     $('#tagItemsContainer').html(partialView);
                 }
@@ -136,7 +133,7 @@
                 async: true,
                 data: $('#createform').serialize(),
                 type: "POST",
-                url: '/Links/AddTag',
+                url: '/Home/AddTag',
                 success: function (partialView) {
                     $('#tagItemsContainer').html(partialView);
                 }
@@ -146,7 +143,7 @@
         $('#addtag').on('click', function () {
             $.ajax({
                 async: false,
-                url: '/Links/AddTag'
+                url: '/Home/AddTag'
             }).success(function (partialView) {
                 $('#new-Tag').html(partialView);
             });

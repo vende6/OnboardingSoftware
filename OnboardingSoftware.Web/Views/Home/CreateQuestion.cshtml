@@ -6,10 +6,10 @@
 
 <div class="lineContainer">
     <div class="left">
-        <h2>Create question</h2>
+        <h4>Create question</h4>
     </div>
     <div class="right" style="text-align:end">
-        <input type="submit" value="Submit" onclick="SubmitMyForm()" class="btn btn-primary" />
+        <input type="submit" value="Submit" onclick="SubmitMyForm()" class="btn btn-dark" />
     </div>
 </div>
 <hr />
@@ -21,38 +21,42 @@
         <form asp-action="CreateQuestion" id="createform">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Tekst" class="control-label"></label>
-                <input id="linkUrl" asp-for="Tekst" onchange="UrlChanged()" style="width:400px;" class="form-control" />
-                <span id="valmsg" style="display:none" asp-validation-for="Tekst" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tip" class="control-label"></label>
-                <input id="linkUrl" asp-for="Tip" onchange="UrlChanged()" style="width:400px;" class="form-control" />
-                <span id="valmsg" style="display:none" asp-validation-for="Tip" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RedniBroj" class="control-label"></label>
-                <input id="linkUrl" asp-for="RedniBroj" onchange="UrlChanged()" style="width:400px;" class="form-control" />
+                <label asp-for="RedniBroj" class="control-label">No.</label>
+                <input id="linkUrl" asp-for="RedniBroj" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
                 <span id="valmsg" style="display:none" asp-validation-for="RedniBroj" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="button" id="addtags" value="Submit" onclick="ShowTags()" class="btn btn-success" />
-                <input type="button" id="hidetags" value="Clear tags" onclick="HideTags()" class="btn btn-primary" />
+                <label asp-for="Tip" class="control-label">Type</label>
+                <input id="linkUrl" asp-for="Tip" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
+                <span id="valmsg" style="display:none" asp-validation-for="Tip" class="text-danger"></span>
             </div>
-            <div id="tagItemsContainer">
+            <div class="form-group">
+                <label asp-for="Tekst" class="control-label">Text</label>
+                <input id="linkUrl" asp-for="Tekst" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
+                <span id="valmsg" style="display:none" asp-validation-for="Tekst" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <input type="button" id="addtags" value="Submit" onclick="ShowTags()" class="btn btn-success" />
+            <input type="button" id="hidetags" value="Clear tags" onclick="HideTags()" class="btn btn-primary" />
+        </div>*@
+        <div class="form-group">
+            <label class="control-label">Test</label>
+            <div id="tagItemsContainer" style="width:400px;">
                 @*@Html.EditorFor(Model => Model.TagResources)*@
                 @*@Html.DropDownListFor(model => model.DropdownResource.SelectedValue, Model.DropdownResource.TagResources, "Please select", new { id = "ddlCity" })*@
             </div>
-            <label id="loader" class="text-danger" style="display:none">Data is loading..</label>
+        </div>
+            <!--<div id="tagItemsContainer">-->
+                @*@Html.EditorFor(Model => Model.TagResources)*@
+                @*@Html.DropDownListFor(model => model.DropdownResource.SelectedValue, Model.DropdownResource.TagResources, "Please select", new { id = "ddlCity" })*@
+            <!--</div>-->
+            <label id="loader" class="text-danger" style="display:none"></label>
             <div class="row" id="addtagbutton" style="display:none">
                 <div class="col-md-4">
                     @*<input class="btn btn-info" type="button" id="btnAdd" value="Add another tag" />*@
                 </div>
             </div>
         </form>
-        <div>
-            <br /><a asp-action="Applicants">Back to homepage</a>
-        </div>
     </div>
 </div>
 <style>
@@ -142,7 +146,7 @@
         $('#addtag').on('click', function () {
             $.ajax({
                 async: false,
-                url: '/Links/AddTag'
+                url: '/Home/AddTag'
             }).success(function (partialView) {
                 $('#new-Tag').html(partialView);
             });
