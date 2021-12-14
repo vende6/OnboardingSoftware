@@ -191,7 +191,7 @@
                     FontSize="{Binding Source='17', Converter={StaticResource SizeConv}}"
                     HorizontalOptions="CenterAndExpand"
                     HorizontalTextAlignment="Center"
-                    Text="Show the organization what motivates you"
+                    Text="  Welcome to your user profile page!" 
                     TextColor="WhiteSmoke"
                     VerticalOptions="CenterAndExpand" />
             </StackLayout>

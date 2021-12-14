@@ -81,6 +81,10 @@
     </Shell.FlyoutHeader>
 
 
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Logout" FlyoutIcon="logo.png">
+        <ShellContent Route="login" ContentTemplate="{DataTemplate local:ViewLogin}"/>
+    </FlyoutItem>
+
     <FlyoutItem Route="home" Title="Profile" FlyoutIcon="logo.png">
         <ShellContent Route="profile" ContentTemplate="{DataTemplate local:ViewProfile}" />
     </FlyoutItem>
@@ -107,7 +111,7 @@
     </FlyoutItem>
 
     <FlyoutItem Route="home" Title="Logout" FlyoutIcon="logo.png">
-        <ShellContent Route="login" ContentTemplate="{DataTemplate local:ViewLogin}"/>
+        <ShellContent Route="logout" ContentTemplate="{DataTemplate local:ViewLogin}"/>
     </FlyoutItem>
 
     <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Logout">
