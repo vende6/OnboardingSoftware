@@ -110,6 +110,10 @@
         <ShellContent Route="login" ContentTemplate="{DataTemplate local:ViewLogin}"/>
     </FlyoutItem>
 
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Logout" FlyoutIcon="logo.png">
+        <ShellContent Route="register" ContentTemplate="{DataTemplate local:ViewRegister}"/>
+    </FlyoutItem>
+
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
 
