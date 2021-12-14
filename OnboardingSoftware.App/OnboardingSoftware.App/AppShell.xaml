@@ -106,11 +106,11 @@
         <ShellContent Route="personality" ContentTemplate="{DataTemplate localtests:ViewPersonality}"/>
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="Logout">
+    <FlyoutItem Route="home" Title="Logout" FlyoutIcon="logo.png">
         <ShellContent Route="login" ContentTemplate="{DataTemplate local:ViewLogin}"/>
     </FlyoutItem>
 
-    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Logout" FlyoutIcon="logo.png">
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Logout">
         <ShellContent Route="register" ContentTemplate="{DataTemplate local:ViewRegister}"/>
     </FlyoutItem>
 
