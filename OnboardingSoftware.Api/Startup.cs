@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using Swashbuckle.AspNetCore.Swagger;
 using OnboardingSoftware.Core.Models.Auth.MyMusic.Core.Models.Auth;
 using Microsoft.AspNetCore.Identity;
+using OnboardingSoftware.Api.Settings;
 
 namespace OnboardingSoftware.Api
 {
@@ -35,6 +36,7 @@ namespace OnboardingSoftware.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
             services.AddControllers().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
