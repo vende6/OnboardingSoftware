@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnboardingSoftware.Api.Resources;
 using OnboardingSoftware.Core.Models;
@@ -25,57 +26,67 @@ namespace OnboardingSoftware.Api.Controllers
         {
             //var aplikanti = await this._aplikantService.GetAllWithVjestine();
 
-            List<AplikantResource> aplikants = new List<AplikantResource>();
-
-            aplikants.Add(new AplikantResource
+            try
             {
-                ID = 1,
-                Ime = "Damir",
-                Prezime = "Krkalic",
-                Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                BrojTelefona = "+387 62 173 906",
-                DatumRodjenja = Convert.ToDateTime("09/05/1996"),
-                Email = "damir.krkalic@edu.fit.ba",
-                MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-            });
+                List<AplikantResource> aplikants = new List<AplikantResource>();
 
-            aplikants.Add(new AplikantResource
+                aplikants.Add(new AplikantResource
+                {
+                    ID = 1,
+                    Ime = "Damir",
+                    Prezime = "Krkalic",
+                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
+                    BrojTelefona = "+387 62 173 906",
+                    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
+                    Email = "damir.krkalic@edu.fit.ba",
+                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
+                });
+
+                aplikants.Add(new AplikantResource
+                {
+                    ID = 1,
+                    Ime = "Damir",
+                    Prezime = "Krkalic",
+                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
+                    BrojTelefona = "+387 62 173 906",
+                    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
+                    Email = "damir.krkalic@edu.fit.ba",
+                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
+                });
+
+                aplikants.Add(new AplikantResource
+                {
+                    ID = 1,
+                    Ime = "Damir",
+                    Prezime = "Krkalic",
+                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
+                    BrojTelefona = "+387 62 173 906",
+                    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
+                    Email = "damir.krkalic@edu.fit.ba",
+                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
+                });
+
+                aplikants.Add(new AplikantResource
+                {
+                    ID = 1,
+                    Ime = "Damir",
+                    Prezime = "Krkalic",
+                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
+                    BrojTelefona = "+387 62 173 906",
+                    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
+                    Email = "damir.krkalic@edu.fit.ba",
+                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
+                });
+
+                return Ok(aplikants);
+            }
+            catch (Exception ex)
             {
-                ID = 1,
-                Ime = "Damir",
-                Prezime = "Krkalic",
-                Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                BrojTelefona = "+387 62 173 906",
-                DatumRodjenja = Convert.ToDateTime("09/05/1996"),
-                Email = "damir.krkalic@edu.fit.ba",
-                MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-            });
 
-            aplikants.Add(new AplikantResource
-            {
-                ID = 1,
-                Ime = "Damir",
-                Prezime = "Krkalic",
-                Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                BrojTelefona = "+387 62 173 906",
-                DatumRodjenja = Convert.ToDateTime("09/05/1996"),
-                Email = "damir.krkalic@edu.fit.ba",
-                MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-            });
+                throw;
+            }
 
-            aplikants.Add(new AplikantResource
-            {
-                ID = 1,
-                Ime = "Damir",
-                Prezime = "Krkalic",
-                Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                BrojTelefona = "+387 62 173 906",
-                DatumRodjenja = Convert.ToDateTime("09/05/1996"),
-                Email = "damir.krkalic@edu.fit.ba",
-                MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-            });
-
-            return Ok(aplikants);
+         
         }
     }
 }

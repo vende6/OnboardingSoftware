@@ -20,6 +20,9 @@ using Swashbuckle.AspNetCore.Swagger;
 using OnboardingSoftware.Core.Models.Auth.MyMusic.Core.Models.Auth;
 using Microsoft.AspNetCore.Identity;
 using OnboardingSoftware.Api.Settings;
+using OnboardingSoftware.Api.Extensions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace OnboardingSoftware.Api
 {
@@ -36,14 +39,45 @@ namespace OnboardingSoftware.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();
             services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
-            services.AddControllers().AddNewtonsoftJson(options =>
+            services.AddAuth(jwtSettings);
+
+            services.AddControllers(opt =>
+            {
+                var policy = new AuthorizationPolicyBuilder("Bearer").RequireAuthenticatedUser().Build();
+                opt.Filters.Add(new AuthorizeFilter(policy));
+            }).AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnboardingSoftware.Api", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT containing userid claim",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                });
+                var security =
+                    new OpenApiSecurityRequirement
+                    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Id = "Bearer",
+                    Type = ReferenceType.SecurityScheme
+                },
+                UnresolvedReference = true
+            },
+            new List<string>()
+        }
+                    };
+                c.AddSecurityRequirement(security);
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -81,7 +115,7 @@ namespace OnboardingSoftware.Api
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuth();
 
             app.UseEndpoints(endpoints =>
             {
