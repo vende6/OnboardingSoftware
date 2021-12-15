@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using OnboardingSoftware.Api.Resources;
 using OnboardingSoftware.Core.Models;
+using OnboardingSoftware.Core.Models.Auth.MyMusic.Core.Models.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,9 @@ namespace OnboardingSoftware.Api.Mappings
             CreateMap<Pitanje, PitanjeResource>()
                 .ForMember(x => x.Test, opt => opt.MapFrom(y => y.Test.Naziv));
             CreateMap<SavePitanjeResource, Pitanje>();
+
+            CreateMap<UserSignUpResource, User>()
+               .ForMember(u => u.UserName, opt => opt.MapFrom(ur => ur.Email));
         }
     }
 }

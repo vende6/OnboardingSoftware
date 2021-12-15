@@ -17,6 +17,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Swashbuckle.AspNetCore.Swagger;
+using OnboardingSoftware.Core.Models.Auth.MyMusic.Core.Models.Auth;
+using Microsoft.AspNetCore.Identity;
 
 namespace OnboardingSoftware.Api
 {
@@ -49,6 +51,16 @@ namespace OnboardingSoftware.Api
             services.AddTransient<IPitanjeService, PitanjeService>();
 
             services.AddDbContext<OnboardingSoftwareDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("OnboardingSoftware.Data")));
+
+            services.AddIdentity<User, Role>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1d);
+                //options.Lockout.MaxFailedAccessAttempts = 5;
+            }).AddEntityFrameworkStores<OnboardingSoftwareDbContext>().AddDefaultTokenProviders();
+
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }

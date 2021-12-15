@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OnboardingSoftware.Core.Models;
+using OnboardingSoftware.Core.Models.Auth.MyMusic.Core.Models.Auth;
 using OnboardingSoftware.Data.Configurations;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace OnboardingSoftware.Data
 {
-    public class OnboardingSoftwareDbContext : DbContext
+    public class OnboardingSoftwareDbContext : IdentityDbContext<User, Role, Guid>
     {
         public DbSet<Aplikant> Aplikanti { get; set; }
         public DbSet<Interes> Interesi { get; set; }
