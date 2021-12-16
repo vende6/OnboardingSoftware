@@ -1,4 +1,7 @@
-﻿using OnboardingSoftware.App.Validations;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using OnboardingSoftware.App.Resources;
+using OnboardingSoftware.App.Validations;
 using OnboardingSoftware.App.Validations.Common;
 using System;
 using System.Collections.Generic;
@@ -16,6 +19,7 @@ namespace OnboardingSoftware.App.ViewModels
         {
             InitializeValidation();
         }
+
 
         private void InitializeValidation()
         {
@@ -84,9 +88,16 @@ namespace OnboardingSoftware.App.ViewModels
 
         private void AddSpecificPropertyValidations()
         {
-            //_username.AddEmailValidation();
-           // _password.AddPasswordValidation();
-            _username.RequireDigit();
+            //_email.RequireLettersAndDigits();
+            //_email.RequireAt();
+
+            //_password.RequireLength();
+            //_password.RequireLowercase();
+            //_password.RequireUppercase();
+            //_password.RequireDigit();
+            //_password.RequireNonAlphanumeric();
+
+            _password.UserNotFound();
         }
 
         #endregion
@@ -100,28 +111,52 @@ namespace OnboardingSoftware.App.ViewModels
             }
         }
 
-        private async Task LoginUserAsync(string route, string username, string password)
+        private async Task LoginUserAsync(string route, string email, string password)
         {
             try
             {
-                Username.Validate();
-                Password.Validate();
+                //Username.Validate();
+                //Password.Validate();
 
-                IsValidForm = Username.IsValid && Password.IsValid;
+                //IsValidForm = Username.IsValid && Password.IsValid;
 
-                if (!IsValidForm)
-                    return;
+                //if (!IsValidForm)
+                //    return;
 
                 IsBusy = true;
-                //Narucioci_Result narucilac = await BaseClient.Client.LoginAsync(username);
-                //if (narucilac != null && narucilac.LozinkaHash == UIHelper.GenerateHash(narucilac.LozinkaSalt, password))
-                //{
-                //   var omiljeni = await BaseClient.Client.GetFavouriteAsync((int)narucilac.KorisnikID);
-                //    GlobalSettings.logiraniNarucilac = narucilac;
-                //    await Shell.Current.GoToAsync(route);
-                //}
+
+                HttpClient client = new HttpClient();
+                Uri uri = new Uri("https://9a3c-77-238-220-218.ngrok.io/");
+
+
+                UserLoginResource resource = new UserLoginResource
+                { Email = email, Password = password };
+
+
+                string json = JsonConvert.SerializeObject(resource);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+
+
+                HttpResponseMessage response = null;
+                response = await client.PostAsync(uri + "api/Auth/signin", content);
+
+
+                if (response.IsSuccessStatusCode)
+                {
+                    await Shell.Current.GoToAsync(route);
+                }
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    Password.Validate();
+                }
+
+
+
+
+
                 IsBusy = false;
-                await Shell.Current.GoToAsync(route);
+               // await Shell.Current.GoToAsync(route);
             }
             catch (Exception ex)
             {

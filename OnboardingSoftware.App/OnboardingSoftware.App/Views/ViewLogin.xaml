@@ -43,18 +43,18 @@
         <!-- LOGIN FORM -->
         <StackLayout Orientation="Vertical" Grid.Row="1" Margin="40,50,40,0" Spacing="0">
             <ActivityIndicator IsRunning="{Binding IsBusy}" Color="DarkRed"></ActivityIndicator>
-            <Entry x:Name="username" Placeholder="Username" Text="{Binding Username.Value, Mode=TwoWay}" >
-                <Entry.Behaviors>
+            <Entry x:Name="email" Placeholder="Email" Text="{Binding Username.Value, Mode=TwoWay}" >
+                <!--<Entry.Behaviors>
                     <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateUsernameCommand}" />
-                </Entry.Behaviors>
+                </Entry.Behaviors>-->
             </Entry>
             <Label Text="{Binding Username.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="13" FontSize="Micro" />
 
 
             <Entry x:Name="password" Placeholder="Password" Text="{Binding Password.Value, Mode=TwoWay}">
-                <Entry.Behaviors>
+                <!--<Entry.Behaviors>
                     <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
-                </Entry.Behaviors>
+                </Entry.Behaviors>-->
             </Entry>
             <Label Text="{Binding Password.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="12" FontSize="Micro"/>
 
