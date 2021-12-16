@@ -20,10 +20,10 @@
                      IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
                      HorizontalOptions="CenterAndExpand">
 
-            <Label Text="personality"/>
-            <Label Text="psychological" />
-            <Label Text="2min" />
-            <Label Text="2 questions" />
+            <Label Text="{Binding Naziv}"/>
+            <Label Text="{Binding Tip}" />
+            <Label Text="{Binding Trajanje}" />
+            <Label Text="{Binding BrojPitanja}" />
 
             <Button Text="Start" Command="{Binding StartCommand}"></Button>
         </StackLayout>

@@ -209,10 +209,57 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.37}">
-               
-                <Button BackgroundColor="Black" Text="Interests " Command="{Binding InterestsCommand}"></Button>
-                <Button BackgroundColor="Black" Text="Skills" Command="{Binding SkillsCommand}"></Button>
-                <Button BackgroundColor="Black" HorizontalOptions="EndAndExpand" Text="References" Command="{Binding ReferencesCommand}"></Button>
+
+                <controls:CustomButton
+                Margin="{OnIdiom Phone={OnPlatform iOS='0,0,0,0',
+                                                   Android='-18,-5,0,0'}}"
+                CustomBorderColor="Black"
+                CustomBackgroundColor="Black"
+                Command="{Binding InterestsCommand}"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
+                                                               Android='30'}}"
+                CustomBorderWidth="1"
+                HorizontalOptions="Center"
+                Text="Interests"
+                VerticalOptions="Center"
+                TextColor="White"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='105'}}">
+                </controls:CustomButton>
+
+                <controls:CustomButton
+                Margin="{OnIdiom Phone={OnPlatform iOS='0,0,0,0',
+                                                   Android='0,-5,0,0'}}"
+                CustomBorderColor="Black"
+                CustomBackgroundColor="Black"
+                Command="{Binding SkillsCommand}"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='95',
+                                                               Android='30'}}"
+                CustomBorderWidth="1"
+                HorizontalOptions="Center"
+                Text="Skills"
+                VerticalOptions="Center"
+                TextColor="White"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='280',
+                                                         Android='105'}}">
+                </controls:CustomButton>
+
+                <controls:CustomButton
+                Margin="{OnIdiom Phone={OnPlatform iOS='0,0,0,0',
+                                                   Android='0,-5,0,0'}}"
+                CustomBorderColor="Black"
+                CustomBackgroundColor="Black"
+                Command="{Binding ReferencesCommand}"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='95',
+                                                               Android='30'}}"
+                CustomBorderWidth="1"
+                HorizontalOptions="Center"
+                Text="References"
+                VerticalOptions="Center"
+                TextColor="White"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='105'}}">
+                </controls:CustomButton>
             </StackLayout>
 
 
@@ -285,8 +332,8 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.45}">
-                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="Cognitive" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="{Binding Tests[0].Tip}" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="{Binding Tests[0]}" />
                 </StackLayout.GestureRecognizers>
@@ -360,10 +407,10 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.45}">
-                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="Personality" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="{Binding Tests[1].Tip}" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="//home/personality" />
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="{Binding Tests[0]}" />
                 </StackLayout.GestureRecognizers>
             </StackLayout>
 
@@ -459,10 +506,10 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.7}">
-                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="Integrity" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="{Binding Tests[2].Tip}" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="//home/integrity" />
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="{Binding Tests[0]}" />
                 </StackLayout.GestureRecognizers>
             </StackLayout>
 
@@ -560,10 +607,10 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.7}">
-                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="E-Intelligence" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="{Binding Tests[3].Tip}" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="//home/emotional" />
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="{Binding Tests[0]}" />
                 </StackLayout.GestureRecognizers>
             </StackLayout>
 

@@ -98,7 +98,7 @@
         <ShellContent Route="cognitive" ContentTemplate="{DataTemplate localtests:ViewCognitive}" />
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="Emotional" FlyoutIcon="icon_feed.png">
+    <FlyoutItem Route="home" Title="E-Intelligence" FlyoutIcon="icon_feed.png">
         <ShellContent Route="emotional" ContentTemplate="{DataTemplate localtests:ViewEmotional}"/>
     </FlyoutItem>
 
