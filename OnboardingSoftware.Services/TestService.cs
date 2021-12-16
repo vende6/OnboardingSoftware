@@ -23,6 +23,11 @@ namespace OnboardingSoftware.Services
             return true;
         }
 
+        public async Task<Test> GetTestById(int testId)
+        {
+            return await _unitOfWork.Testovi.GetTestByIdAsync(testId);
+        }
+
         public async Task<IEnumerable<Test>> GetTestovi()
         {
             return await _unitOfWork.Testovi.GetTestsAsync();

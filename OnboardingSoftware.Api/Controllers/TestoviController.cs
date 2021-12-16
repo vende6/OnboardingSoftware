@@ -33,6 +33,17 @@ namespace OnboardingSoftware.Api.Controllers
             return Ok(testResources);
         }
 
+        [HttpGet("{id}", Name = "GetTestById")]
+        public async Task<ActionResult<TestResource>> GetTestById(int id)
+        {
+            var test = await _testService.GetTestById(id);
+            if (test == null)
+                return NotFound();
+            var testResource = _mapper.Map<Test, TestResource>(test);
+
+            return Ok(testResource);
+        }
+
         // POST: api/poslovi
         [HttpPost("")]
         public async Task<ActionResult<bool>> CreateTest([FromBody] TestResource testResource)

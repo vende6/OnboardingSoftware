@@ -3,6 +3,7 @@ using OnboardingSoftware.Core.Models;
 using OnboardingSoftware.Core.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,10 +22,19 @@ namespace OnboardingSoftware.Data.Repositories
 
         public async Task<IEnumerable<Test>> GetTestsAsync()
         {
-         
-                return await OnboardingSoftwareDbContext.Testovi
-                   .ToListAsync();
-           
+
+            return await OnboardingSoftwareDbContext.Testovi
+               .ToListAsync();
+
+        }
+
+        public async Task<Test> GetTestByIdAsync(int testId)
+        {
+
+            return await OnboardingSoftwareDbContext.Testovi
+               .Where(x => x.ID == testId)
+               .FirstOrDefaultAsync();
+
         }
     }
 }

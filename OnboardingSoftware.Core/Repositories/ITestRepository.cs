@@ -10,5 +10,6 @@ namespace OnboardingSoftware.Core.Repositories
     public interface ITestRepository : IRepository<Test>
     {
         Task<IEnumerable<Test>> GetTestsAsync();
+        Task<Test> GetTestByIdAsync(int testId);
     }
 }

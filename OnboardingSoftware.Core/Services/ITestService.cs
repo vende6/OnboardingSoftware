@@ -9,6 +9,7 @@ namespace OnboardingSoftware.Core.Services
     public interface ITestService
     {
         Task<IEnumerable<Test>> GetTestovi();
+        Task<Test> GetTestById(int testId);
         Task<bool> CreateTest(Test test);
     }
 }
