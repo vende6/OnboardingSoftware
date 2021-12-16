@@ -5,8 +5,6 @@ using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
 
-using OnboardingSoftware.App.Models;
-using OnboardingSoftware.App.Services;
 using OnboardingSoftware.Api;
 using System.Threading.Tasks;
 using System.Diagnostics;

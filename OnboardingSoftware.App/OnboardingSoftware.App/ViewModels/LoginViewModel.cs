@@ -84,8 +84,9 @@ namespace OnboardingSoftware.App.ViewModels
 
         private void AddSpecificPropertyValidations()
         {
-            _username.AddEmailValidation();
-            _password.AddPasswordValidation();
+            //_username.AddEmailValidation();
+           // _password.AddPasswordValidation();
+            _username.RequireDigit();
         }
 
         #endregion
@@ -103,6 +104,14 @@ namespace OnboardingSoftware.App.ViewModels
         {
             try
             {
+                Username.Validate();
+                Password.Validate();
+
+                IsValidForm = Username.IsValid && Password.IsValid;
+
+                if (!IsValidForm)
+                    return;
+
                 IsBusy = true;
                 //Narucioci_Result narucilac = await BaseClient.Client.LoginAsync(username);
                 //if (narucilac != null && narucilac.LozinkaHash == UIHelper.GenerateHash(narucilac.LozinkaSalt, password))

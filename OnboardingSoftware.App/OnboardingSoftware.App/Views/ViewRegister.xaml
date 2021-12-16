@@ -3,45 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:OnboardingSoftware.App.ViewModels"
              x:Class="OnboardingSoftware.App.Views.ViewRegister"
-             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:behaviors="clr-namespace:OnboardingSoftware.App.Behaviors" xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters"
              BackgroundColor="{StaticResource PageBackground}"
              Shell.NavBarIsVisible="False"
              Padding="5">
     <ContentPage.BindingContext>
         <viewmodels:RegisterViewModel/>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ValidationErrorConverter x:Key="ValidationErrorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Vertical" Margin="15,15,0,0" HorizontalOptions="Center">
                 <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png"  />
             </StackLayout>
             <!--IMPLEMENT LISTVIEW INSTEAD-->
-            <StackLayout Padding="20">
+            <StackLayout>
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
 
-                    <Entry x:Name="email" Placeholder="Email" Grid.Row="0" ></Entry>
+                    <StackLayout Orientation="Vertical" Grid.Row="1" Margin="40,50,40,0" Spacing="0">
+                        <Entry x:Name="email" Placeholder="Email" Text="{Binding Email.Value, Mode=TwoWay}" >
+                        <!--<Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateEmailCommand}" />
+                        </Entry.Behaviors>-->
+                    </Entry>
+                        <Label Text="{Binding Email.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="13" FontSize="Micro" />
 
-                    <Entry x:Name="lozinka" Placeholder="Password" Grid.Row="1" ></Entry>
-                 
-                    <Entry x:Name="ime" Placeholder="First name" Grid.Row="2" ></Entry>
+                        <Entry x:Name="firstname" Placeholder="Firstname" Text="{Binding Firstname.Value, Mode=TwoWay}" >
+                        <!--<Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateFirstnameCommand}" />
+                        </Entry.Behaviors>-->
+                    </Entry>
+                    <Label Text="{Binding Firstname.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="12" FontSize="Micro"/>
 
-                    <Entry x:Name="prezime" Placeholder="Last name" Grid.Row="3" ></Entry>
+                    <Entry x:Name="lastname" Placeholder="Lastname" Text="{Binding Lastname.Value, Mode=TwoWay}" >
+                        <!--<Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateLastnameCommand}" />
+                        </Entry.Behaviors>-->
+                    </Entry>
+                    <Label Text="{Binding Lastname.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="12" FontSize="Micro"/>
 
-                    <Button x:Name="registerBtn" Text="Register" HorizontalOptions="Center" Margin="0,32,0,0"
-                            Command="{Binding NavigateCommand}" CommandParameter="//home/profile"
+                        <Entry x:Name="password" Placeholder="Password" Text="{Binding Password.Value, Mode=TwoWay}" >
+                            <!--<Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
+                        </Entry.Behaviors>-->
+                        </Entry>
+                        <Label Text="{Binding Password.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="12" FontSize="Micro"/>
+                    </StackLayout>
+
+                    <Button x:Name="registerBtn" Text="Register" HorizontalOptions="Center" Margin="0,-5,0,0"
+                            Command="{Binding RegisterCommand}" CommandParameter="//home/login"
                         Grid.Row="5"  BackgroundColor="#13818d" TextColor="White"></Button>
 
                     <Label x:Name="redirectLogin" Text="Already have an account?" VerticalOptions="End" HorizontalOptions="Center" TextDecorations="Underline" Grid.Row="6">

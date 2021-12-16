@@ -2,7 +2,7 @@
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using OnboardingSoftware.App.Services;
+
 using OnboardingSoftware.App.Views;
 using System;
 using Xamarin.Forms;

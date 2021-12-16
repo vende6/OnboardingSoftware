@@ -56,7 +56,6 @@ namespace OnboardingSoftware.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnboardingSoftware.Api", Version = "v1" });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
-                    Description = "JWT containing userid claim",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey,
@@ -93,6 +92,7 @@ namespace OnboardingSoftware.Api
                 options.Password.RequiredLength = 8;
                 options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequireUppercase = true;
+                options.User.RequireUniqueEmail = true;
                 //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1d);
                 //options.Lockout.MaxFailedAccessAttempts = 5;
             }).AddEntityFrameworkStores<OnboardingSoftwareDbContext>().AddDefaultTokenProviders();
