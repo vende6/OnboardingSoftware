@@ -1,4 +1,5 @@
-﻿using OnboardingSoftware.App.ViewModels.Tests;
+﻿using OnboardingSoftware.App.ViewModels;
+using OnboardingSoftware.App.ViewModels.Tests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,20 @@ namespace OnboardingSoftware.App.Views.Tests
 
                 throw;
             }
+        }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (this.BindingContext is BaseViewModel viewModel)
+                await viewModel.OnAppearing();
+        }
+
+        protected async override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            if (this.BindingContext is BaseViewModel viewModel)
+                await viewModel.OnDisappearing();
         }
 
     }

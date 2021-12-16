@@ -1,9 +1,14 @@
-﻿using OnboardingSoftware.App.LanguageSupport;
+﻿using Newtonsoft.Json;
+using OnboardingSoftware.App.LanguageSupport;
+using OnboardingSoftware.App.Resources;
 using Plugin.Media;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -25,6 +30,8 @@ namespace OnboardingSoftware.App.ViewModels
             //Hook onto tabselectrenderer to refresh pages.
             MessagingCenter.Subscribe<Application>(this, AppMessages.RefreshTab, async (s) => await OnAppearing());
         }
+
+
 
         private Page _currentPageSave;
         public string RocketIcon { get; set; }
@@ -86,7 +93,7 @@ namespace OnboardingSoftware.App.ViewModels
                 return new Command<string>(async (route) =>
                 {
                     if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
-                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.ReferenceDialog("Select references", "Import references for the application" ));
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.ReferenceDialog("Select references", "Import references for the application"));
                 });
             }
         }
@@ -396,7 +403,7 @@ namespace OnboardingSoftware.App.ViewModels
             catch (Exception ex)
             {
                 IsBusy = false;
-               // WrapAndHandleException(ex);
+                // WrapAndHandleException(ex);
             }
         }
 
@@ -430,7 +437,7 @@ namespace OnboardingSoftware.App.ViewModels
 
 
                 //update on database
-               // await SwaggerClient.Client.ApiUsersImagePostAsync(Settings.UserId, new FileParameter(file.GetStream()));
+                // await SwaggerClient.Client.ApiUsersImagePostAsync(Settings.UserId, new FileParameter(file.GetStream()));
 
                 //convert image to byte array
                 var str = file.GetStreamWithImageRotatedForExternalStorage();
@@ -448,7 +455,7 @@ namespace OnboardingSoftware.App.ViewModels
             catch (Exception ex)
             {
                 IsBusy = false;
-            //    WrapAndHandleException(ex);
+                //    WrapAndHandleException(ex);
             }
         }
 
@@ -470,12 +477,11 @@ namespace OnboardingSoftware.App.ViewModels
                     HeaderMessage = Translation.Translate("Hi");
                 }
 
-                //add logic for task dalay longer than 10 sec(show dialog to user
-                //await CheckForMeasurementTemplate(cancellationToken);
-                await GetDashboardData(cancellationToken);
+
+                await GetTestsData();
 
                 IsBusy = false;
-                RaisePropertyChanged(() => IsPeriodDefined);
+
             }
             catch (Exception ex)
             {
@@ -486,6 +492,44 @@ namespace OnboardingSoftware.App.ViewModels
                     ClearData();
                 }
             }
+        }
+
+        private ObservableCollection<TestResource> _tests = new ObservableCollection<TestResource>();
+        public ObservableCollection<TestResource> Tests
+        {
+            get
+            {
+                return _tests;
+            }
+            set
+            {
+                _tests = value;
+                RaisePropertyChanged(() => Tests);
+            }
+        }
+
+
+        private async Task GetTestsData()
+        {
+
+            IsBusy = true;
+
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization =
+    new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ZGVjNDYzNS0zY2FmLTRiYzgtMDQ1Yi0wOGQ5YzAyMjJmM2YiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZGFtaXIxQHRvYi5iYSIsImp0aSI6ImViN2Y1NTg0LThjN2QtNDM5MC1iODUxLWE3NzA1ZWU2MDJlYSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiNmRlYzQ2MzUtM2NhZi00YmM4LTA0NWItMDhkOWMwMjIyZjNmIiwiZXhwIjoxNjQyMjI0NzQ1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjQ0MzA4IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMwOCJ9.6xPWKMbqS9RLqjwFRt9WvSuGRYwH8zk2L3BjL-6IoeE");
+
+            Uri uri = new Uri("https://3da9-77-238-220-218.ngrok.io/");
+
+            HttpResponseMessage response = await client.GetAsync(uri + "api/testovi");
+            if (response.IsSuccessStatusCode)
+            {
+                string content = await response.Content.ReadAsStringAsync();
+
+                Tests = new ObservableCollection<TestResource>(JsonConvert.DeserializeObject<List<TestResource>>(content));
+
+            }
+
+            IsBusy = false;
         }
 
         private void ClearData()
@@ -568,7 +612,7 @@ namespace OnboardingSoftware.App.ViewModels
             catch (Exception ex)
             {
                 IsBusy = false;
-               // WrapAndHandleException(ex);
+                // WrapAndHandleException(ex);
             }
         }
 
@@ -727,11 +771,12 @@ namespace OnboardingSoftware.App.ViewModels
         {
             get
             {
-                return new Command<string>(async (route) =>
+                return new Command<object>(async (obj) =>
                 {
 
+                    var x = obj as TestResource;
 
-                    await Shell.Current.GoToAsync(route);
+                    await Shell.Current.GoToAsync("//home/cognitive" + "?testId=" + (obj as TestResource).ID);
 
 
                 });

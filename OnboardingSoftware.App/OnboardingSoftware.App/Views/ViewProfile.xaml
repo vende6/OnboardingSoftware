@@ -288,7 +288,7 @@
                 <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
                 <Label Text="Cognitive" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="//home/cognitive" />
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="{Binding Tests[0]}" />
                 </StackLayout.GestureRecognizers>
             </StackLayout>
 
