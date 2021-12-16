@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -17,15 +18,16 @@ namespace OnboardingSoftware.App.ViewModels.Tests
     {
         public CognitiveViewModel()
         {
+      
+        }
+
+        public override async Task OnAppearing()
+        {
+            await base.OnAppearing();
             
         }
 
-        public override Task OnAppearing()
-        {
-            return base.OnAppearing();
-        }
-
-        private string _testId;
+        private string _testId = "55";
         public string TestID
         {
             get
@@ -95,21 +97,46 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
         }
 
-        private void BindValues(string testId)
+        private TestResource _test;
+        public TestResource Test
+        {
+            get
+            {
+                return _test;
+            }
+            set
+            {
+                _test = value;
+                RaisePropertyChanged(() => Test);
+            }
+        }
+
+        private async void BindValues(string testId)
         {
             IsBusy = true;
 
             try
             {
-                //var test = await SwaggerClient.Client.TestGetByIdAsync(testId);
+                IsBusy = true;
 
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+        new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ZGVjNDYzNS0zY2FmLTRiYzgtMDQ1Yi0wOGQ5YzAyMjJmM2YiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZGFtaXIxQHRvYi5iYSIsImp0aSI6ImViN2Y1NTg0LThjN2QtNDM5MC1iODUxLWE3NzA1ZWU2MDJlYSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiNmRlYzQ2MzUtM2NhZi00YmM4LTA0NWItMDhkOWMwMjIyZjNmIiwiZXhwIjoxNjQyMjI0NzQ1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjQ0MzA4IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMwOCJ9.6xPWKMbqS9RLqjwFRt9WvSuGRYwH8zk2L3BjL-6IoeE");
 
-                Naziv = "Test";
-                Tip = "Test";
-                BrojPitanja = "Test";
-                Trajanje = "Test";
+                Uri uri = new Uri("https://3da9-77-238-220-218.ngrok.io/");
+
+                HttpResponseMessage response = await client.GetAsync(uri + "api/testovi");
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    Test = JsonConvert.DeserializeObject<TestResource>(content);
+                }
+
+                Naziv = Test.Naziv;
+                Tip = Test.Tip;
+                BrojPitanja = Test.BrojPitanja;
+                Trajanje = Test.Trajanje;
               
-
 
                 IsBusy = false;
             }

@@ -7,6 +7,7 @@
        FlyoutBehavior="Flyout"
        FlyoutHeaderBehavior="CollapseOnScroll"
        FlyoutBackgroundColor="White"
+       xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels"
        Title="OnboardingSoftware"
        x:Class="OnboardingSoftware.App.AppShell">
 
@@ -51,6 +52,10 @@
     <!-- 
         Styles and Resources 
     -->
+    <Shell.BindingContext>
+        <viewModels:ShellViewModel/>
+    </Shell.BindingContext>
+    
     <Shell.Resources>
         <ResourceDictionary>
             <Color x:Key="NavigationPrimary">#2196F3</Color>
@@ -94,12 +99,12 @@
     </FlyoutItem>
 
 
-    <FlyoutItem Route="home" Title="Cognitive" FlyoutIcon="icon_feed.png">
-        <ShellContent Route="cognitive" ContentTemplate="{DataTemplate localtests:ViewCognitive}" />
+    <FlyoutItem Route="home" Title="Cognitive" FlyoutIcon="icon_feed.png" >
+        <ShellContent Route="cognitive" ContentTemplate="{DataTemplate localtests:ViewCognitive}"/>
     </FlyoutItem>
 
     <FlyoutItem Route="home" Title="E-Intelligence" FlyoutIcon="icon_feed.png">
-        <ShellContent Route="emotional" ContentTemplate="{DataTemplate localtests:ViewEmotional}"/>
+        <ShellContent Route="emotional" ContentTemplate="{DataTemplate localtests:ViewEmotional}" />
     </FlyoutItem>
 
     <FlyoutItem Route="home" Title="Integrity" FlyoutIcon="icon_feed.png">
@@ -107,8 +112,8 @@
     </FlyoutItem>
 
     <FlyoutItem Route="home" Title="Personality" FlyoutIcon="icon_feed.png">
-        <ShellContent Route="personality" ContentTemplate="{DataTemplate localtests:ViewPersonality}"/>
-    </FlyoutItem>
+    <ShellContent Route="personality" ContentTemplate="{DataTemplate localtests:ViewPersonality}"/>
+     </FlyoutItem>
 
     <FlyoutItem Route="home" Title="Logout" FlyoutIcon="logo.png">
         <ShellContent Route="logout" ContentTemplate="{DataTemplate local:ViewLogin}"/>

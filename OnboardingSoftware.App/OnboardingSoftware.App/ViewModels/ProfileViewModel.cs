@@ -28,7 +28,7 @@ namespace OnboardingSoftware.App.ViewModels
             SetGaugeValues();
 
             //Hook onto tabselectrenderer to refresh pages.
-            MessagingCenter.Subscribe<Application>(this, AppMessages.RefreshTab, async (s) => await OnAppearing());
+            //MessagingCenter.Subscribe<Application>(this, AppMessages.RefreshTab, async (s) => await OnAppearing());
         }
 
 
@@ -315,7 +315,7 @@ namespace OnboardingSoftware.App.ViewModels
             {
                 await _currentPageSave.Navigation.PopToRootAsync();
             }
-            MessagingCenter.Unsubscribe<Application>(this, AppMessages.RefreshTab);
+            //MessagingCenter.Unsubscribe<Application>(this, AppMessages.RefreshTab);
         }
 
         public ICommand ToggleCameraGalleryCommand
