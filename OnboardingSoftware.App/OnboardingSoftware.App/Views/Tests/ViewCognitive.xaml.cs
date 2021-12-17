@@ -23,6 +23,7 @@ namespace OnboardingSoftware.App.Views.Tests
             public string Value1 { get; set; }
             public string Value2 { get; set; }
             public string Value3 { get; set; }
+            public bool IsLast { get; set; }
         }
 
         public ViewCognitive()
@@ -32,12 +33,12 @@ namespace OnboardingSoftware.App.Views.Tests
                 InitializeComponent();
                 MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeCognitive");
 
-            //    var list = new List<CarouselElement>
-            //{
-            //    new CarouselElement{Text="Provide us your contact details", Placeholder1 = "Phonenumber", Placeholder2="Home Address", Placeholder3="Faculty"},
-            //    new CarouselElement{Text="Provide us with more details",  Placeholder1 = "Birth date", Placeholder2="Location", Placeholder3="Photo"}
-            //};
-            //    TheCarousel.ItemsSource = list;
+                var list = new List<CarouselElement>
+            {
+                new CarouselElement{Text="Question_01", Placeholder1 = "Phonenumber", Placeholder2="Home Address", Placeholder3="Faculty", IsLast=false},
+                new CarouselElement{Text="Question_02",  Placeholder1 = "Birth date", Placeholder2="Location", Placeholder3="Photo", IsLast=true}
+            };
+                TheCarousel.ItemsSource = list;
             }
             catch (Exception ex)
             {

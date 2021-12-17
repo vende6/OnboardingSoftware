@@ -208,7 +208,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
 
 
 
-        private bool _isStarted;
+        private bool _isStarted = false;
         public bool IsStarted
         {
             get { return this._isStarted; }

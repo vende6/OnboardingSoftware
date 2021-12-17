@@ -3,15 +3,14 @@
     x:Class="OnboardingSoftware.App.Views.Tests.ViewCognitive"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:controls="clr-namespace:OnboardingSoftware.App.Controls"
-    xmlns:extensions="clr-namespace:OnboardingSoftware.App.LanguageSupport"
-    xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels.Tests"
-    xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters"
-    xmlns:local="clr-namespace:OnboardingSoftware.App.Views" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels.Tests"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     ios:Page.UseSafeArea="true"
     BackgroundColor="White"
+    x:Name="this"
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
     <ContentPage.BindingContext>
@@ -28,17 +27,6 @@
     <ContentPage.Content>
         <RelativeLayout x:Name="Page">
 
-            <!--<Label
-                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Width,
-                                                                  Factor=0.12}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Height,
-                                                                  Factor=0.13}"
-                WidthRequest="{Binding Source='195', Converter={StaticResource SizeConv}}"
-                FontSize="{Binding Source='25', Converter={StaticResource SizeConv}}"
-                Text="{Binding Naziv}"
-                TextColor="Green" />-->
 
             <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0"
                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
@@ -46,7 +34,7 @@
                                                                   Factor=0.05}"
                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                               Property=Height,
-                                                                              Factor=0.082}">    
+                                                                              Factor=0.082}">
 
                 <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
 
@@ -70,6 +58,7 @@
 
             <StackLayout
                 Padding="30,0,20,0"
+                IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.25}"
@@ -103,10 +92,11 @@
                     HorizontalOptions="FillAndExpand"
                     BorderColor="Black" />
             </StackLayout>
-            
-            
+
+
             <StackLayout
                 Padding="30,0,20,0"
+                IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.35}"
@@ -139,6 +129,7 @@
 
             <StackLayout
                 Padding="30,0,20,0"
+                IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.45}"
@@ -174,6 +165,7 @@
 
             <StackLayout
                 Padding="30,0,20,0"
+                IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.55}"
@@ -208,6 +200,7 @@
             </StackLayout>
 
             <StackLayout
+                IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Width,
                                                                   Factor=0}"
@@ -222,7 +215,7 @@
                                                                        Factor=0.08}">
 
                 <controls:CustomButton
-                    Margin="0,0,10,0"
+                    Margin="0,0,0,0"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand"
                     CustomBackgroundColor="Black"
@@ -233,15 +226,156 @@
                     HeightRequest="{Binding Source='45', Converter={StaticResource SizeConv}}"
                     WidthRequest="{Binding Source='225', Converter={StaticResource SizeConv}}"
                     Text="Start"
+                    Command="{Binding StartCommand}"
                     TextColor="White"
                     FontSize="{Binding Source='15', Converter={StaticResource SizeConv}}">
 
                 </controls:CustomButton>
             </StackLayout>
 
+            <CarouselView       
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.24}"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.27}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=1}"
+            ItemsSource="{Binding .}"
+            IsVisible="{Binding IsStarted}"  
+            x:Name="TheCarousel"
+            HorizontalOptions="CenterAndExpand" 
+            VerticalOptions="CenterAndExpand"
+            Shell.NavBarIsVisible="False"
+            IndicatorView="indicatorview">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <AbsoluteLayout>
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <StackLayout x:Name="slQuestion" IsVisible="true">
+                                    <Label x:Name="lblQuestion"
+                     
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding Text}" TextColor="Black" />
+                                    <!--<Button x:Name="btnAnswerOne" Text="Yes" 
+				        IsEnabled="{Binding Answer1Enabled}" />-->
+
+                                    <controls:CustomButton
+                CustomBorderColor="Black"
+                CustomBackgroundColor="Black"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
+                                                               Android='30'}}"
+                CustomBorderWidth="1"
+                HorizontalOptions="Center"
+                x:Name="btnAnswerOne"
+                Text="Yes"
+                IsEnabled="{Binding Answer1Enabled}" 
+                FontAttributes="Italic"
+                VerticalOptions="Center"
+                TextColor="White"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='45'}}"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='95'}}">
+                                    </controls:CustomButton>
+                                    <controls:CustomButton
+                CustomBorderColor="Black"
+                CustomBackgroundColor="Black"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
+                                                               Android='30'}}"
+                CustomBorderWidth="1"
+                HorizontalOptions="Center"
+                x:Name="btnAnswerTwo"
+                Text="No"
+                IsEnabled="{Binding Answer2Enabled}" 
+                FontAttributes="Italic"
+                VerticalOptions="Center"
+                TextColor="White"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='45'}}"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='95'}}">
+                                    </controls:CustomButton>
+                                    <controls:CustomButton
+                CustomBorderColor="Black"
+                CustomBackgroundColor="Black"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
+                                                               Android='30'}}"
+                CustomBorderWidth="1"
+                HorizontalOptions="Center"
+                x:Name="btnAnswerThree"
+                Text="N/A"
+                IsEnabled="{Binding Answer3Enabled}" 
+                FontAttributes="Italic"
+                VerticalOptions="Center"
+                TextColor="White"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='45'}}"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='95'}}">
+                                    </controls:CustomButton>
+                                    
+                                    <Label x:Name="lblMessage"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding Message}" />
+
+
+                                </StackLayout>
+                                
+                                <!--<ActivityIndicator x:Name="aiLoading"
+                               IsRunning="{Binding IsLoading}"
+                               IsVisible="{Binding IsLoading}"
+                               Color="Blue" />-->
+
+                                <controls:CustomButton
+                CustomBorderColor="Black"
+                CustomBackgroundColor="Black"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
+                                                               Android='30'}}"
+                CustomBorderWidth="1"
+                HorizontalOptions="Center"
+                Margin="0,0,0,-20"
+                Text="Finish" 
+                FontAttributes="Italic"
+                Command="{Binding Path=BindingContext.FinishCommand, Source={x:Reference Name=this}}"
+                VerticalOptions="Center"
+                TextColor="White"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='45'}}"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='95'}}">
+                                </controls:CustomButton>
+                            </StackLayout>
+                        </AbsoluteLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.75}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.08}"
+            IsVisible="{Binding IsStarted}" 
+            x:Name="indicatorview"
+            BackgroundColor="#45cc57"
+            AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            IndicatorColor="LightGray"
+     
+            IndicatorSize="10"
+            SelectedIndicatorColor="Black" />
 
         </RelativeLayout>
-
     </ContentPage.Content>
 </ContentPage>
 

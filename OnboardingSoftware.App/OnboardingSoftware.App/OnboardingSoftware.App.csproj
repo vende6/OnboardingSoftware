@@ -17,6 +17,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\circle-cropped.png" />
     <EmbeddedResource Include="Images\flagg_engelsk.png" />
+    <EmbeddedResource Include="Images\flagg_norsk.png" />
     <EmbeddedResource Include="Images\lock.png" />
     <EmbeddedResource Include="Images\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
