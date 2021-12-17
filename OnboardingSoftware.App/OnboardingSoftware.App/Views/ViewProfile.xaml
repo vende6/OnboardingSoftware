@@ -213,7 +213,7 @@
 
                 <controls:CustomButton
                 Margin="{OnIdiom Phone={OnPlatform iOS='0,0,0,0',
-                                                   Android='-13,-5,0,0'}}"
+                                                   Android='-38,-5,0,0'}}"
                 CustomBorderColor="Black"
                 CustomBackgroundColor="Black"
                 Command="{Binding InterestsCommand}"
@@ -226,9 +226,9 @@
                 VerticalOptions="Center"
                 TextColor="White"
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='45'}}"
+                                                         Android='40'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='95'}}">
+                                                         Android='120'}}">
                 </controls:CustomButton>
 
                 <controls:CustomButton
@@ -246,9 +246,9 @@
                 VerticalOptions="Center"
                 TextColor="White"
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='45'}}"
+                                                         Android='40'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='280',
-                                                         Android='105'}}">
+                                                         Android='120'}}">
                 </controls:CustomButton>
 
                 <controls:CustomButton
@@ -267,9 +267,9 @@
                 VerticalOptions="Center"
                 TextColor="White"
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='45'}}"
+                                                         Android='40'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='105'}}">
+                                                         Android='120'}}">
                 </controls:CustomButton>
             </StackLayout>
 

@@ -236,7 +236,7 @@
             <CarouselView       
                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
-                                                                  Factor=0.24}"
+                                                                  Factor=0.20}"
                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.27}"
@@ -261,7 +261,7 @@
                                     <Label x:Name="lblQuestion"
                      
                        HorizontalTextAlignment="Center"
-                       Text="{Binding Text}" TextColor="Black" />
+                       Text="{Binding Text}" TextColor="Black" FontSize="18" FontAttributes="Italic" Margin="0,0,0,20" />
                                     <!--<Button x:Name="btnAnswerOne" Text="Yes" 
 				        IsEnabled="{Binding Answer1Enabled}" />-->
 
@@ -281,7 +281,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='95'}}">
+                                                         Android='155'}}">
                                     </controls:CustomButton>
                                     <controls:CustomButton
                 CustomBorderColor="Black"
@@ -299,7 +299,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='95'}}">
+                                                         Android='155'}}">
                                     </controls:CustomButton>
                                     <controls:CustomButton
                 CustomBorderColor="Black"
@@ -317,7 +317,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='95'}}">
+                                                         Android='155'}}">
                                     </controls:CustomButton>
                                     
                                     <Label x:Name="lblMessage"
@@ -333,6 +333,7 @@
                                Color="Blue" />-->
 
                                 <controls:CustomButton
+                IsVisible="{Binding IsLast}"                                
                 CustomBorderColor="Black"
                 CustomBackgroundColor="Black"
                 CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
@@ -348,7 +349,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='95'}}">
+                                                         Android='155'}}">
                                 </controls:CustomButton>
                             </StackLayout>
                         </AbsoluteLayout>
