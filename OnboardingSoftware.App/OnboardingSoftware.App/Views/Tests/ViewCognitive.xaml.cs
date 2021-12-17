@@ -30,12 +30,14 @@ namespace OnboardingSoftware.App.Views.Tests
             try
             {
                 InitializeComponent();
-                var list = new List<CarouselElement>
-            {
-                new CarouselElement{Text="Provide us your contact details", Placeholder1 = "Phonenumber", Placeholder2="Home Address", Placeholder3="Faculty"},
-                new CarouselElement{Text="Provide us with more details",  Placeholder1 = "Birth date", Placeholder2="Location", Placeholder3="Photo"}
-            };
-                TheCarousel.ItemsSource = list;
+                MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeCognitive");
+
+            //    var list = new List<CarouselElement>
+            //{
+            //    new CarouselElement{Text="Provide us your contact details", Placeholder1 = "Phonenumber", Placeholder2="Home Address", Placeholder3="Faculty"},
+            //    new CarouselElement{Text="Provide us with more details",  Placeholder1 = "Birth date", Placeholder2="Location", Placeholder3="Photo"}
+            //};
+            //    TheCarousel.ItemsSource = list;
             }
             catch (Exception ex)
             {

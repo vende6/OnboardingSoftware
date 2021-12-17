@@ -18,13 +18,14 @@ namespace OnboardingSoftware.App.ViewModels.Tests
     {
         public CognitiveViewModel()
         {
-      
+            MessagingCenter.Subscribe<Application>(this, "InitializeCognitive", async (s) => await OnAppearing());
         }
 
         public override async Task OnAppearing()
         {
             await base.OnAppearing();
-            
+            BindValues(_testId);
+
         }
 
         private string _testId = "55";
@@ -37,7 +38,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             set
             {
                 _testId = Uri.UnescapeDataString(value);
-                BindValues(_testId);
+                //BindValues(_testId);
             }
         }
 
@@ -125,7 +126,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
 
                 Uri uri = new Uri("https://3da9-77-238-220-218.ngrok.io/");
 
-                HttpResponseMessage response = await client.GetAsync(uri + "api/testovi");
+                HttpResponseMessage response = await client.GetAsync(uri + "api/testovi/" + testId);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();

@@ -15,7 +15,7 @@
     x:Name="this"
     ios:Page.UseSafeArea="true"
     Shell.NavBarIsVisible="False"
-    BackgroundColor="#159B15"
+    BackgroundColor="#45cc57"
     Shell.TabBarIsVisible="True">
 
     <ContentPage.BindingContext>
@@ -44,7 +44,7 @@
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                       Property=Width,
                                                                       Factor=1}"
-                StartColor="Green" />
+                StartColor="#45cc57" />
 
             <Image
                 Margin="10"
@@ -165,7 +165,7 @@
                         IsRunning="{Binding IsBusy}"
                         IsVisible="{Binding IsBusy}"
                         VerticalOptions="CenterAndExpand"
-                        Color="Turquoise" />
+                        Color="#45cc57" />
 
                 </Grid>
 
@@ -176,12 +176,13 @@
             <StackLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.21}">
                 <!--FontFamily="{StaticResource MarketProBold}"-->
                 <Label
-                    FontAttributes="Bold"
+               
                     
                     FontSize="{Binding Source='30', Converter={StaticResource SizeConv}}"
                     HorizontalOptions="CenterAndExpand"
                     HorizontalTextAlignment="Center"
                     Text="Hi, User"
+                    FontAttributes="Italic"
                     TextColor="WhiteSmoke"
                     VerticalOptions="EndAndExpand" />
                 <!--FontFamily="{StaticResource DomusRegular}"-->
@@ -212,7 +213,7 @@
 
                 <controls:CustomButton
                 Margin="{OnIdiom Phone={OnPlatform iOS='0,0,0,0',
-                                                   Android='-18,-5,0,0'}}"
+                                                   Android='-13,-5,0,0'}}"
                 CustomBorderColor="Black"
                 CustomBackgroundColor="Black"
                 Command="{Binding InterestsCommand}"
@@ -221,10 +222,13 @@
                 CustomBorderWidth="1"
                 HorizontalOptions="Center"
                 Text="Interests"
+                FontAttributes="Italic"
                 VerticalOptions="Center"
                 TextColor="White"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='35'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='105'}}">
+                                                         Android='95'}}">
                 </controls:CustomButton>
 
                 <controls:CustomButton
@@ -237,9 +241,12 @@
                                                                Android='30'}}"
                 CustomBorderWidth="1"
                 HorizontalOptions="Center"
+                FontAttributes="Italic"
                 Text="Skills"
                 VerticalOptions="Center"
                 TextColor="White"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='35'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='280',
                                                          Android='105'}}">
                 </controls:CustomButton>
@@ -255,8 +262,12 @@
                 CustomBorderWidth="1"
                 HorizontalOptions="Center"
                 Text="References"
+                    
+                FontAttributes="Italic"
                 VerticalOptions="Center"
                 TextColor="White"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='35'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='105'}}">
                 </controls:CustomButton>
@@ -543,7 +554,7 @@
                             <FontImageSource
                               Glyph="{Binding RocketIcon}"
                                 Size="{Binding Source='30', Converter={StaticResource SizeConv}}"
-                                Color="#6de1fa" />
+                                Color="#45cc57" />
                         </Image.Source>
                     </Image>
                     <!--FontFamily="{StaticResource DomusLight}"-->

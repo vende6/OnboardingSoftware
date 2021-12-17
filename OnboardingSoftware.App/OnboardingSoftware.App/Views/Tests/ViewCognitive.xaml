@@ -1,4 +1,251 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OnboardingSoftware.App.Views.Tests.ViewCognitive"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:OnboardingSoftware.App.Controls"
+    xmlns:extensions="clr-namespace:OnboardingSoftware.App.LanguageSupport"
+    xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels.Tests"
+    xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters"
+    xmlns:local="clr-namespace:OnboardingSoftware.App.Views" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <viewModels:CognitiveViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:SizeConverter x:Key="SizeConv" />
+            <converters:NegateBooleanConverter x:Key="NegateBooleanConverter" />
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <RelativeLayout x:Name="Page">
+
+            <!--<Label
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.12}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.13}"
+                WidthRequest="{Binding Source='195', Converter={StaticResource SizeConv}}"
+                FontSize="{Binding Source='25', Converter={StaticResource SizeConv}}"
+                Text="{Binding Naziv}"
+                TextColor="Green" />-->
+
+            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.05}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                              Property=Height,
+                                                                              Factor=0.082}">    
+
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+
+            </StackLayout>
+
+
+            <!--<ActivityIndicator
+                Grid.Column="1"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.43}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.2}"
+                HeightRequest="{Binding Source='35', Converter={StaticResource SizeConv}}"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                Color="Green" />-->
+
+            <StackLayout
+                Padding="30,0,20,0"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.25}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.08}">
+
+                <Label
+                    Padding="2"
+                    FontSize="{OnIdiom Phone={OnPlatform iOS='12',
+                                                         Android='14'}}"
+                    FontAttributes="Bold"
+                    Text="Naziv"
+                    TextColor="#45cc57" />
+
+                <controls:CustomEntry
+                    Margin="0,-5,0,0"
+                    BackgroundColor="White"
+                    FontSize="{OnIdiom Phone={OnPlatform iOS='14',
+                                                         Android='16'}}"
+                    BorderRadius="{Binding Source='15', Converter={StaticResource SizeConv}}"
+                    BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
+                                                            Android='4'}}"
+                    Text="{Binding Naziv}"
+                    HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
+                    IsReadOnly="True"
+                    TextColor="#45cc57"
+                    HorizontalOptions="FillAndExpand"
+                    BorderColor="#45cc57" />
+            </StackLayout>
+            
+            
+            <StackLayout
+                Padding="30,0,20,0"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.35}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}">
+                <Label
+                    Padding="2"
+                    FontAttributes="Bold"
+                    FontSize="{OnIdiom Phone={OnPlatform iOS='12',
+                                                         Android='14'}}"
+                    Text="Tip"
+                    TextColor="#45cc57"/>
+
+                <controls:CustomEntry
+                    Margin="0,-6,0,0"
+                    BackgroundColor="White"
+                    FontSize="{OnIdiom Phone={OnPlatform iOS='14',
+                                                         Android='16'}}"
+                    HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
+                    BorderRadius="{Binding Source='19', Converter={StaticResource SizeConv}}"
+                    Text="{Binding Tip}"
+                    BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
+                                                            Android='4'}}"
+                    IsReadOnly="True"
+                    TextColor="#45cc57"
+                    BorderColor="#45cc57"
+                    HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <StackLayout
+                Padding="30,0,20,0"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.45}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.08}">
+                <Label
+                    Padding="2"
+                    FontAttributes="Bold"
+                    FontSize="{OnIdiom Phone={OnPlatform iOS='12',
+                                                         Android='14'}}"
+                    Text="Trajanje"
+                    TextColor="#45cc57" />
+
+                <controls:CustomEntry
+                    Margin="0,-6,0,0"
+                    BackgroundColor="White"
+                    FontSize="{OnIdiom Phone={OnPlatform iOS='14',
+                                                         Android='16'}}"
+                    BorderRadius="{Binding Source='19', Converter={StaticResource SizeConv}}"
+                    Text="{Binding Trajanje}"
+                    HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
+                    BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
+                                                            Android='4'}}"
+                    IsReadOnly="True"
+                    TextColor="#45cc57"
+                    BorderColor="#45cc57"
+                    HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <StackLayout
+                Padding="30,0,20,0"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.55}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.08}">
+                <Label
+                    Padding="2"
+                    FontAttributes="Bold"
+                    FontSize="{OnIdiom Phone={OnPlatform iOS='12',
+                                                         Android='14'}}"
+                    Text="Broj Pitanja"
+                    TextColor="#45cc57" />
+
+                <controls:CustomEntry
+                    Margin="0,-6,0,0"
+                    BackgroundColor="White"
+                    FontSize="{OnIdiom Phone={OnPlatform iOS='14',
+                                                         Android='16'}}"
+                    BorderRadius="{Binding Source='19', Converter={StaticResource SizeConv}}"
+                    Text="{Binding BrojPitanja}"
+                    HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
+                    BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
+                                                            Android='4'}}"
+                    IsReadOnly="True"
+                    TextColor="#45cc57"
+                    BorderColor="#45cc57"
+                    HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <StackLayout
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.7}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=0.08}">
+
+                <controls:CustomButton
+                    Margin="0,0,10,0"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    CustomBackgroundColor="Black"
+                    CustomBorderColor="Black"
+                    CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='24',
+                                                                   Android='30'}}"
+                    CustomBorderWidth="1"
+                    HeightRequest="{Binding Source='45', Converter={StaticResource SizeConv}}"
+                    WidthRequest="{Binding Source='225', Converter={StaticResource SizeConv}}"
+                    Text="Start"
+                    TextColor="White"
+                    FontSize="{Binding Source='15', Converter={StaticResource SizeConv}}">
+
+                </controls:CustomButton>
+            </StackLayout>
+
+
+        </RelativeLayout>
+
+    </ContentPage.Content>
+</ContentPage>
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewmodels="clr-namespace:OnboardingSoftware.App.ViewModels.Tests" 
@@ -80,4 +327,4 @@
             SelectedIndicatorColor="Black" />
     </AbsoluteLayout>
 
-</ContentPage>
+</ContentPage>-->

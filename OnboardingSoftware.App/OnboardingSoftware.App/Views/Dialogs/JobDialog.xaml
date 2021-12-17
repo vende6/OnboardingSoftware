@@ -54,7 +54,7 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
-                   TextColor="DarkBlue"
+                   TextColor="#45cc57"
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
@@ -67,7 +67,7 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
-                   TextColor="DarkBlue"
+                   TextColor="#45cc57"
                    Text="Contract · Mid-Senior Level"
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
@@ -79,7 +79,7 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
-                   TextColor="DarkBlue"
+                   TextColor="#45cc57"
                    Text="Job Description"
                    FontAttributes="Bold"
                    LineHeight="1.1"
@@ -91,7 +91,7 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='16',Converter={StaticResource SizeConv}}"
-                   TextColor="DarkBlue"
+                   TextColor="#45cc57"
                    Text="About the job"
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
@@ -103,15 +103,15 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='12',Converter={StaticResource SizeConv}}"
-                   TextColor="DarkBlue"
+                   TextColor="#45cc57"
                    Text="TOB developers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client's business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, TOB is right for you."
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
 
 
-            <Button Text="Exit" BackgroundColor="Green" Command="{Binding CloseInfoCommand}"></Button>
-            <Button Text="Apply" BackgroundColor="Green" Command="{Binding ApplyCommand}"></Button>
+            <Button Text="Exit" BackgroundColor="#45cc57" Command="{Binding CloseInfoCommand}"></Button>
+            <Button Text="Apply" BackgroundColor="#45cc57" Command="{Binding ApplyCommand}"></Button>
         </StackLayout>
     </Frame>
 </pages:PopupPage>

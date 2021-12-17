@@ -72,7 +72,7 @@
                    Grid.ColumnSpan="2"
                    HorizontalOptions="Center"
                    FontSize="{Binding Source='25',Converter={StaticResource SizeConv}}"
-                   TextColor="Turquoise"
+                   TextColor="#45cc57"
                    LineHeight="1.1"
                    VerticalTextAlignment="End"
                    HorizontalTextAlignment="Start"/>
@@ -83,7 +83,7 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
-                   TextColor="DarkBlue"
+                   TextColor="Black"
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
@@ -104,7 +104,7 @@
                                 Binding="{Binding IsDomesticSelected}"
                                 TargetType="{x:Type ci:CircleImage}"
                                 Value="False">
-                                <Setter Property="BorderColor" Value="Turquoise" />
+                                <Setter Property="BorderColor" Value="#45cc57" />
                                 <Setter Property="BorderThickness" Value="{OnIdiom Phone={ OnPlatform iOS=7,Android=5}}" />
                             </DataTrigger>
                             <DataTrigger
@@ -149,7 +149,7 @@
 
                 <BoxView HeightRequest="1"
                      Margin="-20,10,-20,0"
-                     BackgroundColor="SkyBlue"
+                     BackgroundColor="#45cc57"
                      Grid.Row="4"
                      Grid.ColumnSpan="2"/>
 
@@ -159,7 +159,7 @@
                             Grid.ColumnSpan="2"
                             FontSize="{Binding Source='20',Converter={StaticResource SizeConv}}"
                             FontAttributes="Bold"
-                            TextColor="SkyBlue"
+                            TextColor="#45cc57"
                             WidthRequest="150"
                             Margin="0,5,0,0"
                             Padding="0,9,0,0"

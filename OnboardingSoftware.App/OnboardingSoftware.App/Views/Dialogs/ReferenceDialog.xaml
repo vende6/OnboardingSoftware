@@ -6,8 +6,8 @@
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels.Dialogs"
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
-             xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters"
-             BackgroundColor="{Binding BlurDialogBackgroundColor}">
+             xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters" xmlns:controls="clr-namespace:OnboardingSoftware.App.Controls"
+                 BackgroundColor="{Binding BlurDialogBackgroundColor}">
     <pages:PopupPage.BindingContext>
         <viewModels:ReferenceDialogViewModel/>
     </pages:PopupPage.BindingContext>
@@ -38,7 +38,7 @@
                    Grid.ColumnSpan="2"
                    HorizontalOptions="Center"
                    FontSize="{Binding Source='25',Converter={StaticResource SizeConv}}"
-                   TextColor="Turquoise"
+                   TextColor="#45cc57"
                    LineHeight="1.1"
                    VerticalTextAlignment="End"
                    HorizontalTextAlignment="Start"/>
@@ -49,15 +49,29 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
-                   TextColor="DarkBlue"
+                   TextColor="#45cc57"
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
 
                      
            <StackLayout>
-                <Button Text="Import references" Clicked="Button_Clicked" HorizontalOptions="Center"  BackgroundColor="Black"
-               VerticalOptions="Center"/>
+                <controls:CustomButton
+                    Margin="0,0,10,0"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    CustomBackgroundColor="Black"
+                    CustomBorderColor="Black"
+                    CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='24',
+                                                                   Android='30'}}"
+                    CustomBorderWidth="1"
+                    HeightRequest="{Binding Source='45', Converter={StaticResource SizeConv}}"
+                    WidthRequest="{Binding Source='225', Converter={StaticResource SizeConv}}"
+                    Text="References"
+                    TextColor="White"
+                    FontSize="{Binding Source='15', Converter={StaticResource SizeConv}}">
+
+                </controls:CustomButton>
                 <Label Text="File Is :" x:Name="lbl"/>
         </StackLayout>
 
