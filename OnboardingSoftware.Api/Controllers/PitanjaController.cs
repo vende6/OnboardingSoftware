@@ -31,6 +31,17 @@ namespace OnboardingSoftware.Api.Controllers
             return Ok(testResources);
         }
 
+        [HttpGet("{testId}", Name = "GetPitanjaByTestId")]
+        public async Task<ActionResult<PitanjeResource>> GetPitanjaByTestId(int testId)
+        {
+            var pitanja = await _pitanjeService.GetPitanjaByTestId(testId);
+            if (pitanja == null)
+                return NotFound();
+            var pitanjaResource = _mapper.Map<IEnumerable<Pitanje>, IEnumerable<PitanjeResource>>(pitanja);
+
+            return Ok(pitanjaResource);
+        }
+
         // POST: api/poslovi
         [HttpPost("")]
         public async Task<ActionResult<bool>> CreatePitanje([FromBody] SavePitanjeResource pitanjeResource)

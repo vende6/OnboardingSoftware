@@ -9,5 +9,6 @@ namespace OnboardingSoftware.Core.Repositories
     public interface IPitanjeRepository : IRepository<Pitanje>
     {
         Task<IEnumerable<Pitanje>> GetQuestionsAsync();
+        Task<IEnumerable<Pitanje>> GetPitanjaByTestIdAsync(int testId);
     }
 }

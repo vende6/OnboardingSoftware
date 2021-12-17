@@ -112,6 +112,20 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
         }
 
+        private ObservableCollection<PitanjeResource> _pitanja = new ObservableCollection<PitanjeResource>();
+        public  ObservableCollection<PitanjeResource> Pitanja
+        {
+            get
+            {
+                return _pitanja;
+            }
+            set
+            {
+                _pitanja = value;
+                RaisePropertyChanged(() => Pitanja);
+            }
+        }
+
         private async void BindValues(string testId)
         {
             IsBusy = true;
@@ -137,7 +151,16 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 Tip = Test.Tip;
                 BrojPitanja = Test.BrojPitanja;
                 Trajanje = Test.Trajanje;
-              
+
+                HttpResponseMessage response2 = await client.GetAsync(uri + "api/pitanja/" + testId);
+                if (response2.IsSuccessStatusCode)
+                {
+                    string content = await response2.Content.ReadAsStringAsync();
+                    Pitanja = new ObservableCollection<PitanjeResource>(JsonConvert.DeserializeObject<IEnumerable<PitanjeResource>>(content));
+                    Pitanja[0].IsLast = false;
+                    Pitanja[1].IsLast = true;
+                }
+
 
                 IsBusy = false;
             }
@@ -164,7 +187,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 IsBusy = true;
 
                 HttpClient client = new HttpClient();
-                Uri uri = new Uri("https://localhost:44308/");
+                Uri uri = new Uri("https://3da9-77-238-220-218.ngrok.io/");
 
 
                 TestResource resource = new TestResource

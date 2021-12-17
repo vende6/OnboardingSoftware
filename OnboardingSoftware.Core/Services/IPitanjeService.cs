@@ -9,6 +9,7 @@ namespace OnboardingSoftware.Core.Services
     public interface IPitanjeService
     {
         Task<IEnumerable<Pitanje>> GetPitanja();
+        Task<IEnumerable<Pitanje>> GetPitanjaByTestId(int testId);
         Task<bool> CreatePitanje(Pitanje pitanje);
     }
 }

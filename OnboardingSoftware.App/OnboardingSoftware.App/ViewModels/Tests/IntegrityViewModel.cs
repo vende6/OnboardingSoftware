@@ -134,7 +134,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 IsBusy = true;
 
                 HttpClient client = new HttpClient();
-                Uri uri = new Uri("https://localhost:44308/");
+                Uri uri = new Uri("https://3da9-77-238-220-218.ngrok.io/");
 
 
                 TestResource resource = new TestResource

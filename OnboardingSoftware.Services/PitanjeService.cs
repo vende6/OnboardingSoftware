@@ -27,5 +27,10 @@ namespace OnboardingSoftware.Services
         {
             return await _unitOfWork.Pitanja.GetQuestionsAsync();
         }
+
+        public async Task<IEnumerable<Pitanje>> GetPitanjaByTestId(int testId)
+        {
+            return await _unitOfWork.Pitanja.GetPitanjaByTestIdAsync(testId);
+        }
     }
 }
