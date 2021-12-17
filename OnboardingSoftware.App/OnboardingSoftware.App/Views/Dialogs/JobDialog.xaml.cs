@@ -18,6 +18,8 @@ namespace OnboardingSoftware.App.Views.Dialogs
             InitializeComponent();
             LabelTitle.Text = "Back-end developer";
             LabelBody.Text = "TOB, Sarajevo, Federation of Bosnia and Herzegovina";
+            LabelTitle.TextColor = Color.Black;
+            LabelBody.TextColor = Color.Black;
         }
     }
 }

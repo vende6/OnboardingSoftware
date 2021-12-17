@@ -86,7 +86,7 @@
                                                          Android='14'}}"
                     FontAttributes="Bold"
                     Text="Naziv"
-                    TextColor="#45cc57" />
+                    TextColor="Black" />
 
                 <controls:CustomEntry
                     Margin="0,-5,0,0"
@@ -99,9 +99,9 @@
                     Text="{Binding Naziv}"
                     HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
                     IsReadOnly="True"
-                    TextColor="#45cc57"
+                    TextColor="Black"
                     HorizontalOptions="FillAndExpand"
-                    BorderColor="#45cc57" />
+                    BorderColor="Black" />
             </StackLayout>
             
             
@@ -119,7 +119,7 @@
                     FontSize="{OnIdiom Phone={OnPlatform iOS='12',
                                                          Android='14'}}"
                     Text="Tip"
-                    TextColor="#45cc57"/>
+                    TextColor="Black"/>
 
                 <controls:CustomEntry
                     Margin="0,-6,0,0"
@@ -132,8 +132,8 @@
                     BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
                                                             Android='4'}}"
                     IsReadOnly="True"
-                    TextColor="#45cc57"
-                    BorderColor="#45cc57"
+                    TextColor="Black"
+                    BorderColor="Black"
                     HorizontalOptions="FillAndExpand" />
             </StackLayout>
 
@@ -154,7 +154,7 @@
                     FontSize="{OnIdiom Phone={OnPlatform iOS='12',
                                                          Android='14'}}"
                     Text="Trajanje"
-                    TextColor="#45cc57" />
+                    TextColor="Black" />
 
                 <controls:CustomEntry
                     Margin="0,-6,0,0"
@@ -167,8 +167,8 @@
                     BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
                                                             Android='4'}}"
                     IsReadOnly="True"
-                    TextColor="#45cc57"
-                    BorderColor="#45cc57"
+                    TextColor="Black"
+                    BorderColor="Black"
                     HorizontalOptions="FillAndExpand" />
             </StackLayout>
 
@@ -189,7 +189,7 @@
                     FontSize="{OnIdiom Phone={OnPlatform iOS='12',
                                                          Android='14'}}"
                     Text="Broj Pitanja"
-                    TextColor="#45cc57" />
+                    TextColor="Black" />
 
                 <controls:CustomEntry
                     Margin="0,-6,0,0"
@@ -202,8 +202,8 @@
                     BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
                                                             Android='4'}}"
                     IsReadOnly="True"
-                    TextColor="#45cc57"
-                    BorderColor="#45cc57"
+                    TextColor="Black"
+                    BorderColor="Black"
                     HorizontalOptions="FillAndExpand" />
             </StackLayout>
 
@@ -228,7 +228,7 @@
                     CustomBackgroundColor="Black"
                     CustomBorderColor="Black"
                     CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='24',
-                                                                   Android='30'}}"
+                                                                   Android='55'}}"
                     CustomBorderWidth="1"
                     HeightRequest="{Binding Source='45', Converter={StaticResource SizeConv}}"
                     WidthRequest="{Binding Source='225', Converter={StaticResource SizeConv}}"

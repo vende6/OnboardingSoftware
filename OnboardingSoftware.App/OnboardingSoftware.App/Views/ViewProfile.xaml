@@ -226,7 +226,7 @@
                 VerticalOptions="Center"
                 TextColor="White"
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='35'}}"
+                                                         Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='95'}}">
                 </controls:CustomButton>
@@ -246,7 +246,7 @@
                 VerticalOptions="Center"
                 TextColor="White"
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='35'}}"
+                                                         Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='280',
                                                          Android='105'}}">
                 </controls:CustomButton>
@@ -267,7 +267,7 @@
                 VerticalOptions="Center"
                 TextColor="White"
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='35'}}"
+                                                         Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='105'}}">
                 </controls:CustomButton>

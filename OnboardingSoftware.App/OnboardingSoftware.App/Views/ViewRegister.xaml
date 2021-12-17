@@ -17,9 +17,9 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Orientation="Vertical" Margin="15,15,0,0" HorizontalOptions="Center">
+            <StackLayout Orientation="Vertical" Margin="0,20,0,0" HorizontalOptions="Center">
                 <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png"  />
-            </StackLayout>
+            </StackLayout>  
             <!--IMPLEMENT LISTVIEW INSTEAD-->
             <StackLayout>
 
@@ -31,28 +31,28 @@
                     </Grid.RowDefinitions>
 
                     <StackLayout Orientation="Vertical" Grid.Row="1" Margin="40,50,40,0" Spacing="0">
-                        <Entry x:Name="email" Placeholder="Email" Text="{Binding Email.Value, Mode=TwoWay}" >
+                        <Entry x:Name="email" Placeholder="Email" Text="{Binding Email.Value, Mode=TwoWay}" TextColor="Black" PlaceholderColor="Black">
                         <!--<Entry.Behaviors>
                             <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateEmailCommand}" />
                         </Entry.Behaviors>-->
                     </Entry>
                         <Label Text="{Binding Email.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="13" FontSize="Micro" />
 
-                        <Entry x:Name="firstname" Placeholder="Firstname" Text="{Binding Firstname.Value, Mode=TwoWay}" >
+                        <Entry x:Name="firstname" Placeholder="Firstname" Text="{Binding Firstname.Value, Mode=TwoWay}" TextColor="Black" PlaceholderColor="Black">
                         <!--<Entry.Behaviors>
                             <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateFirstnameCommand}" />
                         </Entry.Behaviors>-->
                     </Entry>
                     <Label Text="{Binding Firstname.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="12" FontSize="Micro"/>
 
-                    <Entry x:Name="lastname" Placeholder="Lastname" Text="{Binding Lastname.Value, Mode=TwoWay}" >
+                        <Entry x:Name="lastname" Placeholder="Lastname" Text="{Binding Lastname.Value, Mode=TwoWay}" TextColor="Black" PlaceholderColor="Black">
                         <!--<Entry.Behaviors>
                             <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateLastnameCommand}" />
                         </Entry.Behaviors>-->
                     </Entry>
                     <Label Text="{Binding Lastname.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="12" FontSize="Micro"/>
 
-                        <Entry x:Name="password" Placeholder="Password" Text="{Binding Password.Value, Mode=TwoWay}" >
+                        <Entry x:Name="password" Placeholder="Password" Text="{Binding Password.Value, Mode=TwoWay}" TextColor="Black" PlaceholderColor="Black">
                             <!--<Entry.Behaviors>
                             <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
                         </Entry.Behaviors>-->
@@ -60,11 +60,11 @@
                         <Label Text="{Binding Password.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="12" FontSize="Micro"/>
                     </StackLayout>
 
-                    <Button x:Name="registerBtn" Text="Register" HorizontalOptions="Center" Margin="0,-5,0,0"
+                    <Button x:Name="registerBtn" Text="Register" HorizontalOptions="Center" Margin="0,-17,0,0"
                             Command="{Binding RegisterCommand}" CommandParameter="//home/login"
-                        Grid.Row="5"  BackgroundColor="#13818d" TextColor="White"></Button>
+                        Grid.Row="5"  BackgroundColor="Black" TextColor="White"></Button>
 
-                    <Label x:Name="redirectLogin" Text="Already have an account?" VerticalOptions="End" HorizontalOptions="Center" TextDecorations="Underline" Grid.Row="6">
+                    <Label x:Name="redirectLogin" Text="Already have an account?" VerticalOptions="End" HorizontalOptions="Center" Padding="0,0,0,0"  TextDecorations="Underline" Grid.Row="6">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="//login" />
                         </Label.GestureRecognizers>

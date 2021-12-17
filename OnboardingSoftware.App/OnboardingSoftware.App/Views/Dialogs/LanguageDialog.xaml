@@ -72,7 +72,6 @@
                    Grid.ColumnSpan="2"
                    HorizontalOptions="Center"
                    FontSize="{Binding Source='25',Converter={StaticResource SizeConv}}"
-                   TextColor="#45cc57"
                    LineHeight="1.1"
                    VerticalTextAlignment="End"
                    HorizontalTextAlignment="Start"/>
@@ -83,7 +82,6 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
-                   TextColor="Black"
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>

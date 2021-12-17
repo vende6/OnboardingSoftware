@@ -19,6 +19,8 @@ namespace OnboardingSoftware.App.Views.Dialogs
             InitializeComponent();
             LabelTitle.Text = Title;
             LabelBody.Text = Text;
+            LabelTitle.TextColor = Color.Black;
+            LabelBody.TextColor = Color.Black;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

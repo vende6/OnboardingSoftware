@@ -41,16 +41,16 @@
 
                         <StackLayout Grid.Row="0" Grid.Column="1" Margin="0,0,0,20"  Orientation="Vertical">
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Position:"/>
-                                <Label Text="Back-end developer"/>
+                                <Label TextColor="Black" Text="Position:"/>
+                                <Label TextColor="Black" Text="Back-end developer"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Company:"/>
-                                <Label Text="TOB"/>
+                                <Label TextColor="Black" Text="Company:"/>
+                                <Label TextColor="Black" Text="TOB"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                        
-                                <Label Text="Sarajevo, Federation of Bosnia and Herzegovina"/>
+
+                                <Label TextColor="Black" Text="Sarajevo, Federation of Bosnia and Herzegovina"/>
                             </StackLayout>
 
                         </StackLayout>

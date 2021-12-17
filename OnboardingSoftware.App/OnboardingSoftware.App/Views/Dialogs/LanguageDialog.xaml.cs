@@ -21,6 +21,8 @@ namespace OnboardingSoftware.App.Views.Dialogs
                 InitializeComponent();
                 LabelTitle.Text = Title;
                 LabelBody.Text = Text;
+                LabelTitle.TextColor = Color.Black;
+                LabelBody.TextColor = Color.Black;
             }
             catch (Exception ex)
             {
