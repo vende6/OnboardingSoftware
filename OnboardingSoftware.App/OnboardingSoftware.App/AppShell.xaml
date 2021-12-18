@@ -98,7 +98,7 @@
         <ShellContent Route="jobs" ContentTemplate="{DataTemplate local:ViewJobs}"/>
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="Tests" FlyoutIcon="icon_feed.png">
+    <FlyoutItem Route="home" Title="Tests" FlyoutIcon="logo.png">
         <ShellContent Route="tests" ContentTemplate="{DataTemplate localtests:ViewTests}"/>
     </FlyoutItem>
 

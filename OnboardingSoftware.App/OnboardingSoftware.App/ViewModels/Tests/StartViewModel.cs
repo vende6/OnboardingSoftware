@@ -24,7 +24,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
         public override async Task OnAppearing()
         {
             await base.OnAppearing();
-            BindValues(_testId);
+           // BindValues(_testId);
 
         }
 
@@ -89,6 +89,8 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     Pitanja = new ObservableCollection<PitanjeResource>(JsonConvert.DeserializeObject<IEnumerable<PitanjeResource>>(content));
+
+                    int i = 0;
                     Pitanja.Last().IsLast = true;
 
                     IsBusy = false;

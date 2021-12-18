@@ -7,7 +7,7 @@
     xmlns:controls="clr-namespace:OnboardingSoftware.App.Controls"
     xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters"
     xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels.Tests"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:lv="clr-namespace:Xamarin.Forms.MultiSelectListView;assembly=Xamarin.Forms.MultiSelectListView"
     ios:Page.UseSafeArea="true"
     BackgroundColor="White"
     x:Name="this"
@@ -129,58 +129,105 @@
                                 <StackLayout IsVisible="true">
                                     <Label
                        Text="{Binding Tekst}" TextColor="Black" FontSize="18" FontAttributes="Italic" Margin="0,0,0,20" />
-                                    <controls:CustomButton
-                CustomBorderColor="Black"
-                CustomBackgroundColor="Black"
-                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
-                                                               Android='30'}}"
-                CustomBorderWidth="1"
-                HorizontalOptions="Center"
-                Text="Yes"
-                FontAttributes="Italic"
-                VerticalOptions="Center"
-                TextColor="White"
-                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='45'}}"
-                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='155'}}">
-                                    </controls:CustomButton>
-                                    <controls:CustomButton
-                CustomBorderColor="Black"
-                CustomBackgroundColor="Black"
-                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
-                                                               Android='30'}}"
-                CustomBorderWidth="1"
-                HorizontalOptions="Center"
-                Text="No" 
-                FontAttributes="Italic"
-                VerticalOptions="Center"
-                TextColor="White"
-                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='45'}}"
-                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='155'}}">
-                                    </controls:CustomButton>
-                                    <controls:CustomButton
-                CustomBorderColor="Black"
-                CustomBackgroundColor="Black"
-                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
-                                                               Android='30'}}"
-                CustomBorderWidth="1"
-                HorizontalOptions="Center"
-                Text="N/A" 
-                FontAttributes="Italic"
-                VerticalOptions="Center"
-                TextColor="White"
-                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='45'}}"
-                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='155'}}">
-                                    </controls:CustomButton>
 
-                                    <Label x:Name="lblMessage"
+                                    <ListView x:Name="_listView" 
+            HasUnevenRows="true"        
+            ItemsSource="{Binding Odgovori}">
+                                        <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                                <ViewCell>
+                                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Padding="0,0,0,0">
+                                                        <controls:CustomButton
+                CustomBorderColor="#45cc57"
+                CustomBackgroundColor="White"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
+                                                               Android='30'}}"
+                CustomBorderWidth="3"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                Text="{Binding PonudjeniOdgovor_1}"
+                Command="{Binding MarkAsCorrect_1Command}"
+                CommandParameter="{Binding .}"
+                FontAttributes="Italic"
+                VerticalOptions="Center"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='45'}}"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='155'}}">
+                                                            <controls:CustomButton.Triggers>
+                                                                <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_1}" Value="True">
+                                                                    <Setter Property="CustomBackgroundColor" Value="#45cc57"></Setter>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_1}" Value="False">
+                                                                    <Setter Property="CustomBackgroundColor" Value="White"></Setter>
+                                                                </DataTrigger>
+                                                            </controls:CustomButton.Triggers>
+                                                        </controls:CustomButton>
+                                                        <controls:CustomButton
+                   CustomBorderColor="#45cc57"
+                CustomBackgroundColor="White"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
+                                                               Android='30'}}"
+                CustomBorderWidth="1"
+                HorizontalOptions="Center"
+                Text="{Binding PonudjeniOdgovor_2}" 
+                Command="{Binding MarkAsCorrect_2Command}"
+                FontAttributes="Italic"
+                VerticalOptions="Center"
+                TextColor="White"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='45'}}"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='155'}}">
+                                                        </controls:CustomButton>
+                                                        <controls:CustomButton
+                     CustomBorderColor="#45cc57"
+                CustomBackgroundColor="White"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
+                                                               Android='30'}}"
+                CustomBorderWidth="1"
+                HorizontalOptions="Center"
+                Text="{Binding PonudjeniOdgovor_3}" 
+                Command="{Binding MarkAsCorrect_3Command}"
+                FontAttributes="Italic"
+                VerticalOptions="Center"
+                TextColor="White"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='45'}}"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='155'}}">
+                                                        </controls:CustomButton>
+                                                        <controls:CustomButton
+                    CustomBorderColor="#45cc57"
+                CustomBackgroundColor="White"
+                CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='20',
+                                                               Android='30'}}"
+                CustomBorderWidth="1"
+                HorizontalOptions="Center"
+                Text="{Binding PonudjeniOdgovor_4}" 
+                Command="{Binding MarkAsCorrect_4Command}"
+                FontAttributes="Italic"
+                VerticalOptions="Center"
+                TextColor="White"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='45'}}"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='155'}}">
+                                                        </controls:CustomButton>
+                                                    </StackLayout>
+
+                                                </ViewCell>
+                                            </DataTemplate>
+                                    </ListView.ItemTemplate>
+
+                                    </ListView>
+
+
+
+
+                                    <!--<Label x:Name="lblMessage"
                        HorizontalTextAlignment="Center"
-                       Text="{Binding Message}" />
+                       Text="{Binding Message}" />-->
 
 
                                 </StackLayout>
