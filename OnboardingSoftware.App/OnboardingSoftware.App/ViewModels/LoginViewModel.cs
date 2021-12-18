@@ -126,7 +126,7 @@ namespace OnboardingSoftware.App.ViewModels
                 //IsBusy = true;
 
                 //HttpClient client = new HttpClient();
-                //Uri uri = new Uri("https://9a3c-77-238-220-218.ngrok.io/");
+                //Uri uri = new Uri("https://localhost:44308/");
 
 
                 //UserLoginResource resource = new UserLoginResource
@@ -144,7 +144,7 @@ namespace OnboardingSoftware.App.ViewModels
 
                 //if (response.IsSuccessStatusCode)
                 //{
-                    await Shell.Current.GoToAsync(route);
+                await Shell.Current.GoToAsync(route);
                 //}
                 //if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 //{

@@ -39,11 +39,19 @@ namespace OnboardingSoftware.App
 
         public App()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
 
-            Settings.SetPhoneRatio();
+                Settings.SetPhoneRatio();
 
-            MainPage = new AppShell();
+                MainPage = new AppShell();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         protected override void OnStart()

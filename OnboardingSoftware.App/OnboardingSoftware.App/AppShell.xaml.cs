@@ -17,7 +17,15 @@ namespace OnboardingSoftware.App
     {
         public AppShell()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
 
             MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "Initialize");
 

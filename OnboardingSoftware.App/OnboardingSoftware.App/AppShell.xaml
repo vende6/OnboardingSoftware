@@ -94,12 +94,12 @@
         <ShellContent Route="profile" ContentTemplate="{DataTemplate local:ViewProfile}" />
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="Tests" FlyoutIcon="icon_feed.png">
-        <ShellContent Route="tests" ContentTemplate="{DataTemplate localtests:ViewTests}"/>
-    </FlyoutItem>
-
     <FlyoutItem Route="home" Title="Jobs" FlyoutIcon="logo.png">
         <ShellContent Route="jobs" ContentTemplate="{DataTemplate local:ViewJobs}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Tests" FlyoutIcon="icon_feed.png">
+        <ShellContent Route="tests" ContentTemplate="{DataTemplate localtests:ViewTests}"/>
     </FlyoutItem>
 
     <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Logout" FlyoutIcon="logo.png">
