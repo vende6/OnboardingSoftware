@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using OnboardingSoftware.App.Cards.BusinessLogic;
+using OnboardingSoftware.App.LanguageSupport;
 using OnboardingSoftware.App.Resources;
 using OnboardingSoftware.App.ViewModels;
 using OnboardingSotware.App.Cards.Model;
@@ -13,7 +14,7 @@ using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -40,6 +41,7 @@ namespace OnboardingSoftware.App.Views.Tests
         public ViewTests()
         {
             InitializeComponent();
+            MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "Initialize");
             FillList();
         }
 
@@ -64,6 +66,18 @@ namespace OnboardingSoftware.App.Views.Tests
 
             IsBusy = false;
 
+        }
+
+        public ICommand TestDescriptionCommand
+        {
+            get
+            {
+                return new Command<string>(async (route) =>
+                {
+                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.JobDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+                });
+            }
         }
 
         protected async override void OnAppearing()

@@ -15,7 +15,15 @@ namespace OnboardingSoftware.App.Views.Cards
     {
         public TestsViewTemplate()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public ICommand TestDescriptionCommand
@@ -29,5 +37,11 @@ namespace OnboardingSoftware.App.Views.Cards
                 });
             }
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//home/login");
+        }
+
     }
 }

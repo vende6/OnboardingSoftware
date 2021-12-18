@@ -1,13 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels.Tests" 
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             x:Class="OnboardingSoftware.App.Views.Cards.TestsViewTemplate">
-    <ContentPage.BindingContext>
-        <viewModels:TestsViewModel/>
-    </ContentPage.BindingContext>
-
+             x:Class="OnboardingSoftware.App.Views.Cards.TestsViewTemplate"
+             x:Name="this">
     <Frame IsClippedToBounds="True"  
            HasShadow="True"  
            Padding="0"  
@@ -23,7 +20,7 @@
                      iOS="10"/>
         </Frame.Margin>
         <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-            <BoxView Color="#45cc57 " WidthRequest="3" />
+            <BoxView Color="Transparent" WidthRequest="3" />
             <Frame HorizontalOptions="FillAndExpand" Margin="0,0,0,0" HasShadow="False"  >
 
                 <Grid VerticalOptions="CenterAndExpand" Padding="0" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
@@ -58,17 +55,12 @@
                             <Label TextColor="Black" Text="BrojPitanja:"/>
                             <Label TextColor="Black" Text="{Binding BrojPitanja}"/>
                         </StackLayout>
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TestDescriptionCommand}" />
-                        </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </Grid>
-
             </Frame>
         </StackLayout>
         <Frame.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding TestDescriptionCommand}" />
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
         </Frame.GestureRecognizers>
     </Frame>
-
-</ContentPage>
+</ContentView>
