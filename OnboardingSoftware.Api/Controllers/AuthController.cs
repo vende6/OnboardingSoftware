@@ -36,11 +36,11 @@ namespace OnboardingSoftware.Api.Controllers
         }
 
         [HttpPost("signup")]
-        public async Task<IActionResult> SignUp(UserSignUpResource userSignUpResource)
+        public async Task<IActionResult> SignUp(UserSignupResource userSignupResource)
         {
-            var user = _mapper.Map<UserSignUpResource, User>(userSignUpResource);
+            var user = _mapper.Map<UserSignupResource, User>(userSignupResource);
 
-            var userCreateResult = await _userManager.CreateAsync(user, userSignUpResource.Password);
+            var userCreateResult = await _userManager.CreateAsync(user, userSignupResource.Password);
 
             if (userCreateResult.Succeeded)
             {

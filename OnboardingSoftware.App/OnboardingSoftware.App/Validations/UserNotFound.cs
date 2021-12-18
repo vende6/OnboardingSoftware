@@ -16,7 +16,7 @@ namespace OnboardingSoftware.App.Validations
                 return false;
 
             //var str = value as string;
-
+            //Implement incorrect username or password
            // return str.Any(c => char.IsDigit(c));
         }
     }

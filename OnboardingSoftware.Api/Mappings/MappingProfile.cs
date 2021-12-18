@@ -36,7 +36,9 @@ namespace OnboardingSoftware.Api.Mappings
                 .ForMember(x => x.Test, opt => opt.MapFrom(y => y.Test.Naziv));
             CreateMap<SavePitanjeResource, Pitanje>();
 
-            CreateMap<UserSignUpResource, User>()
+            CreateMap<Odgovor, OdgovorResource>();
+
+            CreateMap<UserSignupResource, User>()
                .ForMember(u => u.UserName, opt => opt.MapFrom(ur => ur.Email));
         }
     }

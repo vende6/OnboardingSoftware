@@ -99,19 +99,19 @@
     </FlyoutItem>
 
 
-    <FlyoutItem Route="home" Title="Cognitive" FlyoutIcon="icon_feed.png" >
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Cognitive" FlyoutIcon="icon_feed.png" >
         <ShellContent Route="cognitive" ContentTemplate="{DataTemplate localtests:ViewCognitive}"/>
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="E-Intelligence" FlyoutIcon="icon_feed.png">
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="E-Intelligence" FlyoutIcon="icon_feed.png">
         <ShellContent Route="emotional" ContentTemplate="{DataTemplate localtests:ViewEmotional}" />
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="Integrity" FlyoutIcon="icon_feed.png">
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Integrity" FlyoutIcon="icon_feed.png">
         <ShellContent Route="integrity" ContentTemplate="{DataTemplate localtests:ViewIntegrity}" />
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="Personality" FlyoutIcon="icon_feed.png">
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Personality" FlyoutIcon="icon_feed.png">
     <ShellContent Route="personality" ContentTemplate="{DataTemplate localtests:ViewPersonality}"/>
      </FlyoutItem>
 

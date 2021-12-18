@@ -70,6 +70,20 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
         }
 
+        private ObservableCollection<OdgovorResource> _ponudjeniOdgovori  = new ObservableCollection<OdgovorResource>();
+        public ObservableCollection<OdgovorResource> PonudjeniOdgovori
+        {
+            get
+            {
+                return _ponudjeniOdgovori;
+            }
+            set
+            {
+                _ponudjeniOdgovori = value;
+                RaisePropertyChanged(() => Tip);
+            }
+        }
+
         private string _brojPitanja;
         public string BrojPitanja
         {
@@ -152,14 +166,25 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 BrojPitanja = Test.BrojPitanja;
                 Trajanje = Test.Trajanje;
 
-                HttpResponseMessage response2 = await client.GetAsync(uri + "api/pitanja/" + testId);
-                if (response2.IsSuccessStatusCode)
-                {
-                    string content = await response2.Content.ReadAsStringAsync();
-                    Pitanja = new ObservableCollection<PitanjeResource>(JsonConvert.DeserializeObject<IEnumerable<PitanjeResource>>(content));
-                    Pitanja[0].IsLast = false;
-                    Pitanja[1].IsLast = true;
-                }
+                    HttpResponseMessage response2 = await client.GetAsync(uri + "api/pitanja/" + testId);
+                    if (response2.IsSuccessStatusCode)
+                    {
+                        string content = await response2.Content.ReadAsStringAsync();
+                        Pitanja = new ObservableCollection<PitanjeResource>(JsonConvert.DeserializeObject<IEnumerable<PitanjeResource>>(content));
+                        Pitanja[0].IsLast = false;
+                        Pitanja[1].IsLast = true;
+                    }
+                
+
+
+                //HttpResponseMessage response3 = await client.GetAsync(uri + "api/odgovori/" + testId);
+                //if (response3.IsSuccessStatusCode)
+                //{
+                //    string content = await response3.Content.ReadAsStringAsync();
+                //    PonudjeniOdgovori = new ObservableCollection<OdgovorResource>(JsonConvert.DeserializeObject<IEnumerable<OdgovorResource>>(content));
+
+                    
+                //}
 
 
                 IsBusy = false;
@@ -170,65 +195,6 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 IsBusy = false;
             }
         }
-
-        public ICommand GetTestDataCommand
-        {
-            get
-            {
-                return new Command<string>(async (route) => await GetTestDataAsync(route));
-            }
-        }
-
-        private async Task GetTestDataAsync(string route)
-        {
-            try
-            {
-
-                IsBusy = true;
-
-                HttpClient client = new HttpClient();
-                Uri uri = new Uri("https://3da9-77-238-220-218.ngrok.io/");
-
-
-                TestResource resource = new TestResource
-                {  };
-
-
-                string json = JsonConvert.SerializeObject(resource);
-                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
-
-
-                //HttpResponseMessage response = null;
-               // response = await client.PostAsync(uri + "api/Auth/signin", content);
-
-
-                //if (response.IsSuccessStatusCode)
-                //{
-                //    await Shell.Current.GoToAsync(route);
-                //}
-                //if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                //{
-               
-                //}
-
-
-
-
-
-                IsBusy = false;
-                // await Shell.Current.GoToAsync(route);
-            }
-            catch (Exception ex)
-            {
-                //Handle it here
-                IsBusy = false;
-            }
-
-
-        }
-
-
 
 
         private bool _isStarted = false;

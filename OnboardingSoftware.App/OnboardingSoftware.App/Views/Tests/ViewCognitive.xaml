@@ -251,20 +251,19 @@
             HorizontalOptions="CenterAndExpand" 
             VerticalOptions="CenterAndExpand"
             Shell.NavBarIsVisible="False"
-                Position="0"
             IndicatorView="indicatorview">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <AbsoluteLayout>
-                            <StackLayout Orientation="Horizontal">
+                            <!--<StackLayout Orientation="Horizontal">
                                 <Label
-                       Text="{Binding Test}" TextColor="Black" FontSize="12" FontAttributes="Italic" Margin="0,0,0,0" />
+                       Text="Text" TextColor="Black" FontSize="12" FontAttributes="Italic" Margin="0,0,0,0" />
                                 <Label 
 
                        Text="{Binding RedniBroj}" TextColor="Black" FontSize="14" FontAttributes="Italic" Margin="0,0,0,0" />
                                 <Label
                        Text="{Binding Tip}" TextColor="Black" FontSize="16" FontAttributes="Italic" Margin="0,0,0,0" />
-                            </StackLayout>
+                            </StackLayout>-->
                             <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
                                 <StackLayout IsVisible="true">
                                     <Label
@@ -373,7 +372,7 @@
             AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             IndicatorColor="LightGray"
-     
+            Position="0"
             IndicatorSize="10"
             SelectedIndicatorColor="Black" />
 

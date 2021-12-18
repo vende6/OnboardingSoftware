@@ -13,5 +13,6 @@ namespace OnboardingSoftware.Api.Resources
         public string Tip { get; set; }
         public string RedniBroj { get; set; }
         public string Test { get; set; }
+        public IEnumerable<OdgovorResource> Odgovori { get; set; }
     }
 }

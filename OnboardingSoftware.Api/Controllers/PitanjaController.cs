@@ -15,20 +15,22 @@ namespace OnboardingSoftware.Api.Controllers
     public class PitanjaController : ControllerBase
     {
         private readonly IPitanjeService _pitanjeService;
+        private readonly IOdgovorService _odgovorService;
         private readonly IMapper _mapper;
-        public PitanjaController(IPitanjeService pitanjeService, IMapper mapper)
+        public PitanjaController(IPitanjeService pitanjeService, IOdgovorService odgovorService, IMapper mapper)
         {
             this._pitanjeService = pitanjeService;
+            this._odgovorService = odgovorService;
             this._mapper = mapper;
         }
 
         [HttpGet("")]
         public async Task<ActionResult<IEnumerable<PitanjeResource>>> GetAllPitanja()
         {
-            var testovi = await this._pitanjeService.GetPitanja();
-            var testResources = _mapper.Map<IEnumerable<Pitanje>, IEnumerable<PitanjeResource>>(testovi);
+            var pitanja = await this._pitanjeService.GetPitanja();
+            var pitanjaResources = _mapper.Map<IEnumerable<Pitanje>, IEnumerable<PitanjeResource>>(pitanja);
 
-            return Ok(testResources);
+            return Ok(pitanjaResources);
         }
 
         [HttpGet("{testId}", Name = "GetPitanjaByTestId")]
@@ -38,6 +40,15 @@ namespace OnboardingSoftware.Api.Controllers
             if (pitanja == null)
                 return NotFound();
             var pitanjaResource = _mapper.Map<IEnumerable<Pitanje>, IEnumerable<PitanjeResource>>(pitanja);
+
+            foreach (var item in pitanjaResource)
+            {
+                var odgovori = await _odgovorService.GetOdgovoriByPitanjeId(item.ID);
+                var odgovoriResource = _mapper.Map<IEnumerable<Odgovor>, IEnumerable<OdgovorResource>>(odgovori);
+
+                item.Odgovori = odgovoriResource.Cast<OdgovorResource>();
+               
+            }
 
             return Ok(pitanjaResource);
         }

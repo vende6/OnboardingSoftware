@@ -84,6 +84,7 @@ namespace OnboardingSoftware.Api
             services.AddTransient<IPosaoService, PosaoService>();
             services.AddTransient<ITestService, TestService>();
             services.AddTransient<IPitanjeService, PitanjeService>();
+            services.AddTransient<IOdgovorService, OdgovorService>();
 
             services.AddDbContext<OnboardingSoftwareDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("OnboardingSoftware.Data")));
 

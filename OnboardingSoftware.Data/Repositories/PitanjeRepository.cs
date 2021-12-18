@@ -29,7 +29,7 @@ namespace OnboardingSoftware.Data.Repositories
 
         public async Task<IEnumerable<Pitanje>> GetPitanjaByTestIdAsync(int testId)
         {
-            return await OnboardingSoftwareDbContext.Pitanja
+             return await OnboardingSoftwareDbContext.Pitanja
                 .Include(x=>x.Test)
                 .Where(x=>x.Test.ID == testId)
                 .ToListAsync();

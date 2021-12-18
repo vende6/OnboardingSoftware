@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace OnboardingSoftware.Api.Resources
 {
-    public class UserSignUpResource
+    public class UserSignupResource
     {
         public string Email { get; set; }
 

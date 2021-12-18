@@ -123,33 +123,33 @@ namespace OnboardingSoftware.App.ViewModels
                 //if (!IsValidForm)
                 //    return;
 
-                IsBusy = true;
+                //IsBusy = true;
 
-                HttpClient client = new HttpClient();
-                Uri uri = new Uri("https://9a3c-77-238-220-218.ngrok.io/");
-
-
-                UserLoginResource resource = new UserLoginResource
-                { Email = email, Password = password };
+                //HttpClient client = new HttpClient();
+                //Uri uri = new Uri("https://9a3c-77-238-220-218.ngrok.io/");
 
 
-                string json = JsonConvert.SerializeObject(resource);
-                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                //UserLoginResource resource = new UserLoginResource
+                //{ Email = email, Password = password };
+
+
+                //string json = JsonConvert.SerializeObject(resource);
+                //StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
 
 
-                HttpResponseMessage response = null;
-                response = await client.PostAsync(uri + "api/Auth/signin", content);
+                //HttpResponseMessage response = null;
+                //response = await client.PostAsync(uri + "api/Auth/signin", content);
 
 
-                if (response.IsSuccessStatusCode)
-                {
+                //if (response.IsSuccessStatusCode)
+                //{
                     await Shell.Current.GoToAsync(route);
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                {
-                    Password.Validate();
-                }
+                //}
+                //if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                //{
+                //    Password.Validate();
+                //}
 
 
 
