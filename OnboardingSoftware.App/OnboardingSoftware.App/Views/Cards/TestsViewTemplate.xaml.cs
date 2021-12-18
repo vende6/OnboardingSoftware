@@ -38,10 +38,13 @@ namespace OnboardingSoftware.App.Views.Cards
             }
         }
 
+
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//home/login");
+            Frame frame = (Frame)sender;
+            var item = (TapGestureRecognizer)frame.GestureRecognizers[0];
+            var id = item.CommandParameter;
+            await Shell.Current.GoToAsync("//home/test" + "?testId=" + id);
         }
-
     }
 }

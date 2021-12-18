@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnboardingSoftware.App.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace OnboardingSoftware.App.Views.Tests
             try
             {
                 InitializeComponent();
+                MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeStart");
             }
             catch (Exception ex)
             {
@@ -24,5 +26,21 @@ namespace OnboardingSoftware.App.Views.Tests
                 throw;
             }
         }
+
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (this.BindingContext is BaseViewModel viewModel)
+                await viewModel.OnAppearing();
+        }
+
+        protected async override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            if (this.BindingContext is BaseViewModel viewModel)
+                await viewModel.OnDisappearing();
+        }
+    
     }
 }

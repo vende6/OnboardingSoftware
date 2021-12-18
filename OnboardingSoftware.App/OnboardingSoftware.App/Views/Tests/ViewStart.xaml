@@ -25,7 +25,7 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <RelativeLayout x:Name="Page">
+        <RelativeLayout>
 
 
             <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0"
@@ -56,7 +56,7 @@
                 IsVisible="{Binding IsBusy}"
                 Color="Green" />-->
 
-            <StackLayout
+            <!--<StackLayout
                 Padding="30,0,20,0"
                 IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
@@ -91,149 +91,10 @@
                     TextColor="Black"
                     HorizontalOptions="FillAndExpand"
                     BorderColor="Black" />
-            </StackLayout>
+            </StackLayout>-->
 
 
-            <StackLayout
-                Padding="30,0,20,0"
-                IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Height,
-                                                                  Factor=0.35}"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                      Property=Width,
-                                                                      Factor=1}">
-                <Label
-                    Padding="2"
-                    FontAttributes="Bold"
-                    FontSize="{OnIdiom Phone={OnPlatform iOS='12',
-                                                         Android='14'}}"
-                    Text="Tip"
-                    TextColor="Black"/>
-
-                <controls:CustomEntry
-                    Margin="0,-6,0,0"
-                    BackgroundColor="White"
-                    FontSize="{OnIdiom Phone={OnPlatform iOS='14',
-                                                         Android='16'}}"
-                    HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
-                    BorderRadius="{Binding Source='19', Converter={StaticResource SizeConv}}"
-                    Text="{Binding Tip}"
-                    BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
-                                                            Android='4'}}"
-                    IsReadOnly="True"
-                    TextColor="Black"
-                    BorderColor="Black"
-                    HorizontalOptions="FillAndExpand" />
-            </StackLayout>
-
-            <StackLayout
-                Padding="30,0,20,0"
-                IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Height,
-                                                                  Factor=0.45}"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                      Property=Width,
-                                                                      Factor=1}"
-                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                       Property=Height,
-                                                                       Factor=0.08}">
-                <Label
-                    Padding="2"
-                    FontAttributes="Bold"
-                    FontSize="{OnIdiom Phone={OnPlatform iOS='12',
-                                                         Android='14'}}"
-                    Text="Trajanje"
-                    TextColor="Black" />
-
-                <controls:CustomEntry
-                    Margin="0,-6,0,0"
-                    BackgroundColor="White"
-                    FontSize="{OnIdiom Phone={OnPlatform iOS='14',
-                                                         Android='16'}}"
-                    BorderRadius="{Binding Source='19', Converter={StaticResource SizeConv}}"
-                    Text="{Binding Trajanje}"
-                    HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
-                    BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
-                                                            Android='4'}}"
-                    IsReadOnly="True"
-                    TextColor="Black"
-                    BorderColor="Black"
-                    HorizontalOptions="FillAndExpand" />
-            </StackLayout>
-
-            <StackLayout
-                Padding="30,0,20,0"
-                IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Height,
-                                                                  Factor=0.55}"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                      Property=Width,
-                                                                      Factor=1}"
-                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                       Property=Height,
-                                                                       Factor=0.08}">
-                <Label
-                    Padding="2"
-                    FontAttributes="Bold"
-                    FontSize="{OnIdiom Phone={OnPlatform iOS='12',
-                                                         Android='14'}}"
-                    Text="Broj Pitanja"
-                    TextColor="Black" />
-
-                <controls:CustomEntry
-                    Margin="0,-6,0,0"
-                    BackgroundColor="White"
-                    FontSize="{OnIdiom Phone={OnPlatform iOS='14',
-                                                         Android='16'}}"
-                    BorderRadius="{Binding Source='19', Converter={StaticResource SizeConv}}"
-                    Text="{Binding BrojPitanja}"
-                    HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
-                    BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
-                                                            Android='4'}}"
-                    IsReadOnly="True"
-                    TextColor="Black"
-                    BorderColor="Black"
-                    HorizontalOptions="FillAndExpand" />
-            </StackLayout>
-
-            <StackLayout
-                IsVisible="{Binding IsStarted, Converter={StaticResource NegateBooleanConverter}}"
-                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Width,
-                                                                  Factor=0}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Height,
-                                                                  Factor=0.7}"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                      Property=Width,
-                                                                      Factor=1}"
-                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                       Property=Height,
-                                                                       Factor=0.08}">
-
-                <controls:CustomButton
-                    Margin="0,0,0,0"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="CenterAndExpand"
-                    CustomBackgroundColor="Black"
-                    CustomBorderColor="Black"
-                    CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='24',
-                                                                   Android='55'}}"
-                    CustomBorderWidth="1"
-                    HeightRequest="{Binding Source='45', Converter={StaticResource SizeConv}}"
-                    WidthRequest="{Binding Source='225', Converter={StaticResource SizeConv}}"
-                    Text="Start"
-                    Command="{Binding StartCommand}"
-                    TextColor="White"
-                    FontSize="{Binding Source='15', Converter={StaticResource SizeConv}}">
-
-                </controls:CustomButton>
-            </StackLayout>
-
-            <!--<CarouselView       
+            <CarouselView       
                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.20}"
@@ -249,8 +110,6 @@
             ItemsSource="{Binding Pitanja}"
             HorizontalOptions="CenterAndExpand" 
             VerticalOptions="CenterAndExpand"
-            IsVisible="{Binding IsStarted}"
-                CurrentItem="{Binding .}"
             Shell.NavBarIsVisible="False"
             IndicatorView="indicatorview">
 
@@ -326,10 +185,10 @@
 
                                 </StackLayout>
 
-                                --><!--<ActivityIndicator x:Name="aiLoading"
+                                <ActivityIndicator x:Name="aiLoading"
                                IsRunning="{Binding IsLoading}"
                                IsVisible="{Binding IsLoading}"
-                               Color="Blue" />--><!--
+                               Color="Blue" />
 
                                 <controls:CustomButton
                 IsVisible="{Binding IsLast}"                                
@@ -365,7 +224,6 @@
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                        Property=Height,
                                                                        Factor=0.08}"
-            IsVisible="{Binding IsStarted}"
             x:Name="indicatorview"
             BackgroundColor="#45cc57"
             AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
@@ -373,7 +231,7 @@
             IndicatorColor="LightGray"
             IndicatorSize="10"
             SelectedIndicatorColor="Black" >
-            </IndicatorView>-->
+            </IndicatorView>
 
         </RelativeLayout>
     </ContentPage.Content>

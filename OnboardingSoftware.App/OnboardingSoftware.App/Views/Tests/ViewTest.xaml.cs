@@ -16,6 +16,7 @@ namespace OnboardingSoftware.App.Views.Tests
         public ViewTest()
         {
             InitializeComponent();
+            MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeTest");
         }
 
         protected async override void OnAppearing()

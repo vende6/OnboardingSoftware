@@ -2,6 +2,8 @@
 using OnboardingSoftware.App.Resources;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -16,7 +18,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
     {
         public StartViewModel()
         {
-            //MessagingCenter.Subscribe<Application>(this, "InitializeCognitive", async (s) => await OnAppearing());
+            MessagingCenter.Subscribe<Application>(this, "InitializeStart", async (s) => await OnAppearing());
         }
 
         public override async Task OnAppearing()
@@ -54,6 +56,20 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
         }
 
+        private ObservableCollection<PitanjeResource> _pitanja = new ObservableCollection<PitanjeResource>();
+        public ObservableCollection<PitanjeResource> Pitanja
+        {
+            get
+            {
+                return _pitanja;
+            }
+            set
+            {
+                _pitanja = value;
+                RaisePropertyChanged(() => Pitanja);
+            }
+        }
+
         private async void BindValues(string testId)
         {
             IsBusy = true;
@@ -68,15 +84,16 @@ namespace OnboardingSoftware.App.ViewModels.Tests
 
                 Uri uri = new Uri("https://9d8f-77-238-220-218.ngrok.io/");
 
-                HttpResponseMessage response = await client.GetAsync(uri + "api/testovi/" + testId);
+                HttpResponseMessage response = await client.GetAsync(uri + "api/pitanja/" + testId);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    Test = JsonConvert.DeserializeObject<TestResource>(content);
-                }
+                    Pitanja = new ObservableCollection<PitanjeResource>(JsonConvert.DeserializeObject<IEnumerable<PitanjeResource>>(content));
+                    Pitanja.Last().IsLast = true;
 
-                IsBusy = false;
-            }
+                    IsBusy = false;
+                }
+            }    
             catch (Exception ex)
             {
                 var x = ex;

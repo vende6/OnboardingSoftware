@@ -20,7 +20,7 @@
                      iOS="10"/>
         </Frame.Margin>
         <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-            <BoxView Color="Transparent" WidthRequest="3" />
+            <BoxView Color="#45cc57" WidthRequest="3" />
             <Frame HorizontalOptions="FillAndExpand" Margin="0,0,0,0" HasShadow="False"  >
 
                 <Grid VerticalOptions="CenterAndExpand" Padding="0" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
@@ -40,7 +40,7 @@
                     <StackLayout Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"  Orientation="Vertical">
                         <Label TextColor="Black" IsVisible="False" Text="{Binding ID}"/>
                         <StackLayout Orientation="Horizontal">
-                            <Label TextColor="Black" Text="Position:"/>
+                            <Label TextColor="Black" Text="Naziv:"/>
                             <Label TextColor="Black" Text="{Binding Naziv}"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
@@ -60,7 +60,7 @@
             </Frame>
         </StackLayout>
         <Frame.GestureRecognizers>
-            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  CommandParameter="{Binding ID}"/>
         </Frame.GestureRecognizers>
     </Frame>
 </ContentView>
