@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -126,8 +127,8 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
         }
 
-        private ObservableCollection<PitanjeResource> _pitanja = new ObservableCollection<PitanjeResource>();
-        public  ObservableCollection<PitanjeResource> Pitanja
+        private List<PitanjeResource> _pitanja;
+        public  List<PitanjeResource> Pitanja
         {
             get
             {
@@ -170,22 +171,9 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                     if (response2.IsSuccessStatusCode)
                     {
                         string content = await response2.Content.ReadAsStringAsync();
-                        Pitanja = new ObservableCollection<PitanjeResource>(JsonConvert.DeserializeObject<IEnumerable<PitanjeResource>>(content));
-                        Pitanja[0].IsLast = false;
-                        Pitanja[1].IsLast = true;
-                    }
-                
-
-
-                //HttpResponseMessage response3 = await client.GetAsync(uri + "api/odgovori/" + testId);
-                //if (response3.IsSuccessStatusCode)
-                //{
-                //    string content = await response3.Content.ReadAsStringAsync();
-                //    PonudjeniOdgovori = new ObservableCollection<OdgovorResource>(JsonConvert.DeserializeObject<IEnumerable<OdgovorResource>>(content));
-
-                    
-                //}
-
+                        Pitanja = new List<PitanjeResource>(JsonConvert.DeserializeObject<IEnumerable<PitanjeResource>>(content));
+                    // Pitanja.Last().IsLast = true;
+                }
 
                 IsBusy = false;
             }

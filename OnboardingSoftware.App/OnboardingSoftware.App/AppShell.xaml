@@ -94,33 +94,32 @@
         <ShellContent Route="profile" ContentTemplate="{DataTemplate local:ViewProfile}" />
     </FlyoutItem>
 
+    <FlyoutItem Route="home" Title="Tests" FlyoutIcon="icon_feed.png">
+        <ShellContent Route="tests" ContentTemplate="{DataTemplate localtests:ViewTests}"/>
+    </FlyoutItem>
+
     <FlyoutItem Route="home" Title="Jobs" FlyoutIcon="logo.png">
         <ShellContent Route="jobs" ContentTemplate="{DataTemplate local:ViewJobs}"/>
     </FlyoutItem>
 
-
-    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Cognitive" FlyoutIcon="icon_feed.png" >
-        <ShellContent Route="cognitive" ContentTemplate="{DataTemplate localtests:ViewCognitive}"/>
-    </FlyoutItem>
-
-    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="E-Intelligence" FlyoutIcon="icon_feed.png">
-        <ShellContent Route="emotional" ContentTemplate="{DataTemplate localtests:ViewEmotional}" />
-    </FlyoutItem>
-
-    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Integrity" FlyoutIcon="icon_feed.png">
-        <ShellContent Route="integrity" ContentTemplate="{DataTemplate localtests:ViewIntegrity}" />
-    </FlyoutItem>
-
-    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Personality" FlyoutIcon="icon_feed.png">
-    <ShellContent Route="personality" ContentTemplate="{DataTemplate localtests:ViewPersonality}"/>
-     </FlyoutItem>
-
-    <FlyoutItem Route="home" Title="Logout" FlyoutIcon="logo.png">
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Logout" FlyoutIcon="logo.png">
         <ShellContent Route="logout" ContentTemplate="{DataTemplate local:ViewLogin}"/>
     </FlyoutItem>
 
     <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Logout">
         <ShellContent Route="register" ContentTemplate="{DataTemplate local:ViewRegister}"/>
+    </FlyoutItem>
+
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Start" FlyoutIcon="icon_feed.png">
+        <ShellContent Route="start" ContentTemplate="{DataTemplate localtests:ViewStart}"/>
+    </FlyoutItem>
+
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Test" FlyoutIcon="icon_feed.png">
+        <ShellContent Route="test" ContentTemplate="{DataTemplate localtests:ViewTest}"/>
+    </FlyoutItem>
+
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="End" FlyoutIcon="icon_feed.png">
+        <ShellContent Route="end" ContentTemplate="{DataTemplate localtests:ViewEnd}"/>
     </FlyoutItem>
 
     <!-- Optional Templates 

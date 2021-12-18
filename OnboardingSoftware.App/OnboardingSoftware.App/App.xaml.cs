@@ -4,6 +4,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 
 using OnboardingSoftware.App.Views;
+using OnboardingSoftware.App.Views.Tests;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

@@ -1,17 +1,21 @@
 ﻿using OnboardingSoftware.App.LanguageSupport;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace OnboardingSoftware.App.ViewModels.Cards
+namespace OnboardingSoftware.App.Views.Cards
 {
-    public class CardsViewModel : BaseViewModel
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class JobsViewTemplate : ContentView
     {
-        public CardsViewModel()
+        public JobsViewTemplate()
         {
-           
+            InitializeComponent();
         }
 
         public ICommand JobDescriptionCommand
@@ -25,5 +29,6 @@ namespace OnboardingSoftware.App.ViewModels.Cards
                 });
             }
         }
+
     }
 }

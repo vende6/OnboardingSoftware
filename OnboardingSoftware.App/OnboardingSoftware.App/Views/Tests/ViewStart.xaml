@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="OnboardingSoftware.App.Views.Tests.ViewCognitive"
+    x:Class="OnboardingSoftware.App.Views.Tests.ViewStart"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
@@ -14,7 +14,7 @@
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
     <ContentPage.BindingContext>
-        <viewModels:CognitiveViewModel />
+        <viewModels:StartViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -233,7 +233,7 @@
                 </controls:CustomButton>
             </StackLayout>
 
-            <CarouselView       
+            <!--<CarouselView       
                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.20}"
@@ -247,15 +247,17 @@
                                                                        Property=Height,
                                                                        Factor=1}"
             ItemsSource="{Binding Pitanja}"
-            IsVisible="{Binding IsStarted}"  
             HorizontalOptions="CenterAndExpand" 
             VerticalOptions="CenterAndExpand"
+            IsVisible="{Binding IsStarted}"
+                CurrentItem="{Binding .}"
             Shell.NavBarIsVisible="False"
             IndicatorView="indicatorview">
+
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <AbsoluteLayout>
-                            <!--<StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Horizontal">
                                 <Label
                        Text="Text" TextColor="Black" FontSize="12" FontAttributes="Italic" Margin="0,0,0,0" />
                                 <Label 
@@ -263,7 +265,7 @@
                        Text="{Binding RedniBroj}" TextColor="Black" FontSize="14" FontAttributes="Italic" Margin="0,0,0,0" />
                                 <Label
                        Text="{Binding Tip}" TextColor="Black" FontSize="16" FontAttributes="Italic" Margin="0,0,0,0" />
-                            </StackLayout>-->
+                            </StackLayout>
                             <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
                                 <StackLayout IsVisible="true">
                                     <Label
@@ -275,7 +277,6 @@
                                                                Android='30'}}"
                 CustomBorderWidth="1"
                 HorizontalOptions="Center"
-                x:Name="btnAnswerOne"
                 Text="Yes"
                 FontAttributes="Italic"
                 VerticalOptions="Center"
@@ -292,7 +293,6 @@
                                                                Android='30'}}"
                 CustomBorderWidth="1"
                 HorizontalOptions="Center"
-                x:Name="btnAnswerTwo"
                 Text="No" 
                 FontAttributes="Italic"
                 VerticalOptions="Center"
@@ -309,7 +309,6 @@
                                                                Android='30'}}"
                 CustomBorderWidth="1"
                 HorizontalOptions="Center"
-                x:Name="btnAnswerThree"
                 Text="N/A" 
                 FontAttributes="Italic"
                 VerticalOptions="Center"
@@ -319,18 +318,18 @@
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='155'}}">
                                     </controls:CustomButton>
-                                    
+
                                     <Label x:Name="lblMessage"
                        HorizontalTextAlignment="Center"
                        Text="{Binding Message}" />
 
 
                                 </StackLayout>
-                                
-                                <!--<ActivityIndicator x:Name="aiLoading"
+
+                                --><!--<ActivityIndicator x:Name="aiLoading"
                                IsRunning="{Binding IsLoading}"
                                IsVisible="{Binding IsLoading}"
-                               Color="Blue" />-->
+                               Color="Blue" />--><!--
 
                                 <controls:CustomButton
                 IsVisible="{Binding IsLast}"                                
@@ -366,15 +365,15 @@
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                        Property=Height,
                                                                        Factor=0.08}"
-            IsVisible="{Binding IsStarted}" 
+            IsVisible="{Binding IsStarted}"
             x:Name="indicatorview"
             BackgroundColor="#45cc57"
             AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             IndicatorColor="LightGray"
-            Position="0"
             IndicatorSize="10"
-            SelectedIndicatorColor="Black" />
+            SelectedIndicatorColor="Black" >
+            </IndicatorView>-->
 
         </RelativeLayout>
     </ContentPage.Content>

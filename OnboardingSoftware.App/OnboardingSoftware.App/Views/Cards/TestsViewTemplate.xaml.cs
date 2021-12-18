@@ -10,10 +10,15 @@ using Xamarin.Forms.Xaml;
 
 namespace OnboardingSoftware.App.Views.Cards
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CardViewTemplate : ContentView
-	{
-        public ICommand JobDescriptionCommand
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class TestsViewTemplate : ContentView
+    {
+        public TestsViewTemplate()
+        {
+            InitializeComponent();
+        }
+
+        public ICommand TestDescriptionCommand
         {
             get
             {
@@ -24,9 +29,5 @@ namespace OnboardingSoftware.App.Views.Cards
                 });
             }
         }
-        public CardViewTemplate()
-		{
-			InitializeComponent();
-		}
-	}
+    }
 }

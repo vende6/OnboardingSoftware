@@ -1,16 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:local="clr-namespace:OnboardingSoftware.App.Views.Cards"
-             x:Class="OnboardingSoftware.App.Views.ViewJobs"
+             xmlns:local="clr-namespace:OnboardingSoftware.App.Views.Cards" 
+             xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels.Tests"
+             x:Class="OnboardingSoftware.App.Views.Tests.ViewTests"
              Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <viewModels:TestsViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="Emplist1" HasUnevenRows="True">
+            <ListView x:Name="Emplist2" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <local:JobsViewTemplate/>
+                            <local:TestsViewTemplate/>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

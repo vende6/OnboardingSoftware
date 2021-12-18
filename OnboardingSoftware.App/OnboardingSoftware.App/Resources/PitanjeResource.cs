@@ -12,5 +12,7 @@ namespace OnboardingSoftware.App.Resources
         public string RedniBroj { get; set; }
         public string Test { get; set; }
         public bool IsLast { get; set; }
+        public int Position { get; set; }
+        public IEnumerable<OdgovorResource> Odgovori { get; set; }
     }
 }

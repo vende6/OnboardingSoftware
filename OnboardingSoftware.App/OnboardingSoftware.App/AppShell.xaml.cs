@@ -29,10 +29,11 @@ namespace OnboardingSoftware.App
             Routing.RegisterRoute(nameof(ViewInterest), typeof(ViewInterest));
             Routing.RegisterRoute(nameof(ViewProfile), typeof(ViewProfile));
 
-            Routing.RegisterRoute(nameof(ViewCognitive), typeof(ViewCognitive));
-            Routing.RegisterRoute(nameof(ViewPersonality), typeof(ViewPersonality));
-            Routing.RegisterRoute(nameof(ViewIntegrity), typeof(ViewIntegrity));
-            Routing.RegisterRoute(nameof(ViewEmotional), typeof(ViewEmotional));
+            Routing.RegisterRoute(nameof(ViewTests), typeof(ViewTests));
+            Routing.RegisterRoute(nameof(ViewStart), typeof(ViewStart));
+            Routing.RegisterRoute(nameof(ViewTest), typeof(ViewTest));
+            Routing.RegisterRoute(nameof(ViewEnd), typeof(ViewEnd));
+
 
         }
 

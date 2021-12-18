@@ -42,8 +42,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\Cards\CardViewTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <EmbeddedResource Update="Views\Cards\JobsViewTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Cards\TestsViewTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Dialogs\ApplyDialog.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -66,16 +69,16 @@
     <EmbeddedResource Update="Views\Dialogs\SkillDialog.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Tests\ViewCognitive.xaml">
+    <EmbeddedResource Update="Views\Tests\ViewEnd.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Tests\ViewEmotional.xaml">
+    <EmbeddedResource Update="Views\Tests\ViewStart.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Tests\ViewIntegrity.xaml">
+    <EmbeddedResource Update="Views\Tests\ViewTest.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Tests\ViewPersonality.xaml">
+    <EmbeddedResource Update="Views\Tests\ViewTests.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ViewInterest.xaml">

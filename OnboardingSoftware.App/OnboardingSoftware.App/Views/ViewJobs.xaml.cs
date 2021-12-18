@@ -31,7 +31,7 @@ namespace OnboardingSoftware.App.Views
             if (_data.Count != 0)
             {
                 employees = _data;
-                Emplist.ItemsSource = _data;
+                Emplist1.ItemsSource = _data;
             }
             else
             {
