@@ -162,7 +162,7 @@ namespace OnboardingSoftware.App.ViewModels
 
 
                 HttpClient client = new HttpClient();
-                Uri uri = new Uri("https://9d8f-77-238-220-218.ngrok.io/");
+                Uri uri = new Uri("https://23d7-77-238-220-218.ngrok.io/");
 
 
                 UserSignUpResource resource = new UserSignUpResource 
