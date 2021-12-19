@@ -21,6 +21,13 @@ namespace OnboardingSoftware.Data.Repositories
             get { return Context as OnboardingSoftwareDbContext; }
         }
 
+        public async Task<IEnumerable<Odgovor>> GetOdgovoriAsync()
+        {
+            return await OnboardingSoftwareDbContext.Odgovori
+                .Include(x => x.Pitanje)
+                .ToListAsync();
+        }
+
         public async Task<IEnumerable<Odgovor>> GetOdgovoriByPitanjeIdAsync(int pitanjeId)
         {
             return await OnboardingSoftwareDbContext.Odgovori
@@ -28,5 +35,12 @@ namespace OnboardingSoftware.Data.Repositories
               .Where(x => x.Pitanje.ID == pitanjeId)
               .ToListAsync();
         }
+
+        public void UpdateOdgovori(IEnumerable<Odgovor> odgovori)
+        {
+            OnboardingSoftwareDbContext.Odgovori
+               .UpdateRange(odgovori);
+        }
+
     }
 }

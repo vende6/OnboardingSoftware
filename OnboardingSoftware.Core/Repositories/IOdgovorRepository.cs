@@ -9,6 +9,7 @@ namespace OnboardingSoftware.Core.Repositories
 {
     public interface IOdgovorRepository : IRepository<Odgovor>
     {
+        Task<IEnumerable<Odgovor>> GetOdgovoriAsync();
         Task<IEnumerable<Odgovor>> GetOdgovoriByPitanjeIdAsync(int pitanjeId);
     }
 }

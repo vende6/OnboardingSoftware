@@ -1,5 +1,4 @@
-﻿using OnboardingSoftware.Core.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace OnboardingSoftware.Api.Resources
 {
-    public class OdgovorResource
+    public class SaveOdgovorResource
     {
-        public int ID { get; set; }
         public string PonudjeniOdgovor_1 { get; set; }
         public string PonudjeniOdgovor_2 { get; set; }
         public string PonudjeniOdgovor_3 { get; set; }

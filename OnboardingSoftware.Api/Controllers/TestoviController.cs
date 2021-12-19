@@ -44,9 +44,9 @@ namespace OnboardingSoftware.Api.Controllers
             return Ok(testResource);
         }
 
-        // POST: api/poslovi
+        // POST: api/testovi
         [HttpPost("")]
-        public async Task<ActionResult<bool>> CreateTest([FromBody] TestResource testResource)
+        public async Task<ActionResult<bool>> CreateTest([FromBody] SaveTestResource testResource)
         {
 
             //var validator = new SaveLinkResourceValidator();
@@ -54,7 +54,7 @@ namespace OnboardingSoftware.Api.Controllers
             //if (!validationResult.IsValid)
             //    return BadRequest(validationResult.Errors);
 
-            var test = _mapper.Map<TestResource, Test>(testResource);
+            var test = _mapper.Map<SaveTestResource, Test>(testResource);
             await _testService.CreateTest(test);
 
 

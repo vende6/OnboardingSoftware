@@ -16,9 +16,28 @@ namespace OnboardingSoftware.Services
             this._unitOfWork = unitOfWork;
         }
 
+        public async Task<bool> CreateOdgovor(Odgovor newOdgovor)
+        {
+            await _unitOfWork.Odgovori.AddAsync(newOdgovor);
+            await _unitOfWork.CommitAsync();
+            return true;
+        }
+
+        public async Task<IEnumerable<Odgovor>> GetOdgovori()
+        {
+            return await _unitOfWork.Odgovori.GetOdgovoriAsync();
+        }
+
         public async Task<IEnumerable<Odgovor>> GetOdgovoriByPitanjeId(int pitanjeId)
         {
             return await _unitOfWork.Odgovori.GetOdgovoriByPitanjeIdAsync(pitanjeId);
+        }
+
+        public async Task<bool> UpdateOdgovori(IEnumerable<Odgovor> odgovori)
+        {
+            _unitOfWork.Odgovori.UpdateRange(odgovori);
+            await _unitOfWork.CommitAsync();
+            return true;
         }
     }
 }

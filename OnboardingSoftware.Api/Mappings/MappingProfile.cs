@@ -15,13 +15,17 @@ namespace OnboardingSoftware.Api.Mappings
         {
             CreateMap<Posao, PosaoResource>()
                 .ForMember(x => x.Lokacija, opt => opt.MapFrom(y => y.Lokacija.Naziv));
-
             CreateMap<SavePosaoResource, Posao>();
             CreateMap<SavePosaoResource, Lokacija>()
                  .ForMember(x => x.Naziv, opt => opt.MapFrom(y => y.Lokacija.Naziv));
 
             CreateMap<Test, TestResource>();
             CreateMap<TestResource, Test>()
+             .ForMember(x => x.OsvojeniProcenat, opt => opt.MapFrom(y => "N/A"))
+             .ForMember(x => x.Pocetak, opt => opt.MapFrom(y => DateTime.Now))
+             .ForMember(x => x.Kraj, opt => opt.MapFrom(y => DateTime.Now.AddMinutes(2)));
+            CreateMap<Test, SaveTestResource>();
+            CreateMap<SaveTestResource, Test>()
              .ForMember(x => x.OsvojeniProcenat, opt => opt.MapFrom(y => "N/A"))
              .ForMember(x => x.Pocetak, opt => opt.MapFrom(y => DateTime.Now))
              .ForMember(x => x.Kraj, opt => opt.MapFrom(y => DateTime.Now.AddMinutes(2)));
@@ -37,6 +41,9 @@ namespace OnboardingSoftware.Api.Mappings
             CreateMap<SavePitanjeResource, Pitanje>();
 
             CreateMap<Odgovor, OdgovorResource>();
+            CreateMap<SaveOdgovorResource, Odgovor>();
+            CreateMap<UpdateOdgovoriResource, Odgovor>();
+            CreateMap<OdgovorResource, Odgovor>();
 
             CreateMap<UserSignupResource, User>()
                .ForMember(u => u.UserName, opt => opt.MapFrom(ur => ur.Email));

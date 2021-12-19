@@ -53,7 +53,7 @@ namespace OnboardingSoftware.Api.Controllers
             return Ok(pitanjaResource);
         }
 
-        // POST: api/poslovi
+        // POST: api/pitanja
         [HttpPost("")]
         public async Task<ActionResult<bool>> CreatePitanje([FromBody] SavePitanjeResource pitanjeResource)
         {
@@ -71,5 +71,6 @@ namespace OnboardingSoftware.Api.Controllers
 
             return Ok(true);
         }
+
     }
 }

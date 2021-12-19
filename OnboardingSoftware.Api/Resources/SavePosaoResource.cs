@@ -8,7 +8,6 @@ namespace OnboardingSoftware.Api.Resources
 {
     public class SavePosaoResource
     {
-        public int ID { get; set; }
         public string Naziv { get; set; }
         public string Tip { get; set; }
         public string Kategorija { get; set; }

@@ -8,6 +8,9 @@ namespace OnboardingSoftware.Core.Services
 {
     public interface IOdgovorService
     {
+        Task<IEnumerable<Odgovor>> GetOdgovori();
         Task<IEnumerable<Odgovor>> GetOdgovoriByPitanjeId(int pitanjeId);
+        Task<bool> CreateOdgovor(Odgovor odgovor);
+        Task<bool> UpdateOdgovori(IEnumerable<Odgovor> odgovori);
     }
 }

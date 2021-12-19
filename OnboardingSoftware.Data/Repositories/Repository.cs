@@ -27,6 +27,7 @@ namespace OnboardingSoftware.Data.Repositories
             await Context.Set<TEntity>().AddRangeAsync(entities);
         }
 
+
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return Context.Set<TEntity>().Where(predicate);
@@ -40,6 +41,16 @@ namespace OnboardingSoftware.Data.Repositories
         public ValueTask<TEntity> GetByIdAsync(int id)
         {
             return Context.Set<TEntity>().FindAsync(id);
+        }
+
+        public void Update(TEntity entity)
+        {
+            Context.Set<TEntity>().Update(entity);
+        }
+
+        public void UpdateRange(IEnumerable<TEntity> entities)
+        {
+            Context.Set<TEntity>().UpdateRange(entities);
         }
 
         public void Remove(TEntity entity)
