@@ -1,0 +1,49 @@
+﻿@model IEnumerable<OnboardingSoftware.Web.Models.OdgovorViewModel>
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h4>Answers</h4>
+
+<p align="right">
+    <input type="button" value="Create" onclick="location.href='@Url.Action("CreateAnswer", "Home" )'" />
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Suggested answer No.1
+            </th>
+            <th>
+                Suggested answer No.2
+            </th>
+            <th>
+                Suggested answer No.3
+            </th>
+            <th>
+                Suggested answer No.4
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.PonudjeniOdgovor_1)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.PonudjeniOdgovor_2)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.PonudjeniOdgovor_3)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.PonudjeniOdgovor_4)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -44,8 +44,8 @@ namespace OnboardingSoftware.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Jobs()
         {
-            var jobs = await _linkService.GetJobs(userId);
-            return View(jobs);
+            var links = await _linkService.GetJobs(userId);
+            return View(links);
         }
         [HttpGet]
         public async Task<IActionResult> Tests()
@@ -57,6 +57,12 @@ namespace OnboardingSoftware.Web.Controllers
         public async Task<IActionResult> Questions()
         {
             var links = await _linkService.GetQuestions(userId);
+            return View(links);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Answers()
+        {
+            var links = await _linkService.GetAnswers(userId);
             return View(links);
         }
         [HttpGet]
@@ -168,6 +174,26 @@ namespace OnboardingSoftware.Web.Controllers
             return RedirectToAction("Questions");
         }
 
+        public async Task<ActionResult> CreateAnswer([Bind("PonudjeniOdgovor_1, PonudjeniOdgovor_2, PonudjeniOdgovor_3, PonudjeniOdgovor_4, SelectedTag, TagResources")] OdgovorViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.PitanjeID = Convert.ToInt32(model.SelectedTag); //validate
+                var response = await _linkService.CreateAnswer(model);
+                if (!response)
+                {
+                    ViewBag.ErrorMessage = errorMsg;
+                    return View(model);
+                }
+            }
+            else
+            {
+                ViewBag.ErrorMessage = errorMsg;
+            }
+
+            return RedirectToAction("Answers");
+        }
+
 
 
         //if (!String.IsNullOrEmpty(model.Name))
@@ -224,11 +250,11 @@ namespace OnboardingSoftware.Web.Controllers
 
 
 
-       // public async Task<ActionResult> CreateQuestion(PitanjeViewModel model)
-       // {
+        // public async Task<ActionResult> CreateQuestion(PitanjeViewModel model)
+        // {
 
-          //  return View(model);
-       // }
+        //  return View(model);
+        // }
 
         //public async Task<ActionResult> CreateTest(TestViewModel model)
         //{
@@ -376,6 +402,7 @@ namespace OnboardingSoftware.Web.Controllers
            // model.TagResources.Insert(0, new SelectListItem { Text = item.Naziv, Value = item.ID });
             return PartialView("TagRow", model);
         }
+
         public async Task<ActionResult> ClearTags([Bind("Name,SelectedTag, TagResources")] LinkResource model)
         {
             if (model.TagResources != null)
@@ -383,6 +410,104 @@ namespace OnboardingSoftware.Web.Controllers
 
             return View("TagRow", model);
         }
+
+        public async Task<ActionResult> InitializeTags2([Bind("Name, SelectedTag, TagResources")] OdgovorViewModel model)
+        {
+            //model.NewTagResources.Clear();
+            //model.TagResources.Clear();
+            //suggest tags from other users
+            var linkOccurance = await _linkService.GetQuestions(userId); //check if user adds same link twice firstly
+            //if (linkOccurance != null)
+            //{
+            //    var tagsWithOccurances = await _tagService.GetTagsByOccurancesAndLinkIdAsync(linkOccurance.ID);
+            //    var usertags = await _tagService.GetTagsByLinkId(linkOccurance.ID);
+            //    if (tagsWithOccurances != null && tagsWithOccurances.Any())
+            //    {
+            //        //model.TagResources = new List<TagResource>();
+            //        foreach (var item in tagsWithOccurances)
+            //        {
+            //            bool exists = false;
+            //             model.TagResources.Add(new SelectListItem() { Disabled=true, Text = item.Item2, Value = item.Item1.ToString()});
+
+            //            //foreach (var ex in usertags)
+            //            //{
+            //            //    if (item.Item1 == ex.ID)
+            //            //    {
+            //            //        model.TagResources.Add(new SelectListItem() { Disabled = true, Text = item.Item2, Value = item.Item2 });
+            //            //        exists = true;
+            //            //        break;
+            //            //    }
+            //            //}
+            //            //if (!exists)
+            //            //    model.TagResources.Add(new SelectListItem() { Text = item.Item2, Value = item.Item2 });
+            //            //if (item.Item2 == 1)
+            //            //    model.TagResources.Add(new TagResource { Name = item.Item1, NumberOfOccurances = "Occured once.", LinkId = model.ID });
+            //            //else
+            //            //    model.TagResources.Add(new TagResource { Name = item.Item1, NumberOfOccurances = "Occured " + item.Item2 + " times.", LinkId = model.ID });
+            //        }
+            //    }
+            //}
+
+            foreach (var item in linkOccurance)
+            {
+                model.TagResources.Insert(0, new SelectListItem { Text = item.Test + " // " + item.RedniBroj + " / " + item.Tekst, Value = item.ID });
+            }
+
+            //model.TagResources.Insert(0, new SelectListItem { Text = "Select tag category", Value = "0" });
+            //model.TagResources.Insert(model.TagResources.Count, new SelectListItem { Text = "Add other", Value = "Add other" });
+            //model.SelectedTag = "0";
+
+            // suggest for new tags from content
+            //var contentTags = StripHtml(model);
+            //if (contentTags != null && contentTags.Any())
+            //{
+            //    var grouped = contentTags.GroupBy(x => x.Name)
+            //    .OrderBy(group => group.Key)
+            //    .Select(group => Tuple.Create(group.Key, group.Count()))
+            //    .ToList();
+
+            //    var sorted = grouped.OrderByDescending(x => x.Item2).ThenBy(X => X.Item1).ToList();
+
+            //    int i = 0;
+            //    foreach (var item in sorted)
+            //    {
+            //        i++;
+            //        //item.LinkId = model.ID;
+            //        // model.TagResources.Add(new TagResource { Name = item.Item1, NumberOfOccurances = "Occured " + item.Item2 + " times.", LinkId = model.ID });
+            //        model.NewTagResources.Add(new SelectListItem() { Text = item.Item1, Value = i + ". " }); //name - both times?
+            //    }
+
+            //}
+
+            // model.TagResources.Add(new TagResource());
+
+            return PartialView("TagRow2", model);
+        }
+
+        public async Task<ActionResult> AddTag2([Bind("Name, SelectedTag, TagResources")] OdgovorViewModel model)
+        {
+            //   model.TagResources.Add(new TagResource());
+            // model.TagResources.Insert(0, new SelectListItem { Text = item.Naziv, Value = item.ID });
+            return PartialView("TagRow2", model);
+        }
+        public async Task<ActionResult> ClearTags2([Bind("Name,SelectedTag, TagResources")] LinkResource model)
+        {
+            if (model.TagResources != null)
+                model.TagResources.Clear();
+
+            return View("TagRow2", model);
+        }
+
+
+
+
+
+
+
+
+
+
+
         public ActionResult Logout()
         {
             userId = String.Empty;

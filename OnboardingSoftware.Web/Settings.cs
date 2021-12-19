@@ -21,6 +21,7 @@ namespace OnboardingSoftware.Web
         public string JobsEndpointUrl { get; set; }
         public string TestsEndpointUrl { get; set; }
         public string QuestionsEndpointUrl { get; set; }
+        public string AnswersEndpointUrl { get; set; }
         public string TagsEndpointUrl { get; set; }
     }
 }

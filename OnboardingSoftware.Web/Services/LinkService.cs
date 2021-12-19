@@ -24,12 +24,14 @@ namespace OnboardingSoftware.Web.Services
         private string jobsUrl;
         private string testsUrl;
         private string questionsUrl;
+        private string answersUrl;
         public LinkService(IHttpClientFactory httpClientFactory, ApiEndpoint apiEndpoint)
         {
             _httpClient = httpClientFactory.CreateClient();
             jobsUrl = apiEndpoint.JobsEndpointUrl;
             testsUrl = apiEndpoint.TestsEndpointUrl;
             questionsUrl = apiEndpoint.QuestionsEndpointUrl;
+            answersUrl = apiEndpoint.AnswersEndpointUrl;
 
             _httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue(JwtBearerDefaults.AuthenticationScheme, jwtToken);
@@ -251,6 +253,26 @@ namespace OnboardingSoftware.Web.Services
             }
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<OdgovorViewModel>> GetAnswers(string userId)
+        {
+            try
+            {
+                List<OdgovorViewModel> answers = new List<OdgovorViewModel>();
+                //if (!String.IsNullOrEmpty(userId))
+                //{
+                var response = await _httpClient.GetAsync(answersUrl);
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                answers = JsonConvert.DeserializeObject<List<OdgovorViewModel>>(apiResponse);
+                //}
+
+                return answers;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
 
 
@@ -363,6 +385,38 @@ namespace OnboardingSoftware.Web.Services
                 var stringContent = new StringContent(obj, UnicodeEncoding.UTF8, MediaTypeNames.Application.Json);
 
                 var response = await _httpClient.PostAsync(questionsUrl, stringContent);
+
+                //if (response.StatusCode == HttpStatusCode.Conflict)
+                //{
+                //    var errmsg = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result);
+                //    var id = Regex.Match(Convert.ToString(errmsg), @"'([^']*)").Groups[1].Value;
+                //    return new LinkResource { ID = Convert.ToInt32(id), Name = link.Name };
+                //}
+
+                //string apiResponse = await response.Content.ReadAsStringAsync();
+                //var createdLink = JsonConvert.DeserializeObject<LinkResource>(apiResponse);
+
+                //return createdLink;
+
+                return response.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        [HttpPost]
+        public async Task<bool> CreateAnswer(OdgovorViewModel odgovor)
+        {
+            try
+            {
+
+                var obj = JsonConvert.SerializeObject(odgovor);
+                var stringContent = new StringContent(obj, UnicodeEncoding.UTF8, MediaTypeNames.Application.Json);
+
+                var response = await _httpClient.PostAsync(answersUrl, stringContent);
 
                 //if (response.StatusCode == HttpStatusCode.Conflict)
                 //{

@@ -13,10 +13,12 @@ namespace OnboardingSoftware.Web.Interfaces
         Task<IEnumerable<PosaoViewModel>> GetJobs(string userId);
         Task<IEnumerable<TestViewModel>> GetTests(string userId);
         Task<IEnumerable<PitanjeViewModel>> GetQuestions(string userId);
+        Task<IEnumerable<OdgovorViewModel>> GetAnswers(string userId);
         Task<LinkViewModel> GetLinkById(int id);
         Task<bool> CreateJob(PosaoViewModel link);
         Task<bool> CreateTest(TestViewModel link);
         Task<bool> CreateQuestion(PitanjeViewModel link);
+        Task<bool> CreateAnswer(OdgovorViewModel link);
         //Task<LinkResource> CheckLinkForOccurance(string name);
     }
 }

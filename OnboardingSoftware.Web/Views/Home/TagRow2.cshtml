@@ -1,0 +1,51 @@
+﻿@model OnboardingSoftware.Web.Models.OdgovorViewModel
+@*@Html.EditorFor(Model=>Model.DropdownResource.TagResources)*@
+
+@*@foreach (var item in Model.DropdownResource.TagResources)
+    {
+        <div>@item.Value</div>
+    }*@
+
+@Html.DropDownListFor(model => model.SelectedTag, Model.TagResources, new { id = "ddtags2", @class = "form-control" })
+
+<div id="div_content2" style="display:none;margin-top:15px;">
+    <input id="txtNewOption2" style="width:150px;float:left;" class="form-control" type="text" />
+    @*<input id="btnAddNewItem2" class="btn btn-info" style="float:right;margin-left:5px;" type="button" value="Select" />
+        <span id="newtagmsg2" style="display:none" class="text-danger">Value already exists.</span>*@
+
+    @*@foreach (var item in Model.NewTagResources)
+        {
+            <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">@item.Value @item.Text</div>
+        }*@
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ddtags").change(function () {
+            var item = $(this).find("option:selected");
+            var value = item.val();
+            var text = item.html();
+            if (text == "Add other") {
+                $("#div_content").css("display", "inline-block");
+            }
+        });
+        $("#btnAddNewItem2").click(function () {
+            var newitem = $("#txtNewOption2").val();
+
+            var exists = $("#ddtags2 option")
+                .filter(function (i, o) { return o.text.toLowerCase() === newitem.toLowerCase(); })
+                .length > 0;
+
+            if (!exists) {
+                var newOption = "<option value='" + newitem + "'>" + newitem + "</option>";
+                $(newOption).insertBefore($("#ddtags2 option:last"));
+                $("#ddtags2").val(newitem);
+                document.getElementById('newtagmsg2').style.display = 'none';
+            }
+            else {
+                document.getElementById('newtagmsg2').style.display = 'block';
+            }
+            return false;
+        });
+    });
+</script>
