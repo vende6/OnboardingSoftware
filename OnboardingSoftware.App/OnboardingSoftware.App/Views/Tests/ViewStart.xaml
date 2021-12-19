@@ -155,10 +155,10 @@
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='155'}}">
                                                             <controls:CustomButton.Triggers>
-                                                                <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_1}" Value="True">
+                                                                <DataTrigger TargetType="controls:CustomButton" Binding="{Binding TacanOdgovor_1}" Value="True">
                                                                     <Setter Property="CustomBackgroundColor" Value="#45cc57"></Setter>
                                                                 </DataTrigger>
-                                                                <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_1}" Value="False">
+                                                                <DataTrigger TargetType="controls:CustomButton" Binding="{Binding TacanOdgovor_1}" Value="False">
                                                                     <Setter Property="CustomBackgroundColor" Value="White"></Setter>
                                                                 </DataTrigger>
                                                             </controls:CustomButton.Triggers>
@@ -172,13 +172,22 @@
                 HorizontalOptions="Center"
                 Text="{Binding PonudjeniOdgovor_2}" 
                 Command="{Binding MarkAsCorrect_2Command}"
+                CommandParameter="{Binding .}"
                 FontAttributes="Italic"
                 VerticalOptions="Center"
-                TextColor="White"
+                TextColor="Black"
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='155'}}">
+                                                            <controls:CustomButton.Triggers>
+                                                                <DataTrigger TargetType="controls:CustomButton" Binding="{Binding TacanOdgovor_2}" Value="True">
+                                                                    <Setter Property="CustomBackgroundColor" Value="#45cc57"></Setter>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="controls:CustomButton" Binding="{Binding TacanOdgovor_2}" Value="False">
+                                                                    <Setter Property="CustomBackgroundColor" Value="White"></Setter>
+                                                                </DataTrigger>
+                                                            </controls:CustomButton.Triggers>
                                                         </controls:CustomButton>
                                                         <controls:CustomButton
                      CustomBorderColor="#45cc57"
@@ -189,13 +198,22 @@
                 HorizontalOptions="Center"
                 Text="{Binding PonudjeniOdgovor_3}" 
                 Command="{Binding MarkAsCorrect_3Command}"
+                CommandParameter="{Binding .}"
                 FontAttributes="Italic"
                 VerticalOptions="Center"
-                TextColor="White"
+                TextColor="Black"
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='155'}}">
+                                                            <controls:CustomButton.Triggers>
+                                                                <DataTrigger TargetType="controls:CustomButton" Binding="{Binding TacanOdgovor_3}" Value="True">
+                                                                    <Setter Property="CustomBackgroundColor" Value="#45cc57"></Setter>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="controls:CustomButton" Binding="{Binding TacanOdgovor_3}" Value="False">
+                                                                    <Setter Property="CustomBackgroundColor" Value="White"></Setter>
+                                                                </DataTrigger>
+                                                            </controls:CustomButton.Triggers>
                                                         </controls:CustomButton>
                                                         <controls:CustomButton
                     CustomBorderColor="#45cc57"
@@ -205,14 +223,23 @@
                 CustomBorderWidth="1"
                 HorizontalOptions="Center"
                 Text="{Binding PonudjeniOdgovor_4}" 
+                CommandParameter="{Binding .}"
                 Command="{Binding MarkAsCorrect_4Command}"
                 FontAttributes="Italic"
                 VerticalOptions="Center"
-                TextColor="White"
+                TextColor="Black"
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='155'}}">
+                                                            <controls:CustomButton.Triggers>
+                                                                <DataTrigger TargetType="controls:CustomButton" Binding="{Binding TacanOdgovor_4}" Value="True">
+                                                                    <Setter Property="CustomBackgroundColor" Value="#45cc57"></Setter>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="controls:CustomButton" Binding="{Binding TacanOdgovor_4}" Value="False">
+                                                                    <Setter Property="CustomBackgroundColor" Value="White"></Setter>
+                                                                </DataTrigger>
+                                                            </controls:CustomButton.Triggers>
                                                         </controls:CustomButton>
                                                     </StackLayout>
 
