@@ -23,6 +23,6 @@ namespace OnboardingSoftware.Api.Resources
         [DefaultValue("False")]
         public bool TacanOdgovor_4 { get; set; }
         public string TekstOdgovor { get; set; }
-        public int PitanjeID { get; set; }
+        public string TipPitanja { get; set; }
     }
 }

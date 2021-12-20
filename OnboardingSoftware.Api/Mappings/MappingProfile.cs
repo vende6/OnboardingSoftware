@@ -40,7 +40,8 @@ namespace OnboardingSoftware.Api.Mappings
                 .ForMember(x => x.Test, opt => opt.MapFrom(y => y.Test.Naziv));
             CreateMap<SavePitanjeResource, Pitanje>();
 
-            CreateMap<Odgovor, OdgovorResource>();
+            CreateMap<Odgovor, OdgovorResource>()
+                 .ForMember(x => x.TipPitanja, opt => opt.MapFrom(y => y.Pitanje.Tip));
             CreateMap<SaveOdgovorResource, Odgovor>();
             CreateMap<UpdateOdgovoriResource, Odgovor>();
             CreateMap<OdgovorResource, Odgovor>();

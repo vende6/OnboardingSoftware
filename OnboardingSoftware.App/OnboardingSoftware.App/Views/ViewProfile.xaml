@@ -255,14 +255,14 @@
                 Margin="{OnIdiom Phone={OnPlatform iOS='0,0,0,0',
                                                    Android='0,-5,0,0'}}"
                 CustomBorderColor="Black"
-                CustomBackgroundColor="Black"
+                CustomBackgroundColor="Gray"
                 Command="{Binding ReferencesCommand}"
                 CustomBorderRadius="{OnIdiom Phone={OnPlatform iOS='95',
                                                                Android='30'}}"
                 CustomBorderWidth="1"
                 HorizontalOptions="Center"
                 Text="References"
-                    
+                    IsEnabled="False"
                 FontAttributes="Italic"
                 VerticalOptions="Center"
                 TextColor="White"

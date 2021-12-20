@@ -126,7 +126,7 @@ namespace OnboardingSoftware.App.ViewModels
                 //IsBusy = true;
 
                 //HttpClient client = new HttpClient();
-                //Uri uri = new Uri("https://localhost:44308/");
+                //Uri uri = new Uri("https://a2f2-77-238-220-218.ngrok.io/");
 
 
                 //UserLoginResource resource = new UserLoginResource

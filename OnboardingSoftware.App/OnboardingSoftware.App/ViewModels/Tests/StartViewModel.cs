@@ -56,6 +56,13 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
         }
 
+        public ICommand FinishCommand => new Command(async vjestina =>
+        {
+            await Application.Current.MainPage.DisplayAlert("Done", "Results have been archived.", "OK");
+            Application.Current.MainPage = new AppShell();
+            await Shell.Current.GoToAsync("//home/profile");
+        });
+
         private ObservableCollection<PitanjeResource> _pitanja = new ObservableCollection<PitanjeResource>();
         public ObservableCollection<PitanjeResource> Pitanja
         {
@@ -70,11 +77,6 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
         }
 
-        public ICommand FinishCommand => new Command<PitanjeResource>(async pitanja =>
-        {
-            var x = Pitanja;
-            //REDIRECT
-        });
 
         private async void BindValues(string testId)
         {
@@ -88,13 +90,42 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 client.DefaultRequestHeaders.Authorization =
         new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ZGVjNDYzNS0zY2FmLTRiYzgtMDQ1Yi0wOGQ5YzAyMjJmM2YiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZGFtaXIxQHRvYi5iYSIsImp0aSI6ImViN2Y1NTg0LThjN2QtNDM5MC1iODUxLWE3NzA1ZWU2MDJlYSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiNmRlYzQ2MzUtM2NhZi00YmM4LTA0NWItMDhkOWMwMjIyZjNmIiwiZXhwIjoxNjQyMjI0NzQ1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjQ0MzA4IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMwOCJ9.6xPWKMbqS9RLqjwFRt9WvSuGRYwH8zk2L3BjL-6IoeE");
 
-                Uri uri = new Uri("https://23d7-77-238-220-218.ngrok.io/");
+                Uri uri = new Uri("https://a2f2-77-238-220-218.ngrok.io/");
 
                 HttpResponseMessage response = await client.GetAsync(uri + "api/pitanja/" + testId);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     Pitanja = new ObservableCollection<PitanjeResource>(JsonConvert.DeserializeObject<IEnumerable<PitanjeResource>>(content));
+
+                    foreach (var item in Pitanja)
+                    {
+                        if (item.Odgovori == null || item.Odgovori.Count() == 0)
+                        {
+                            item.Position = 1;
+                        }
+                        else
+                        {
+                            item.Odgovori = new ObservableCollection<OdgovorResource>()
+                            {  new OdgovorResource {
+                                PonudjeniOdgovor_1 = item.Odgovori.Last().PonudjeniOdgovor_1,
+                                PonudjeniOdgovor_2 = item.Odgovori.Last().PonudjeniOdgovor_2,
+                                PonudjeniOdgovor_3 = item.Odgovori.Last().PonudjeniOdgovor_3,
+                                PonudjeniOdgovor_4 = item.Odgovori.Last().PonudjeniOdgovor_4,
+                            TipPitanja =  item.Odgovori.Last().TipPitanja}
+                            };
+                        }
+                    }
+
+                    var list = Pitanja.Where(x => x.Position != 1).ToList();
+                    Pitanja = new ObservableCollection<PitanjeResource>(list);
+
+                    if (Pitanja == null || Pitanja.Count == 0)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Inactive", "This test is currently inactive.", "OK");
+                        Application.Current.MainPage = new AppShell();
+                        await Shell.Current.GoToAsync("//home/tests");
+                    }
 
                     int i = 0;
                     Pitanja.Last().IsLast = true;

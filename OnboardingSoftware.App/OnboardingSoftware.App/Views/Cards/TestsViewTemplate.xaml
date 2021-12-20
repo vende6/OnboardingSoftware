@@ -20,7 +20,7 @@
                      iOS="10"/>
         </Frame.Margin>
         <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-            <BoxView Color="#45cc57" WidthRequest="3" />
+            <BoxView Color="Black" WidthRequest="3" />
             <Frame HorizontalOptions="FillAndExpand" Margin="0,0,0,0" HasShadow="False"  >
 
                 <Grid VerticalOptions="CenterAndExpand" Padding="0" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">

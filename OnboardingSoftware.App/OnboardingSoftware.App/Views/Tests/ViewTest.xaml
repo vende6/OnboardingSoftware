@@ -84,7 +84,7 @@
                     BorderRadius="{Binding Source='15', Converter={StaticResource SizeConv}}"
                     BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
                                                             Android='4'}}"
-                    Text="{Binding Naziv}"
+                    Text="{Binding Test.Naziv}"
                     HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
                     IsReadOnly="True"
                     TextColor="Black"
@@ -117,7 +117,7 @@
                                                          Android='16'}}"
                     HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
                     BorderRadius="{Binding Source='19', Converter={StaticResource SizeConv}}"
-                    Text="{Binding Tip}"
+                    Text="{Binding Test.Tip}"
                     BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
                                                             Android='4'}}"
                     IsReadOnly="True"
@@ -152,7 +152,7 @@
                     FontSize="{OnIdiom Phone={OnPlatform iOS='14',
                                                          Android='16'}}"
                     BorderRadius="{Binding Source='19', Converter={StaticResource SizeConv}}"
-                    Text="{Binding Trajanje}"
+                    Text="{Binding Test.Trajanje}"
                     HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
                     BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
                                                             Android='4'}}"
@@ -188,7 +188,7 @@
                     FontSize="{OnIdiom Phone={OnPlatform iOS='14',
                                                          Android='16'}}"
                     BorderRadius="{Binding Source='19', Converter={StaticResource SizeConv}}"
-                    Text="{Binding BrojPitanja}"
+                    Text="{Binding Test.BrojPitanja}"
                     HeightRequest="{Binding Source='43', Converter={StaticResource SizeConv}}"
                     BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
                                                             Android='4'}}"

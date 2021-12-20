@@ -161,6 +161,9 @@
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_1}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
                                                                 </DataTrigger>
+                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_1}" Value="">
+                                                                    <Setter Property="IsVisible" Value="False"></Setter>
+                                                                </DataTrigger>
                                                             </Button.Triggers>
                                                         </Button>
                                                         <Button
@@ -185,6 +188,9 @@
                                                                 </DataTrigger>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_2}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_2}" Value="">
+                                                                    <Setter Property="IsVisible" Value="False"></Setter>
                                                                 </DataTrigger>
                                                             </Button.Triggers>
                                                         </Button>
@@ -211,6 +217,9 @@
                                                                 </DataTrigger>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_3}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_3}" Value="">
+                                                                    <Setter Property="IsVisible" Value="False"></Setter>
                                                                 </DataTrigger>
                                                             </Button.Triggers>
                                                         </Button>
@@ -239,6 +248,9 @@
                                                                 </DataTrigger>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_4}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_4}" Value="">
+                                                                    <Setter Property="IsVisible" Value="False"></Setter>
                                                                 </DataTrigger>
                                                             </Button.Triggers>
                                                         </Button>

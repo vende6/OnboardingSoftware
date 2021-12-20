@@ -56,6 +56,7 @@ namespace OnboardingSoftware.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnboardingSoftware.Api", Version = "v1" });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
+                    
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey,
@@ -105,6 +106,9 @@ namespace OnboardingSoftware.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
