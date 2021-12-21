@@ -31,7 +31,7 @@ namespace OnboardingSoftware.Web.Services
             jobsUrl = apiEndpoint.JobsEndpointUrl;
             testsUrl = apiEndpoint.TestsEndpointUrl;
             questionsUrl = apiEndpoint.QuestionsEndpointUrl;
-            answersUrl = "https://a2f2-77-238-220-218.ngrok.io/api/odgovori";
+            answersUrl = apiEndpoint.AnswersEndpointUrl;
 
             _httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue(JwtBearerDefaults.AuthenticationScheme, jwtToken);

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/OnboardingSoftwareApi20211220211441-apim/apis/onboardingsoftware-api",
+      "type": "apis.azure",
+      "apiEndpoint": "https://onboardingsoftwareapi20211220211441-apim.azure-api.net/v1"
+    }
+  }
+}

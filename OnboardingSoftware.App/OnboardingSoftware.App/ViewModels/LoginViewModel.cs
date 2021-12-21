@@ -126,7 +126,7 @@ namespace OnboardingSoftware.App.ViewModels
                 //IsBusy = true;
 
                 //HttpClient client = new HttpClient();
-                //Uri uri = new Uri("https://a2f2-77-238-220-218.ngrok.io/");
+                //Uri uri = new Uri("https://onboardingsoftwareapi20211220211441.azurewebsites.net/");
 
 
                 //UserLoginResource resource = new UserLoginResource

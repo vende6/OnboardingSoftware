@@ -50,33 +50,33 @@ namespace OnboardingSoftware.Api
             }).AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
-
+ 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnboardingSoftware.Api", Version = "v1" });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
-                    
+
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey,
                 });
                 var security =
-                    new OpenApiSecurityRequirement
-                    {
-        {
-            new OpenApiSecurityScheme
+                      new OpenApiSecurityRequirement
+                      {
             {
-                Reference = new OpenApiReference
+                new OpenApiSecurityScheme
                 {
-                    Id = "Bearer",
-                    Type = ReferenceType.SecurityScheme
+                    Reference = new OpenApiReference
+                    {
+                        Id = "Bearer",
+                        Type = ReferenceType.SecurityScheme
+                    },
+                    UnresolvedReference = true
                 },
-                UnresolvedReference = true
-            },
-            new List<string>()
-        }
-                    };
+                new List<string>()
+            }
+                      };
                 c.AddSecurityRequirement(security);
             });
 
@@ -107,14 +107,18 @@ namespace OnboardingSoftware.Api
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            
 
-            if (env.IsDevelopment())
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger(c =>
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OnboardingSoftware.Api v1"));
-            }
+                c.SerializeAsV2 = true;
+            });
+            app.UseSwaggerUI(
+                 c => {
+                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "OnboardingSoftware.Api v1");
+                     c.RoutePrefix = string.Empty;
+                 });
+
 
             app.UseHttpsRedirection();
 
