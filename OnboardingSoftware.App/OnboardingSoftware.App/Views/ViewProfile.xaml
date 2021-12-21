@@ -15,7 +15,7 @@
     x:Name="this"
     ios:Page.UseSafeArea="true"
     Shell.NavBarIsVisible="False"
-    BackgroundColor="#45cc57"
+    BackgroundColor="#56cd89"
     Shell.TabBarIsVisible="True">
 
     <ContentPage.BindingContext>
@@ -37,14 +37,14 @@
     <ContentPage.Content>
         <RelativeLayout>
             <controls:GradientColorStack
-                EndColor="#45cc57"
+                EndColor="#56cd89"
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                        Property=Height,
                                                                        Factor=0.4}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                       Property=Width,
                                                                       Factor=1}"
-                StartColor="#45cc57" />
+                StartColor="#56cd89" />
 
             <Image
                 Margin="10"
@@ -165,7 +165,7 @@
                         IsRunning="{Binding IsBusy}"
                         IsVisible="{Binding IsBusy}"
                         VerticalOptions="CenterAndExpand"
-                        Color="#45cc57" />
+                        Color="#56cd89" />
 
                 </Grid>
 
@@ -554,7 +554,7 @@
                             <FontImageSource
                               Glyph="{Binding RocketIcon}"
                                 Size="{Binding Source='30', Converter={StaticResource SizeConv}}"
-                                Color="#45cc57" />
+                                Color="#56cd89" />
                         </Image.Source>
                     </Image>
                     <!--FontFamily="{StaticResource DomusLight}"-->

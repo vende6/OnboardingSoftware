@@ -41,20 +41,20 @@
             </StackLayout>
 
 
-            <!--<ActivityIndicator
+            <ActivityIndicator
                 Grid.Column="1"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Width,
-                                                                  Factor=0.43}"
+                                                                  Factor=0.83}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
-                                                                  Factor=0.2}"
+                                                                  Factor=0.35}"
                 HeightRequest="{Binding Source='35', Converter={StaticResource SizeConv}}"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand"
-                IsRunning="{Binding IsBusy}"
-                IsVisible="{Binding IsBusy}"
-                Color="Green" />-->
+                IsRunning="True"
+                IsVisible="True"
+                Color="#e7bc38" />
 
             <!--<StackLayout
                 Padding="30,0,20,0"
@@ -140,7 +140,7 @@
              
                                                              CornerRadius="{OnIdiom Phone={OnPlatform iOS='20',
                                                                Android='30'}}"
-                                                             BorderColor="#45cc57"
+                                                             BorderColor="#56cd89"
                                                             BorderWidth="1"
 
                 TextColor="Black"
@@ -156,20 +156,20 @@
                                                          Android='155'}}">
                                                             <Button.Triggers>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_1}" Value="True">
-                                                                    <Setter Property="BackgroundColor" Value="#45cc57"></Setter>
+                                                                    <Setter Property="BackgroundColor" Value="#56cd89"></Setter>
                                                                 </DataTrigger>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_1}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
                                                                 </DataTrigger>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_1}" Value="">
-                                                                    <Setter Property="IsVisible" Value="False"></Setter>
+                                                                    <Setter Property="IsEnabled" Value="False"></Setter>
                                                                 </DataTrigger>
                                                             </Button.Triggers>
                                                         </Button>
                                                         <Button
                                                                CornerRadius="{OnIdiom Phone={OnPlatform iOS='20',
                                                                Android='30'}}"
-                                                             BorderColor="#45cc57"
+                                                             BorderColor="#56cd89"
                                                             BorderWidth="1"
                 HorizontalOptions="Center"
                 Text="{Binding PonudjeniOdgovor_2}" 
@@ -184,7 +184,7 @@
                                                          Android='155'}}">
                                                             <Button.Triggers>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_2}" Value="True">
-                                                                    <Setter Property="BackgroundColor" Value="#45cc57"></Setter>
+                                                                    <Setter Property="BackgroundColor" Value="#56cd89"></Setter>
                                                                 </DataTrigger>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_2}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
@@ -197,7 +197,7 @@
                                                         <Button
                                                                CornerRadius="{OnIdiom Phone={OnPlatform iOS='20',
                                                                Android='30'}}"
-                                                             BorderColor="#45cc57"
+                                                             BorderColor="#56cd89"
 
                                                             BorderWidth="1"
                 HorizontalOptions="Center"
@@ -213,7 +213,7 @@
                                                          Android='155'}}">
                                                             <Button.Triggers>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_3}" Value="True">
-                                                                    <Setter Property="BackgroundColor" Value="#45cc57"></Setter>
+                                                                    <Setter Property="BackgroundColor" Value="#56cd89"></Setter>
                                                                 </DataTrigger>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_3}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
@@ -229,7 +229,7 @@
                 HorizontalOptions="Center"
                                                                   CornerRadius="{OnIdiom Phone={OnPlatform iOS='20',
                                                                Android='30'}}"
-                                                             BorderColor="#45cc57"
+                                                             BorderColor="#56cd89"
                 Text="{Binding PonudjeniOdgovor_4}" 
                 CommandParameter="{Binding .}"
                 Command="{Binding MarkAsCorrect_4Command}"
@@ -244,7 +244,7 @@
                                                          Android='155'}}">
                                                             <Button.Triggers>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_4}" Value="True">
-                                                                    <Setter Property="BackgroundColor" Value="#45cc57"></Setter>
+                                                                    <Setter Property="BackgroundColor" Value="#56cd89"></Setter>
                                                                 </DataTrigger>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_4}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
@@ -312,7 +312,7 @@
                                                                        Property=Height,
                                                                        Factor=0.08}"
             x:Name="indicatorview"
-            BackgroundColor="#45cc57"
+            BackgroundColor="#56cd89"
             AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             IndicatorColor="LightGray"
