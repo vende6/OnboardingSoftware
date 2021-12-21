@@ -4,6 +4,7 @@ using OnboardingSoftware.App.Resources;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -13,6 +14,7 @@ using Xamarin.Forms;
 
 namespace OnboardingSoftware.App.ViewModels.Tests
 {
+    [QueryProperty("TypeID", "typeId")]
     public class TestsViewModel : BaseViewModel
     {
         public TestsViewModel()
@@ -23,8 +25,22 @@ namespace OnboardingSoftware.App.ViewModels.Tests
         public override async Task OnAppearing()
         {
             await base.OnAppearing();
-            GetTestsData();
+            GetTestsData(_typeId);
 
+        }
+
+        private string _typeId;
+        public string TypeID
+        {
+            get
+            {
+                return _typeId;
+            }
+            set
+            {
+                _typeId = Uri.UnescapeDataString(value);
+                GetTestsData(_typeId);
+            }
         }
 
         public ICommand TestDescriptionCommand
@@ -53,7 +69,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
         }
 
-        private async void GetTestsData()
+        private async void GetTestsData(string typeId)
         {
             IsBusy = true;
 
@@ -72,6 +88,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     Testovi = new ObservableCollection<TestResource>(JsonConvert.DeserializeObject<IEnumerable<TestResource>>(content));
+                   // Testovi = new ObservableCollection<TestResource>(Testovi.Where(x => x.Tip == typeId).ToList());
                 }
 
 

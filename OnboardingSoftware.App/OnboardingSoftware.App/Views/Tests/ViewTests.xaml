@@ -6,7 +6,7 @@
              x:Class="OnboardingSoftware.App.Views.Tests.ViewTests"
              Shell.NavBarIsVisible="False">
     <ContentPage.BindingContext>
-        <viewModels:TestsViewModel/>
+        <viewModels:TestsViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>

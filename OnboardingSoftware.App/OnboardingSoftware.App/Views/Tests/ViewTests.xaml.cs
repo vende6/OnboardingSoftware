@@ -20,6 +20,7 @@ using Xamarin.Forms.Xaml;
 
 namespace OnboardingSoftware.App.Views.Tests
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ViewTests : ContentPage
     {
@@ -38,11 +39,28 @@ namespace OnboardingSoftware.App.Views.Tests
             }
         }
 
+        private string _typeId;
+        public string TypeID
+        {
+            get
+            {
+                return _typeId;
+            }
+            set
+            {
+                _typeId = value;
+                _typeId = Uri.UnescapeDataString(value);
+               //FillList();
+               // OnPropertyChanged("TypeID");
+            }
+        }
+
         public ViewTests()
         {
             InitializeComponent();
-            MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "Initialize");
             FillList();
+            MessagingCenter.Subscribe<Application>(this, "InitializeT", async (s) => FillList());
+
         }
 
         public async void FillList()
@@ -55,6 +73,7 @@ namespace OnboardingSoftware.App.Views.Tests
 
             try
             {
+
                 Uri uri = new Uri("https://onboardingsoftwareapi20211220211441.azurewebsites.net/");
 
                 HttpResponseMessage response = await client.GetAsync(uri + "api/testovi");
@@ -62,7 +81,14 @@ namespace OnboardingSoftware.App.Views.Tests
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     Testovi = new ObservableCollection<TestResource>(JsonConvert.DeserializeObject<IEnumerable<TestResource>>(content));
-                    Emplist2.ItemsSource = Testovi;
+
+                    if (Settings.SelectedTestTypeId != null && Settings.SelectedTestTypeId != "0")
+                    {
+                        Testovi = new ObservableCollection<TestResource>(Testovi.Where(x => x.Tip == Settings.SelectedTestTypeId).ToList());
+                        Settings.SelectedTestTypeId = "0";
+                    }
+
+                        Emplist2.ItemsSource = Testovi;
                 }
 
             }
@@ -90,6 +116,7 @@ namespace OnboardingSoftware.App.Views.Tests
 
         protected async override void OnAppearing()
         {
+
             base.OnAppearing();
             if (this.BindingContext is BaseViewModel viewModel)
                 await viewModel.OnAppearing();
@@ -97,9 +124,12 @@ namespace OnboardingSoftware.App.Views.Tests
 
         protected async override void OnDisappearing()
         {
+            //MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
             base.OnDisappearing();
             if (this.BindingContext is BaseViewModel viewModel)
                 await viewModel.OnDisappearing();
         }
+
+        
     }
 }

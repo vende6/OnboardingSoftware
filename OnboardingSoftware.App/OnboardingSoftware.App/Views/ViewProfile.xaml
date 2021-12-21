@@ -344,9 +344,9 @@
                                                                   Property=Height,
                                                                   Factor=0.45}">
                 <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="{Binding Tests[0].Tip}" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <Label Text="Cognitive" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="{Binding Tests[0]}" />
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="cognitive" />
                 </StackLayout.GestureRecognizers>
             </StackLayout>
 
@@ -419,9 +419,9 @@
                                                                   Property=Height,
                                                                   Factor=0.45}">
                 <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="{Binding Tests[1].Tip}" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <Label Text="Personality" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="{Binding Tests[0]}" />
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="personality" />
                 </StackLayout.GestureRecognizers>
             </StackLayout>
 
@@ -518,9 +518,9 @@
                                                                   Property=Height,
                                                                   Factor=0.7}">
                 <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="{Binding Tests[2].Tip}" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <Label Text="Integrity" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="{Binding Tests[0]}" />
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="integrity" />
                 </StackLayout.GestureRecognizers>
             </StackLayout>
 
@@ -619,9 +619,9 @@
                                                                   Property=Height,
                                                                   Factor=0.7}">
                 <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="{Binding Tests[3].Tip}" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <Label Text="E-Intelligence" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="{Binding Tests[0]}" />
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="e-intelligence" />
                 </StackLayout.GestureRecognizers>
             </StackLayout>
 

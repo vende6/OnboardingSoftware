@@ -18,19 +18,27 @@ using Xamarin.Forms;
 
 namespace OnboardingSoftware.App.ViewModels
 {
+
     public class ProfileViewModel : BaseViewModel
     {
         public ProfileViewModel()
         {
-
-            RocketIcon = IconFont.Rocket;
-            SettingsIcon = IconFont.Settings;
-            SetGaugeValues();
-
+            //RocketIcon = IconFont.Rocket;
+            //SettingsIcon = IconFont.Settings;
+            //SetGaugeValues();
             //Hook onto tabselectrenderer to refresh pages.
             //MessagingCenter.Subscribe<Application>(this, AppMessages.RefreshTab, async (s) => await OnAppearing());
         }
 
+
+        private async void GetTestsData(string typeId)
+        {
+
+            IsBusy = true;
+     
+
+            IsBusy = false;
+        }
 
 
         private Page _currentPageSave;
@@ -478,7 +486,7 @@ namespace OnboardingSoftware.App.ViewModels
                 }
 
 
-                await GetTestsData();
+                //await GetTestsData();
 
                 IsBusy = false;
 
@@ -506,30 +514,6 @@ namespace OnboardingSoftware.App.ViewModels
                 _tests = value;
                 RaisePropertyChanged(() => Tests);
             }
-        }
-
-
-        private async Task GetTestsData()
-        {
-
-            IsBusy = true;
-
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization =
-    new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ZGVjNDYzNS0zY2FmLTRiYzgtMDQ1Yi0wOGQ5YzAyMjJmM2YiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZGFtaXIxQHRvYi5iYSIsImp0aSI6ImViN2Y1NTg0LThjN2QtNDM5MC1iODUxLWE3NzA1ZWU2MDJlYSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiNmRlYzQ2MzUtM2NhZi00YmM4LTA0NWItMDhkOWMwMjIyZjNmIiwiZXhwIjoxNjQyMjI0NzQ1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjQ0MzA4IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMwOCJ9.6xPWKMbqS9RLqjwFRt9WvSuGRYwH8zk2L3BjL-6IoeE");
-
-            Uri uri = new Uri("https://onboardingsoftwareapi20211220211441.azurewebsites.net/");
-
-            HttpResponseMessage response = await client.GetAsync(uri + "api/testovi");
-            if (response.IsSuccessStatusCode)
-            {
-                string content = await response.Content.ReadAsStringAsync();
-
-                Tests = new ObservableCollection<TestResource>(JsonConvert.DeserializeObject<List<TestResource>>(content));
-
-            }
-
-            IsBusy = false;
         }
 
         private void ClearData()
@@ -774,10 +758,34 @@ namespace OnboardingSoftware.App.ViewModels
                 return new Command<object>(async (obj) =>
                 {
 
-                    var x = obj as TestResource;
+                    var x = obj as string;
 
-                    await Shell.Current.GoToAsync("//home/tests");
+                    if (x == "cognitive")
+                    {
+                        Settings.SelectedTestTypeId = "Cognitive";
+                        await Shell.Current.GoToAsync("//home/tests" + "?typeId=" + "Cognitive");
+                        MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
+                    }
+                    else if (x == "personality")
+                    {
+                        Settings.SelectedTestTypeId = "Personality";
+                        await Shell.Current.GoToAsync("//home/tests" + "?typeId=" + "Personality");
+                        MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
+                    }
+                    else if (x == "integrity")
+                    {
+                        Settings.SelectedTestTypeId = "Integrity";
+                        await Shell.Current.GoToAsync("//home/tests" + "?typeId=" + "Integrity");
+                        MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
 
+                    }
+                    else if (x == "e-intelligence")
+                    {
+                        Settings.SelectedTestTypeId = "E-intelligence ";
+                        await Shell.Current.GoToAsync("//home/tests" + "?typeId=" + "E-Intelligence");
+                        MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
+
+                    }
 
                 });
             }

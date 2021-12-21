@@ -62,7 +62,7 @@ namespace OnboardingSoftware.App
         private static readonly string LeaderImageKeyDefault = "";
 
         private const string LeaderUserNameKey = "leader_username_key";
-        private static readonly string LeaderUserNameKeyDefault = "";
+        private static readonly string LeaderUserNameKeyDefault = "0";
 
         private const string LocalPreferencesKey = "localpreferences_key";
         private static readonly string LocalPreferencesDefault = string.Empty;
@@ -70,6 +70,18 @@ namespace OnboardingSoftware.App
         public static void SetupNetworkClient()
         {
           //  Motivation.Client.SwaggerClient.SetupSwaggerClients(AccessToken, GlobalSettings.HttpClientTimeout);
+        }
+
+        public static string SelectedTestTypeId
+        {
+            get
+            {
+                return Preferences.Get(LeaderUserNameKey, LeaderUserNameKeyDefault);
+            }
+            set
+            {
+                Preferences.Set(LeaderUserNameKey, value);
+            }
         }
 
         public static string LeaderUserName

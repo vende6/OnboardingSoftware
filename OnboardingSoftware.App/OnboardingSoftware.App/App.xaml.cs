@@ -44,7 +44,7 @@ namespace OnboardingSoftware.App
                 InitializeComponent();
 
                 Settings.SetPhoneRatio();
-
+                Settings.SelectedTestTypeId = "0";
                 MainPage = new AppShell();
             }
             catch (Exception ex)
