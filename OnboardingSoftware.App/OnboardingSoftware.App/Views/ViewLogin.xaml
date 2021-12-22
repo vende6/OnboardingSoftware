@@ -38,7 +38,7 @@
         <!-- LOGO -->
         <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0">
             <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-            <ActivityIndicator
+            <!--<ActivityIndicator
                 Grid.Column="1"
                 HeightRequest="{Binding Source='35', Converter={StaticResource SizeConverter}}"
                 HorizontalOptions="CenterAndExpand"
@@ -46,7 +46,7 @@
                 IsRunning="True"
                 IsVisible="True"
                 Margin="0,75,75,0"
-                Color="#e16f62" />
+                Color="#e16f62" />-->
         </StackLayout>
 
         <!-- LOGIN FORM -->

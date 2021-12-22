@@ -262,7 +262,7 @@
                 CustomBorderWidth="1"
                 HorizontalOptions="Center"
                 Text="References"
-                    IsEnabled="False"
+                  
                 FontAttributes="Italic"
                 VerticalOptions="Center"
                 TextColor="White"
