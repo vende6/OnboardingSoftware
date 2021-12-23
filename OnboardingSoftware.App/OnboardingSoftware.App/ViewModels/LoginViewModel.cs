@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using OnboardingSoftware.App.Resources;
 using OnboardingSoftware.App.Validations;
 using OnboardingSoftware.App.Validations.Common;
+using OnboardingSoftware.App.Views;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -25,7 +26,6 @@ namespace OnboardingSoftware.App.ViewModels
         {
             _username = new ValidatableObject<string>();
             _password = new ValidatableObject<string>();
-
             AddSpecificPropertyValidations();
         }
 
@@ -45,6 +45,17 @@ namespace OnboardingSoftware.App.ViewModels
             {
                 _isValidForm = value;
                 RaisePropertyChanged(() => IsValidForm);
+            }
+        }
+
+        private string _errorMessage { get; set; }
+        public string ErrorMessage
+        {
+            get { return _errorMessage; }
+            set
+            {
+                _errorMessage = value;
+                RaisePropertyChanged(() => ErrorMessage);
             }
         }
 
@@ -97,7 +108,8 @@ namespace OnboardingSoftware.App.ViewModels
             //_password.RequireDigit();
             //_password.RequireNonAlphanumeric();
 
-            _password.UserNotFound();
+           // _password.UserNotFound();
+           // _password.IncorrectUsernameOrPassword();
         }
 
         #endregion
@@ -111,22 +123,39 @@ namespace OnboardingSoftware.App.ViewModels
             }
         }
 
+        public ICommand NavigateCommand
+        {
+            get
+            {
+                return new Command<string>(async (route) =>
+                {
+                    Application.Current.MainPage = new NavigationPage(new ViewRegister());
+                });
+            }
+        }
+
         private async Task LoginUserAsync(string route, string email, string password)
         {
             try
             {
-                Username.Validate();
-                Password.Validate();
-
-                IsValidForm = Username.IsValid && Password.IsValid;
-
-                if (!IsValidForm)
-                    return;
-
                 IsBusy = true;
+
+                //Username.Validate();
+                //Password.Validate();
+
+                //IsValidForm = Username.IsValid && Password.IsValid;
+
+                //if (!IsValidForm)
+                //    return;
+
 
                 HttpClient client = new HttpClient();
                 Uri uri = new Uri("https://onboardingsoftwareapi20211220211441.azurewebsites.net/");
+
+                if (email == null)
+                    email = String.Empty;
+                if (password == null)
+                    password = String.Empty;
 
 
                 UserLoginResource resource = new UserLoginResource
@@ -144,19 +173,19 @@ namespace OnboardingSoftware.App.ViewModels
 
                 if (response.IsSuccessStatusCode)
                 {
-                    await Shell.Current.GoToAsync(route);
-            }
-                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-            {
-                Password.Validate();
-            }
-
-
-
-
+                    ErrorMessage = string.Empty;
+                    var value = response.Content.ReadAsStringAsync();
+                    Settings.SetAccessToken(value.Result);
+                    Application.Current.MainPage = new AppShell();
+                }
+                else
+                {
+                    var value = response.Content.ReadAsStringAsync();
+                    ErrorMessage = value.Result;
+                }
 
             IsBusy = false;
-                await Shell.Current.GoToAsync(route);
+               // await Shell.Current.GoToAsync(route);
             }
             catch (Exception ex)
             {
@@ -167,20 +196,6 @@ namespace OnboardingSoftware.App.ViewModels
 
         }
 
-        public ICommand RegisterCommand
-        {
-            get
-            {
-                return new Command<string>(async (route) =>
-                {
-
-
-                    await Shell.Current.GoToAsync(route);
-
-
-                });
-            }
-        }
 
     }
 }

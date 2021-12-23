@@ -445,11 +445,11 @@ namespace OnboardingSoftware.App
             {
                 AccessToken = token;
 
-                if (!String.IsNullOrEmpty(token))
+                //if (!String.IsNullOrEmpty(token))
                     //Motivation.Client.SwaggerClient.SetAccessToken(token);
 
-                if (!Settings.HasUserSetLanguage && Settings.CompanyId != 0 && !String.IsNullOrEmpty(token))
-                    Task.Run(() => SetAppLanguage()).Wait();
+                //if (!Settings.HasUserSetLanguage && Settings.CompanyId != 0 && !String.IsNullOrEmpty(token))
+                //    Task.Run(() => SetAppLanguage()).Wait();
             }
             catch (Exception ex)
             {

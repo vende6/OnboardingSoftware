@@ -6,6 +6,7 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:behaviors="clr-namespace:OnboardingSoftware.App.Behaviors" xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters"
              BackgroundColor="{StaticResource PageBackground}"
              Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
              Padding="5">
     <ContentPage.BindingContext>
         <viewmodels:RegisterViewModel/>
@@ -13,12 +14,22 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:ValidationErrorConverter x:Key="ValidationErrorConverter"/>
+            <converters:ValidationErrorConverter x:Key="SizeConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Vertical" Margin="0,20,0,0" HorizontalOptions="Center">
                 <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png"  />
+                <ActivityIndicator
+                Grid.Column="1"
+                HeightRequest="{Binding Source='35', Converter={StaticResource SizeConverter}}"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                Margin="0,75,75,0"
+                Color="#e16f62" />
             </StackLayout>  
             <!--IMPLEMENT LISTVIEW INSTEAD-->
             <StackLayout>

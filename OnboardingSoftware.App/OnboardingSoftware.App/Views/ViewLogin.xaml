@@ -8,6 +8,7 @@
              x:Class="OnboardingSoftware.App.Views.ViewLogin"
              BackgroundColor="{StaticResource PageBackground}"
              Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
              Padding="5">
     <ContentPage.BindingContext>
         <viewmodels:LoginViewModel/>
@@ -38,34 +39,34 @@
         <!-- LOGO -->
         <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,20,0,0">
             <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-            <!--<ActivityIndicator
+            <ActivityIndicator
                 Grid.Column="1"
                 HeightRequest="{Binding Source='35', Converter={StaticResource SizeConverter}}"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand"
-                IsRunning="True"
-                IsVisible="True"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
                 Margin="0,75,75,0"
-                Color="#e16f62" />-->
+                Color="#e16f62" />
         </StackLayout>
 
         <!-- LOGIN FORM -->
         <StackLayout Orientation="Vertical" Grid.Row="1" Margin="40,50,40,0" Spacing="0">
             <ActivityIndicator IsRunning="{Binding IsBusy}" Color="DarkRed"></ActivityIndicator>
-            <Entry x:Name="email" Placeholder="Email" Text="{Binding Username.Value, Mode=TwoWay}" TextColor="Black" PlaceholderColor="Black" >
+            <Entry x:Name="email" Placeholder="Email" Text="{Binding Username.Value, Mode=TwoWay}" TextColor="Black" PlaceholderColor="Black">
                 <!--<Entry.Behaviors>
                     <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateUsernameCommand}" />
                 </Entry.Behaviors>-->
             </Entry>
-            <Label Text="{Binding Username.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="13" FontSize="Micro" />
+            <!--<Label Text="{Binding Username.Errors, Converter={StaticResource ValidationErrorConverter}}" TextColor="Red" Margin="3,0,0,0" HeightRequest="13" FontSize="Micro" />-->
 
 
-            <Entry x:Name="password" Placeholder="Password" Text="{Binding Password.Value, Mode=TwoWay}" TextColor="Black" PlaceholderColor="Black">
+            <Entry x:Name="password" Placeholder="Password" Text="{Binding Password.Value, Mode=TwoWay}" TextColor="Black" PlaceholderColor="Black" Margin="0,10,0,0">
                 <!--<Entry.Behaviors>
                     <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
                 </Entry.Behaviors>-->
             </Entry>
-            <Label Text="{Binding Password.Errors, Converter={StaticResource ValidationErrorConverter}}"  TextColor="Red" Margin="3,0,0,0" HeightRequest="12" FontSize="Micro"/>
+            <Label Text="{Binding ErrorMessage}"  TextColor="Red" Margin="3,0,0,0" HeightRequest="12" FontSize="Micro"/>
 
 
             <Label Text="Forgotten password?" TextDecorations="Underline" Margin="0,30,0,0" HorizontalOptions="Center"
@@ -84,9 +85,9 @@
                 </Button.Triggers>-->
             </Button>
 
-            <Label x:Name="redirectRegister" Text="Don't have an account yet?" VerticalOptions="End" HorizontalOptions="Center" TextDecorations="Underline" Grid.Row="3" Margin="0,20,0,40">
+            <Label Text="Don't have an account yet?" VerticalOptions="End" HorizontalOptions="Center" TextDecorations="Underline" Grid.Row="3" Margin="0,20,0,40">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding RegisterCommand}" CommandParameter="//home/register" />
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="//home/register" />
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>

@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using OnboardingSoftware.App.Resources;
 using OnboardingSoftware.App.Validations;
 using OnboardingSoftware.App.Validations.Common;
+using OnboardingSoftware.App.Views;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -180,7 +181,7 @@ namespace OnboardingSoftware.App.ViewModels
                 
                 if (response.IsSuccessStatusCode)
                 {
-                    await Shell.Current.GoToAsync(route);
+                    Application.Current.MainPage = new AppShell();
                 }
                 if(response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
                 {
@@ -217,7 +218,7 @@ namespace OnboardingSoftware.App.ViewModels
                 return new Command<string>(async (route) =>
                 {
 
-                    await Shell.Current.GoToAsync(route);
+                    Application.Current.MainPage = new NavigationPage(new ViewLogin());
 
 
                 });

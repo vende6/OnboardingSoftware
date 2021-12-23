@@ -12,12 +12,19 @@ namespace OnboardingSoftware.App.Validations
 
         public bool Check(T value, bool taken = false)
         {
-            
-                return false;
+            //if (value == null)
+            //    return false;
+
+            //var str = value as string;
+
+            //if (str == "True")
+            //    return true;
+
+            return false;
 
             //var str = value as string;
             //Implement incorrect username or password
-           // return str.Any(c => char.IsDigit(c));
+            // return str.Any(c => char.IsDigit(c));
         }
     }
 

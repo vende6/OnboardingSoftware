@@ -1,4 +1,5 @@
-﻿using Rg.Plugins.Popup.Services;
+﻿using OnboardingSoftware.App.Views;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,9 +24,9 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
             {
                 return new Command<string>(async (route) =>
                 {
-
+                    Settings.SetAccessToken("");
                     await PopupNavigation.Instance.PopAsync(true);
-                    await Shell.Current.GoToAsync(route);
+                    Application.Current.MainPage = new NavigationPage(new ViewLogin());
 
 
                 });

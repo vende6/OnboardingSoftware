@@ -29,7 +29,7 @@ namespace OnboardingSoftware.App
 
             MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "Initialize");
 
-            Routing.RegisterRoute(nameof(ViewLogin), typeof(ViewLogin));
+           // Routing.RegisterRoute(nameof(ViewLogin), typeof(ViewLogin));
             Routing.RegisterRoute("logout", typeof(ViewLogin));
             Routing.RegisterRoute(nameof(ViewRegister), typeof(ViewRegister));
             Routing.RegisterRoute(nameof(ViewVerify), typeof(ViewVerify));
