@@ -35,6 +35,17 @@ namespace OnboardingSoftware.Api.Controllers
             return Ok(posaoResources);
         }
 
+        [HttpGet("{id}", Name = "GetPosaoById")]
+        public async Task<ActionResult<PosaoResource>> GetPosaoById(int id)
+        {
+            var posao = await _posaoService.GetPosaoById(id);
+            if (posao == null)
+                return NotFound();
+            var posaoResource = _mapper.Map<Posao, PosaoResource>(posao);
+
+            return Ok(posaoResource);
+        }
+
         // POST: api/poslovi
         [HttpPost("")]
         public async Task<ActionResult<bool>> CreatePosao([FromBody] SavePosaoResource savePosaoResource)

@@ -18,16 +18,26 @@ namespace OnboardingSoftware.App.Views.Cards
             InitializeComponent();
         }
 
-        public ICommand JobDescriptionCommand
+        //public ICommand JobDescriptionCommand
+        //{
+        //    get
+        //    {
+        //        return new Command<string>(async (route) =>
+        //        {
+        //            if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+        //                await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.JobDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+        //        });
+        //    }
+        //}
+
+        private async void TapGestureRecognizer_Tapped1(object sender, EventArgs e)
         {
-            get
-            {
-                return new Command<string>(async (route) =>
-                {
-                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
-                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.JobDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
-                });
-            }
+            Frame frame = (Frame)sender;
+            var item = (TapGestureRecognizer)frame.GestureRecognizers[0];
+            var id = item.CommandParameter;
+            //await Shell.Current.GoToAsync("//home/posao" + "?posaoId=" + id);
+            if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.JobDialog(id, Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
         }
 
     }

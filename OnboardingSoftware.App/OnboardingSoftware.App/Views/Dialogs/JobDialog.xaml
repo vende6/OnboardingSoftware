@@ -35,7 +35,7 @@
                 <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
                 <Label Text="TOB" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
             </StackLayout>
-            <Label x:Name="LabelTitle"
+            <Label x:Name="LabelNaziv"
                    Margin="3,0,3,10"
                    Grid.Row="0"
                    Grid.Column="0"
@@ -48,7 +48,7 @@
                    VerticalTextAlignment="End"
                    HorizontalTextAlignment="Start"/>
 
-            <Label x:Name="LabelBody"
+            <Label x:Name="LabelLokacija"
                    Margin="0,0,3,10"
                    Grid.Row="1"
                    Grid.Column="0"
@@ -62,6 +62,7 @@
             <Line></Line>
 
             <Label 
+                   x:Name="LabelKategorija"
                    Margin="0,0,3,10"
                    Grid.Row="1"
                    Grid.Column="0"
@@ -73,6 +74,19 @@
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
 
+            <Label 
+                   x:Name="LabelTip"
+                   Margin="0,0,3,10"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
+                   TextColor="#56cd89"
+                   Text="Job Description"
+                   FontAttributes="Bold"
+                   LineHeight="1.1"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Center"/>
             <Label 
                    Margin="0,0,3,10"
                    Grid.Row="1"
@@ -98,13 +112,13 @@
                    HorizontalTextAlignment="Center"/>
 
             <Label 
+                   x:Name="LabelOpis"
                    Margin="0,0,3,10"
                    Grid.Row="1"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='12',Converter={StaticResource SizeConv}}"
                    TextColor="#56cd89"
-                   Text="TOB developers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client's business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, TOB is right for you."
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>

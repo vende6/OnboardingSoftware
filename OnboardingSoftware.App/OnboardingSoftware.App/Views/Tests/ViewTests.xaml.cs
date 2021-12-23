@@ -102,17 +102,17 @@ namespace OnboardingSoftware.App.Views.Tests
 
         }
 
-        public ICommand TestDescriptionCommand
-        {
-            get
-            {
-                return new Command<string>(async (route) =>
-                {
-                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
-                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.JobDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
-                });
-            }
-        }
+        //public ICommand TestDescriptionCommand
+        //{
+        //    get
+        //    {
+        //        return new Command<string>(async (route) =>
+        //        {
+        //            if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+        //                await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.JobDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+        //        });
+        //    }
+        //}
 
         protected async override void OnAppearing()
         {

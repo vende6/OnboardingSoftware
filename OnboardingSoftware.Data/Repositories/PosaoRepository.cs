@@ -3,6 +3,7 @@ using OnboardingSoftware.Core.Models;
 using OnboardingSoftware.Core.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,10 +23,21 @@ namespace OnboardingSoftware.Data.Repositories
                .ToListAsync();
         }
 
+        public async Task<Posao> GetPosaoByIdAsync(int posaoId)
+        {
+
+            return await OnboardingSoftwareDbContext.Poslovi
+               .Include(x=>x.Lokacija)
+               .Where(x => x.ID == posaoId)
+               .FirstOrDefaultAsync();
+
+        }
+
         Task<Posao> IPosaoRepository.GetWithVjestineByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
+
 
         private OnboardingSoftwareDbContext OnboardingSoftwareDbContext
         {

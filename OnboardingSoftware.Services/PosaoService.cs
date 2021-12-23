@@ -30,5 +30,10 @@ namespace OnboardingSoftware.Services
                 .GetAllWithLokacijaAsync();
         }
 
+        public async Task<Posao> GetPosaoById(int posaoId)
+        {
+            return await _unitOfWork.Poslovi.GetPosaoByIdAsync(posaoId);
+        }
+
     }
 }

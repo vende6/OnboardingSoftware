@@ -10,5 +10,6 @@ namespace OnboardingSoftware.Core.Repositories
     {
         Task<IEnumerable<Posao>> GetAllWithLokacijaAsync();
         Task<Posao> GetWithVjestineByIdAsync(int id);
+        Task<Posao> GetPosaoByIdAsync(int posaoId);
     }
 }

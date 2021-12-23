@@ -43,17 +43,17 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
         }
 
-        public ICommand TestDescriptionCommand
-        {
-            get
-            {
-                return new Command<string>(async (route) =>
-                {
-                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
-                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.JobDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
-                });
-            }
-        }
+        //public ICommand TestDescriptionCommand
+        //{
+        //    get
+        //    {
+        //        return new Command<string>(async (route) =>
+        //        {
+        //            if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+        //                await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.JobDialog(Translation.Translate("LanguageTitle"), Translation.Translate("LanguageText")));
+        //        });
+        //    }
+        //}
 
         private ObservableCollection<TestResource> _testovi = new ObservableCollection<TestResource>();
         public ObservableCollection<TestResource> Testovi
