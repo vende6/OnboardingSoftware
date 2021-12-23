@@ -8,9 +8,9 @@
              xmlns:converters="clr-namespace:OnboardingSoftware.App.Converters" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                  x:Class="OnboardingSoftware.App.Views.Dialogs.JobDialog"
              BackgroundColor="{Binding BlurDialogBackgroundColor}">
-    <pages:PopupPage.BindingContext>
+    <!--<pages:PopupPage.BindingContext>
         <viewModels:JobDialogViewModel/>
-    </pages:PopupPage.BindingContext>
+    </pages:PopupPage.BindingContext>-->
 
     <pages:PopupPage.Resources>
         <ResourceDictionary>
@@ -31,7 +31,7 @@
     </pages:PopupPage.Animation>
     <Frame BorderColor="White" Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="20">
         <StackLayout>
-            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,0,0,0">
+            <StackLayout HorizontalOptions="CenterAndExpand"  Orientation="Vertical" Margin="0,0,0,0">
                 <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
                 <Label Text="TOB" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
             </StackLayout>
@@ -124,8 +124,8 @@
                    HorizontalTextAlignment="Center"/>
 
 
-            <Button Text="Exit" BackgroundColor="#56cd89" Command="{Binding CloseInfoCommand}"></Button>
-            <Button Text="Apply" BackgroundColor="#56cd89" Command="{Binding ApplyCommand}"></Button>
+            <Button Text="Exit" BackgroundColor="#56cd89" VerticalOptions="End"  Clicked="Button_Clicked_1"></Button>
+            <Button Text="Apply" BackgroundColor="#56cd89" VerticalOptions="End"  Clicked="Button_Clicked"></Button>
         </StackLayout>
     </Frame>
 </pages:PopupPage>

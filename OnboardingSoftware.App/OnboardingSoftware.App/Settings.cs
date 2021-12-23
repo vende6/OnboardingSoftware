@@ -308,14 +308,14 @@ namespace OnboardingSoftware.App
             }
         }
 
-        public static long UserId
+        public static string UserId
         {
             get
             {
-                var id = JwtToken.Claims.Where(x => x.Type == "nameid").FirstOrDefault();
-                long userId = 0;
-                long.TryParse(id.Value, out userId);
-                return userId;
+                var id = JwtToken.Claims.Where(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name").FirstOrDefault();
+               // string userId = "";
+               // string.TryParse(id.Value, out userId);
+                return id.Value;
             }
         }
 
@@ -329,7 +329,7 @@ namespace OnboardingSoftware.App
                 if (id == null || id.Value == "")
 
                 {
-                    return UserId;
+                   // return UserId;
                 }
 
                 long.TryParse(id.Value, out responsibleUserId);

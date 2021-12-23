@@ -10,9 +10,9 @@
                  xmlns:extensions="clr-namespace:OnboardingSoftware.App.LanguageSupport"
                  x:Class="OnboardingSoftware.App.Views.Dialogs.ApplyDialog"
              BackgroundColor="{Binding BlurDialogBackgroundColor}">
-    <pages:PopupPage.BindingContext>
+    <!--<pages:PopupPage.BindingContext>
         <viewModels:ApplyDialogViewModel/>
-    </pages:PopupPage.BindingContext>
+    </pages:PopupPage.BindingContext>-->
 
     <pages:PopupPage.Resources>
         <ResourceDictionary>
@@ -39,6 +39,18 @@
     </pages:PopupPage.Animation>
     <Frame BorderColor="White" Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="20">
         <StackLayout>
+            <Label x:Name="LabelID"
+                   IsVisible="false"
+                   Margin="3,0,3,10"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   HorizontalOptions="Center"
+                   FontSize="{Binding Source='25',Converter={StaticResource SizeConv}}"
+                   TextColor="#56cd89"
+                   LineHeight="1.1"
+                   VerticalTextAlignment="End"
+                   HorizontalTextAlignment="Start"/>
             <Label x:Name="LabelTitle"
                    Margin="3,0,3,10"
                    Grid.Row="0"
@@ -87,15 +99,15 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
                    FontSize="{Binding Source='18',Converter={StaticResource SizeConv}}"
-                   TextColor="#56cd89"
+                   TextColor="Black"
                    LineHeight="1.1"
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
 
 
             <StackLayout VerticalOptions="EndAndExpand">
-            <Button Text="Exit" Command="{Binding CloseInfoCommand}" BackgroundColor="Green" VerticalOptions="EndAndExpand"></Button>
-                <Button Text="Submit" Command="{Binding SubmitCommand}" BackgroundColor="Green" VerticalOptions="EndAndExpand"></Button>
+                <Button Text="Exit" Clicked="Button_Clicked2" BackgroundColor="#56cd89" VerticalOptions="EndAndExpand"></Button>
+                <Button Text="Submit" Clicked="Button_Clicked1" BackgroundColor="#56cd89" VerticalOptions="EndAndExpand"></Button>
             </StackLayout>
         </StackLayout>
     </Frame>

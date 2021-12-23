@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using OnboardingSoftware.App.Resources;
 using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static OnboardingSoftware.App.ViewModels.Dialogs.JobDialogViewModel;
 
 namespace OnboardingSoftware.App.Views.Dialogs
 {
@@ -82,6 +84,23 @@ namespace OnboardingSoftware.App.Views.Dialogs
 
             IsBusy = false;
 
+        }
+
+        public ICommand ApplyCommand => new Command<Posao>(async posao =>
+        {
+            // if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.ApplyDialog(Posao.ID.ToString(), "Apply for TOB", "In some cases, motivational letter and/or skill test completion is required"));
+
+        });
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.ApplyDialog(Posao.ID.ToString(), "Apply for TOB", "In some cases, motivational letter and/or skill test completion is required"));
+        }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await PopupNavigation.Instance.PopAsync(true);
         }
     }
 }

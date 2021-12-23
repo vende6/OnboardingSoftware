@@ -462,7 +462,7 @@
                        
                         FontSize="{Binding Source='14', Converter={StaticResource SizeConv}}"
                         HorizontalTextAlignment="Center"
-                        Text="{extensions:TranslateExtension SetNewGoals}"
+
                         TextColor="AliceBlue" />
                     <!--FontFamily="{StaticResource DomusBold}"-->
                     <Button
@@ -562,7 +562,7 @@
                        
                         FontSize="{Binding Source='14', Converter={StaticResource SizeConv}}"
                         HorizontalTextAlignment="Center"
-                        Text="{extensions:TranslateExtension SetNewGoals}"
+                   
                         TextColor="AliceBlue" />
                     <!--FontFamily="{StaticResource DomusBold}"-->
                     <Button

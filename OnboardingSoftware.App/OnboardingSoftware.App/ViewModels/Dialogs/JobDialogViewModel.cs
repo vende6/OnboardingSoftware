@@ -37,7 +37,7 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
         public ICommand ApplyCommand => new Command<Posao>(async posao =>
         {
            // if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
-                await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.ApplyDialog("Apply for TOB", "In some cases, motivational letter and/or skill test completion is required"));
+                //await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.ApplyDialog("Apply for TOB", "In some cases, motivational letter and/or skill test completion is required"));
 
         });
 
