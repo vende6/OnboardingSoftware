@@ -150,7 +150,7 @@ namespace OnboardingSoftware.App.ViewModels
 
 
                 HttpClient client = new HttpClient();
-                Uri uri = new Uri("https://onboardingsoftwareapi20211220211441.azurewebsites.net/");
+                Uri uri = new Uri("https://localhost:44308/");
 
                 if (email == null)
                     email = String.Empty;

@@ -121,6 +121,12 @@ namespace OnboardingSoftware.Api.Controllers
         public async Task<ActionResult<bool>> CreateAplikantTest([FromBody] SaveAplikantTestResource saveAplikantTestResource)
         {
 
+            var aplikant = _aplikantService.GetAplikantByEmail(saveAplikantTestResource.Email);
+            if (aplikant == null)
+                return NotFound(false);
+
+
+
             var aplikantTestToCreate = _mapper.Map<SaveAplikantTestResource, AplikantTest>(saveAplikantTestResource);
             await _aplikantTestService.CreateAplikantTest(aplikantTestToCreate);
 

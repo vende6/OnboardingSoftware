@@ -53,7 +53,7 @@ namespace OnboardingSoftware.App.Views.Dialogs
             try
             {
 
-                Uri uri = new Uri("https://onboardingsoftwareapi20211220211441.azurewebsites.net/");
+                Uri uri = new Uri("https://localhost:44308/");
 
                 HttpResponseMessage response = await client.GetAsync(uri + "api/poslovi/" + posaoId );
                 if (response.IsSuccessStatusCode)

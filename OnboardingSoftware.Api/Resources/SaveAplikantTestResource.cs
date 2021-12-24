@@ -9,5 +9,6 @@ namespace OnboardingSoftware.Api.Resources
     {
         public string Email { get; set; }
         public int TestID { get; set; }
+        public int AplikantID { get; set; }
     }
 }
