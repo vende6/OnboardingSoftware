@@ -36,6 +36,12 @@ namespace OnboardingSoftware.Services
                 .GetAllWithVjestineAsync();
         }
 
+        public async Task<Aplikant> GetAplikantByEmail(string email)
+        {
+            return await _unitOfWork.Aplikanti
+                .GetByEmailAsync(email);
+        }
+
         public async Task<Aplikant> GetAplikantById(int id)
         {
             return await _unitOfWork.Aplikanti

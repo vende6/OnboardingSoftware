@@ -23,6 +23,7 @@ using OnboardingSoftware.Api.Settings;
 using OnboardingSoftware.Api.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using OnboardingSoftware.Core.Services.Associations;
 
 namespace OnboardingSoftware.Api
 {
@@ -86,6 +87,8 @@ namespace OnboardingSoftware.Api
             services.AddTransient<ITestService, TestService>();
             services.AddTransient<IPitanjeService, PitanjeService>();
             services.AddTransient<IOdgovorService, OdgovorService>();
+            services.AddTransient<IAplikantTestService, AplikantTestService>();
+            services.AddTransient<IAplikantPosaoService, AplikantPosaoService>();
 
             services.AddDbContext<OnboardingSoftwareDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("OnboardingSoftware.Data")));
 

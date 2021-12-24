@@ -1,6 +1,8 @@
 ﻿using OnboardingSoftware.Core;
 using OnboardingSoftware.Core.Repositories;
+using OnboardingSoftware.Core.Repositories.Associations;
 using OnboardingSoftware.Data.Repositories;
+using OnboardingSoftware.Data.Repositories.Associations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,8 @@ namespace OnboardingSoftware.Data
         private TestRepository _testRepository;
         private PitanjeRepository _pitanjeRepository;
         private OdgovorRepository _odgovorRepository;
+        private AplikantTestRepository _aplikantTestRepository;
+        private AplikantPosaoRepository _aplikantPosaoRepository;
 
         public UnitOfWork(OnboardingSoftwareDbContext context)
         {
@@ -35,6 +39,10 @@ namespace OnboardingSoftware.Data
         public IPitanjeRepository Pitanja => _pitanjeRepository = _pitanjeRepository ?? new PitanjeRepository(_context);
 
         public IOdgovorRepository Odgovori => _odgovorRepository = _odgovorRepository ?? new OdgovorRepository(_context);
+
+        public IAplikantTestRepository AplikantTest => _aplikantTestRepository = _aplikantTestRepository ?? new AplikantTestRepository(_context);
+
+        public IAplikantPosaoRepository AplikantPosao => _aplikantPosaoRepository = _aplikantPosaoRepository ?? new AplikantPosaoRepository(_context);
 
         public async Task<int> CommitAsync()
         {

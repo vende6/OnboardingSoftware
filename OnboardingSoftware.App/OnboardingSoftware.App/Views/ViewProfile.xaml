@@ -291,7 +291,7 @@
                                                                   Factor=0.48}"
                 Style="{StaticResource cardFrame}">
                 <!--FontFamily="{StaticResource DomusBold}"-->
-                <Label
+                <!--<Label
                     Margin="0,-13,0,0"
                     
                     FontSize="{Binding Source='12', Converter={StaticResource SizeConv}}"
@@ -302,7 +302,7 @@
                     MaxLines="2"
                     Text="{Binding RandomMeasurement1Title}"
                     TextColor="Gray"
-                    WidthRequest="{Binding Source='115', Converter={StaticResource SizeConv}}" />
+                    WidthRequest="{Binding Source='115', Converter={StaticResource SizeConv}}" />-->
             </Frame>
 
             <!--  Realized round bar  -->
@@ -365,7 +365,7 @@
                                                                   Factor=0.48}"
                 Style="{StaticResource cardFrame}">
                 <!--FontFamily="{StaticResource DomusBold}"-->
-                <Label
+                <!--<Label
                     Margin="0,-13,0,0"
                  
                     FontSize="{Binding Source='12', Converter={StaticResource SizeConv}}"
@@ -376,7 +376,7 @@
                     MaxLines="2"
                     Text="{Binding RandomMeasurement2Title}"
                     TextColor="Gray"
-                    WidthRequest="{Binding Source='115', Converter={StaticResource SizeConv}}" />
+                    WidthRequest="{Binding Source='115', Converter={StaticResource SizeConv}}" />-->
 
             </Frame>
 
@@ -444,28 +444,28 @@
                     Orientation="Vertical"
                     Spacing="0"
                     VerticalOptions="Center">
-                    <Image
+                    <!--<Image
                         Margin="4,0,4,3"
                         HeightRequest="{Binding Source='30', Converter={StaticResource SizeConv}}"
                         WidthRequest="{Binding Source='30', Converter={StaticResource SizeConv}}">
                         <Image.Source>
-                            <!--FontFamily="{StaticResource EsaconFontFamily}"
-                                Glyph="{Binding RocketIcon}"-->
+                            --><!--FontFamily="{StaticResource EsaconFontFamily}"
+                                Glyph="{Binding RocketIcon}"--><!--
                             <FontImageSource
                               Glyph="{Binding RocketIcon}"
                                 Size="{Binding Source='30', Converter={StaticResource SizeConv}}"
                                 Color="#6de1fa" />
                         </Image.Source>
-                    </Image>
+                    </Image>-->
                     <!--FontFamily="{StaticResource DomusLight}"-->
-                    <Label
+                    <!--<Label
                        
                         FontSize="{Binding Source='14', Converter={StaticResource SizeConv}}"
                         HorizontalTextAlignment="Center"
 
-                        TextColor="AliceBlue" />
+                        TextColor="AliceBlue" />-->
                     <!--FontFamily="{StaticResource DomusBold}"-->
-                    <Button
+                    <!--<Button
                         Margin="0,5,0,0"
                         BackgroundColor="Turquoise"
                         Command="{Binding RedirectToAddAchievementCommand}"
@@ -492,15 +492,15 @@
                             </DataTrigger>
                         </Button.Triggers>
                         <Button.ImageSource>
-                            <!--FontFamily="{StaticResource EsaconFontFamily}"-->
-                            <!--Glyph="{Binding AddIcon}"-->
+                            --><!--FontFamily="{StaticResource EsaconFontFamily}"-->
+                            <!--Glyph="{Binding AddIcon}"--><!--
                             <FontImageSource
               
                          Glyph="{Binding AddIcon}"
                                 Size="{Binding Source='15', Converter={StaticResource SizeConv}}"
                                 Color="White" />
                         </Button.ImageSource>
-                    </Button>
+                    </Button>-->
                 </StackLayout>
             </Frame>
 
@@ -544,28 +544,28 @@
                     Orientation="Vertical"
                     Spacing="0"
                     VerticalOptions="Center">
-                    <Image
+                    <!--<Image
                         Margin="4,0,4,3"
                         HeightRequest="{Binding Source='30', Converter={StaticResource SizeConv}}"
                         WidthRequest="{Binding Source='30', Converter={StaticResource SizeConv}}">
                         <Image.Source>
-                            <!--FontFamily="{StaticResource EsaconFontFamily}"
-                                Glyph="{Binding RocketIcon}"-->
+                            --><!--FontFamily="{StaticResource EsaconFontFamily}"
+                                Glyph="{Binding RocketIcon}"--><!--
                             <FontImageSource
                               Glyph="{Binding RocketIcon}"
                                 Size="{Binding Source='30', Converter={StaticResource SizeConv}}"
                                 Color="#56cd89" />
                         </Image.Source>
-                    </Image>
-                    <!--FontFamily="{StaticResource DomusLight}"-->
+                    </Image>-->
+                    <!--FontFamily="{StaticResource DomusLight}"--><!--
                     <Label
                        
                         FontSize="{Binding Source='14', Converter={StaticResource SizeConv}}"
                         HorizontalTextAlignment="Center"
                    
-                        TextColor="AliceBlue" />
+                        TextColor="AliceBlue" />-->
                     <!--FontFamily="{StaticResource DomusBold}"-->
-                    <Button
+                    <!--<Button
                         Margin="0,5,0,0"
                         BackgroundColor="Turquoise"
                         Command="{Binding RedirectToAddAchievementCommand}"
@@ -592,15 +592,15 @@
                             </DataTrigger>
                         </Button.Triggers>
                         <Button.ImageSource>
-                            <!--FontFamily="{StaticResource EsaconFontFamily}"-->
-                            <!--Glyph="{Binding AddIcon}"-->
+                            --><!--FontFamily="{StaticResource EsaconFontFamily}"-->
+                            <!--Glyph="{Binding AddIcon}"--><!--
                             <FontImageSource
               
                          Glyph="{Binding AddIcon}"
                                 Size="{Binding Source='15', Converter={StaticResource SizeConv}}"
                                 Color="White" />
                         </Button.ImageSource>
-                    </Button>
+                    </Button>-->
                 </StackLayout>
 
             </Frame>

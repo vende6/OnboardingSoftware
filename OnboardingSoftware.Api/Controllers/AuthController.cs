@@ -6,7 +6,9 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using OnboardingSoftware.Api.Resources;
 using OnboardingSoftware.Api.Settings;
+using OnboardingSoftware.Core.Models;
 using OnboardingSoftware.Core.Models.Auth.MyMusic.Core.Models.Auth;
+using OnboardingSoftware.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -25,13 +27,15 @@ namespace OnboardingSoftware.Api.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
+        private readonly IAplikantService _aplikantService;
         private readonly JwtSettings _jwtSettings;
 
-        public AuthController(IMapper mapper, UserManager<User> userManager, IOptionsSnapshot<JwtSettings> jwtSettings)
+        public AuthController(IMapper mapper, UserManager<User> userManager, IOptionsSnapshot<JwtSettings> jwtSettings, IAplikantService aplikantService)
         {
             _mapper = mapper;
             _userManager = userManager;
             _jwtSettings = jwtSettings.Value;
+            this._aplikantService = aplikantService;
 
         }
 
@@ -44,6 +48,10 @@ namespace OnboardingSoftware.Api.Controllers
 
             if (userCreateResult.Succeeded)
             {
+                //create aplikant
+                var aplikantToCreate = _mapper.Map<UserSignupResource, Aplikant>(userSignupResource);
+                await _aplikantService.CreateAplikant(aplikantToCreate);
+
                 return Created(String.Empty, String.Empty);
             }
 

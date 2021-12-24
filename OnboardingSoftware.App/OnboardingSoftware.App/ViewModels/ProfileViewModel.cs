@@ -781,7 +781,7 @@ namespace OnboardingSoftware.App.ViewModels
                     }
                     else if (x == "e-intelligence")
                     {
-                        Settings.SelectedTestTypeId = "E-intelligence ";
+                        Settings.SelectedTestTypeId = "E-Intelligence";
                         await Shell.Current.GoToAsync("//home/tests" + "?typeId=" + "E-Intelligence");
                         MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
 

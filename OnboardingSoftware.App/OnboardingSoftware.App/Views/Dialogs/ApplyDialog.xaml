@@ -105,7 +105,7 @@
                    HorizontalTextAlignment="Center"/>
 
 
-            <StackLayout VerticalOptions="EndAndExpand">
+            <StackLayout VerticalOptions="EndAndExpand" Margin="0,0,0,20">
                 <Button Text="Exit" Clicked="Button_Clicked2" BackgroundColor="#56cd89" VerticalOptions="EndAndExpand"></Button>
                 <Button Text="Submit" Clicked="Button_Clicked1" BackgroundColor="#56cd89" VerticalOptions="EndAndExpand"></Button>
             </StackLayout>

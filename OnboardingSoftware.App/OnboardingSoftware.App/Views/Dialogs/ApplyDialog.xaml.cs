@@ -24,14 +24,14 @@ namespace OnboardingSoftware.App.Views.Dialogs
             LabelBody.TextColor = Color.Black;
         }
 
-   
-          
+
+
 
         private async void Button_Clicked1(object sender, EventArgs e)
         {
             var x = Settings.UserId;
             var y = LabelID.Text;
-            if(x!= null | !String.IsNullOrEmpty(x))
+            if (x != null | !String.IsNullOrEmpty(x))
             {
                 //create test aplicant
                 await Application.Current.MainPage.DisplayAlert("Done", "Application for the job was success!", "OK");
@@ -40,7 +40,7 @@ namespace OnboardingSoftware.App.Views.Dialogs
             {
                 await Application.Current.MainPage.DisplayAlert("Done", "Application for the job was unsucessful.", "OK");
             }
-            
+
             await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAllAsync();
             Application.Current.MainPage = new AppShell();
             //await Shell.Current.GoToAsync("//home/profile");

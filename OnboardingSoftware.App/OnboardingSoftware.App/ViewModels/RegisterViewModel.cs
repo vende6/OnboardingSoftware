@@ -7,6 +7,7 @@ using OnboardingSoftware.App.Validations.Common;
 using OnboardingSoftware.App.Views;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -166,7 +167,7 @@ namespace OnboardingSoftware.App.ViewModels
                 Uri uri = new Uri("https://onboardingsoftwareapi20211220211441.azurewebsites.net/");
 
 
-                UserSignUpResource resource = new UserSignUpResource 
+                UserSignUpResource resource = new UserSignUpResource
                 { Email = email, Password = password, FirstName = firstname, LastName = lastname };
 
 
@@ -178,12 +179,11 @@ namespace OnboardingSoftware.App.ViewModels
                 HttpResponseMessage response = null;
                 response = await client.PostAsync(uri + "api/Auth/signup", content);
 
-                
                 if (response.IsSuccessStatusCode)
                 {
                     Application.Current.MainPage = new AppShell();
                 }
-                if(response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+                else if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
                 {
                     var error = await response.Content.ReadAsStringAsync();
                     JObject o = JObject.Parse(error);
@@ -199,11 +199,12 @@ namespace OnboardingSoftware.App.ViewModels
 
 
                 IsBusy = false;
-                
+
             }
             catch (Exception ex)
             {
                 //Handle it here
+                Debug.WriteLine(ex);
                 IsBusy = false;
             }
 

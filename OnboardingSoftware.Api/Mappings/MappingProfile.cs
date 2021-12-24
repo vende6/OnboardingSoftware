@@ -13,6 +13,19 @@ namespace OnboardingSoftware.Api.Mappings
     {
         public MappingProfile()
         {
+            CreateMap<UserSignupResource, Aplikant>()
+               .ForMember(x => x.Email, opt => opt.MapFrom(y => y.Email))
+               .ForMember(x => x.Ime, opt => opt.MapFrom(y => y.FirstName))
+               .ForMember(x => x.Prezime, opt => opt.MapFrom(y => y.LastName))
+               .ForMember(x => x.Lozinka, opt => opt.MapFrom(y => y.Password))
+               .ForMember(x => x.BrojTelefona, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.MjestoRodjenja, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.DatumRodjenja, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.Adresa, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.StatusZaposlenja, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.LokacijaZaposlenja, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.TrenutnaPozicija, opt => opt.MapFrom(y => ""));
+
             CreateMap<Posao, PosaoResource>()
                 .ForMember(x => x.Lokacija, opt => opt.MapFrom(y => y.Lokacija.Naziv));
             CreateMap<SavePosaoResource, Posao>();
@@ -48,6 +61,11 @@ namespace OnboardingSoftware.Api.Mappings
 
             CreateMap<UserSignupResource, User>()
                .ForMember(u => u.UserName, opt => opt.MapFrom(ur => ur.Email));
+
+            CreateMap<Aplikant, AplikantResource>();
+
+            CreateMap<SaveAplikantTestResource, AplikantTest>();
+            CreateMap<SaveAplikantPosaoResource, AplikantPosao>();
         }
     }
 }

@@ -11,6 +11,7 @@ namespace OnboardingSoftware.Core.Services
     {
         Task<IEnumerable<Aplikant>> GetAllWithVjestine();
         Task<Aplikant> GetAplikantById(int id);
+        Task<Aplikant> GetAplikantByEmail(string email);
         Task<Aplikant> CreateAplikant(Aplikant newArtist);
         Task UpdateAplikant(Aplikant artistToBeUpdated, Aplikant artist);
         Task DeleteAplikant(Aplikant artist);

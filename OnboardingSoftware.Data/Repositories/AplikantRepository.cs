@@ -25,6 +25,13 @@ namespace OnboardingSoftware.Data.Repositories
                 .ToListAsync();
         }
 
+        public async Task<Aplikant> GetByEmailAsync(string email)
+        {
+            return await OnboardingSoftwareDbContext.Aplikanti
+                .Where(a => a.Email == email)
+                .FirstOrDefaultAsync();
+        }
+
 
         public async Task<Aplikant> GetWithVjestineByIdAsync(int id)
         {

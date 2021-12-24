@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using OnboardingSoftware.Api.Resources;
 using OnboardingSoftware.Core.Models;
 using OnboardingSoftware.Core.Services;
+using OnboardingSoftware.Core.Services.Associations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,18 +17,21 @@ namespace OnboardingSoftware.Api.Controllers
     public class AplikantiController : ControllerBase
     {
         private readonly IAplikantService _aplikantService;
-        public AplikantiController(IAplikantService aplikantService, IMapper mapper)
+        private readonly IAplikantTestService _aplikantTestService;
+        private readonly IAplikantPosaoService _aplikantPosaoService;
+        private readonly IMapper _mapper;
+        public AplikantiController(IAplikantService aplikantService, IAplikantTestService aplikantTestService, IAplikantPosaoService aplikantPosaoService, IMapper mapper)
         {
             this._aplikantService = aplikantService;
+            this._aplikantTestService = aplikantTestService;
+            this._aplikantPosaoService = aplikantPosaoService;
+            this._mapper = mapper;
         }
 
         [HttpGet("")]
         public async Task<ActionResult<IEnumerable<AplikantResource>>> GetAllAplikanti()
         {
-            //var aplikanti = await this._aplikantService.GetAllWithVjestine();
 
-            try
-            {
                 List<AplikantResource> aplikants = new List<AplikantResource>();
 
                 aplikants.Add(new AplikantResource
@@ -79,14 +83,61 @@ namespace OnboardingSoftware.Api.Controllers
                 });
 
                 return Ok(aplikants);
-            }
-            catch (Exception ex)
-            {
+        
+        }
 
-                throw;
-            }
+        [HttpGet("{email}", Name = "GetAplikantByEmail")]
+        public async Task<ActionResult<PosaoResource>> GetAplikantByEmail(string email)
+        {
+            var aplikant = await _aplikantService.GetAplikantByEmail(email);
+            if (aplikant == null)
+                return NotFound();
 
-         
+            var aplikantResource = _mapper.Map<Aplikant, AplikantResource>(aplikant);
+            return Ok(aplikantResource);
+        }
+
+        // POST: api/aplikanti
+        [HttpPost("")]
+        public async Task<ActionResult<bool>> CreateAplikant([FromBody] SaveAplikantResource savePosaoResource)
+        {
+
+            //var validator = new SaveLinkResourceValidator();
+            //var validationResult = await validator.ValidateAsync(saveLinkResource);
+            //if (!validationResult.IsValid)
+            //    return BadRequest(validationResult.Errors);
+
+            var aplikantToCreate = _mapper.Map<SaveAplikantResource, Aplikant>(savePosaoResource);
+            await _aplikantService.CreateAplikant(aplikantToCreate);
+
+
+            //await _userLinkService.CreateUserLink(new UserLink { LinkId = link.ID, TagId = tag.ID, UserId = Guid.Parse(userId) });
+
+            return Ok(true);
+        }
+
+        // POST: api/aplikanti
+        [HttpPost("SaveTest")]
+        public async Task<ActionResult<bool>> CreateAplikantTest([FromBody] SaveAplikantTestResource saveAplikantTestResource)
+        {
+
+            var aplikantTestToCreate = _mapper.Map<SaveAplikantTestResource, AplikantTest>(saveAplikantTestResource);
+            await _aplikantTestService.CreateAplikantTest(aplikantTestToCreate);
+
+
+            return Ok(true);
+        }
+
+        // POST: api/aplikanti
+        [HttpPost("SavePosao")]
+        public async Task<ActionResult<bool>> CreateAplikantPosao([FromBody] SaveAplikantPosaoResource saveAplikantPosaoResource)
+        {
+
+            var aplikantPosaoToCreate = _mapper.Map<SaveAplikantPosaoResource, AplikantPosao>(saveAplikantPosaoResource);
+            await _aplikantPosaoService.CreateAplikantPosao(aplikantPosaoToCreate);
+
+
+            return Ok(true);
         }
     }
 }
