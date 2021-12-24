@@ -123,9 +123,10 @@
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
 
-
-            <Button Text="Exit" BackgroundColor="#56cd89" VerticalOptions="End"  Clicked="Button_Clicked_1"></Button>
-            <Button Text="Apply" BackgroundColor="#56cd89" VerticalOptions="End"  Clicked="Button_Clicked"></Button>
+            <StackLayout VerticalOptions="EndAndExpand" Margin="0,0,0,20">
+                <Button Text="Exit" BackgroundColor="#56cd89" VerticalOptions="EndAndExpand"  Clicked="Button_Clicked_1"></Button>
+                <Button Text="Apply" BackgroundColor="#56cd89" VerticalOptions="EndAndExpand"  Clicked="Button_Clicked"></Button>
+            </StackLayout>
         </StackLayout>
     </Frame>
 </pages:PopupPage>

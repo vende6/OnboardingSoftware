@@ -117,7 +117,7 @@ namespace OnboardingSoftware.Api.Controllers
         }
 
         // POST: api/aplikanti
-        [HttpPost("SaveTest")]
+        [HttpPost("SaveTest", Name = "SaveTest")]
         public async Task<ActionResult<bool>> CreateAplikantTest([FromBody] SaveAplikantTestResource saveAplikantTestResource)
         {
 
@@ -135,7 +135,7 @@ namespace OnboardingSoftware.Api.Controllers
         }
 
         // POST: api/aplikanti
-        [HttpPost("SavePosao")]
+        [HttpPost("SavePosao", Name = "SavePosao")]
         public async Task<ActionResult<bool>> CreateAplikantPosao([FromBody] SaveAplikantPosaoResource saveAplikantPosaoResource)
         {
             var aplikant = await _aplikantService.GetAplikantByEmail(saveAplikantPosaoResource.Email);

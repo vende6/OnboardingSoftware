@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -36,6 +37,8 @@ namespace OnboardingSoftware.App.Views.Dialogs
             {
 
                 HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Settings.AccessToken);
+
                 Uri uri = new Uri("http://192.168.0.15:5001/");
 
                 SaveAplikantPosaoResource resource = new SaveAplikantPosaoResource
