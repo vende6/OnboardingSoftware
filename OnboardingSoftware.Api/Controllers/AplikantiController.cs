@@ -121,11 +121,11 @@ namespace OnboardingSoftware.Api.Controllers
         public async Task<ActionResult<bool>> CreateAplikantTest([FromBody] SaveAplikantTestResource saveAplikantTestResource)
         {
 
-            var aplikant = _aplikantService.GetAplikantByEmail(saveAplikantTestResource.Email);
+            var aplikant = await _aplikantService.GetAplikantByEmail(saveAplikantTestResource.Email);
             if (aplikant == null)
                 return NotFound(false);
 
-
+            saveAplikantTestResource.AplikantID = aplikant.ID;
 
             var aplikantTestToCreate = _mapper.Map<SaveAplikantTestResource, AplikantTest>(saveAplikantTestResource);
             await _aplikantTestService.CreateAplikantTest(aplikantTestToCreate);
@@ -138,6 +138,11 @@ namespace OnboardingSoftware.Api.Controllers
         [HttpPost("SavePosao")]
         public async Task<ActionResult<bool>> CreateAplikantPosao([FromBody] SaveAplikantPosaoResource saveAplikantPosaoResource)
         {
+            var aplikant = await _aplikantService.GetAplikantByEmail(saveAplikantPosaoResource.Email);
+            if (aplikant == null)
+                return NotFound(false);
+
+            saveAplikantPosaoResource.AplikantID = aplikant.ID;
 
             var aplikantPosaoToCreate = _mapper.Map<SaveAplikantPosaoResource, AplikantPosao>(saveAplikantPosaoResource);
             await _aplikantPosaoService.CreateAplikantPosao(aplikantPosaoToCreate);
