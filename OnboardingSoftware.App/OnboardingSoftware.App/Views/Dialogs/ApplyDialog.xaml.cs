@@ -36,7 +36,7 @@ namespace OnboardingSoftware.App.Views.Dialogs
             {
 
                 HttpClient client = new HttpClient();
-                Uri uri = new Uri("https://localhost:44308/");
+                Uri uri = new Uri("http://192.168.0.15:5001/");
 
                 SaveAplikantPosaoResource resource = new SaveAplikantPosaoResource
                 { Email = x, PosaoID = y };

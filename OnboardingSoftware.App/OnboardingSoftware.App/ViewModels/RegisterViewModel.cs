@@ -164,7 +164,7 @@ namespace OnboardingSoftware.App.ViewModels
 
 
                 HttpClient client = new HttpClient();
-                Uri uri = new Uri("https://localhost:44308/");
+                Uri uri = new Uri("http://192.168.0.15:5001/");
 
 
                 UserSignUpResource resource = new UserSignUpResource
@@ -174,6 +174,10 @@ namespace OnboardingSoftware.App.ViewModels
                 string json = JsonConvert.SerializeObject(resource);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
+                //var request = new HttpMessageRequest(yourUrl);
+                //request.Content = yourContent;
+                //var response = await client.SendAsync(request,
+                //HttpCompletionOption.ResponseHeadersRead);
 
 
                 HttpResponseMessage response = null;
@@ -181,7 +185,7 @@ namespace OnboardingSoftware.App.ViewModels
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Application.Current.MainPage = new AppShell();
+                    Application.Current.MainPage = new NavigationPage(new ViewLogin());
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
                 {

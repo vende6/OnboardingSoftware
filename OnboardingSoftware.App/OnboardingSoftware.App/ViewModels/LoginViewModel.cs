@@ -16,6 +16,8 @@ namespace OnboardingSoftware.App.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+       // public INavigation Navigation { get; set; }
+
         public LoginViewModel()
         {
             InitializeValidation();
@@ -150,7 +152,7 @@ namespace OnboardingSoftware.App.ViewModels
 
 
                 HttpClient client = new HttpClient();
-                Uri uri = new Uri("https://localhost:44308/");
+                Uri uri = new Uri("http://192.168.0.15:5001/");
 
                 if (email == null)
                     email = String.Empty;
