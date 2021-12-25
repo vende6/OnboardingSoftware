@@ -86,35 +86,35 @@ namespace OnboardingSoftware.Api.Controllers
         
         }
 
-        [HttpGet("{email}", Name = "GetAplikantByEmail")]
-        public async Task<ActionResult<PosaoResource>> GetAplikantByEmail(string email)
-        {
-            var aplikant = await _aplikantService.GetAplikantByEmail(email);
-            if (aplikant == null)
-                return NotFound();
+        //[HttpGet("{email}", Name = "GetAplikantByEmail")]
+        //public async Task<ActionResult<PosaoResource>> GetAplikantByEmail(string email)
+        //{
+        //    var aplikant = await _aplikantService.GetAplikantByEmail(email);
+        //    if (aplikant == null)
+        //        return NotFound();
 
-            var aplikantResource = _mapper.Map<Aplikant, AplikantResource>(aplikant);
-            return Ok(aplikantResource);
-        }
+        //    var aplikantResource = _mapper.Map<Aplikant, AplikantResource>(aplikant);
+        //    return Ok(aplikantResource);
+        //}
 
         // POST: api/aplikanti
-        [HttpPost("")]
-        public async Task<ActionResult<bool>> CreateAplikant([FromBody] SaveAplikantResource savePosaoResource)
-        {
+        //[HttpPost("")]
+        //public async Task<ActionResult<bool>> CreateAplikant([FromBody] SaveAplikantResource savePosaoResource)
+        //{
 
-            //var validator = new SaveLinkResourceValidator();
-            //var validationResult = await validator.ValidateAsync(saveLinkResource);
-            //if (!validationResult.IsValid)
-            //    return BadRequest(validationResult.Errors);
+        //    //var validator = new SaveLinkResourceValidator();
+        //    //var validationResult = await validator.ValidateAsync(saveLinkResource);
+        //    //if (!validationResult.IsValid)
+        //    //    return BadRequest(validationResult.Errors);
 
-            var aplikantToCreate = _mapper.Map<SaveAplikantResource, Aplikant>(savePosaoResource);
-            await _aplikantService.CreateAplikant(aplikantToCreate);
+        //    var aplikantToCreate = _mapper.Map<SaveAplikantResource, Aplikant>(savePosaoResource);
+        //    await _aplikantService.CreateAplikant(aplikantToCreate);
 
 
-            //await _userLinkService.CreateUserLink(new UserLink { LinkId = link.ID, TagId = tag.ID, UserId = Guid.Parse(userId) });
+        //    //await _userLinkService.CreateUserLink(new UserLink { LinkId = link.ID, TagId = tag.ID, UserId = Guid.Parse(userId) });
 
-            return Ok(true);
-        }
+        //    return Ok(true);
+        //}
 
         // POST: api/aplikanti
         [HttpPost("SaveTest", Name = "SaveTest")]

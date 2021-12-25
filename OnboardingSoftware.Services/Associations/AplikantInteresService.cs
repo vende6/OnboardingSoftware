@@ -17,9 +17,9 @@ namespace OnboardingSoftware.Services.Associations
             this._unitOfWork = unitOfWork;
         }
 
-        public async Task<IEnumerable<AplikantInteres>> GetAplicantInterests(int aplikantId)
+        public async Task<IEnumerable<AplikantInteres>> GetApplicantInterests(int aplikantId)
         {
-            return await _unitOfWork.AplikantInteres.GetAplicantInterestsAsync(aplikantId);
+            return await _unitOfWork.AplikantInteres.GetApplicantInterestsAsync(aplikantId);
         }
 
         public async Task<AplikantInteres> CreateAplikantInteres(AplikantInteres newaplikantInteres)

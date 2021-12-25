@@ -36,7 +36,7 @@ namespace OnboardingSoftware.Api.Controllers.Associations
         [HttpGet("")]
         public async Task<ActionResult<AplikantInteresiResource>> GetAllAplikantInteresi(int aplikantId)
         {
-            var aplikantInteresi = await _aplikantInteresService.GetAplicantInterests(aplikantId);
+            var aplikantInteresi = await _aplikantInteresService.GetApplicantInterests(aplikantId);
             var aplikantInteresiResource = _mapper.Map<IEnumerable<AplikantInteres>, AplikantInteresiResource>(aplikantInteresi);
 
             return Ok(aplikantInteresiResource);

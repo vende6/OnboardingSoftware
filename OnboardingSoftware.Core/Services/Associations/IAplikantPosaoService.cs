@@ -9,6 +9,7 @@ namespace OnboardingSoftware.Core.Services.Associations
 {
     public interface IAplikantTestService
     {
+        Task<IEnumerable<AplikantTest>> GetApplicantsTest(int testId);
         Task<AplikantTest> CreateAplikantTest(AplikantTest newAplikantTest);
     }
 }

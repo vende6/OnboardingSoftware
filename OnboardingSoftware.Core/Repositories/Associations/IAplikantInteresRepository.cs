@@ -9,6 +9,6 @@ namespace OnboardingSoftware.Core.Repositories.Associations
 {
     public interface IAplikantInteresRepository : IRepository<AplikantInteres>
     {
-        Task<IEnumerable<AplikantInteres>> GetAplicantInterestsAsync(int aplikantId);
+        Task<IEnumerable<AplikantInteres>> GetApplicantInterestsAsync(int aplikantId);
     }
 }

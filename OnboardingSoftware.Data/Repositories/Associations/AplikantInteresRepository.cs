@@ -20,7 +20,7 @@ namespace OnboardingSoftware.Data.Repositories.Associations
             get { return Context as OnboardingSoftwareDbContext; }
         }
 
-        public async Task<IEnumerable<AplikantInteres>> GetAplicantInterestsAsync(int aplikantId)
+        public async Task<IEnumerable<AplikantInteres>> GetApplicantInterestsAsync(int aplikantId)
         {
             return await OnboardingSoftwareDbContext.AplikantInteres
               .Include(a => a.Interes)

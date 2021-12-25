@@ -9,11 +9,19 @@ using System.Threading.Tasks;
 
 namespace OnboardingSoftware.Data.Repositories.Associations
 {
-    public class AplikantPosaoRepository : Repository<AplikantPosao>, IAplikantPosaoRepository
+    public class AplikantTestRepository : Repository<AplikantTest>, IAplikantTestRepository
     {
-        public AplikantPosaoRepository(OnboardingSoftwareDbContext context)
+        public AplikantTestRepository(OnboardingSoftwareDbContext context)
           : base(context)
         { }
+
+        public async Task<IEnumerable<AplikantTest>> GetApplicantsTestAsync(int testId)
+        {
+            return await OnboardingSoftwareDbContext.AplikantTest
+             .Include(a => a.Aplikant)
+             .Where(a => a.TestID == testId)
+             .ToListAsync();
+        }
 
         private OnboardingSoftwareDbContext OnboardingSoftwareDbContext
         {

@@ -9,5 +9,6 @@ namespace OnboardingSoftware.Core.Repositories.Associations
 {
     public interface IAplikantTestRepository : IRepository<AplikantTest>
     {
+        Task<IEnumerable<AplikantTest>> GetApplicantsTestAsync(int testId);
     }
 }

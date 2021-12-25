@@ -17,11 +17,17 @@ namespace OnboardingSoftware.Services
             this._unitOfWork = unitOfWork;
         }
 
+        public async Task<IEnumerable<AplikantTest>> GetApplicantsTest(int testId)
+        {
+            return await _unitOfWork.AplikantTest.GetApplicantsTestAsync(testId);
+        }
+
         public async Task<AplikantTest> CreateAplikantTest(AplikantTest newaplikantTest)
         {
             await _unitOfWork.AplikantTest.AddAsync(newaplikantTest);
             await _unitOfWork.CommitAsync();
             return newaplikantTest;
         }
+
     }
 }

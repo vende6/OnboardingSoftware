@@ -64,6 +64,29 @@ namespace OnboardingSoftware.Api.Mappings
 
             CreateMap<Aplikant, AplikantResource>();
 
+            CreateMap<IEnumerable<AplikantTest>, AplikantiTestResource>()
+                            .ForMember(u => u.Aplikanti, opt => opt.MapFrom(ur => ur));
+            CreateMap<AplikantTest, AplikantResource>()
+               .ForMember(x => x.Email, opt => opt.MapFrom(y => y.Aplikant.Email))
+               .ForMember(x => x.Ime, opt => opt.MapFrom(y => y.Aplikant.Ime))
+               .ForMember(x => x.Prezime, opt => opt.MapFrom(y => y.Aplikant.Prezime))
+               .ForMember(x => x.BrojTelefona, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.MjestoRodjenja, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.DatumRodjenja, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.Adresa, opt => opt.MapFrom(y => ""));
+
+
+            CreateMap<IEnumerable<AplikantPosao>, AplikantiPosaoResource>()
+                            .ForMember(u => u.Aplikanti, opt => opt.MapFrom(ur => ur));
+            CreateMap<AplikantPosao, AplikantResource>()
+               .ForMember(x => x.Email, opt => opt.MapFrom(y => y.Aplikant.Email))
+               .ForMember(x => x.Ime, opt => opt.MapFrom(y => y.Aplikant.Ime))
+               .ForMember(x => x.Prezime, opt => opt.MapFrom(y => y.Aplikant.Prezime))
+               .ForMember(x => x.BrojTelefona, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.MjestoRodjenja, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.DatumRodjenja, opt => opt.MapFrom(y => ""))
+               .ForMember(x => x.Adresa, opt => opt.MapFrom(y => ""));
+
             CreateMap<Vjestina, VjestinaResource>();
             CreateMap<Interes, InteresResource>();
 
