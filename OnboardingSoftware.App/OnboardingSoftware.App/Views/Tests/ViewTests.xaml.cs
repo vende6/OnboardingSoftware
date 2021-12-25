@@ -58,10 +58,10 @@ namespace OnboardingSoftware.App.Views.Tests
         public ViewTests()
         {
             InitializeComponent();
-            FillList();
             MessagingCenter.Subscribe<Application>(this, "InitializeT", async (s) => FillList());
 
         }
+
 
         public async void FillList()
         {
@@ -81,10 +81,10 @@ namespace OnboardingSoftware.App.Views.Tests
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     Testovi = new ObservableCollection<TestResource>(JsonConvert.DeserializeObject<IEnumerable<TestResource>>(content));
-
-                    if (Settings.SelectedTestTypeId != null && Settings.SelectedTestTypeId != "0")
+                    var s = Settings.SelectedTestTypeId;
+                    if (s != null && s != "0")
                     {
-                        Testovi = new ObservableCollection<TestResource>(Testovi.Where(x => x.Tip == Settings.SelectedTestTypeId).ToList());
+                        Testovi = new ObservableCollection<TestResource>(Testovi.Where(x => x.Tip == s).ToList());
                         Settings.SelectedTestTypeId = "0";
                     }
 
@@ -116,7 +116,7 @@ namespace OnboardingSoftware.App.Views.Tests
 
         protected async override void OnAppearing()
         {
-
+            MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
             base.OnAppearing();
             if (this.BindingContext is BaseViewModel viewModel)
                 await viewModel.OnAppearing();
@@ -124,7 +124,8 @@ namespace OnboardingSoftware.App.Views.Tests
 
         protected async override void OnDisappearing()
         {
-            //MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
+            Settings.SelectedTestTypeId = "0";
+            MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
             base.OnDisappearing();
             if (this.BindingContext is BaseViewModel viewModel)
                 await viewModel.OnDisappearing();

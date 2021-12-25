@@ -12,5 +12,6 @@ namespace OnboardingSoftware.Api.Resources
         public int TestID { get; set; }
         [JsonIgnore]
         public int AplikantID { get; set; }
+        public string OsvojeniProcenat { get; set; }
     }
 }

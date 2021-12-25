@@ -12,5 +12,6 @@ namespace OnboardingSoftware.Core.Models
         public virtual Aplikant Aplikant { get; set; }
         public int TestID { get; set; }
         public virtual Test Test { get; set; }
+        public string OsvojeniProcenat { get; set; }
     }
 }

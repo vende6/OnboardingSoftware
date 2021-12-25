@@ -5,9 +5,9 @@
              xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels.Tests"
              x:Class="OnboardingSoftware.App.Views.Tests.ViewTests"
              Shell.NavBarIsVisible="False">
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewModels:TestsViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="Emplist2" HasUnevenRows="True">

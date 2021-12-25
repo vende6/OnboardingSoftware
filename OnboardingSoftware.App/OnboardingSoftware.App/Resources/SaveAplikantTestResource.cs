@@ -8,5 +8,6 @@ namespace OnboardingSoftware.App.Resources
     {
         public string Email { get; set; }
         public int TestID { get; set; }
+        public string OsvojeniProcenat { get; set; }
     }
 }

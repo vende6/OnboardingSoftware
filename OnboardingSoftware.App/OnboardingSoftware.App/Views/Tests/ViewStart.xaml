@@ -50,7 +50,7 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.35}"
-                HeightRequest="{Binding Source='35', Converter={StaticResource SizeConv}}"
+                HeightRequest="{Binding Source='25', Converter={StaticResource SizeConv}}"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand"
                 IsRunning="True"
@@ -110,7 +110,7 @@
             HorizontalOptions="CenterAndExpand" 
             VerticalOptions="CenterAndExpand"
             Shell.NavBarIsVisible="False"
-                BackgroundColor="Transparent"
+            BackgroundColor="Transparent"
             IndicatorView="indicatorview">
 
                 <CarouselView.ItemTemplate>
@@ -162,7 +162,7 @@
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_1}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
                                                                 </DataTrigger>
-                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_1}" Value="">
+                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_1, TargetNullValue=''}" Value="">
                                                                     <Setter Property="IsVisible" Value="False"></Setter>
                                                                 </DataTrigger>
                                                             </Button.Triggers>
@@ -190,7 +190,7 @@
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_2}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
                                                                 </DataTrigger>
-                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_2}" Value="">
+                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_2, TargetNullValue=''}" Value="">
                                                                     <Setter Property="IsVisible" Value="False"></Setter>
                                                                 </DataTrigger>
                                                             </Button.Triggers>
@@ -219,7 +219,7 @@
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_3}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
                                                                 </DataTrigger>
-                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_3}" Value="">
+                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_3, TargetNullValue=''}" Value="">
                                                                     <Setter Property="IsVisible" Value="False"></Setter>
                                                                 </DataTrigger>
                                                             </Button.Triggers>
@@ -250,7 +250,7 @@
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_4}" Value="False">
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
                                                                 </DataTrigger>
-                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_4}" Value="">
+                                                                <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_4, TargetNullValue=''}" Value="">
                                                                     <Setter Property="IsVisible" Value="False"></Setter>
                                                                 </DataTrigger>
                                                             </Button.Triggers>
@@ -314,6 +314,7 @@
                                                                        Factor=0.08}"
             x:Name="indicatorview"
             BackgroundColor="#56cd89"
+            Position="3"    
             AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             IndicatorColor="LightGray"

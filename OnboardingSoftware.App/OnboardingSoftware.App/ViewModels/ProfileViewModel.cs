@@ -764,26 +764,26 @@ namespace OnboardingSoftware.App.ViewModels
                     {
                         Settings.SelectedTestTypeId = "Cognitive";
                         await Shell.Current.GoToAsync("//home/tests" + "?typeId=" + "Cognitive");
-                        MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
+                       // MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
                     }
                     else if (x == "personality")
                     {
                         Settings.SelectedTestTypeId = "Personality";
                         await Shell.Current.GoToAsync("//home/tests" + "?typeId=" + "Personality");
-                        MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
+                      //  MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
                     }
                     else if (x == "integrity")
                     {
                         Settings.SelectedTestTypeId = "Integrity";
                         await Shell.Current.GoToAsync("//home/tests" + "?typeId=" + "Integrity");
-                        MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
+                       // MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
 
                     }
                     else if (x == "e-intelligence")
                     {
                         Settings.SelectedTestTypeId = "E-Intelligence";
                         await Shell.Current.GoToAsync("//home/tests" + "?typeId=" + "E-Intelligence");
-                        MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
+                        //MessagingCenter.Send<Xamarin.Forms.Application>(Xamarin.Forms.Application.Current, "InitializeT");
 
                     }
 

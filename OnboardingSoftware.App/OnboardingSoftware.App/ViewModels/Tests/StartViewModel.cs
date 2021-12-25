@@ -24,7 +24,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
         public override async Task OnAppearing()
         {
             await base.OnAppearing();
-           // BindValues(_testId);
+            // BindValues(_testId);
 
         }
 
@@ -58,9 +58,35 @@ namespace OnboardingSoftware.App.ViewModels.Tests
 
         public ICommand FinishCommand => new Command(async vjestina =>
         {
-            await Application.Current.MainPage.DisplayAlert("Done", "Results have been archived.", "OK");
+            var x = Settings.UserId;
+            var y = Convert.ToInt32(TestID);
+
+            if (x != null | !String.IsNullOrEmpty(x))
+            {
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Settings.AccessToken);
+
+                Uri uri = new Uri("http://192.168.0.15:5001/");
+
+                SaveAplikantTestResource resource = new SaveAplikantTestResource
+                { Email = x, TestID = y, OsvojeniProcenat = JsonConvert.SerializeObject(Pitanja) };
+
+                string json = JsonConvert.SerializeObject(resource);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = null;
+                response = await client.PostAsync(uri + "api/Aplikanti/SaveTest", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Done", "Results have been archived.", "OK");
+                    await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAllAsync();
+                    Application.Current.MainPage = new AppShell();
+                }
+            }
+
+            await Application.Current.MainPage.DisplayAlert("Fault", "Contact support.", "OK");
             Application.Current.MainPage = new AppShell();
-            await Shell.Current.GoToAsync("//home/profile");
         });
 
         private ObservableCollection<PitanjeResource> _pitanja = new ObservableCollection<PitanjeResource>();
@@ -132,7 +158,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
 
                     IsBusy = false;
                 }
-            }    
+            }
             catch (Exception ex)
             {
                 var x = ex;
