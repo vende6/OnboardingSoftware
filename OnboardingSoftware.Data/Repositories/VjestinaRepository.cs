@@ -29,9 +29,9 @@ namespace OnboardingSoftware.Data.Repositories
         //        .SingleOrDefaultAsync(m => m.ID == id);
         //}
 
-        public Task<IEnumerable<Vjestina>> GetSkillsAsync()
+        public async Task<IEnumerable<Vjestina>> GetSkillsAsync()
         {
-            throw new NotImplementedException();
+            return await OnboardingSoftwareDbContext.Vjestine.ToListAsync();
         }
 
         private OnboardingSoftwareDbContext OnboardingSoftwareDbContext

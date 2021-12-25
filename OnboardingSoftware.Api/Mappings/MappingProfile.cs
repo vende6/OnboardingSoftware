@@ -64,8 +64,28 @@ namespace OnboardingSoftware.Api.Mappings
 
             CreateMap<Aplikant, AplikantResource>();
 
+            CreateMap<Vjestina, VjestinaResource>();
+            CreateMap<Interes, InteresResource>();
+
+            CreateMap<IEnumerable<AplikantInteres>, AplikantInteresiResource>()
+                            .ForMember(u => u.Interesi, opt => opt.MapFrom(ur => ur));
+            CreateMap<AplikantInteres, InteresResource>()
+               .ForMember(u => u.ID, opt => opt.MapFrom(ur => ur.InteresID))
+               .ForMember(u => u.Naziv, opt => opt.MapFrom(ur => ur.Interes.Naziv));
+
+            CreateMap<IEnumerable<AplikantVjestina>, AplikantVjestineResource>()
+                            .ForMember(u => u.Vjestine, opt => opt.MapFrom(ur => ur));
+            CreateMap<AplikantVjestina, VjestinaResource>()
+               .ForMember(u => u.ID, opt => opt.MapFrom(ur => ur.VjestinaID))
+               .ForMember(u => u.Naziv, opt => opt.MapFrom(ur => ur.Vjestina.Naziv));
+
+            CreateMap<SaveInteresResource, Interes>();
+            CreateMap<SaveVjestinaResource, Vjestina>();
+
             CreateMap<SaveAplikantTestResource, AplikantTest>();
             CreateMap<SaveAplikantPosaoResource, AplikantPosao>();
+            CreateMap<SaveAplikantInteresResource, AplikantInteres>();
+            CreateMap<SaveAplikantVjestinaResource, AplikantVjestina>();
         }
     }
 }

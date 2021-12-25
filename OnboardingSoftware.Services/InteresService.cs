@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace OnboardingSoftware.Services
 {
-    public class VjestinaService : IVjestinaService
+    public class InteresService : IInteresService
     {
         private readonly IUnitOfWork _unitOfWork;
-        public VjestinaService(IUnitOfWork unitOfWork)
+        public InteresService(IUnitOfWork unitOfWork)
         {
             this._unitOfWork = unitOfWork;
         }
 
-        public async Task<bool> CreateVjestina(Vjestina newVjestina)
+        public async Task<bool> CreateInteres(Interes newInteres)
         {
-            await _unitOfWork.Vjestine.AddAsync(newVjestina);
+            await _unitOfWork.Interesi.AddAsync(newInteres);
             await _unitOfWork.CommitAsync();
             return true;
         }
 
-        public async Task<IEnumerable<Vjestina>> GetSkillsAsync()
+        public async Task<IEnumerable<Interes>> GetInterests()
         {
-            return await _unitOfWork.Vjestine.GetSkillsAsync();
+            return await _unitOfWork.Interesi.GetInterestsAsync();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace OnboardingSoftware.Core.Services
 {
     public interface IInteresService
     {
-        Task<IEnumerable<Interes>> GetInterestsAsync();
-        Task<Interes> CreateInteres(Interes newVjestina);
+        Task<IEnumerable<Interes>> GetInterests();
+        Task<bool> CreateInteres(Interes newInteres);
     }
 }

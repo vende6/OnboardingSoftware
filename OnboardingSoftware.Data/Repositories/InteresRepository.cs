@@ -1,4 +1,5 @@
-﻿using OnboardingSoftware.Core.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using OnboardingSoftware.Core.Models;
 using OnboardingSoftware.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,14 @@ namespace OnboardingSoftware.Data.Repositories
             : base(context)
         { }
 
+        public async Task<IEnumerable<Interes>> GetInterestsAsync()
+        {
+            return await OnboardingSoftwareDbContext.Interesi.ToListAsync();
+        }
+
         private OnboardingSoftwareDbContext OnboardingSoftwareDbContext
         {
             get { return Context as OnboardingSoftwareDbContext; }
-        }
-
-        public Task<IEnumerable<Interes>> GetInterestsAsync()
-        {
-            throw new NotImplementedException();
         }
     }
 }

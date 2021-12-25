@@ -9,6 +9,7 @@ namespace OnboardingSoftware.Core.Services.Associations
 {
     public interface IAplikantInteresService
     {
+        Task<IEnumerable<AplikantInteres>> GetAplicantInterests(int aplikantId);
         Task<AplikantInteres> CreateAplikantInteres(AplikantInteres newAplikantInteres);
     }
 }

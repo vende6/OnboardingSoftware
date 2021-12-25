@@ -17,6 +17,6 @@ namespace OnboardingSoftware.Core.Services
         //Task DeleteMusic(Vjestina vjestina);
 
         Task<IEnumerable<Vjestina>> GetSkillsAsync();
-        Task<Vjestina> CreateVjestina(Vjestina newVjestina);
+        Task<bool> CreateVjestina(Vjestina newVjestina);
     }
 }

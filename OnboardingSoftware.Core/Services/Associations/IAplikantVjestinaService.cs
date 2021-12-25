@@ -9,6 +9,7 @@ namespace OnboardingSoftware.Core.Services.Associations
 {
    public interface IAplikantVjestinaService
     {
+        Task<IEnumerable<AplikantVjestina>> GetAplicantSkills(int aplikantId);
         Task<AplikantVjestina> CreateAplikantVjestina(AplikantVjestina newAplikantVjestina);
     }
 }

@@ -1,4 +1,5 @@
-﻿using OnboardingSoftware.Core.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using OnboardingSoftware.Core.Models;
 using OnboardingSoftware.Core.Repositories.Associations;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,12 @@ namespace OnboardingSoftware.Data.Repositories.Associations
             get { return Context as OnboardingSoftwareDbContext; }
         }
 
-        public Task<IEnumerable<AplikantVjestina>> GetAplikantSkillsAsync(int aplikantId)
+        public async Task<IEnumerable<AplikantVjestina>> GetAplicantSkillsAsync(int aplikantId)
         {
-            throw new NotImplementedException();
+            return await OnboardingSoftwareDbContext.AplikantVjestina
+              .Include(a => a.Vjestina)
+              .Where(a => a.AplikantID == aplikantId)
+              .ToListAsync();
         }
     }
 }
