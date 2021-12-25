@@ -412,8 +412,26 @@ namespace OnboardingSoftware.Web.Services
         {
             try
             {
+                if (odgovor.PonudjeniOdgovor_1 == null)
+                    odgovor.PonudjeniOdgovor_1 = "";
+                if (odgovor.PonudjeniOdgovor_2 == null)
+                    odgovor.PonudjeniOdgovor_2 = "";
+                if (odgovor.PonudjeniOdgovor_3 == null)
+                    odgovor.PonudjeniOdgovor_3 = "";
+                if (odgovor.PonudjeniOdgovor_4 == null)
+                    odgovor.PonudjeniOdgovor_4 = "";
 
-                var obj = JsonConvert.SerializeObject(odgovor);
+                SaveOdgovorResource resource = new SaveOdgovorResource
+                {
+                    PitanjeID = odgovor.PitanjeID,
+                    PonudjeniOdgovor_1 = odgovor.PonudjeniOdgovor_1,
+                    PonudjeniOdgovor_2 = odgovor.PonudjeniOdgovor_2,
+                    PonudjeniOdgovor_3 = odgovor.PonudjeniOdgovor_3,
+                    PonudjeniOdgovor_4 = odgovor.PonudjeniOdgovor_4,
+                    TekstOdgovor = ""
+                };
+
+                var obj = JsonConvert.SerializeObject(resource);
                 var stringContent = new StringContent(obj, UnicodeEncoding.UTF8, MediaTypeNames.Application.Json);
 
                 var response = await _httpClient.PostAsync(answersUrl, stringContent);

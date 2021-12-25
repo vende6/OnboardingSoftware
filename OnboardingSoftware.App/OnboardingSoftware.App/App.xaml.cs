@@ -48,7 +48,7 @@ namespace OnboardingSoftware.App
                 if(!AppState.IsAuthenticated)
                     Current.MainPage = new NavigationPage(new ViewLogin());
                 else
-                MainPage = new AppShell();
+                 MainPage = new AppShell();
             }
             catch (Exception ex)
             {

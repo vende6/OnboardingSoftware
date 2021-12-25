@@ -52,13 +52,13 @@ namespace OnboardingSoftware.App.Views.Dialogs
 
                 if (response.IsSuccessStatusCode)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Done", "Application for the job was success!", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Success", "Application for the job was success!", "OK");
                     await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAllAsync();
                     Application.Current.MainPage = new AppShell();
                     return;
                 }
 
-                await Application.Current.MainPage.DisplayAlert("Done", "Application for the job was unsucessful or you already applied for this position.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Fault", "Application for the job was unsucessful or you already applied for this position.", "OK");
                 await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAllAsync();
                 Application.Current.MainPage = new AppShell();
             }

@@ -11,6 +11,7 @@
     ios:Page.UseSafeArea="true"
     BackgroundColor="White"
     x:Name="this"
+    Shell.FlyoutBehavior="Disabled"
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
     <ContentPage.BindingContext>
@@ -162,7 +163,7 @@
                                                                     <Setter Property="BackgroundColor" Value="White"></Setter>
                                                                 </DataTrigger>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding PonudjeniOdgovor_1}" Value="">
-                                                                    <Setter Property="IsEnabled" Value="False"></Setter>
+                                                                    <Setter Property="IsVisible" Value="False"></Setter>
                                                                 </DataTrigger>
                                                             </Button.Triggers>
                                                         </Button>
