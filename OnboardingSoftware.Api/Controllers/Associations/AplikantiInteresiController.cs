@@ -29,13 +29,27 @@ namespace OnboardingSoftware.Api.Controllers.Associations
 
         // POST: api/aplikantiInteresi
         [HttpPost("")]
-        public async Task<ActionResult<bool>> CreateAplikantInteres([FromBody] SaveAplikantInteresResource saveAplikantInteresResource)
+        public async Task<ActionResult<bool>> CreateAplikantInteresi([FromBody] SaveAplikantInteresiResource saveAplikantInteresiResource)
         {
+            try
+            {
+                var aplikant = await _aplikantService.GetAplikantByEmail(saveAplikantInteresiResource.Email);
+                if (aplikant == null)
+                    return NotFound(false);
 
-            var aplikantInteresToCreate = _mapper.Map<SaveAplikantInteresResource, AplikantInteres>(saveAplikantInteresResource);
-            await _aplikantInteresService.CreateAplikantInteres(aplikantInteresToCreate);
+                saveAplikantInteresiResource.AplikantID = aplikant.ID;
 
-            return Ok(true);
+                var aplikantInteresToCreate = _mapper.Map<IEnumerable<SaveInteresResource>, IEnumerable<AplikantInteres>>(saveAplikantInteresiResource.Interesi);
+
+                await _aplikantInteresService.CreateAplikantInteresi(aplikantInteresToCreate);
+
+                return Ok(true);
+            }
+            catch (Exception ex)
+            {
+                var eex = ex;
+                throw;
+            }
         }
 
         [HttpGet("")]

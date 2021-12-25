@@ -11,6 +11,6 @@ namespace OnboardingSoftware.Core.Services.Associations
     {
         Task<IEnumerable<AplikantInteres>> GetApplicantsInterests();
         Task<IEnumerable<AplikantInteres>> GetApplicantInterests(int aplikantId);
-        Task<AplikantInteres> CreateAplikantInteres(AplikantInteres newAplikantInteres);
+        Task<bool> CreateAplikantInteresi(IEnumerable<AplikantInteres> newAplikantInteres);
     }
 }

@@ -5,10 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.MultiSelectListView;
@@ -57,21 +59,25 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
 
             try
             {
-
-                Uri uri = new Uri("http://192.168.0.15:5001/");
-
-                HttpResponseMessage response = await client.GetAsync(uri + "api/interesi");
-                if (response.IsSuccessStatusCode)
+                var email = Settings.UserId;
+                if (!String.IsNullOrEmpty(email))
                 {
-                    string content = await response.Content.ReadAsStringAsync();
-                    var x = new ObservableCollection<InteresResource>(JsonConvert.DeserializeObject<IEnumerable<InteresResource>>(content));
-
-                    foreach (var item in x)
+                    Uri uri = new Uri("http://192.168.0.15:5001/");
+                    HttpResponseMessage response = await client.GetAsync(uri + "api/AplikantiInteresi?email=" + HttpUtility.UrlEncode(email));
+                    if (response.IsSuccessStatusCode)
                     {
-                        var y = new InteresResource();
-                        y.Naziv = item.Naziv;
-                        //y.IsSelected = true;
-                        Interesi.Add(item);
+                        string content = await response.Content.ReadAsStringAsync();
+                        var z = JsonConvert.DeserializeObject<AplikantInteresiResource>(content);
+                        var x = new ObservableCollection<InteresResource>(z.Interesi);
+
+                        for (int i = 0; i < x.Count; i++)
+                        {
+                            var y = new InteresResource();
+                            y.Naziv = x[i].Naziv;
+                            Interesi.Add(x.ElementAt(i));
+                            if (x.ElementAt(i).IsSelected)
+                                Interesi[i].IsSelected = true;
+                        }
                     }
                 }
 
@@ -115,8 +121,33 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
 
         public async Task CloseInfo()
         {
-            await PopupNavigation.Instance.PopAsync(true);
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Settings.AccessToken);
+
+                var email = Settings.UserId;
+                if (!String.IsNullOrEmpty(email))
+                {
+                    string json = JsonConvert.SerializeObject(email);
+                    StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    Uri uri = new Uri("http://192.168.0.15:5001/");
+                    HttpResponseMessage response = await client.PostAsync(uri + "api/AplikantiInteresi", content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        await PopupNavigation.Instance.PopAsync(true);
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                IsBusy = false;
+            }
         }
+            
         public ICommand CloseInfoCommand { get { return new Command(async () => await CloseInfo()); } }
     }
 }

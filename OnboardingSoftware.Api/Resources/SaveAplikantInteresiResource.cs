@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace OnboardingSoftware.Api.Resources
 {
-    public class SaveInteresResource
+    public class SaveAplikantInteresiResource
     {
-        public int InteresID { get; set; }
+        public string Email { get; set; }
+        [JsonIgnore]
         public int AplikantID { get; set; }
+        public IEnumerable<SaveInteresResource> Interesi { get; set; }
+
     }
 }

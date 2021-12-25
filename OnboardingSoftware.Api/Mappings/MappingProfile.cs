@@ -106,8 +106,14 @@ namespace OnboardingSoftware.Api.Mappings
 
             CreateMap<SaveAplikantTestResource, AplikantTest>();
             CreateMap<SaveAplikantPosaoResource, AplikantPosao>();
-            CreateMap<SaveAplikantInteresResource, AplikantInteres>();
+            //CreateMap<SaveAplikantInteresiResource, AplikantInteres>();
             CreateMap<SaveAplikantVjestinaResource, AplikantVjestina>();
+
+
+            CreateMap<SaveAplikantInteresiResource, IEnumerable<AplikantInteres>>();
+            CreateMap<SaveInteresResource, AplikantInteres>()
+            .ForMember(u => u.AplikantID, opt => opt.MapFrom(ur => ur.AplikantID))
+            .ForMember(u => u.InteresID, opt => opt.MapFrom(ur => ur.InteresID));
         }
     }
 }

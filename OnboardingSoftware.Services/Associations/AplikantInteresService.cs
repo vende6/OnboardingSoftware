@@ -27,11 +27,17 @@ namespace OnboardingSoftware.Services.Associations
             return await _unitOfWork.AplikantInteres.GetApplicantInterestsAsync(aplikantId);
         }
 
-        public async Task<AplikantInteres> CreateAplikantInteres(AplikantInteres newaplikantInteres)
+        public async Task<bool> CreateAplikantInteresi(IEnumerable<AplikantInteres> newaplikantInteres)
         {
-            await _unitOfWork.AplikantInteres.AddAsync(newaplikantInteres);
+            var aplikantId = newaplikantInteres.FirstOrDefault().AplikantID;
+
+            var interests = await _unitOfWork.AplikantInteres.GetApplicantInterestsAsync(aplikantId);
+
+            _unitOfWork.AplikantInteres.RemoveRange(interests);
+
+            await _unitOfWork.AplikantInteres.AddRangeAsync(newaplikantInteres);
             await _unitOfWork.CommitAsync();
-            return newaplikantInteres;
+            return true;
         }
 
     }
