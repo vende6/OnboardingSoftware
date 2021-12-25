@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.MultiSelectListView;
 using static OnboardingSoftware.App.ViewModels.InterestViewModel;
 
@@ -129,7 +130,16 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
                 var email = Settings.UserId;
                 if (!String.IsNullOrEmpty(email))
                 {
-                    string json = JsonConvert.SerializeObject(email);
+
+                    SaveAplikantInteresiResource saveInteresResources = new SaveAplikantInteresiResource();
+                    saveInteresResources.Interesi = new List<SaveInteresResource>();
+                    Interesi.Where(x => x.IsSelected).ToList().ForEach(x =>
+                    {
+                        saveInteresResources.Interesi.Add(new SaveInteresResource { InteresID = x.Data.ID });
+                    });
+                    saveInteresResources.Email = email;
+
+                    string json = JsonConvert.SerializeObject(saveInteresResources);
                     StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                     Uri uri = new Uri("http://192.168.0.15:5001/");
@@ -147,7 +157,8 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
                 IsBusy = false;
             }
         }
-            
-        public ICommand CloseInfoCommand { get { return new Command(async () => await CloseInfo()); } }
+
+        public ICommand CloseInfoCommand { get { return new Command(async () => await PopupNavigation.Instance.PopAsync(true)); } }
+        public ICommand SubmitCommand { get { return new Command(async () => await CloseInfo()); } }
     }
 }

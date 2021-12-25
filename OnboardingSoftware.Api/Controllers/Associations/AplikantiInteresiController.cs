@@ -38,6 +38,7 @@ namespace OnboardingSoftware.Api.Controllers.Associations
                     return NotFound(false);
 
                 saveAplikantInteresiResource.AplikantID = aplikant.ID;
+                saveAplikantInteresiResource.Interesi.ToList().ForEach(cc => cc.AplikantID = aplikant.ID);
 
                 var aplikantInteresToCreate = _mapper.Map<IEnumerable<SaveInteresResource>, IEnumerable<AplikantInteres>>(saveAplikantInteresiResource.Interesi);
 

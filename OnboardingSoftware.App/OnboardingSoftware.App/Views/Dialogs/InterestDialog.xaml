@@ -80,7 +80,8 @@
 
             </ListView>
 
-            <Button Text="Finish" Command="{Binding CloseInfoCommand}"></Button>
+            <Button Text="Close" Command="{Binding CloseInfoCommand}"></Button>
+            <Button Text="Save" Command="{Binding SubmitCommand}"></Button>
         </StackLayout>
     </Frame>
 </pages:PopupPage>
