@@ -14,23 +14,28 @@ namespace OnboardingSoftware.Data
     public class UnitOfWork : IUnitOfWork
     {
         private readonly OnboardingSoftwareDbContext _context;
-        private VjestinaRepository _vjestinaRepository;
         private AplikantRepository _aplikantRepository;
+        private VjestinaRepository _vjestinaRepository;
+        private InteresRepository _interesRepository;
         private PosaoRepository _posaoRepository;
         private TestRepository _testRepository;
         private PitanjeRepository _pitanjeRepository;
         private OdgovorRepository _odgovorRepository;
         private AplikantTestRepository _aplikantTestRepository;
         private AplikantPosaoRepository _aplikantPosaoRepository;
+        private AplikantVjestinaRepository _aplikantVjestinaRepository;
+        private AplikantInteresRepository _aplikantInteresRepository;
 
         public UnitOfWork(OnboardingSoftwareDbContext context)
         {
             this._context = context;
         }
 
+        public IAplikantRepository Aplikanti => _aplikantRepository = _aplikantRepository ?? new AplikantRepository(_context);
+
         public IVjestinaRepository Vjestine => _vjestinaRepository = _vjestinaRepository ?? new VjestinaRepository(_context);
 
-        public IAplikantRepository Aplikanti => _aplikantRepository = _aplikantRepository ?? new AplikantRepository(_context);
+        public IInteresRepository Interesi => _interesRepository = _interesRepository ?? new InteresRepository(_context);
 
         public IPosaoRepository Poslovi => _posaoRepository = _posaoRepository ?? new PosaoRepository(_context);
 
@@ -43,6 +48,10 @@ namespace OnboardingSoftware.Data
         public IAplikantTestRepository AplikantTest => _aplikantTestRepository = _aplikantTestRepository ?? new AplikantTestRepository(_context);
 
         public IAplikantPosaoRepository AplikantPosao => _aplikantPosaoRepository = _aplikantPosaoRepository ?? new AplikantPosaoRepository(_context);
+
+        public IAplikantVjestinaRepository AplikantVjestina => _aplikantVjestinaRepository = _aplikantVjestinaRepository ?? new AplikantVjestinaRepository(_context);
+
+        public IAplikantInteresRepository AplikantInteres => _aplikantInteresRepository = _aplikantInteresRepository ?? new AplikantInteresRepository(_context);
 
         public async Task<int> CommitAsync()
         {

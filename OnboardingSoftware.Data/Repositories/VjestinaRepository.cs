@@ -15,24 +15,29 @@ namespace OnboardingSoftware.Data.Repositories
             : base(context)
         { }
 
-        public async Task<IEnumerable<Vjestina>> GetAllWithAplikantiAsync()
-        {
-            return await OnboardingSoftwareDbContext.Vjestine
-                .Include(m => m.AplikantVjestina)
-                .ToListAsync();
-        }
+        //public async Task<IEnumerable<Vjestina>> GetAllWithAplikantiAsync()
+        //{
+        //    return await OnboardingSoftwareDbContext.Vjestine
+        //        .Include(m => m.AplikantVjestina)
+        //        .ToListAsync();
+        //}
 
-        public async Task<Vjestina> GetWithAplikantiByIdAsync(int id)
-        {
-            return await OnboardingSoftwareDbContext.Vjestine
-                .Include(m => m.AplikantVjestina)
-                .SingleOrDefaultAsync(m => m.ID == id);
-        }
+        //public async Task<Vjestina> GetWithAplikantiByIdAsync(int id)
+        //{
+        //    return await OnboardingSoftwareDbContext.Vjestine
+        //        .Include(m => m.AplikantVjestina)
+        //        .SingleOrDefaultAsync(m => m.ID == id);
+        //}
 
+        public Task<IEnumerable<Vjestina>> GetSkillsAsync()
+        {
+            throw new NotImplementedException();
+        }
 
         private OnboardingSoftwareDbContext OnboardingSoftwareDbContext
         {
             get { return Context as OnboardingSoftwareDbContext; }
         }
+
     }
 }

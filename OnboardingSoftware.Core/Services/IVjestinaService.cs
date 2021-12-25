@@ -9,11 +9,14 @@ namespace OnboardingSoftware.Core.Services
 {
     public interface IVjestinaService
     {
-        Task<IEnumerable<Vjestina>> GetAllWithAplikant();
-        Task<Vjestina> GetVjestinaById(int id);
-        Task<IEnumerable<Vjestina>> GetVjestineByAplikantId(int aplikantId);
-        Task<Vjestina> CreateMusic(Vjestina newVjestina);
-        Task UpdateMusic(Vjestina vjestinaToBeUpdated, Vjestina vjestina);
-        Task DeleteMusic(Vjestina vjestina);
+        //Task<IEnumerable<Vjestina>> GetAllWithAplikant();
+        //Task<Vjestina> GetVjestinaById(int id);
+        //Task<IEnumerable<Vjestina>> GetVjestineByAplikantId(int aplikantId);
+        //Task<Vjestina> CreateMusic(Vjestina newVjestina);
+        //Task UpdateMusic(Vjestina vjestinaToBeUpdated, Vjestina vjestina);
+        //Task DeleteMusic(Vjestina vjestina);
+
+        Task<IEnumerable<Vjestina>> GetSkillsAsync();
+        Task<Vjestina> CreateVjestina(Vjestina newVjestina);
     }
 }

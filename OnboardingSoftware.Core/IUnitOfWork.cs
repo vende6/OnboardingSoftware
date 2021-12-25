@@ -12,12 +12,15 @@ namespace OnboardingSoftware.Core
     {
         IAplikantRepository Aplikanti { get; }
         IVjestinaRepository Vjestine { get; }
+        IInteresRepository Interesi { get; }
         IPosaoRepository Poslovi { get; }
         ITestRepository Testovi { get; }
         IPitanjeRepository Pitanja { get; }
         IOdgovorRepository Odgovori { get; }
         IAplikantTestRepository AplikantTest { get; }
         IAplikantPosaoRepository AplikantPosao { get; }
+        IAplikantVjestinaRepository AplikantVjestina { get; }
+        IAplikantInteresRepository AplikantInteres { get; }
 
         Task<int> CommitAsync();
     }
