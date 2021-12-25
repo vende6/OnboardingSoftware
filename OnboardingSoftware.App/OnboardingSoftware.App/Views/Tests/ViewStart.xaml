@@ -46,10 +46,10 @@
                 Grid.Column="1"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Width,
-                                                                  Factor=0.83}"
+                                                                  Factor=0.88}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
-                                                                  Factor=0.35}"
+                                                                  Factor=0.25}"
                 HeightRequest="{Binding Source='25', Converter={StaticResource SizeConv}}"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand"
@@ -255,6 +255,35 @@
                                                                 </DataTrigger>
                                                             </Button.Triggers>
                                                         </Button>
+
+                                                        <!--<Editor
+                                                            Margin="0,0,0,15"
+                TextColor="Black" IsVisible="{Binding IsOpenQuestion}"
+                HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='45'}}"
+                WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
+                                                         Android='155'}}"
+                                                            
+                                                            Text="{Binding TekstOdgovor}" VerticalOptions="FillAndExpand" Keyboard="Chat"/>-->
+                                                        <controls:CustomEditor
+                                                            VerticalOptions="FillAndExpand"
+                Margin="0,0,0,15"
+                IsVisible="{Binding IsOpenQuestion}"
+                Keyboard="Text"
+                BackgroundColor="White"
+                Text="{Binding TekstOdgovor}"
+                PlaceholderColor="Gray"
+                PlaceholderText="Type your answer here (150)"
+                TextColor="Black"
+                MaxLength="150"
+                HeightRequest="{Binding Source='110', Converter={StaticResource SizeConv}}"
+                BorderColor="#56cd89"
+                BorderWidth="{OnIdiom Phone={OnPlatform iOS='2',
+                                                        Android='6'}}"
+                BorderRadius="15"
+                FontSize="{Binding Source='14', Converter={StaticResource SizeConv}}" />
+
+
                                                     </StackLayout>
 
                                                 </ViewCell>

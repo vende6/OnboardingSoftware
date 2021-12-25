@@ -71,62 +71,87 @@ namespace OnboardingSoftware.App.Resources
             }
         }
 
+        private string _tekstOdgovor;
+        public string TekstOdgovor
+        {
+            get
+            {
+                return _tekstOdgovor;
+            }
+            set
+            {
+                _tekstOdgovor = value;
+                RaisePropertyChanged(() => TekstOdgovor);
+            }
+        }
+
         public string TipPitanja { get; set; }
+
+        public bool IsOpenQuestion => String.IsNullOrEmpty(PonudjeniOdgovor_1) && String.IsNullOrEmpty(PonudjeniOdgovor_2) && String.IsNullOrEmpty(PonudjeniOdgovor_3) && String.IsNullOrEmpty(PonudjeniOdgovor_4);
 
         public ICommand MarkAsCorrect_1Command => new Command<OdgovorResource>(async odgovor =>
         {
-            //if(odgovor.TipPitanja == "Multi Choice")
-            //{
-            //    odgovor.TacanOdgovor_1 = !odgovor.TacanOdgovor_1;
-            //    RaisePropertyChanged(() => TacanOdgovor_1);
-            //    return;
-            //}
-            odgovor.TacanOdgovor_1 = true;
-            odgovor.TacanOdgovor_2 = false;
-            odgovor.TacanOdgovor_3 = false;
-            odgovor.TacanOdgovor_4 = false;
+            if (odgovor.TipPitanja == "Multi choice")
+            {
+                odgovor.TacanOdgovor_1 = !odgovor.TacanOdgovor_1;
+                RaisePropertyChanged(() => TacanOdgovor_1);
+                return;
+            }
+            else
+            {
+                odgovor.TacanOdgovor_1 = true;
+                odgovor.TacanOdgovor_2 = false;
+                odgovor.TacanOdgovor_3 = false;
+                odgovor.TacanOdgovor_4 = false;
+            }
         });
         public ICommand MarkAsCorrect_2Command => new Command<OdgovorResource>(async odgovor =>
         {
-            //if (odgovor.TipPitanja == "Multi Choice")
-            //{
-            //    odgovor.TacanOdgovor_2 = !odgovor.TacanOdgovor_2;
-            //    RaisePropertyChanged(() => TacanOdgovor_2);
-            //    return;
-            //}
-
-            odgovor.TacanOdgovor_1 = false;
-            odgovor.TacanOdgovor_2 = true;
-            odgovor.TacanOdgovor_3 = false;
-            odgovor.TacanOdgovor_4 = false;
+            if (odgovor.TipPitanja == "Multi choice")
+            {
+                odgovor.TacanOdgovor_2 = !odgovor.TacanOdgovor_2;
+                RaisePropertyChanged(() => TacanOdgovor_2);
+                return;
+            }
+            else
+            {
+                odgovor.TacanOdgovor_1 = false;
+                odgovor.TacanOdgovor_2 = true;
+                odgovor.TacanOdgovor_3 = false;
+                odgovor.TacanOdgovor_4 = false;
+            }
         });
         public ICommand MarkAsCorrect_3Command => new Command<OdgovorResource>(async odgovor =>
         {
-            //if (odgovor.TipPitanja == "Multi Choice")
-            //{
-            //    odgovor.TacanOdgovor_3 = !odgovor.TacanOdgovor_3;
-            //    RaisePropertyChanged(() => TacanOdgovor_3);
-            //    return;
-            //}
-
-            odgovor.TacanOdgovor_1 = false;
-            odgovor.TacanOdgovor_2 = false;
-            odgovor.TacanOdgovor_3 = true;
-            odgovor.TacanOdgovor_4 = false;
+            if (odgovor.TipPitanja == "Multi choice")
+            {
+                odgovor.TacanOdgovor_3 = !odgovor.TacanOdgovor_3;
+                RaisePropertyChanged(() => TacanOdgovor_3);
+                return;
+            }
+            else
+            {
+                odgovor.TacanOdgovor_1 = false;
+                odgovor.TacanOdgovor_2 = false;
+                odgovor.TacanOdgovor_3 = true;
+                odgovor.TacanOdgovor_4 = false;
+            }
         });
         public ICommand MarkAsCorrect_4Command => new Command<OdgovorResource>(async odgovor =>
         {
-            //if (odgovor.TipPitanja == "Multi Choice")
-            //{
-            //    odgovor.TacanOdgovor_4 = !odgovor.TacanOdgovor_4;
-            //    RaisePropertyChanged(() => TacanOdgovor_4);
-            //    return;
-            //}
-
-            odgovor.TacanOdgovor_1 = false;
-            odgovor.TacanOdgovor_2 = false;
-            odgovor.TacanOdgovor_3 = false;
-            odgovor.TacanOdgovor_4 = true;
+            if (odgovor.TipPitanja == "Multi choice")
+            {
+                odgovor.TacanOdgovor_4 = !odgovor.TacanOdgovor_4;
+                RaisePropertyChanged(() => TacanOdgovor_4);
+                return;
+            }
+            else
+            {
+                odgovor.TacanOdgovor_1 = false;
+                odgovor.TacanOdgovor_2 = false;
+                odgovor.TacanOdgovor_3 = false;
+                odgovor.TacanOdgovor_4 = true;
+            }
         });
     }
 }
