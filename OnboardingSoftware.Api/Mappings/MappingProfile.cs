@@ -88,13 +88,12 @@ namespace OnboardingSoftware.Api.Mappings
                .ForMember(x => x.Adresa, opt => opt.MapFrom(y => ""));
 
             CreateMap<Vjestina, VjestinaResource>();
-            CreateMap<Interes, InteresResource>();
 
-            CreateMap<IEnumerable<AplikantInteres>, AplikantInteresiResource>()
+            CreateMap<IEnumerable<InteresResource>, AplikantInteresiResource>()
                             .ForMember(u => u.Interesi, opt => opt.MapFrom(ur => ur));
-            CreateMap<AplikantInteres, InteresResource>()
-               .ForMember(u => u.ID, opt => opt.MapFrom(ur => ur.InteresID))
-               .ForMember(u => u.Naziv, opt => opt.MapFrom(ur => ur.Interes.Naziv));
+            CreateMap<Interes, InteresResource>()
+               .ForMember(u => u.ID, opt => opt.MapFrom(ur => ur.ID))
+               .ForMember(u => u.Naziv, opt => opt.MapFrom(ur => ur.Naziv));
 
             CreateMap<IEnumerable<AplikantVjestina>, AplikantVjestineResource>()
                             .ForMember(u => u.Vjestine, opt => opt.MapFrom(ur => ur));

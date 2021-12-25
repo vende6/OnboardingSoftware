@@ -58,7 +58,7 @@
             HasUnevenRows="true"
             SeparatorVisibility="Default" 
                      
-            ItemsSource="{Binding Vjestine}"
+            ItemsSource="{Binding Interesi}"
                   lv:MultiSelect.Enable="true">
                 <ListView.Behaviors>
                     <lv:SelectedItemBehavior Command="{Binding DisplayNameCommand}" PropertyName="Naziv"/>

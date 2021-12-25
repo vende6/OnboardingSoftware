@@ -20,12 +20,20 @@ namespace OnboardingSoftware.Data.Repositories.Associations
             get { return Context as OnboardingSoftwareDbContext; }
         }
 
+        public async Task<IEnumerable<AplikantInteres>> GetApplicantsInterestsAsync()
+        {
+            return await OnboardingSoftwareDbContext.AplikantInteres
+            .Include(a => a.Interes)
+            .ToListAsync();
+        }
+
         public async Task<IEnumerable<AplikantInteres>> GetApplicantInterestsAsync(int aplikantId)
         {
             return await OnboardingSoftwareDbContext.AplikantInteres
               .Include(a => a.Interes)
-              .Where(a=>a.AplikantID == aplikantId)
+              .Where(a => a.AplikantID == aplikantId)
               .ToListAsync();
         }
+
     }
 }
