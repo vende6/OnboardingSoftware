@@ -64,6 +64,9 @@ namespace OnboardingSoftware.App
         private const string LeaderUserNameKey = "leader_username_key";
         private static readonly string LeaderUserNameKeyDefault = "0";
 
+        private const string TestTimerValueKey = "test_timer_value_key";
+        private static readonly string TestTimerValueKeyDefault = "10";
+
         private const string LocalPreferencesKey = "localpreferences_key";
         private static readonly string LocalPreferencesDefault = string.Empty;
 
@@ -84,15 +87,15 @@ namespace OnboardingSoftware.App
             }
         }
 
-        public static string LeaderUserName
+        public static string TestTimerValue
         {
             get
             {
-                return Preferences.Get(LeaderUserNameKey, LeaderUserNameKeyDefault);
+                return Preferences.Get(TestTimerValueKey, TestTimerValueKeyDefault);
             }
             set
             {
-                Preferences.Set(LeaderUserNameKey, value);
+                Preferences.Set(TestTimerValueKey, value);
             }
         }
 

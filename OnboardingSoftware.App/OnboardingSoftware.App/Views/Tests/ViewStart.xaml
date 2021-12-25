@@ -42,7 +42,7 @@
             </StackLayout>
 
 
-            <ActivityIndicator
+            <Label
                 Grid.Column="1"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Width,
@@ -53,9 +53,7 @@
                 HeightRequest="{Binding Source='25', Converter={StaticResource SizeConv}}"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand"
-                IsRunning="True"
-                IsVisible="True"
-                Color="#e7bc38" />
+                Text="{Binding Duration}" />
 
             <!--<StackLayout
                 Padding="30,0,20,0"

@@ -21,6 +21,16 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             MessagingCenter.Subscribe<Application>(this, "InitializeStart", async (s) => await OnAppearing());
         }
 
+        private bool TimerElapsed()
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await FinishAsync();
+            });
+
+            return false;
+        }
+
         public override async Task OnAppearing()
         {
             await base.OnAppearing();
@@ -56,7 +66,16 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
         }
 
-        public ICommand FinishCommand => new Command(async vjestina =>
+        public ICommand FinishCommand
+        {
+            get
+            {
+                return new Command<string>(async (route) => await FinishAsync());
+            }
+        }
+
+
+        private async Task FinishAsync()
         {
             var x = Settings.UserId;
             var y = Convert.ToInt32(TestID);
@@ -93,9 +112,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
                     await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.TestDialog("Fault", "Contact support"));
             }
-
-      
-        });
+        }
 
         private ObservableCollection<PitanjeResource> _pitanja = new ObservableCollection<PitanjeResource>();
         public ObservableCollection<PitanjeResource> Pitanja
@@ -115,7 +132,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
         private async void BindValues(string testId)
         {
             IsBusy = true;
-
+            
             try
             {
                 IsBusy = true;
@@ -161,8 +178,11 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                         await Shell.Current.GoToAsync("//home/tests");
                     }
 
-                    int i = 0;
-                    Pitanja.Last().IsLast = true;
+                    //int i = 0;
+                    //Pitanja.Last().IsLast = true;
+                    //Duration = Convert.ToDouble(Settings.TestTimerValue);
+
+                    Device.StartTimer(TimeSpan.FromMinutes(Duration), TimerElapsed);
 
                     IsBusy = false;
                 }
@@ -171,6 +191,20 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             {
                 var x = ex;
                 IsBusy = false;
+            }
+        }
+
+        private double _duration = Convert.ToDouble(Settings.TestTimerValue);
+        public double Duration
+        {
+            get
+            {
+                return _duration;
+            }
+            set
+            {
+                _duration = value;
+                RaisePropertyChanged(() => Duration);
             }
         }
 

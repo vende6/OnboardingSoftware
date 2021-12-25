@@ -198,6 +198,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
 
         public ICommand StartCommand => new Command(async test =>
         {
+            Settings.TestTimerValue = new String(Test.Trajanje.Where(Char.IsDigit).ToArray());
             await Shell.Current.GoToAsync("//home/start" + "?testId=" + _testId);
         });
 
