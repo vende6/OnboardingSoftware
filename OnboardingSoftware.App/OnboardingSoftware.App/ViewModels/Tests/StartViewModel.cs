@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -19,16 +20,6 @@ namespace OnboardingSoftware.App.ViewModels.Tests
         public StartViewModel()
         {
             MessagingCenter.Subscribe<Application>(this, "InitializeStart", async (s) => await OnAppearing());
-        }
-
-        private bool TimerElapsed()
-        {
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                await FinishAsync();
-            });
-
-            return false;
         }
 
         public override async Task OnAppearing()
@@ -95,6 +86,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
 
                 HttpResponseMessage response = null;
                 response = await client.PostAsync(uri + "api/Aplikanti/SaveTest", content);
+                Settings.TestTimerValue = "0";
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -109,6 +101,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
             }
             else
             {
+                Settings.TestTimerValue = "0";
                 if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
                     await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.TestDialog("Fault", "Contact support"));
             }
@@ -182,7 +175,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                     //Pitanja.Last().IsLast = true;
                     //Duration = Convert.ToDouble(Settings.TestTimerValue);
 
-                    Device.StartTimer(TimeSpan.FromMinutes(Duration), TimerElapsed);
+                    Device.StartTimer(TimeSpan.FromMinutes(1), TimerElapsed);
 
                     IsBusy = false;
                 }
@@ -206,6 +199,24 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 _duration = value;
                 RaisePropertyChanged(() => Duration);
             }
+        }
+
+        private bool TimerElapsed()
+        {
+            if (Settings.TestTimerValue == "0")
+                return false;
+
+            Duration -= 1;
+
+            if (Duration == -1)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await FinishAsync();
+                });
+                return false;
+            }
+            return true;
         }
 
         public ICommand NavigateCommand

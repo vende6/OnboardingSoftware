@@ -46,14 +46,14 @@
                 Grid.Column="1"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Width,
-                                                                  Factor=0.88}"
+                                                                  Factor=0.70}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
-                                                                  Factor=0.25}"
+                                                                  Factor=0.20}"
                 HeightRequest="{Binding Source='25', Converter={StaticResource SizeConv}}"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand"
-                Text="{Binding Duration}" />
+                Text="{Binding Duration,Mode=TwoWay, StringFormat='Time left: {0}'}" />
 
             <!--<StackLayout
                 Padding="30,0,20,0"
@@ -271,7 +271,7 @@
                 BackgroundColor="White"
                 Text="{Binding TekstOdgovor}"
                 PlaceholderColor="Gray"
-                PlaceholderText="Type your answer here (150)"
+                PlaceholderText="Type your answer here in the box (150)"
                 TextColor="Black"
                 MaxLength="150"
                 HeightRequest="{Binding Source='110', Converter={StaticResource SizeConv}}"
