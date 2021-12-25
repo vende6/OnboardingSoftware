@@ -117,38 +117,38 @@ namespace OnboardingSoftware.Api.Controllers
         //}
 
         // POST: api/aplikanti
-        [HttpPost("SaveTest", Name = "SaveTest")]
-        public async Task<ActionResult<bool>> CreateAplikantTest([FromBody] SaveAplikantTestResource saveAplikantTestResource)
-        {
+        //[HttpPost("SaveTest", Name = "SaveTest")]
+        //public async Task<ActionResult<bool>> CreateAplikantTest([FromBody] SaveAplikantTestResource saveAplikantTestResource)
+        //{
 
-            var aplikant = await _aplikantService.GetAplikantByEmail(saveAplikantTestResource.Email);
-            if (aplikant == null)
-                return NotFound(false);
+        //    var aplikant = await _aplikantService.GetAplikantByEmail(saveAplikantTestResource.Email);
+        //    if (aplikant == null)
+        //        return NotFound(false);
 
-            saveAplikantTestResource.AplikantID = aplikant.ID;
+        //    saveAplikantTestResource.AplikantID = aplikant.ID;
 
-            var aplikantTestToCreate = _mapper.Map<SaveAplikantTestResource, AplikantTest>(saveAplikantTestResource);
-            await _aplikantTestService.CreateAplikantTest(aplikantTestToCreate);
-
-
-            return Ok(true);
-        }
-
-        // POST: api/aplikanti
-        [HttpPost("SavePosao", Name = "SavePosao")]
-        public async Task<ActionResult<bool>> CreateAplikantPosao([FromBody] SaveAplikantPosaoResource saveAplikantPosaoResource)
-        {
-            var aplikant = await _aplikantService.GetAplikantByEmail(saveAplikantPosaoResource.Email);
-            if (aplikant == null)
-                return NotFound(false);
-
-            saveAplikantPosaoResource.AplikantID = aplikant.ID;
-
-            var aplikantPosaoToCreate = _mapper.Map<SaveAplikantPosaoResource, AplikantPosao>(saveAplikantPosaoResource);
-            await _aplikantPosaoService.CreateAplikantPosao(aplikantPosaoToCreate);
+        //    var aplikantTestToCreate = _mapper.Map<SaveAplikantTestResource, AplikantTest>(saveAplikantTestResource);
+        //    await _aplikantTestService.CreateAplikantTest(aplikantTestToCreate);
 
 
-            return Ok(true);
-        }
+        //    return Ok(true);
+        //}
+
+        //// POST: api/aplikanti
+        //[HttpPost("SavePosao", Name = "SavePosao")]
+        //public async Task<ActionResult<bool>> CreateAplikantPosao([FromBody] SaveAplikantPosaoResource saveAplikantPosaoResource)
+        //{
+        //    var aplikant = await _aplikantService.GetAplikantByEmail(saveAplikantPosaoResource.Email);
+        //    if (aplikant == null)
+        //        return NotFound(false);
+
+        //    saveAplikantPosaoResource.AplikantID = aplikant.ID;
+
+        //    var aplikantPosaoToCreate = _mapper.Map<SaveAplikantPosaoResource, AplikantPosao>(saveAplikantPosaoResource);
+        //    await _aplikantPosaoService.CreateAplikantPosao(aplikantPosaoToCreate);
+
+
+        //    return Ok(true);
+        //}
     }
 }

@@ -85,7 +85,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = null;
-                response = await client.PostAsync(uri + "api/Aplikanti/SaveTest", content);
+                response = await client.PostAsync(uri + "api/AplikantiTestovi", content);
                 Settings.TestTimerValue = "0";
 
                 if (response.IsSuccessStatusCode)

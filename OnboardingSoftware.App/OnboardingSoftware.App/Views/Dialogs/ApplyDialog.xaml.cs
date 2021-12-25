@@ -48,7 +48,7 @@ namespace OnboardingSoftware.App.Views.Dialogs
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = null;
-                response = await client.PostAsync(uri + "api/Aplikanti/SavePosao", content);
+                response = await client.PostAsync(uri + "api/AplikantiPoslovi", content);
 
                 if (response.IsSuccessStatusCode)
                 {
