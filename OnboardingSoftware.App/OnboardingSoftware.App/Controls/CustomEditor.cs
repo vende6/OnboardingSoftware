@@ -39,7 +39,7 @@ namespace OnboardingSoftware.App.Controls
 
         //Bindable property for color of placeholder text
         public static readonly BindableProperty PlaceholderTextColorProperty =
-            BindableProperty.Create("PlaceholderTextColor", typeof(Color), typeof(CustomEntry), Color.Blue);
+            BindableProperty.Create("PlaceholderTextColor", typeof(Color), typeof(CustomEntry), Color.Gray);
 
         public Color PlaceholderTextColor
         {

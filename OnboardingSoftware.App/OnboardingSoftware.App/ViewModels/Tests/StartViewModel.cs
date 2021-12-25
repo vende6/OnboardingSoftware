@@ -79,14 +79,22 @@ namespace OnboardingSoftware.App.ViewModels.Tests
 
                 if (response.IsSuccessStatusCode)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Done", "Results have been archived.", "OK");
-                    await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAllAsync();
-                    Application.Current.MainPage = new AppShell();
+                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.TestDialog("You completed the test", "Eventually, we will notify you on results."));
+                }
+                else
+                {
+                    if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                        await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.TestDialog("Fault", "Contact support"));
                 }
             }
+            else
+            {
+                if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                    await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.TestDialog("Fault", "Contact support"));
+            }
 
-            await Application.Current.MainPage.DisplayAlert("Fault", "Contact support.", "OK");
-            Application.Current.MainPage = new AppShell();
+      
         });
 
         private ObservableCollection<PitanjeResource> _pitanja = new ObservableCollection<PitanjeResource>();
