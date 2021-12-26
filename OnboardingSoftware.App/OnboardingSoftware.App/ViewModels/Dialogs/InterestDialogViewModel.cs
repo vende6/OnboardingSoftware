@@ -25,30 +25,6 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
         {
             Interesi = new MultiSelectObservableCollection<InteresResource>();
             FillList();
-
-
-
-            //InteresResource vjestina = new InteresResource();
-            //vjestina.Naziv = "Communication";
-            //Interesi.Add(vjestina);
-
-            //Interesi[0].IsSelected = true;
-
-            //vjestina = new Vjestina();
-            //vjestina.Naziv = "Leadership";
-            //Vjestine.Add(vjestina);
-
-            //vjestina = new Vjestina();
-            //vjestina.Naziv = "Critical-thinking";
-            //Vjestine.Add(vjestina);
-
-            //vjestina = new Vjestina();
-            //vjestina.Naziv = "Problem-solving";
-            //Vjestine.Add(vjestina);
-
-            //vjestina = new Vjestina();
-            //vjestina.Naziv = "Teamwork";
-            //Vjestine.Add(vjestina);
         }
 
         public async void FillList()

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace OnboardingSoftware.Api.Resources
+namespace OnboardingSoftware.App.Resources
 {
     public class VjestinaResource
     {
@@ -11,4 +10,5 @@ namespace OnboardingSoftware.Api.Resources
         public string Naziv { get; set; }
         public bool IsSelected { get; set; }
     }
+
 }

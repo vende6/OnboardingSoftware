@@ -17,37 +17,66 @@ namespace OnboardingSoftware.Api.Controllers.Associations
     {
         private readonly IAplikantVjestinaService _aplikantVjestinaService;
         private readonly IAplikantService _aplikantService;
+        private readonly IVjestinaService _vjestinaService;
         private readonly IMapper _mapper;
-        public AplikantiVjestineController(IAplikantVjestinaService aplikantVjestinaService, IAplikantService aplikantService, IMapper mapper)
+        public AplikantiVjestineController(IAplikantVjestinaService aplikantVjestinaService, IAplikantService aplikantService, IVjestinaService vjestinaService, IMapper mapper)
         {
             this._aplikantService = aplikantService;
+            this._vjestinaService = vjestinaService;
             this._aplikantVjestinaService = aplikantVjestinaService;
             this._mapper = mapper;
         }
 
-        // POST: api/aplikantiInteresi
+        // POST: api/aplikantiVjestine
         [HttpPost("")]
-        public async Task<ActionResult<bool>> CreateAplikantVjestina([FromBody] SaveAplikantVjestinaResource saveAplikantVjestinaResource)
+        public async Task<ActionResult<bool>> CreateAplikantVjestine([FromBody] SaveAplikantVjestineResource saveAplikantVjestineResource)
         {
-            var aplikant = await _aplikantService.GetAplikantByEmail(saveAplikantVjestinaResource.Email);
-            if (aplikant == null)
-                return NotFound(false);
+            try
+            {
+                var aplikant = await _aplikantService.GetAplikantByEmail(saveAplikantVjestineResource.Email);
+                if (aplikant == null)
+                    return NotFound(false);
 
-            saveAplikantVjestinaResource.AplikantID = aplikant.ID;
+                saveAplikantVjestineResource.AplikantID = aplikant.ID;
+                saveAplikantVjestineResource.Vjestine.ToList().ForEach(cc => cc.AplikantID = aplikant.ID);
 
-            var aplikantVjestinaToCreate = _mapper.Map<SaveAplikantVjestinaResource, AplikantVjestina>(saveAplikantVjestinaResource);
-            await _aplikantVjestinaService.CreateAplikantVjestina(aplikantVjestinaToCreate);
+                var aplikantVjestineToCreate = _mapper.Map<IEnumerable<AplikantVjestinaResource>, IEnumerable<AplikantVjestina>>(saveAplikantVjestineResource.Vjestine);
 
-            return Ok(true);
+                await _aplikantVjestinaService.CreateAplikantVjestine(aplikantVjestineToCreate);
+
+                return Ok(true);
+            }
+            catch (Exception ex)
+            {
+                var eex = ex;
+                throw;
+            }
         }
 
         [HttpGet("")]
-        public async Task<ActionResult<AplikantVjestineResource>> GetAllAplikantVjestine(int aplikantId)
+        public async Task<ActionResult<AplikantVjestineResource>> GetAllAplikantVjestine(string email)
         {
-            var aplikantVjestine = await _aplikantVjestinaService.GetApplicantSkills(aplikantId);
-            var aplikantVjestineResource = _mapper.Map<IEnumerable<AplikantVjestina>, AplikantVjestineResource>(aplikantVjestine);
+            var aplikant = await _aplikantService.GetAplikantByEmail(email);
+            if (aplikant == null)
+                return NotFound(false);
+
+            var vjestine = await _vjestinaService.GetSkillsAsync();
+            var vjestineResource = _mapper.Map<IEnumerable<Vjestina>, IEnumerable<VjestinaResource>>(vjestine);
+
+            var aplikantVjestine = await _aplikantVjestinaService.GetApplicantSkills(aplikant.ID);
+            foreach (var item in aplikantVjestine)
+            {
+                if (item.AplikantID == aplikant.ID)
+                {
+                    vjestineResource.FirstOrDefault(c => c.ID == item.VjestinaID).IsSelected = true;
+
+                }
+            }
+
+            var aplikantVjestineResource = _mapper.Map<IEnumerable<VjestinaResource>, AplikantVjestineResource>(vjestineResource);
 
             return Ok(aplikantVjestineResource);
         }
+
     }
 }

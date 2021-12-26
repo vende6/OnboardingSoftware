@@ -95,7 +95,7 @@ namespace OnboardingSoftware.Api.Mappings
                .ForMember(u => u.ID, opt => opt.MapFrom(ur => ur.ID))
                .ForMember(u => u.Naziv, opt => opt.MapFrom(ur => ur.Naziv));
 
-            CreateMap<IEnumerable<AplikantVjestina>, AplikantVjestineResource>()
+            CreateMap<IEnumerable<VjestinaResource>, AplikantVjestineResource>()
                             .ForMember(u => u.Vjestine, opt => opt.MapFrom(ur => ur));
             CreateMap<AplikantVjestina, VjestinaResource>()
                .ForMember(u => u.ID, opt => opt.MapFrom(ur => ur.VjestinaID))
@@ -106,14 +106,17 @@ namespace OnboardingSoftware.Api.Mappings
 
             CreateMap<SaveAplikantTestResource, AplikantTest>();
             CreateMap<SaveAplikantPosaoResource, AplikantPosao>();
-            //CreateMap<SaveAplikantInteresiResource, AplikantInteres>();
-            CreateMap<SaveAplikantVjestinaResource, AplikantVjestina>();
 
 
             CreateMap<SaveAplikantInteresiResource, IEnumerable<AplikantInteres>>();
             CreateMap<SaveInteresResource, AplikantInteres>()
             .ForMember(u => u.AplikantID, opt => opt.MapFrom(ur => ur.AplikantID))
             .ForMember(u => u.InteresID, opt => opt.MapFrom(ur => ur.InteresID));
+
+            CreateMap<SaveAplikantVjestineResource, IEnumerable<AplikantVjestina>>();
+            CreateMap<AplikantVjestinaResource, AplikantVjestina>()
+            .ForMember(u => u.AplikantID, opt => opt.MapFrom(ur => ur.AplikantID))
+            .ForMember(u => u.VjestinaID, opt => opt.MapFrom(ur => ur.VjestinaID));
         }
     }
 }

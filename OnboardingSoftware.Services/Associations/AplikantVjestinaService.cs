@@ -22,11 +22,17 @@ namespace OnboardingSoftware.Services.Associations
             return await _unitOfWork.AplikantVjestina.GetApplicantSkillsAsync(aplikantId);
         }
 
-        public async Task<AplikantVjestina> CreateAplikantVjestina(AplikantVjestina newaplikantVjestina)
+        public async Task<bool> CreateAplikantVjestine(IEnumerable<AplikantVjestina> newaplikantVjestine)
         {
-            await _unitOfWork.AplikantVjestina.AddAsync(newaplikantVjestina);
+            var aplikantId = newaplikantVjestine.FirstOrDefault().AplikantID;
+
+            var applicantSkills = await _unitOfWork.AplikantVjestina.GetApplicantSkillsAsync(aplikantId);
+
+            _unitOfWork.AplikantVjestina.RemoveRange(applicantSkills);
+
+            await _unitOfWork.AplikantVjestina.AddRangeAsync(newaplikantVjestine);
             await _unitOfWork.CommitAsync();
-            return newaplikantVjestina;
+            return true;
         }
     }
 }
