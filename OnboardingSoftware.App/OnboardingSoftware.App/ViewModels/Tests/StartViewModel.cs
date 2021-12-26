@@ -76,7 +76,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Settings.AccessToken);
 
-                Uri uri = new Uri("http://192.168.0.15:5001/");
+                Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
 
                 SaveAplikantTestResource resource = new SaveAplikantTestResource
                 { Email = x, TestID = y, OsvojeniProcenat = JsonConvert.SerializeObject(Pitanja) };
@@ -134,7 +134,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 client.DefaultRequestHeaders.Authorization =
         new AuthenticationHeaderValue("Bearer", Settings.AccessToken);
 
-                Uri uri = new Uri("http://192.168.0.15:5001/");
+                Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
 
                 HttpResponseMessage response = await client.GetAsync(uri + "api/pitanja/" + testId);
                 if (response.IsSuccessStatusCode)

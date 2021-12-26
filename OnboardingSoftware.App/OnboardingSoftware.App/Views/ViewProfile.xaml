@@ -343,8 +343,8 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.45}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="65" WidthRequest="65"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="Cognitive" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,25,0,0" HeightRequest="55" WidthRequest="55"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="Cognitive" FontAttributes="Italic" Margin="0,15,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="cognitive" />
                 </StackLayout.GestureRecognizers>
@@ -418,8 +418,8 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.45}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="65" WidthRequest="65"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="Personality" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,25,0,0" HeightRequest="55" WidthRequest="55"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="Personality" FontAttributes="Italic" Margin="0,15,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="personality" />
                 </StackLayout.GestureRecognizers>
@@ -517,8 +517,8 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.7}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="65" WidthRequest="65"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="Integrity" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,25,0,0" HeightRequest="55" WidthRequest="55"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="Integrity" FontAttributes="Italic" Margin="0,15,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="integrity" />
                 </StackLayout.GestureRecognizers>
@@ -618,8 +618,8 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.7}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="65" WidthRequest="65"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="E-Intelligence" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,25,0,0" HeightRequest="55" WidthRequest="55"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="E-Intelligence" FontAttributes="Italic" Margin="0,15,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="e-intelligence" />
                 </StackLayout.GestureRecognizers>

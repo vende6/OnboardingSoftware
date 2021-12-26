@@ -77,12 +77,10 @@
 
     <!-- Your Pages -->
     <Shell.FlyoutHeader>
-        <Grid HeightRequest="250" Margin="5,5,5,5">
+        <Grid HeightRequest="330" Margin="5,5,5,5">
             <Image Source="{core:ImageResource OnboardingSoftware.App.Images.logo.png}"
                    BackgroundColor="White"
                    Opacity="0.8"
-                   HeightRequest="50"
-                   WidthRequest="50"
                    HorizontalOptions="FillAndExpand"/>
             <Label Text="OnboardingSoftware" TextColor="Black" FontSize="20" FontFamily="Italic" Margin="7,0,0,5" HorizontalOptions="Start" VerticalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
         </Grid>

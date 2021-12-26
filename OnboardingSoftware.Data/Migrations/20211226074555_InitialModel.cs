@@ -356,7 +356,8 @@ namespace OnboardingSoftware.Data.Migrations
                 columns: table => new
                 {
                     AplikantID = table.Column<int>(type: "int", nullable: false),
-                    TestID = table.Column<int>(type: "int", nullable: false)
+                    TestID = table.Column<int>(type: "int", nullable: false),
+                    OsvojeniProcenat = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

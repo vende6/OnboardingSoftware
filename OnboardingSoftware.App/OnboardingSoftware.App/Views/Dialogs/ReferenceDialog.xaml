@@ -76,7 +76,8 @@
                 <Label TextColor="Black" Text="File Is :" x:Name="lbl"/>
         </StackLayout>
 
-        <Button Text="Finish" Command="{Binding CloseInfoCommand}" VerticalOptions="EndAndExpand"></Button>
+            <Button Text="Close" Command="{Binding CloseInfoCommand}"></Button>
+            <Button Text="Finish" Command="{Binding CloseInfoCommand}" VerticalOptions="EndAndExpand"></Button>
         </StackLayout>
     </Frame>
 </pages:PopupPage>

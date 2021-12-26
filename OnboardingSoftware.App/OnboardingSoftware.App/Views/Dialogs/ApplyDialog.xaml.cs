@@ -39,7 +39,7 @@ namespace OnboardingSoftware.App.Views.Dialogs
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Settings.AccessToken);
 
-                Uri uri = new Uri("http://192.168.0.15:5001/");
+                Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
 
                 SaveAplikantPosaoResource resource = new SaveAplikantPosaoResource
                 { Email = x, PosaoID = y };

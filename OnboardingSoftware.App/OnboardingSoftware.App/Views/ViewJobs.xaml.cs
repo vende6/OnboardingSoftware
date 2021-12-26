@@ -50,7 +50,7 @@ namespace OnboardingSoftware.App.Views
             try
             {
 
-                Uri uri = new Uri("http://192.168.0.15:5001/");
+                Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
 
                 HttpResponseMessage response = await client.GetAsync(uri + "api/poslovi");
                 if (response.IsSuccessStatusCode)

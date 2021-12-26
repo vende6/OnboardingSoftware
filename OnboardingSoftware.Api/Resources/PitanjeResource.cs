@@ -1,4 +1,5 @@
-﻿using OnboardingSoftware.Core.Models;
+﻿using Newtonsoft.Json;
+using OnboardingSoftware.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace OnboardingSoftware.Api.Resources
         public string Tip { get; set; }
         public string RedniBroj { get; set; }
         public string Test { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public IEnumerable<OdgovorResource> Odgovori { get; set; }
     }
 }

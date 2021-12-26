@@ -4,7 +4,10 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_LayoutAuth.cshtml";
 }
-
+@*<div align="right">
+    <iframe align="right" src="https://appetize.io/embed/vff9a96gvewf8nzqvuaux1nhm8?device=nexus5&osVersion=11.0&scale=75"
+            width="378px" height="700px" frameborder="1" scrolling="no"></iframe>
+</div>*@
 <div class="row justify-content-md-center">
     <div class="col-md-4">
         <div class="card">
@@ -12,13 +15,14 @@
                 Login
             </div>
             <div class="card-body">
+               
                 @using (Html.BeginForm("Login", "Home", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
-                <div class="form-group">
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Username" })
-                    @*@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })*@
-                </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Username" })
+                        @*@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })*@
+                    </div>
                     <div class="form-group">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
                         @*@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })*@

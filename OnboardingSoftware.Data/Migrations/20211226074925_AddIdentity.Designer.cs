@@ -10,8 +10,8 @@ using OnboardingSoftware.Data;
 namespace OnboardingSoftware.Data.Migrations
 {
     [DbContext(typeof(OnboardingSoftwareDbContext))]
-    [Migration("20211220200446_InitialModel")]
-    partial class InitialModel
+    [Migration("20211226074925_AddIdentity")]
+    partial class AddIdentity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -259,6 +259,9 @@ namespace OnboardingSoftware.Data.Migrations
 
                     b.Property<int>("TestID")
                         .HasColumnType("int");
+
+                    b.Property<string>("OsvojeniProcenat")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AplikantID", "TestID");
 

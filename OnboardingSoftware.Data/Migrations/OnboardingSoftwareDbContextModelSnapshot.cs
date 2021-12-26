@@ -258,6 +258,9 @@ namespace OnboardingSoftware.Data.Migrations
                     b.Property<int>("TestID")
                         .HasColumnType("int");
 
+                    b.Property<string>("OsvojeniProcenat")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("AplikantID", "TestID");
 
                     b.HasIndex("TestID");

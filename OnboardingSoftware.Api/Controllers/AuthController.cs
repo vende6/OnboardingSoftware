@@ -23,7 +23,6 @@ namespace OnboardingSoftware.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [AllowAnonymous]
-    //[SwaggerControllerOrder(1)]
     public class AuthController : ControllerBase
     {
         private readonly UserManager<User> _userManager;

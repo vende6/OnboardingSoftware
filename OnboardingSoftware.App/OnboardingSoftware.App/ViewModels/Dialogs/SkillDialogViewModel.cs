@@ -38,7 +38,7 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
                 var email = Settings.UserId;
                 if (!String.IsNullOrEmpty(email))
                 {
-                    Uri uri = new Uri("http://192.168.0.15:5001/");
+                    Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
                     HttpResponseMessage response = await client.GetAsync(uri + "api/AplikantiVjestine?email=" + HttpUtility.UrlEncode(email));
                     if (response.IsSuccessStatusCode)
                     {
@@ -104,7 +104,7 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
                     string json = JsonConvert.SerializeObject(saveVjestinaResources);
                     StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                    Uri uri = new Uri("http://192.168.0.15:5001/");
+                    Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
                     HttpResponseMessage response = await client.PostAsync(uri + "api/AplikantiVjestine", content);
                     if (response.IsSuccessStatusCode)
                     {

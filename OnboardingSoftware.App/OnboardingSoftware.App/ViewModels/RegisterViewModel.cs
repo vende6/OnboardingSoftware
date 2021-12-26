@@ -164,7 +164,7 @@ namespace OnboardingSoftware.App.ViewModels
 
 
                 HttpClient client = new HttpClient();
-                Uri uri = new Uri("http://192.168.0.15:5001/");
+                Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
 
 
                 UserSignUpResource resource = new UserSignUpResource

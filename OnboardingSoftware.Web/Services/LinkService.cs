@@ -21,6 +21,7 @@ namespace OnboardingSoftware.Web.Services
     public class LinkService : ILinkService
     {
         public HttpClient _httpClient { get; set; }
+        private string aplikantiUrl;
         private string jobsUrl;
         private string testsUrl;
         private string questionsUrl;
@@ -28,6 +29,7 @@ namespace OnboardingSoftware.Web.Services
         public LinkService(IHttpClientFactory httpClientFactory, ApiEndpoint apiEndpoint)
         {
             _httpClient = httpClientFactory.CreateClient();
+            aplikantiUrl = apiEndpoint.AplikantiEndpointUrl;
             jobsUrl = apiEndpoint.JobsEndpointUrl;
             testsUrl = apiEndpoint.TestsEndpointUrl;
             questionsUrl = apiEndpoint.QuestionsEndpointUrl;
@@ -42,36 +44,36 @@ namespace OnboardingSoftware.Web.Services
             try
             {
                 List<AplikantViewModel> links = new List<AplikantViewModel>();
-                //if (!String.IsNullOrEmpty(userId))
-                //{
-                //    var response = await _httpClient.GetAsync(linksUrl);
-                //    string apiResponse = await response.Content.ReadAsStringAsync();
-                //    links = JsonConvert.DeserializeObject<List<LinkViewModel>>(apiResponse);
-                //}
+               // if (!String.IsNullOrEmpty(userId))
+               // {
+                    var response = await _httpClient.GetAsync(aplikantiUrl);
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    links = JsonConvert.DeserializeObject<List<AplikantViewModel>>(apiResponse);
+              //  }
 
-                  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
-                    BrojTelefona = "+387 62 173 906", 
-                    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
+                //links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
+                //    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
+                //    BrojTelefona = "+387 62 173 906", 
+                //    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
+                //    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
 
-                  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
-                    BrojTelefona = "+387 62 173 906", 
-                    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
+                //  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
+                //    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
+                //    BrojTelefona = "+387 62 173 906", 
+                //    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
+                //    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
 
-                  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
-                    BrojTelefona = "+387 62 173 906", 
-                    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
+                //  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
+                //    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
+                //    BrojTelefona = "+387 62 173 906", 
+                //    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
+                //    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
 
-                  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
-                    BrojTelefona = "+387 62 173 906", 
-                    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
+                //  links.Add(new AplikantViewModel { ID = 1, Ime = "Damir", Prezime = "Krkalic", 
+                //    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina", 
+                //    BrojTelefona = "+387 62 173 906", 
+                //    DatumRodjenja = "09/05/1996", Email = "damir.krkalic@edu.fit.ba", 
+                //    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina" });
             
 
                 return links;
