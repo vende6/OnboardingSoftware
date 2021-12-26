@@ -176,8 +176,9 @@ namespace OnboardingSoftware.Web.Controllers
 
         public async Task<ActionResult> CreateAnswer([Bind("PonudjeniOdgovor_1, PonudjeniOdgovor_2, PonudjeniOdgovor_3, PonudjeniOdgovor_4, SelectedTag, TagResources")] OdgovorViewModel model)
         {
-            if (ModelState.IsValid)
-            {
+                ModelState.Clear();
+            //if (ModelState.IsValid)
+            //{
                 model.PitanjeID = Convert.ToInt32(model.SelectedTag); //validate
                 var response = await _linkService.CreateAnswer(model);
                 if (!response)
@@ -185,7 +186,7 @@ namespace OnboardingSoftware.Web.Controllers
                     ViewBag.ErrorMessage = errorMsg;
                     return View(model);
                 }
-            }
+            //}
             else
             {
                 ViewBag.ErrorMessage = errorMsg;

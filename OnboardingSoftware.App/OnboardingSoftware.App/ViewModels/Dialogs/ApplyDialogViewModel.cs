@@ -20,7 +20,7 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
             await Application.Current.MainPage.DisplayAlert("Done", "Application for the job was success!", "OK");
             await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAllAsync();
             Application.Current.MainPage = new AppShell();
-            await Shell.Current.GoToAsync("//home/profile");
+           // await Shell.Current.GoToAsync("//home/profile");
         });
 
         public async Task CloseInfo()

@@ -81,6 +81,8 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                 SaveAplikantTestResource resource = new SaveAplikantTestResource
                 { Email = x, TestID = y, OsvojeniProcenat = JsonConvert.SerializeObject(Pitanja) };
 
+                // update odgovori?
+
                 string json = JsonConvert.SerializeObject(resource);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -168,7 +170,7 @@ namespace OnboardingSoftware.App.ViewModels.Tests
                     {
                         await Application.Current.MainPage.DisplayAlert("Inactive", "This test is currently inactive.", "OK");
                         Application.Current.MainPage = new AppShell();
-                        await Shell.Current.GoToAsync("//home/tests");
+                        //await Shell.Current.GoToAsync("//home/tests");
                     }
 
                     //int i = 0;

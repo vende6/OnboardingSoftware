@@ -9,7 +9,7 @@
         <h4>Create answer</h4>
     </div>
     <div class="right" style="text-align:end">
-        <input type="submit" value="Submit" onclick="SubmitMyForm()" class="btn btn-dark" />
+        <input type="submit" value="Submit"  formnovalidate="formnovalidate" onclick="SubmitMyForm()" class="btn btn-dark" />
     </div>
 </div>
 <hr />
@@ -18,7 +18,7 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateAnswer" id="createform">
+        <form novalidate="novalidate"  asp-action="CreateAnswer" id="createform">
             <div  class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="PonudjeniOdgovor_1" class="control-label">Suggested answer No.1</label>
@@ -28,17 +28,17 @@
             <div class="form-group">
                 <label asp-for="PonudjeniOdgovor_2" class="control-label">Suggested answer No.2</label>
                 <input id="linkUrl" asp-for="PonudjeniOdgovor_2" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
-                <span id="valmsg" style="display:none" asp-validation-for="PonudjeniOdgovor_2" class="text-danger"></span>
+                <span id="valmsg" style="display:none"  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PonudjeniOdgovor_3" class="control-label">Suggested answer No.3</label>
                 <input id="linkUrl" asp-for="PonudjeniOdgovor_3" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
-                <span id="valmsg" style="display:none" asp-validation-for="PonudjeniOdgovor_3" class="text-danger"></span>
+                <span id="valmsg" style="display:none"  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PonudjeniOdgovor_4" class="control-label">Suggested answer No.4</label>
                 <input id="linkUrl" asp-for="PonudjeniOdgovor_4" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
-                <span id="valmsg" style="display:none" asp-validation-for="PonudjeniOdgovor_4" class="text-danger"></span>
+                <span id="valmsg" style="display:none" class="text-danger"></span>
             </div>
             @*<div class="form-group">
             <input type="button" id="addtags2" value="Submit" onclick="ShowTags()" class="btn btn-success" />
@@ -89,6 +89,9 @@
         window.onload = function () {
             this.callOne = true;
             ShowTags2();
+
+            var settings = $.data($('form').get(0), 'validator').settings;
+            settings.ignore = ".hidden";
         };
 
         function UrlChanged() {

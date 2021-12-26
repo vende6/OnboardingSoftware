@@ -152,7 +152,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='155'}}">
+                                                         Android='185'}}">
                                                             <Button.Triggers>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_1}" Value="True">
                                                                     <Setter Property="BackgroundColor" Value="#56cd89"></Setter>
@@ -180,7 +180,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='155'}}">
+                                                         Android='185'}}">
                                                             <Button.Triggers>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_2}" Value="True">
                                                                     <Setter Property="BackgroundColor" Value="#56cd89"></Setter>
@@ -209,7 +209,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='155'}}">
+                                                         Android='185'}}">
                                                             <Button.Triggers>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_3}" Value="True">
                                                                     <Setter Property="BackgroundColor" Value="#56cd89"></Setter>
@@ -240,7 +240,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='45'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='155'}}">
+                                                         Android='185'}}">
                                                             <Button.Triggers>
                                                                 <DataTrigger TargetType="Button" Binding="{Binding TacanOdgovor_4}" Value="True">
                                                                     <Setter Property="BackgroundColor" Value="#56cd89"></Setter>

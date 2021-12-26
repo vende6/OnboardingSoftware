@@ -414,23 +414,24 @@ namespace OnboardingSoftware.Web.Services
         {
             try
             {
-                if (odgovor.PonudjeniOdgovor_1 == null)
-                    odgovor.PonudjeniOdgovor_1 = "";
-                if (odgovor.PonudjeniOdgovor_2 == null)
-                    odgovor.PonudjeniOdgovor_2 = "";
-                if (odgovor.PonudjeniOdgovor_3 == null)
-                    odgovor.PonudjeniOdgovor_3 = "";
-                if (odgovor.PonudjeniOdgovor_4 == null)
-                    odgovor.PonudjeniOdgovor_4 = "";
+                //if (odgovor.PonudjeniOdgovor_1 == null)
+                //    odgovor.PonudjeniOdgovor_1 = "";
+                //if (odgovor.PonudjeniOdgovor_2 == null)
+                //    odgovor.PonudjeniOdgovor_2 = "";
+                //if (odgovor.PonudjeniOdgovor_3 == null)
+                //    odgovor.PonudjeniOdgovor_3 = "";
+                //if (odgovor.PonudjeniOdgovor_4 == null)
+                //    odgovor.PonudjeniOdgovor_4 = "";
 
                 SaveOdgovorResource resource = new SaveOdgovorResource
                 {
+                    TekstOdgovor = "",
                     PitanjeID = odgovor.PitanjeID,
                     PonudjeniOdgovor_1 = odgovor.PonudjeniOdgovor_1,
                     PonudjeniOdgovor_2 = odgovor.PonudjeniOdgovor_2,
                     PonudjeniOdgovor_3 = odgovor.PonudjeniOdgovor_3,
                     PonudjeniOdgovor_4 = odgovor.PonudjeniOdgovor_4,
-                    TekstOdgovor = ""
+
                 };
 
                 var obj = JsonConvert.SerializeObject(resource);
