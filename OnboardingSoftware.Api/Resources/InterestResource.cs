@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace OnboardingSoftware.Api.Resources
 {
-    public class AplikantVjestinaResource
+    public class InterestResource
     {
-        public int VjestinaID { get; set; }
-        public int AplikantID { get; set; }
+        public int ID { get; set; }
+        public string Naziv { get; set; }
     }
 }

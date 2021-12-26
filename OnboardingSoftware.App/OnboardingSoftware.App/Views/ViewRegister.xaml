@@ -20,7 +20,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Vertical" Margin="0,20,0,0" HorizontalOptions="Center">
-                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png"  />
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png"  />
                 <ActivityIndicator
                 Grid.Column="1"
                 HeightRequest="{Binding Source='35', Converter={StaticResource SizeConverter}}"

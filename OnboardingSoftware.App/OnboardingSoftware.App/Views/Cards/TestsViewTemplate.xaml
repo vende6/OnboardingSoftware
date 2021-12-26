@@ -33,7 +33,7 @@
                     </Grid.ColumnDefinitions>
 
                     <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Orientation="Vertical" Margin="-20,0,20,0">
-                        <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="50" WidthRequest="50"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                        <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="35" WidthRequest="35"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
                     </StackLayout>
 
 

@@ -37,7 +37,7 @@
                                                                               Property=Height,
                                                                               Factor=0.082}">
 
-                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
 
             </StackLayout>
 

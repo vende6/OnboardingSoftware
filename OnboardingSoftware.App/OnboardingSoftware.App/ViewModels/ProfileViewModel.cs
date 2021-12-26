@@ -24,7 +24,7 @@ namespace OnboardingSoftware.App.ViewModels
         public ProfileViewModel()
         {
             //RocketIcon = IconFont.Rocket;
-            //SettingsIcon = IconFont.Settings;
+            SettingsIcon = IconFont.Settings;
             //SetGaugeValues();
             //Hook onto tabselectrenderer to refresh pages.
             //MessagingCenter.Subscribe<Application>(this, AppMessages.RefreshTab, async (s) => await OnAppearing());

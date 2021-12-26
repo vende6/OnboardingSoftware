@@ -9,11 +9,11 @@ namespace OnboardingSoftware.Core.Services
 {
     public interface IAplikantService
     {
-        Task<IEnumerable<Aplikant>> GetAllWithVjestine();
+        Task<IEnumerable<Aplikant>> GetAll();
         Task<Aplikant> GetAplikantById(int id);
         Task<Aplikant> GetAplikantByEmail(string email);
         Task<Aplikant> CreateAplikant(Aplikant newArtist);
-        Task UpdateAplikant(Aplikant artistToBeUpdated, Aplikant artist);
+        Task UpdateAplikant(Aplikant aplikantToBeUpdated, Aplikant aplikant);
         Task DeleteAplikant(Aplikant artist);
     }
 }

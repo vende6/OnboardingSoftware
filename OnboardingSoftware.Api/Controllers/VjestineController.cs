@@ -23,10 +23,10 @@ namespace OnboardingSoftware.Api.Controllers
         }
 
         [HttpGet("")]
-        public async Task<ActionResult<IEnumerable<VjestinaResource>>> GetAllVjestine()
+        public async Task<ActionResult<IEnumerable<SkillResource>>> GetAllVjestine()
         {
             var vjestine = await this._vjestinaService.GetSkillsAsync();
-            var vjestineResources = _mapper.Map<IEnumerable<Vjestina>, IEnumerable<VjestinaResource>>(vjestine);
+            var vjestineResources = _mapper.Map<IEnumerable<Vjestina>, IEnumerable<SkillResource>>(vjestine);
 
             return Ok(vjestineResources);
         }

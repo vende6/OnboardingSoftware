@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace OnboardingSoftware.Api.Resources
 {
-    public class AplikantVjestinaResource
+    public class SkillResource
     {
-        public int VjestinaID { get; set; }
-        public int AplikantID { get; set; }
+        public int ID { get; set; }
+        public string Naziv { get; set; }
     }
 }

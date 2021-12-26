@@ -343,7 +343,7 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.45}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="65" WidthRequest="65"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
                 <Label Text="Cognitive" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="cognitive" />
@@ -418,7 +418,7 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.45}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="65" WidthRequest="65"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
                 <Label Text="Personality" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="personality" />
@@ -517,7 +517,7 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.7}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="65" WidthRequest="65"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
                 <Label Text="Integrity" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="integrity" />
@@ -618,7 +618,7 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.7}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="80" WidthRequest="90"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,5,0,0" HeightRequest="65" WidthRequest="65"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
                 <Label Text="E-Intelligence" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="e-intelligence" />

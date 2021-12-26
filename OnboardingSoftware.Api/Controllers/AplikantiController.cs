@@ -32,59 +32,83 @@ namespace OnboardingSoftware.Api.Controllers
         public async Task<ActionResult<IEnumerable<AplikantResource>>> GetAllAplikanti()
         {
 
-                List<AplikantResource> aplikants = new List<AplikantResource>();
+            var aplikanti = await _aplikantService.GetAll();
+            if (aplikanti == null)
+                return NotFound();
 
-                aplikants.Add(new AplikantResource
-                {
-                    ID = 1,
-                    Ime = "Damir",
-                    Prezime = "Krkalic",
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    BrojTelefona = "+387 62 173 906",
-                    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
-                    Email = "damir.krkalic@edu.fit.ba",
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-                });
+            var aplikants = _mapper.Map<IEnumerable<Aplikant>, IEnumerable<AplikantResource>>(aplikanti);
+            return Ok(aplikants);
 
-                aplikants.Add(new AplikantResource
-                {
-                    ID = 1,
-                    Ime = "Damir",
-                    Prezime = "Krkalic",
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    BrojTelefona = "+387 62 173 906",
-                    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
-                    Email = "damir.krkalic@edu.fit.ba",
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-                });
-
-                aplikants.Add(new AplikantResource
-                {
-                    ID = 1,
-                    Ime = "Damir",
-                    Prezime = "Krkalic",
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    BrojTelefona = "+387 62 173 906",
-                    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
-                    Email = "damir.krkalic@edu.fit.ba",
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-                });
-
-                aplikants.Add(new AplikantResource
-                {
-                    ID = 1,
-                    Ime = "Damir",
-                    Prezime = "Krkalic",
-                    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
-                    BrojTelefona = "+387 62 173 906",
-                    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
-                    Email = "damir.krkalic@edu.fit.ba",
-                    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
-                });
-
-                return Ok(aplikants);
-        
         }
+
+
+        //PUT: api/aplikanti
+        [HttpPut("{email}")]
+        public async Task<ActionResult<bool>> UpdateAplikant(string email, [FromBody] UpdateAplikantResource updateAplikantResource)
+        {
+
+            var aplikant = await _aplikantService.GetAplikantByEmail(email);
+            if (aplikant == null)
+                return NotFound();
+
+
+            var aplikantUpdate = _mapper.Map<UpdateAplikantResource, Aplikant>(updateAplikantResource);
+            await _aplikantService.UpdateAplikant(aplikant, aplikantUpdate);
+
+            return Ok(true);
+        }
+
+
+
+
+
+        //aplikants.Add(new AplikantResource
+        //{
+        //    ID = 1,
+        //    Ime = "Damir",
+        //    Prezime = "Krkalic",
+        //    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
+        //    BrojTelefona = "+387 62 173 906",
+        //    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
+        //    Email = "damir.krkalic@edu.fit.ba",
+        //    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
+        //});
+
+        //aplikants.Add(new AplikantResource
+        //{
+        //    ID = 1,
+        //    Ime = "Damir",
+        //    Prezime = "Krkalic",
+        //    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
+        //    BrojTelefona = "+387 62 173 906",
+        //    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
+        //    Email = "damir.krkalic@edu.fit.ba",
+        //    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
+        //});
+
+        //aplikants.Add(new AplikantResource
+        //{
+        //    ID = 1,
+        //    Ime = "Damir",
+        //    Prezime = "Krkalic",
+        //    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
+        //    BrojTelefona = "+387 62 173 906",
+        //    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
+        //    Email = "damir.krkalic@edu.fit.ba",
+        //    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
+        //});
+
+        //aplikants.Add(new AplikantResource
+        //{
+        //    ID = 1,
+        //    Ime = "Damir",
+        //    Prezime = "Krkalic",
+        //    Adresa = "Sarajevo, Federation of Bosnia and Herzegovina",
+        //    BrojTelefona = "+387 62 173 906",
+        //    DatumRodjenja = Convert.ToDateTime("09/05/1996"),
+        //    Email = "damir.krkalic@edu.fit.ba",
+        //    MjestoRodjenja = "Sarajevo, Federation of Bosnia and Herzegovina"
+        //});
 
         //[HttpGet("{email}", Name = "GetAplikantByEmail")]
         //public async Task<ActionResult<PosaoResource>> GetAplikantByEmail(string email)
@@ -95,25 +119,6 @@ namespace OnboardingSoftware.Api.Controllers
 
         //    var aplikantResource = _mapper.Map<Aplikant, AplikantResource>(aplikant);
         //    return Ok(aplikantResource);
-        //}
-
-        // POST: api/aplikanti
-        //[HttpPost("")]
-        //public async Task<ActionResult<bool>> CreateAplikant([FromBody] SaveAplikantResource savePosaoResource)
-        //{
-
-        //    //var validator = new SaveLinkResourceValidator();
-        //    //var validationResult = await validator.ValidateAsync(saveLinkResource);
-        //    //if (!validationResult.IsValid)
-        //    //    return BadRequest(validationResult.Errors);
-
-        //    var aplikantToCreate = _mapper.Map<SaveAplikantResource, Aplikant>(savePosaoResource);
-        //    await _aplikantService.CreateAplikant(aplikantToCreate);
-
-
-        //    //await _userLinkService.CreateUserLink(new UserLink { LinkId = link.ID, TagId = tag.ID, UserId = Guid.Parse(userId) });
-
-        //    return Ok(true);
         //}
 
         // POST: api/aplikanti
@@ -149,6 +154,6 @@ namespace OnboardingSoftware.Api.Controllers
 
 
         //    return Ok(true);
-        //}
+        //}            //await _userLinkService.CreateUserLink(new UserLink { LinkId = link.ID, TagId = tag.ID, UserId = Guid.Parse(userId) });
     }
 }

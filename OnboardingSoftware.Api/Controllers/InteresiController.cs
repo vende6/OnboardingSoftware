@@ -23,20 +23,20 @@ namespace OnboardingSoftware.Api.Controllers
         }
 
         [HttpGet("")]
-        public async Task<ActionResult<IEnumerable<InteresResource>>> GetAllInteresi()
+        public async Task<ActionResult<IEnumerable<InterestResource>>> GetAllInteresi()
         {
             var interesi = await this._interesService.GetInterests();
-            var interesResources = _mapper.Map<IEnumerable<Interes>, IEnumerable<InteresResource>>(interesi);
+            var interesResources = _mapper.Map<IEnumerable<Interes>, IEnumerable<InterestResource>>(interesi);
 
             return Ok(interesResources);
         }
 
         // POST: api/interesi
         [HttpPost("")]
-        public async Task<ActionResult<bool>> CreateInteres([FromBody] SaveInteresResource saveInteresResource)
+        public async Task<ActionResult<bool>> CreateInteres([FromBody] SaveInterestResource saveInteresResource)
         {
 
-            var interesToCreate = _mapper.Map<SaveInteresResource, Interes>(saveInteresResource);
+            var interesToCreate = _mapper.Map<SaveInterestResource, Interes>(saveInteresResource);
             await _interesService.CreateInteres(interesToCreate);
 
             return Ok(true);

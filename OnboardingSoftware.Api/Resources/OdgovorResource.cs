@@ -24,5 +24,6 @@ namespace OnboardingSoftware.Api.Resources
         public bool TacanOdgovor_4 { get; set; }
         public string TekstOdgovor { get; set; }
         public string TipPitanja { get; set; }
+        public int PitanjeID { get; set; }
     }
 }

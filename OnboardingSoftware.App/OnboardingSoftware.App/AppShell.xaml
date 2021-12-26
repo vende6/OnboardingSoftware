@@ -8,6 +8,7 @@
        FlyoutHeaderBehavior="CollapseOnScroll"
        FlyoutBackgroundColor="White"
        xmlns:viewModels="clr-namespace:OnboardingSoftware.App.ViewModels"
+       xmlns:local2="clr-namespace:OnboardingSoftware.App.Views.Dialogs"
        Title="OnboardingSoftware"
        x:Class="OnboardingSoftware.App.AppShell">
 
@@ -80,6 +81,8 @@
             <Image Source="{core:ImageResource OnboardingSoftware.App.Images.logo.png}"
                    BackgroundColor="White"
                    Opacity="0.8"
+                   HeightRequest="50"
+                   WidthRequest="50"
                    HorizontalOptions="FillAndExpand"/>
             <Label Text="OnboardingSoftware" TextColor="Black" FontSize="20" FontFamily="Italic" Margin="7,0,0,5" HorizontalOptions="Start" VerticalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
         </Grid>
@@ -102,8 +105,8 @@
         <ShellContent Route="tests" ContentTemplate="{DataTemplate localtests:ViewTests}"/>
     </FlyoutItem>
 
-    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Logout" FlyoutIcon="logo.png">
-        <ShellContent Route="logout" ContentTemplate="{DataTemplate local:ViewLogin}"/>
+    <FlyoutItem  Route="home" Title="Logout" FlyoutIcon="icon_feed.png">
+        <ShellContent Route="logout" ContentTemplate="{DataTemplate local:ViewVerify}"/>
     </FlyoutItem>
 
     <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Register">

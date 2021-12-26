@@ -32,7 +32,7 @@
     <Frame BorderColor="White" Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="20">
         <StackLayout>
             <StackLayout HorizontalOptions="CenterAndExpand"  Orientation="Vertical" Margin="0,0,0,0">
-                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="100" WidthRequest="100"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="80" WidthRequest="80"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
                 <Label Text="TOB" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android=Large}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
             </StackLayout>
             <Label x:Name="LabelNaziv"

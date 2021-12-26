@@ -30,10 +30,10 @@ namespace OnboardingSoftware.Services
             await _unitOfWork.CommitAsync();
         }
 
-        public async Task<IEnumerable<Aplikant>> GetAllWithVjestine()
+        public async Task<IEnumerable<Aplikant>> GetAll()
         {
             return await _unitOfWork.Aplikanti
-                .GetAllWithVjestineAsync();
+                .GetAllAsync();
         }
 
         public async Task<Aplikant> GetAplikantByEmail(string email)
@@ -50,9 +50,15 @@ namespace OnboardingSoftware.Services
 
         public async Task UpdateAplikant(Aplikant aplikantToBeUpdated, Aplikant aplikant)
         {
-            aplikantToBeUpdated.Ime = aplikant.Ime;
-            aplikantToBeUpdated.Prezime = aplikant.Prezime;
+            aplikantToBeUpdated.BrojTelefona = aplikant.BrojTelefona;
+            aplikantToBeUpdated.Adresa = aplikant.Adresa;
+            aplikantToBeUpdated.DatumRodjenja = aplikant.DatumRodjenja;
+            aplikantToBeUpdated.MjestoRodjenja = aplikant.MjestoRodjenja;
+            aplikantToBeUpdated.StatusZaposlenja = aplikant.StatusZaposlenja;
+            aplikantToBeUpdated.Industrija = aplikant.Industrija;
+            aplikantToBeUpdated.Bio = aplikant.Bio;
 
+            _unitOfWork.Aplikanti.Update(aplikantToBeUpdated);
             await _unitOfWork.CommitAsync();
         }
     }

@@ -71,8 +71,8 @@ namespace OnboardingSoftware.Api.Mappings
                .ForMember(x => x.Ime, opt => opt.MapFrom(y => y.Aplikant.Ime))
                .ForMember(x => x.Prezime, opt => opt.MapFrom(y => y.Aplikant.Prezime))
                .ForMember(x => x.BrojTelefona, opt => opt.MapFrom(y => ""))
-               .ForMember(x => x.MjestoRodjenja, opt => opt.MapFrom(y => ""))
-               .ForMember(x => x.DatumRodjenja, opt => opt.MapFrom(y => ""))
+               //.ForMember(x => x.MjestoRodjenja, opt => opt.MapFrom(y => ""))
+               //.ForMember(x => x.DatumRodjenja, opt => opt.MapFrom(y => ""))
                .ForMember(x => x.Adresa, opt => opt.MapFrom(y => ""));
 
 
@@ -83,11 +83,12 @@ namespace OnboardingSoftware.Api.Mappings
                .ForMember(x => x.Ime, opt => opt.MapFrom(y => y.Aplikant.Ime))
                .ForMember(x => x.Prezime, opt => opt.MapFrom(y => y.Aplikant.Prezime))
                .ForMember(x => x.BrojTelefona, opt => opt.MapFrom(y => ""))
-               .ForMember(x => x.MjestoRodjenja, opt => opt.MapFrom(y => ""))
-               .ForMember(x => x.DatumRodjenja, opt => opt.MapFrom(y => ""))
+               //.ForMember(x => x.MjestoRodjenja, opt => opt.MapFrom(y => ""))
+               //.ForMember(x => x.DatumRodjenja, opt => opt.MapFrom(y => ""))
                .ForMember(x => x.Adresa, opt => opt.MapFrom(y => ""));
 
             CreateMap<Vjestina, VjestinaResource>();
+            CreateMap<Vjestina, SkillResource>();
 
             CreateMap<IEnumerable<InteresResource>, AplikantInteresiResource>()
                             .ForMember(u => u.Interesi, opt => opt.MapFrom(ur => ur));
@@ -117,6 +118,14 @@ namespace OnboardingSoftware.Api.Mappings
             CreateMap<AplikantVjestinaResource, AplikantVjestina>()
             .ForMember(u => u.AplikantID, opt => opt.MapFrom(ur => ur.AplikantID))
             .ForMember(u => u.VjestinaID, opt => opt.MapFrom(ur => ur.VjestinaID));
+
+            CreateMap<UpdateAplikantResource, Aplikant>();
+
+
+            CreateMap<Interes, InterestResource>()
+               .ForMember(u => u.ID, opt => opt.MapFrom(ur => ur.ID))
+               .ForMember(u => u.Naziv, opt => opt.MapFrom(ur => ur.Naziv));
+            CreateMap<SaveInterestResource, Interes>();
         }
     }
 }

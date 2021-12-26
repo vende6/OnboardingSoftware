@@ -35,8 +35,8 @@ namespace OnboardingSoftware.App.Views
             InitializeComponent();
             var list = new List<CarouselElement>
             {
-                new CarouselElement{Text="Provide us your contact details", Placeholder1 = "Phonenumber", Placeholder2="Home Address", Placeholder3="Faculty"},
-                new CarouselElement{Text="Provide us with more details",  Placeholder1 = "Birth date", Placeholder2="Location", Placeholder3="Photo"}
+                new CarouselElement{Text="Provide us with your contact details", Placeholder1 = "Phonenumber", Placeholder2="Home Address", Placeholder3="Birth date"},
+                new CarouselElement{Text="Provide us with more details",  Placeholder1 = "Employmentstatus", Placeholder2="Industry", Placeholder3="Bio"}
             };
             TheCarousel.ItemsSource = list;
         }

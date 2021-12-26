@@ -9,7 +9,7 @@ namespace OnboardingSoftware.Core.Repositories
 {
     public interface IAplikantRepository : IRepository<Aplikant>
     {
-        Task<IEnumerable<Aplikant>> GetAllWithVjestineAsync();
+        Task<IEnumerable<Aplikant>> GetAllAsync();
         Task<Aplikant> GetByEmailAsync(string email);
         Task<Aplikant> GetWithVjestineByIdAsync(int id);
     }

@@ -17,11 +17,9 @@ namespace OnboardingSoftware.Data.Repositories
         
         
 
-        public async Task<IEnumerable<Aplikant>> GetAllWithVjestineAsync()
+        public async Task<IEnumerable<Aplikant>> GetAllAsync()
         {
             return await OnboardingSoftwareDbContext.Aplikanti
-                .Include(a => a.AplikantVjestina)
-                .ThenInclude(b => b.Vjestina)
                 .ToListAsync();
         }
 
