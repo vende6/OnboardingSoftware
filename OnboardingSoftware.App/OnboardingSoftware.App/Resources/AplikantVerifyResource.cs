@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace OnboardingSoftware.Api.Resources
+namespace OnboardingSoftware.App.Resources
 {
-    public class UpdateAplikantResource
+    public class AplikantVerifyResource
     {
         public string BrojTelefona { get; set; }
         public string MjestoRodjenja { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DatumRodjenja { get; set; }
         public string Adresa { get; set; }
         public string Bio { get; set; }

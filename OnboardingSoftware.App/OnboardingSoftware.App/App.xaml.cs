@@ -46,10 +46,12 @@ namespace OnboardingSoftware.App
                 Settings.SetPhoneRatio();
                 Settings.SelectedTestTypeId = "0";
                 Settings.TestTimerValue = "0";
-                if (!AppState.IsAuthenticated)
-                    Current.MainPage = new NavigationPage(new ViewLogin());
+                if (AppState.IsVerified)
+                    Application.Current.MainPage = new AppShell();
+                else if(AppState.IsAuthenticated)
+                    Application.Current.MainPage = new NavigationPage(new ViewVerify());
                 else
-                    MainPage = new AppShell();
+                    Application.Current.MainPage = new NavigationPage(new ViewLogin());
             }
             catch (Exception ex)
             {

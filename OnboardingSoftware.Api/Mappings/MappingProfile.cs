@@ -75,7 +75,6 @@ namespace OnboardingSoftware.Api.Mappings
                //.ForMember(x => x.DatumRodjenja, opt => opt.MapFrom(y => ""))
                .ForMember(x => x.Adresa, opt => opt.MapFrom(y => ""));
 
-
             CreateMap<IEnumerable<AplikantPosao>, AplikantiPosaoResource>()
                             .ForMember(u => u.Aplikanti, opt => opt.MapFrom(ur => ur));
             CreateMap<AplikantPosao, AplikantResource>()
@@ -108,7 +107,6 @@ namespace OnboardingSoftware.Api.Mappings
             CreateMap<SaveAplikantTestResource, AplikantTest>();
             CreateMap<SaveAplikantPosaoResource, AplikantPosao>();
 
-
             CreateMap<SaveAplikantInteresiResource, IEnumerable<AplikantInteres>>();
             CreateMap<SaveInteresResource, AplikantInteres>()
             .ForMember(u => u.AplikantID, opt => opt.MapFrom(ur => ur.AplikantID))
@@ -120,7 +118,6 @@ namespace OnboardingSoftware.Api.Mappings
             .ForMember(u => u.VjestinaID, opt => opt.MapFrom(ur => ur.VjestinaID));
 
             CreateMap<UpdateAplikantResource, Aplikant>();
-
 
             CreateMap<Interes, InterestResource>()
                .ForMember(u => u.ID, opt => opt.MapFrom(ur => ur.ID))

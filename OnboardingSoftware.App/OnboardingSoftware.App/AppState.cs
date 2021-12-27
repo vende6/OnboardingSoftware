@@ -5,7 +5,8 @@ namespace OnboardingSoftware.App
 {
     public static class AppState
     {
-        public static bool IsAuthenticated => !string.IsNullOrEmpty(Settings.AccessToken);
+        public static bool IsVerified => !string.IsNullOrEmpty(Settings.AccessToken) && Settings.IsVerified;
+        public static bool IsAuthenticated => !string.IsNullOrEmpty(Settings.AccessToken) && !Settings.IsVerified;
 
     }
 }

@@ -6,6 +6,7 @@ using OnboardingSoftware.App.Validations.Common;
 using OnboardingSoftware.App.Views;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace OnboardingSoftware.App.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-       // public INavigation Navigation { get; set; }
+        // public INavigation Navigation { get; set; }
 
         public LoginViewModel()
         {
@@ -110,8 +111,8 @@ namespace OnboardingSoftware.App.ViewModels
             //_password.RequireDigit();
             //_password.RequireNonAlphanumeric();
 
-           // _password.UserNotFound();
-           // _password.IncorrectUsernameOrPassword();
+            // _password.UserNotFound();
+            // _password.IncorrectUsernameOrPassword();
         }
 
         #endregion
@@ -178,7 +179,11 @@ namespace OnboardingSoftware.App.ViewModels
                     ErrorMessage = string.Empty;
                     var value = response.Content.ReadAsStringAsync();
                     Settings.SetAccessToken(value.Result);
-                    Application.Current.MainPage = new AppShell();
+
+                    var previousPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
+                    await Application.Current.MainPage.Navigation.PushAsync(new ViewVerify());
+                    Application.Current.MainPage.Navigation.RemovePage(previousPage);;
+
                 }
                 else
                 {
@@ -186,8 +191,7 @@ namespace OnboardingSoftware.App.ViewModels
                     ErrorMessage = value.Result;
                 }
 
-            IsBusy = false;
-               // await Shell.Current.GoToAsync(route);
+                IsBusy = false;
             }
             catch (Exception ex)
             {

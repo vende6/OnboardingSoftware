@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using FFImageLoading.Forms.Platform;
+using System.Net;
 
 namespace OnboardingSoftware.App.Droid
 {
@@ -24,6 +25,7 @@ namespace OnboardingSoftware.App.Droid
                 global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental", "IndicatorView_Experimental");
                 Xamarin.Essentials.Platform.Init(this, savedInstanceState);
                 global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+                ServicePointManager.ServerCertificateValidationCallback += (o, cert, chain, errors) => true;
                 CachedImageRenderer.Init(true);
                 LoadApplication(new App());
             }

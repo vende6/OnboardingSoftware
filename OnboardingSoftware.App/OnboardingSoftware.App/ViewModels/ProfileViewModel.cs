@@ -23,6 +23,7 @@ namespace OnboardingSoftware.App.ViewModels
     {
         public ProfileViewModel()
         {
+            Settings.IsVerified = true;
             //RocketIcon = IconFont.Rocket;
             SettingsIcon = IconFont.Settings;
             //SetGaugeValues();
@@ -402,7 +403,7 @@ namespace OnboardingSoftware.App.ViewModels
                 var str = file.GetStreamWithImageRotatedForExternalStorage();
                 var bytes = new byte[str.Length];
                 await str.ReadAsync(bytes, 0, (int)str.Length);
-                Settings.UserImage = System.Convert.ToBase64String(bytes);
+                //Settings.UserImage = System.Convert.ToBase64String(bytes);
 
                 ProfileImage = imageSource;
 
@@ -453,7 +454,7 @@ namespace OnboardingSoftware.App.ViewModels
                 await str.ReadAsync(bytes, 0, (int)str.Length);
 
                 //set new Image to settings
-                Settings.UserImage = System.Convert.ToBase64String(bytes);
+                //Settings.UserImage = System.Convert.ToBase64String(bytes);
 
                 //set profile image
                 ProfileImage = imageSource;
@@ -526,8 +527,8 @@ namespace OnboardingSoftware.App.ViewModels
         {
             try
             {
-                if (Settings.UserImage != null && Settings.UserImage.Length > 0)
-                    ProfileImage = ImageSource.FromStream(() => new MemoryStream(Convert.FromBase64String(Settings.UserImage)));
+                //if (Settings.UserImage != null && Settings.UserImage.Length > 0)
+                //    ProfileImage = ImageSource.FromStream(() => new MemoryStream(Convert.FromBase64String(Settings.UserImage)));
 
                 // var reviewDate = await SwaggerClient.Client.ApiReviewplannersGetAsync(Settings.UserId, cancellationToken);
                 var reviewDate = DateTime.Now;

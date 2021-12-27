@@ -70,6 +70,9 @@ namespace OnboardingSoftware.App
         private const string LocalPreferencesKey = "localpreferences_key";
         private static readonly string LocalPreferencesDefault = string.Empty;
 
+        private const string IsVerifiedKey = "is_verified_key";
+        private static readonly bool IsVerifiedKeyDefault = false;
+
         public static void SetupNetworkClient()
         {
           //  Motivation.Client.SwaggerClient.SetupSwaggerClients(AccessToken, GlobalSettings.HttpClientTimeout);
@@ -99,15 +102,15 @@ namespace OnboardingSoftware.App
             }
         }
 
-        public static string UserImage
+        public static bool IsVerified
         {
             get
             {
-                return Preferences.Get(UserImageKey, UserImageKeyDefault);
+                return Preferences.Get(IsVerifiedKey, IsVerifiedKeyDefault);
             }
             set
             {
-                Preferences.Set(UserImageKey, value);
+                Preferences.Set(IsVerifiedKey, value);
             }
         }
 

@@ -43,7 +43,7 @@ namespace OnboardingSoftware.Api.Controllers
 
 
         //PUT: api/aplikanti
-        [HttpPut("{email}")]
+        [HttpPut("")]
         public async Task<ActionResult<bool>> UpdateAplikant(string email, [FromBody] UpdateAplikantResource updateAplikantResource)
         {
 

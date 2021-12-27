@@ -55,6 +55,7 @@ namespace OnboardingSoftware.Services
             aplikantToBeUpdated.DatumRodjenja = aplikant.DatumRodjenja;
             aplikantToBeUpdated.MjestoRodjenja = aplikant.MjestoRodjenja;
             aplikantToBeUpdated.StatusZaposlenja = aplikant.StatusZaposlenja;
+            aplikantToBeUpdated.TrenutnaPozicija = aplikant.TrenutnaPozicija;
             aplikantToBeUpdated.Industrija = aplikant.Industrija;
             aplikantToBeUpdated.Bio = aplikant.Bio;
 

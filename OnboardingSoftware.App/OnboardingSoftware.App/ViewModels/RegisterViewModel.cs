@@ -185,6 +185,7 @@ namespace OnboardingSoftware.App.ViewModels
 
                 if (response.IsSuccessStatusCode)
                 {
+                    Settings.IsVerified = false;
                     Application.Current.MainPage = new NavigationPage(new ViewLogin());
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)

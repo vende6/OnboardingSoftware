@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:behaviors="clr-namespace:OnboardingSoftware.App.Behaviors"
              NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackground}"
+             Shell.FlyoutBehavior="Disabled"
              x:Class="OnboardingSoftware.App.Views.ViewVerify">
     <ContentPage.Content>
         <AbsoluteLayout>
@@ -21,10 +23,10 @@
                             "0.5,0.3,AutoSize,AutoSize"
                             AbsoluteLayout.LayoutFlags=
                             "PositionProportional"
-                            HorizontalOptions="Center">
+                            HorizontalOptions="CenterAndExpand">
                                 <Label
                                 FontSize="Title"
-                                HorizontalOptions="Center"
+                                HorizontalOptions="CenterAndExpand"
                                 HorizontalTextAlignment="Center"
                                 Text="{Binding Text}"
                                 VerticalOptions="Center" />
@@ -43,8 +45,12 @@
                                         <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
                                     </Entry.Behaviors>
                                 </Entry>
-
-                                <Button Text="Finish"></Button>
+                                <Entry x:Name="entry4" Placeholder="{Binding Placeholder4}" Text="{Binding Value4, Mode=TwoWay}">
+                                    <Entry.Behaviors>
+                                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                                <Button Text="Verify account" Margin="0,30,0,0" IsVisible="{Binding IsLast}" Clicked="Button_Clicked"></Button>
                             </StackLayout>
                         </AbsoluteLayout>
                     </DataTemplate>
