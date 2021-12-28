@@ -1,35 +1,33 @@
 ﻿@model IEnumerable<OnboardingSoftware.Web.Models.TestViewModel>
 
-    @{
+@{
     ViewData["Title"] = "Home page";
-    }
-
-    <h4>Tests</h4>
-
-    <p align="right">
-        <input type="button" value="Create" onclick="location.href='@Url.Action("CreateTest", "Home" )'" />
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Type
-                </th>
-                <th>
-                    Duration
-                </th>
-                <th>
-                    Number of questions
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+}
+<p style="height: 80px"></p>
+<h4>Tests</h4>
+<p align="right">
+    <input type="button" class="btn btn-light" value="Create" onclick="location.href='@Url.Action("CreateTest", "Home" )'" />
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Duration
+            </th>
+            <th>
+                Number of questions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(model => item.Naziv)
@@ -44,6 +42,6 @@
                     @Html.DisplayFor(model => item.BrojPitanja)
                 </td>
             </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>

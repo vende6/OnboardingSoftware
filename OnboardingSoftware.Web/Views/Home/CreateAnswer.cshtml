@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "CreateAnswer";
 }
-
+<p style="height: 80px"></p>
 <div class="lineContainer">
     <div class="left">
         <h4>Create answer</h4>
@@ -21,23 +21,23 @@
         <form novalidate="novalidate"  asp-action="CreateAnswer" id="createform">
             <div  class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="PonudjeniOdgovor_1" class="control-label">Suggested answer No.1</label>
-                <input id="linkUrl" asp-for="PonudjeniOdgovor_1" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
+                <label asp-for="PonudjeniOdgovor_1" class="form-label">Suggested answer No.1</label>
+                <input id="linkUrl" asp-for="PonudjeniOdgovor_1" onchange="UrlChanged()" style="width:400px;" placeholder="Enter suggested answer No.1" class="form-control" autocomplete="off" />
                 <span id="valmsg" style="display:none" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PonudjeniOdgovor_2" class="control-label">Suggested answer No.2</label>
-                <input id="linkUrl" asp-for="PonudjeniOdgovor_2" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
+                <label asp-for="PonudjeniOdgovor_2" class="form-label mt-3">Suggested answer No.2</label>
+                <input id="linkUrl" asp-for="PonudjeniOdgovor_2" onchange="UrlChanged()" style="width:400px;"  placeholder="Enter suggested answer No.2" class="form-control" autocomplete="off" />
                 <span id="valmsg" style="display:none"  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PonudjeniOdgovor_3" class="control-label">Suggested answer No.3</label>
-                <input id="linkUrl" asp-for="PonudjeniOdgovor_3" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
+                <label asp-for="PonudjeniOdgovor_3" class="form-label mt-3">Suggested answer No.3</label>
+                <input id="linkUrl" asp-for="PonudjeniOdgovor_3" onchange="UrlChanged()" style="width:400px;"  placeholder="Enter suggested answer No.3" class="form-control" autocomplete="off" />
                 <span id="valmsg" style="display:none"  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PonudjeniOdgovor_4" class="control-label">Suggested answer No.4</label>
-                <input id="linkUrl" asp-for="PonudjeniOdgovor_4" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
+                <label asp-for="PonudjeniOdgovor_4" class="form-label mt-3">Suggested answer No.4</label>
+                <input id="linkUrl" asp-for="PonudjeniOdgovor_4" onchange="UrlChanged()" style="width:400px;"  placeholder="Enter suggested answer No.4" class="form-control" autocomplete="off" />
                 <span id="valmsg" style="display:none" class="text-danger"></span>
             </div>
             @*<div class="form-group">
@@ -45,7 +45,7 @@
             <input type="button" id="hidetags2" value="Clear tags" onclick="HideTags()" class="btn btn-primary" />
         </div>*@
             <div class="form-group">
-                <label class="control-label">Pitanje</label>
+                <label class="form-label mt-3">Select question</label>
                 <div id="tagItemsContainer2" style="width:400px;">
                     @*@Html.EditorFor(Model => Model.TagResources)*@
                     @*@Html.DropDownListFor(model => model.DropdownResource.SelectedValue, Model.DropdownResource.TagResources, "Please select", new { id = "ddlCity" })*@

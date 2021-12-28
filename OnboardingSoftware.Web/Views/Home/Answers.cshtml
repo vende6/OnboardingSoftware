@@ -3,13 +3,12 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
+<p style="height: 80px"></p>
 <h4>Answers</h4>
-
 <p align="right">
-    <input type="button" value="Create" onclick="location.href='@Url.Action("CreateAnswer", "Home" )'" />
+    <input type="button" class="btn btn-light" value="Create" onclick="location.href='@Url.Action("CreateAnswer", "Home" )'" />
 </p>
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
             <th>
@@ -24,7 +23,6 @@
             <th>
                 Suggested answer No.4
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>

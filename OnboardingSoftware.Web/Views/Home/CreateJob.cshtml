@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "CreateJob";
 }
-
+<p style="height: 80px"></p>
 <div class="lineContainer">
     <div class="left">
         <h4>Create job</h4>
@@ -21,28 +21,28 @@
         <form asp-action="CreateJob" id="createform">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Naziv" class="control-label">Title</label>
-                <input id="linkUrl" asp-for="Naziv" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
+                <label asp-for="Naziv" class="form-label">Title</label>
+                <input id="linkUrl" asp-for="Naziv" onchange="UrlChanged()" style="width:400px;" placeholder="Enter title" class="form-control" autocomplete="off" />
                 <span id="valmsg" style="display:none" asp-validation-for="Naziv" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Tip" class="control-label">Type</label>
-                <input id="linkUrl" asp-for="Tip" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
+                <label asp-for="Tip" class="form-label mt-3">Type</label>
+                <input id="linkUrl" asp-for="Tip" onchange="UrlChanged()" style="width:400px;" placeholder="Enter type" class="form-control" autocomplete="off" />
                 <span id="valmsg" style="display:none" asp-validation-for="Tip" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Kategorija" class="control-label">Category</label>
-                <input id="linkUrl" asp-for="Kategorija" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
+                <label asp-for="Kategorija" class="form-label mt-3">Category</label>
+                <input id="linkUrl" asp-for="Kategorija" onchange="UrlChanged()" style="width:400px;" placeholder="Enter category" class="form-control" autocomplete="off" />
                 <span id="valmsg" style="display:none" asp-validation-for="Kategorija" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Opis" class="control-label">Description</label>
-                <input id="linkUrl" asp-for="Opis" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off" />
+                <label asp-for="Opis" class="form-label mt-3">Description</label>
+                <input id="linkUrl" asp-for="Opis" onchange="UrlChanged()" style="width:400px;" placeholder="Enter description" class="form-control" autocomplete="off" />
                 <span id="valmsg" style="display:none" asp-validation-for="Opis" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Lokacija" class="control-label">Location</label>
-                <input id="linkUrl" asp-for="Lokacija" onchange="UrlChanged()" style="width:400px;" class="form-control" autocomplete="off"/>
+                <label asp-for="Lokacija" class="form-label mt-3">Location</label>
+                <input id="linkUrl" asp-for="Lokacija" onchange="UrlChanged()" style="width:400px;" placeholder="Enter location" class="form-control" autocomplete="off"/>
                 <span id="valmsg" style="display:none" asp-validation-for="Lokacija" class="text-danger"></span>
             </div>
             <div class="form-group">
