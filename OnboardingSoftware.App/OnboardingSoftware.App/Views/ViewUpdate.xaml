@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:OnboardingSoftware.App.Behaviors" xmlns:viewmodels="clr-namespace:OnboardingSoftware.App.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackground}"
+             Shell.FlyoutBehavior="Disabled"
+             x:Class="OnboardingSoftware.App.Views.ViewUpdate">
+    <ContentPage.BindingContext>
+        <viewmodels:VerifyViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <CarouselView
+            ItemsSource="{Binding .}"
+            x:Name="TheCarousel1"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            Shell.NavBarIsVisible="False"
+            IndicatorView="indicatorview">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <AbsoluteLayout>
+                            <StackLayout
+                            AbsoluteLayout.LayoutBounds=
+                            "0.5,0.3,AutoSize,AutoSize"
+                            AbsoluteLayout.LayoutFlags=
+                            "PositionProportional"
+                            HorizontalOptions="CenterAndExpand">
+                                <Label
+                                FontSize="Title"
+                                HorizontalOptions="CenterAndExpand"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding Text}"
+                                VerticalOptions="Center" />
+                                <Entry x:Name="entry1" Placeholder="{Binding Placeholder1}" Text="{Binding Value1, Mode=TwoWay}">
+                                    <Entry.Behaviors>
+                                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                                <Entry x:Name="entry2" Placeholder="{Binding Placeholder2}" Text="{Binding Value2, Mode=TwoWay}">
+                                    <Entry.Behaviors>
+                                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                                <Entry x:Name="entry3" Placeholder="{Binding Placeholder3}" Text="{Binding Value3, Mode=TwoWay}">
+                                    <Entry.Behaviors>
+                                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                                <Entry x:Name="entry4" Placeholder="{Binding Placeholder4}" Text="{Binding Value4, Mode=TwoWay}">
+                                    <Entry.Behaviors>
+                                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePasswordCommand}" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                                <Button Text="Update profile" Margin="0,30,0,0" IsVisible="{Binding IsLast}" Clicked="Button_Clicked"></Button>
+                            </StackLayout>
+                        </AbsoluteLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView
+            x:Name="indicatorview"
+            AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            IndicatorColor="LightGray"
+            IndicatorSize="10"
+            SelectedIndicatorColor="Black" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

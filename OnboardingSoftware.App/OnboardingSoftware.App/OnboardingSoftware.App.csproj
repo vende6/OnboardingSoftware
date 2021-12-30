@@ -11,6 +11,7 @@
     <None Remove="Images\flagg_norsk.png" />
     <None Remove="Images\lock.png" />
     <None Remove="Images\logo.png" />
+    <None Remove="Images\logout.png" />
     <None Remove="Images\mail.png" />
   </ItemGroup>
 
@@ -20,6 +21,7 @@
     <EmbeddedResource Include="Images\flagg_norsk.png" />
     <EmbeddedResource Include="Images\lock.png" />
     <EmbeddedResource Include="Images\logo.png" />
+    <EmbeddedResource Include="Images\logout.png" />
     <EmbeddedResource Include="Images\mail.png" />
   </ItemGroup>
 
@@ -108,5 +110,11 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\ViewUpdate.xaml.cs">
+      <DependentUpon>ViewUpdate.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

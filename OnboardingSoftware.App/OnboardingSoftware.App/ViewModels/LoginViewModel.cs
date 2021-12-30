@@ -180,9 +180,14 @@ namespace OnboardingSoftware.App.ViewModels
                     var value = response.Content.ReadAsStringAsync();
                     Settings.SetAccessToken(value.Result);
 
-                    var previousPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
-                    await Application.Current.MainPage.Navigation.PushAsync(new ViewVerify());
-                    Application.Current.MainPage.Navigation.RemovePage(previousPage);;
+                    if (!AppState.IsVerified)
+                    {
+                        var previousPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
+                        await Application.Current.MainPage.Navigation.PushAsync(new ViewVerify());
+                        Application.Current.MainPage.Navigation.RemovePage(previousPage);
+                    }
+                    else
+                    Application.Current.MainPage = new AppShell();
 
                 }
                 else

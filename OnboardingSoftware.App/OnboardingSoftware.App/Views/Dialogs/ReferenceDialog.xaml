@@ -55,8 +55,8 @@
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Center"/>
 
-                     
-           <StackLayout>
+
+            <StackLayout>
                 <controls:CustomButton
                     Margin="0,0,10,0"
                     VerticalOptions="CenterAndExpand"
@@ -74,10 +74,12 @@
 
                 </controls:CustomButton>
                 <Label TextColor="Black" Text="File Is :" x:Name="lbl"/>
-        </StackLayout>
+            </StackLayout>
 
-            <Button Text="Close" Command="{Binding CloseInfoCommand}"></Button>
-            <Button Text="Finish" Command="{Binding CloseInfoCommand}" VerticalOptions="EndAndExpand"></Button>
+            <StackLayout VerticalOptions="EndAndExpand" Margin="0,0,0,20">
+                <Button Text="Save" Command="{Binding CloseInfoCommand}" VerticalOptions="EndAndExpand"></Button>
+                <Button Text="Close" Command="{Binding CloseInfoCommand}" VerticalOptions="EndAndExpand"></Button>
+            </StackLayout >
         </StackLayout>
     </Frame>
 </pages:PopupPage>

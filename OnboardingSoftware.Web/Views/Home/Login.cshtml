@@ -19,15 +19,15 @@
                 @using (Html.BeginForm("Login", "Home", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
-                    <div class="form-group">
+                    <div class="form-group" style="margin-top: 10px">
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Username" })
                         @*@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })*@
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="margin-top: 10px">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
                         @*@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })*@
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="margin-top: 10px">
                         <input type="submit" name="submit" class="btn btn-dark" onclick="SubmitValidation()" asp-area="" asp-controller="Home" asp-action="Login" value="Login" />
                     </div>
                 }

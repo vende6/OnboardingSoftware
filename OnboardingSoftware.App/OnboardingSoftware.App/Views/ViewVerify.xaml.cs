@@ -36,9 +36,9 @@ namespace OnboardingSoftware.App.Views
 
         private List<UpdateAplikantResource> _updateAplikantResources = new List<UpdateAplikantResource>()
              {
-           new UpdateAplikantResource {Text="Provide us with your contact details", Placeholder1 = "Phone number", Placeholder2 = "Place of birth", Placeholder3 = "Date of birth (format: dd.mm.yyyy)", Placeholder4 = "Place of residence", IsLast=false},
+           new UpdateAplikantResource {Text="Provide us with your contact details", Placeholder1 = "Phone number", Placeholder2 = "Place of birth", Placeholder3 = "Date of birth [dd.mm.yyyy]", Placeholder4 = "Place of residence", IsLast=false},
            new UpdateAplikantResource {Text="Provide us with more contact details", Placeholder1 = "Employment status", Placeholder2 = "Current enrolment",
-               Placeholder3 = "About", Placeholder4 = "Industry", IsLast=true}
+               Placeholder3 = "About", Placeholder4 = "Education", IsLast=true}
         };
         public List<UpdateAplikantResource> UpdateAplikantResources
         {
@@ -92,7 +92,7 @@ namespace OnboardingSoftware.App.Views
                         //***************
                         MailMessage msg = new MailMessage();
                         SmtpClient smtp = new SmtpClient();
-                        string emailId = "damir.krkalic@edu.fit.ba";//id;
+                        string emailId = "damir@onboardingsoftware.info";//id;
                         msg.From = new MailAddress("damir.krkalic@edu.fit.ba");
                         msg.To.Add(emailId);
                         msg.Subject = "[Onboarding confirmation]";
@@ -106,9 +106,8 @@ namespace OnboardingSoftware.App.Views
                         smtp.Host = "smtp.office365.com";
                         smtp.EnableSsl = true;
                         //NetworkCredential Credentials = new NetworkCredential("emailaddress@gmail.com", "Super2@17");
-                        //smtp.UseDefaultCredentials = false;
+                        //smtp.UseDefaultCredentials = true;
                         smtp.Send(msg);
-
                         //******************
                         Settings.IsVerified = true;
                         Application.Current.MainPage = new AppShell();
@@ -117,17 +116,19 @@ namespace OnboardingSoftware.App.Views
                     {
                         await Application.Current.MainPage.DisplayAlert("Fault", "We were unable to verify you.", "OK");
                         Application.Current.MainPage = new ViewLogin();
+                        
                     }
                 }
             }
             catch(Exception ex)
             {
-                var exx = ex;
-                throw;
+                await Application.Current.MainPage.DisplayAlert("Fault", "500. Contact your SMTP service provider to fix the situation. We will allow you to proceed with the application", "OK");
+                Application.Current.MainPage = new AppShell();
             }
             finally
             {
                 IsBusy = false;
+                //Application.Current.MainPage = new AppShell();
             }
         }
 

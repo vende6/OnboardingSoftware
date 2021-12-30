@@ -103,9 +103,13 @@
         <ShellContent Route="tests" ContentTemplate="{DataTemplate localtests:ViewTests}"/>
     </FlyoutItem>
 
-    <!--<FlyoutItem  Route="home" Title="Logout" FlyoutIcon="icon_feed.png">
-        <ShellContent Route="logout" ContentTemplate="{DataTemplate local:ViewVerify}"/>
-    </FlyoutItem>-->
+    <MenuItem  StyleClass="MenuItemLayoutStyle" Clicked="MenuItem_Clicked" Text="Logout">
+        <!--<ShellContent Route="logout" ContentTemplate="{DataTemplate local:ViewLogin}"/>-->
+    </MenuItem>
+
+    <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Update">
+        <ShellContent Route="update" ContentTemplate="{DataTemplate local:ViewUpdate}"/>
+    </FlyoutItem>
 
     <FlyoutItem FlyoutItemIsVisible="False" Route="home" Title="Register">
         <ShellContent Route="register" ContentTemplate="{DataTemplate local:ViewRegister}"/>

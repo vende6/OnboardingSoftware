@@ -41,6 +41,17 @@ namespace OnboardingSoftware.Api.Controllers
 
         }
 
+        [HttpGet("{email}", Name = "GetAplikantById")]
+        public async Task<ActionResult<AplikantResource>> GetAplikantByEmail(string email)
+        {
+            var aplikant = await _aplikantService.GetAplikantByEmail(email);
+            if (aplikant == null)
+                return NotFound();
+            var aplikantResource = _mapper.Map<Aplikant, AplikantResource>(aplikant);
+
+            return Ok(aplikantResource);
+        }
+
 
         //PUT: api/aplikanti
         [HttpPut("")]

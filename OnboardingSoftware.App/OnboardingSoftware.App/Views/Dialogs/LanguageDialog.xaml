@@ -37,7 +37,7 @@
                                    ScaleOut="0.8" />
     </pages:PopupPage.Animation>
 
-    <Grid VerticalOptions="CenterAndExpand" BackgroundColor="{StaticResource BlurDialogBackgroundColor}">
+    <Grid VerticalOptions="CenterAndExpand" BackgroundColor="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.6*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>

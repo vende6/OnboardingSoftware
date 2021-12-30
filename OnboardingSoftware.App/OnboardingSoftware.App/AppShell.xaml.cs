@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using OnboardingSoftware.App.LanguageSupport;
 using OnboardingSoftware.App.Resources;
 using OnboardingSoftware.App.ViewModels;
 using OnboardingSoftware.App.Views;
@@ -36,7 +37,7 @@ namespace OnboardingSoftware.App
             Routing.RegisterRoute(nameof(ViewSkill), typeof(ViewSkill));
             Routing.RegisterRoute(nameof(ViewInterest), typeof(ViewInterest));
             Routing.RegisterRoute(nameof(ViewProfile), typeof(ViewProfile));
-
+            Routing.RegisterRoute(nameof(ViewUpdate), typeof(ViewUpdate));
             Routing.RegisterRoute(nameof(ViewTests), typeof(ViewTests));
             Routing.RegisterRoute(nameof(ViewStart), typeof(ViewStart));
             Routing.RegisterRoute(nameof(ViewTest), typeof(ViewTest));
@@ -55,6 +56,12 @@ namespace OnboardingSoftware.App
         protected override async void OnNavigating(ShellNavigatingEventArgs args)
         {
             base.OnNavigating(args);
+        }
+
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0)
+                await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.LogoutDialog(Translation.Translate("LogoutTitle"), Translation.Translate("LogoutText")));
         }
     }
 }

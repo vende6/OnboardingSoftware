@@ -25,7 +25,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": "true",
-      "applicationUrl": "http://192.168.0.15:5001;",
+      "applicationUrl": "http://192.168.0.27:5001;",
       "jsWebView2Debugging": true
     }
   }
