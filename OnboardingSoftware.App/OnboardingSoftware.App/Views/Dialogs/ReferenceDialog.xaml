@@ -70,8 +70,9 @@
                     WidthRequest="{Binding Source='225', Converter={StaticResource SizeConv}}"
                     Text="References"
                     TextColor="White"
+                    Clicked="Button_Clicked"
                     FontSize="{Binding Source='15', Converter={StaticResource SizeConv}}">
-
+                   
                 </controls:CustomButton>
                 <Label TextColor="Black" Text="File Is :" x:Name="lbl"/>
             </StackLayout>
