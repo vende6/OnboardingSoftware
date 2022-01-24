@@ -53,9 +53,10 @@ namespace OnboardingSoftware.App.Views.Dialogs
                 if (response.IsSuccessStatusCode)
                 {
                     //if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count == 0) TODO
-                    //    await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.TestDialog("Application successful", "We will get back to you."));
-                    await Application.Current.MainPage.DisplayAlert("Application successful", "We will get back to you.", "OK");
                     await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAllAsync();
+                    await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new Views.Dialogs.TestDialog("Application successful", "We will get back to you."));
+                    //await Application.Current.MainPage.DisplayAlert("Application successful", "We will get back to you.", "OK");
+                    //  await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAllAsync();
                     Application.Current.MainPage = new AppShell();
                     return;
                 }

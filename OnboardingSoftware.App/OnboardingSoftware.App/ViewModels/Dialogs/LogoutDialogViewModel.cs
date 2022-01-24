@@ -25,7 +25,7 @@ namespace OnboardingSoftware.App.ViewModels.Dialogs
                 return new Command<string>(async (route) =>
                 {
                     Settings.SetAccessToken("");
-                    Settings.IsVerified = false;
+                    //Settings.IsVerified = false;
 
                     await PopupNavigation.Instance.PopAsync(true);
                     Application.Current.MainPage = new NavigationPage(new ViewLogin());

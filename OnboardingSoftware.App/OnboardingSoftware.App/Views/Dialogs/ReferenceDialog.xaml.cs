@@ -33,10 +33,16 @@ namespace OnboardingSoftware.App.Views.Dialogs
             //}
             try
             {
+                var x = Settings.LocalPreferencesJson;
+                if(!String.IsNullOrEmpty(Settings.LocalPreferencesJson))
+                {
+                    lbl.Text = $"File Name: {x}";
+                }
                 var result = await FilePicker.PickAsync(PickOptions.Default);
                 if (result != null)
                 {
                     lbl.Text = $"File Name: {result.FileName}";
+                    Settings.LocalPreferencesJson = lbl.Text;
                     if (result.FileName.EndsWith("jpg", StringComparison.OrdinalIgnoreCase) ||
                         result.FileName.EndsWith("png", StringComparison.OrdinalIgnoreCase))
                     {

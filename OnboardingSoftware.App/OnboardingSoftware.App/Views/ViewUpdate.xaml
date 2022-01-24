@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:behaviors="clr-namespace:OnboardingSoftware.App.Behaviors" xmlns:viewmodels="clr-namespace:OnboardingSoftware.App.ViewModels"
              NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource PageBackground}"
              Shell.FlyoutBehavior="Disabled"
              x:Class="OnboardingSoftware.App.Views.ViewUpdate">
