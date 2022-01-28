@@ -73,7 +73,7 @@
                     FontSize="{OnIdiom Phone={OnPlatform iOS='12',
                                                          Android='14'}}"
                     FontAttributes="Bold"
-                    Text="Naziv"
+                    Text="Title"
                     TextColor="Black" />
 
                 <controls:CustomEntry
@@ -107,7 +107,7 @@
                     FontAttributes="Bold"
                     FontSize="{OnIdiom Phone={OnPlatform iOS='12',
                                                          Android='14'}}"
-                    Text="Tip"
+                    Text="Type"
                     TextColor="Black"/>
 
                 <controls:CustomEntry
@@ -143,7 +143,7 @@
                     FontAttributes="Bold"
                     FontSize="{OnIdiom Phone={OnPlatform iOS='12',
                                                          Android='14'}}"
-                    Text="Trajanje"
+                    Text="Duration"
                     TextColor="Black" />
 
                 <controls:CustomEntry
@@ -179,7 +179,7 @@
                     FontAttributes="Bold"
                     FontSize="{OnIdiom Phone={OnPlatform iOS='12',
                                                          Android='14'}}"
-                    Text="Broj Pitanja"
+                    Text="Number of questions"
                     TextColor="Black" />
 
                 <controls:CustomEntry

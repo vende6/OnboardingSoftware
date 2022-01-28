@@ -64,7 +64,7 @@ namespace OnboardingSoftware.App.Views
             try
             {
 
-                Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
+                Uri uri = new Uri("https://onboardingsoftwareapi20220128081003.azurewebsites.net/");
 
                 var id = Settings.UserId;
                 if (!String.IsNullOrEmpty(id))
@@ -98,7 +98,7 @@ namespace OnboardingSoftware.App.Views
                         msg.Subject = "[Onboarding confirmation]";
                         //For testing replace the local host path with your lost host path and while making online replace with your website domain name
                         //string ActivationUrl = "http://localhost:8665/FetchUserId(emailId) & "&EmailId=" & emailId);
-                        msg.Body = "Thanks for showing interest and registering in <a href='https://www.godaddy.com/en-uk/whatsapp'> https://onboardingsoftware.azurewebsites.net.</a> " +
+                        msg.Body = "Thanks for showing interest and registering in <a href='https://www.godaddy.com/en-uk/whatsapp'> https://onboardingsoftwareapi20220128081003.azurewebsites.net.</a> " +
                               " In order to complete the sign-up process, please click the confirmation link.";
                         msg.IsBodyHtml = true;
                         smtp.Credentials = new NetworkCredential("damir.krkalic@edu.fit.ba", "X38yb4k47banana");
@@ -122,7 +122,7 @@ namespace OnboardingSoftware.App.Views
             }
             catch(Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Fault", "500. Contact your SMTP service provider to fix the situation. We will allow you to proceed with the application", "OK");
+                await Application.Current.MainPage.DisplayAlert("Fault", "500. Contact your SMTP service provider to fix the situation. We will allow you to proceed with the application.", "OK");
                 Application.Current.MainPage = new AppShell();
             }
             finally

@@ -173,7 +173,7 @@
 
             <!--<local:ConnectionView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />-->
 
-            <StackLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.21}">
+            <StackLayout Margin="-10,0,0,0" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.21}">
                 <!--FontFamily="{StaticResource MarketProBold}"-->
                 <Label
                
@@ -183,12 +183,12 @@
                     HorizontalTextAlignment="Center"
                     Text="Hi, User"
                     FontAttributes="Italic"
-                    Margin="0,0,-25,0"
+                    Margin="-10,0,-25,0"
                     TextColor="WhiteSmoke"
                     VerticalOptions="EndAndExpand" />
                 <!--FontFamily="{StaticResource DomusRegular}"-->
                 <Label
-                    Margin="70,2,-25,0"
+                    Margin="70,2"
                     FontSize="{Binding Source='17', Converter={StaticResource SizeConv}}"
                     HorizontalOptions="CenterAndExpand"
                     HorizontalTextAlignment="Center"
@@ -228,7 +228,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='40'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='130'}}">
+                                                         Android='120'}}">
                 </controls:CustomButton>
 
                 <controls:CustomButton
@@ -248,7 +248,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='40'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='280',
-                                                         Android='130'}}">
+                                                         Android='120'}}">
                 </controls:CustomButton>
 
                 <controls:CustomButton
@@ -269,7 +269,7 @@
                 HeightRequest="{OnIdiom Phone={OnPlatform iOS='95',
                                                          Android='40'}}"
                 WidthRequest="{OnIdiom Phone={OnPlatform iOS='95',
-                                                         Android='130'}}">
+                                                         Android='120'}}">
                 </controls:CustomButton>
             </StackLayout>
 
@@ -343,8 +343,8 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.45}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,45,0,0" HeightRequest="70" WidthRequest="70"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="Cognitive" FontAttributes="Italic" Margin="0,15,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='23'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,25,0,0" HeightRequest="55" WidthRequest="55"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="Cognitive" FontAttributes="Italic" Margin="0,15,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="cognitive" />
                 </StackLayout.GestureRecognizers>
@@ -418,8 +418,8 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.45}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,45,0,0" HeightRequest="70" WidthRequest="70"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="Personality" FontAttributes="Italic" Margin="0,15,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='23'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,25,0,0" HeightRequest="55" WidthRequest="55"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="Personality" FontAttributes="Italic" Margin="0,15,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="personality" />
                 </StackLayout.GestureRecognizers>
@@ -517,8 +517,8 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.7}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,45,0,0" HeightRequest="70" WidthRequest="70"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="Integrity" FontAttributes="Italic" Margin="0,35,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='23'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,25,0,0" HeightRequest="55" WidthRequest="55"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="Integrity" FontAttributes="Italic" Margin="0,15,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="integrity" />
                 </StackLayout.GestureRecognizers>
@@ -618,8 +618,8 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                   Property=Height,
                                                                   Factor=0.7}">
-                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,45,0,0" HeightRequest="70" WidthRequest="70"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
-                <Label Text="E-Intelligence" FontAttributes="Italic" Margin="0,35,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='23'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
+                <ffimageloading:CachedImage Aspect="AspectFit" Margin="0,25,0,0" HeightRequest="55" WidthRequest="55"  Source="resource://OnboardingSoftware.App.Images.logo.png" />
+                <Label Text="E-Intelligence" FontAttributes="Italic" Margin="0,15,0,-10" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="{OnIdiom Phone={OnPlatform iOS=Large, Android='21'}, Tablet={OnPlatform iOS=Large, Android=Large}}" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="e-intelligence" />
                 </StackLayout.GestureRecognizers>

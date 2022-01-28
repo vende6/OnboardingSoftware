@@ -48,7 +48,7 @@ namespace OnboardingSoftware.App.Views
     new AuthenticationHeaderValue("Bearer", Settings.AccessToken);
 
             var id = Settings.UserId;
-            Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
+            Uri uri = new Uri("https://onboardingsoftwareapi20220128081003.azurewebsites.net/");
             HttpResponseMessage response = await client.GetAsync(uri + "api/aplikanti/" + HttpUtility.UrlEncode(id));
             if (response.IsSuccessStatusCode)
             {
@@ -114,7 +114,7 @@ namespace OnboardingSoftware.App.Views
             try
             {
 
-                Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
+                Uri uri = new Uri("https://onboardingsoftwareapi20220128081003.azurewebsites.net/");
 
                 var id = Settings.UserId;
                 if (!String.IsNullOrEmpty(id))
@@ -138,28 +138,28 @@ namespace OnboardingSoftware.App.Views
                     HttpResponseMessage response = await client.PutAsync(uri + "api/Aplikanti?email=" + HttpUtility.UrlEncode(id), content);
                     if (response.IsSuccessStatusCode)
                     {
-                    //    //phone or/and email verification before the end of procedure
-                    //    //***************
-                    //    MailMessage msg = new MailMessage();
-                    //    SmtpClient smtp = new SmtpClient();
-                    //    string emailId = "damir@onboardingsoftware.info";//id;
-                    //    msg.From = new MailAddress("damir.krkalic@edu.fit.ba");
-                    //    msg.To.Add(emailId);
-                    //    msg.Subject = "[Onboarding confirmation]";
-                    //    //For testing replace the local host path with your lost host path and while making online replace with your website domain name
-                    //    //string ActivationUrl = "http://localhost:8665/FetchUserId(emailId) & "&EmailId=" & emailId);
-                    //    msg.Body = "Thanks for showing interest and registering in <a href='https://www.godaddy.com/en-uk/whatsapp'> https://onboardingsoftware.azurewebsites.net.</a> " +
-                    //          " In order to complete the sign-up process, please click the confirmation link.";
-                    //    msg.IsBodyHtml = true;
-                    //    smtp.Credentials = new NetworkCredential("damir.krkalic@edu.fit.ba", "X38yb4k47banana");
-                    //    smtp.Port = 587;//manage TFA
-                    //    smtp.Host = "smtp.office365.com";
-                    //    smtp.EnableSsl = true;
-                    //    //NetworkCredential Credentials = new NetworkCredential("emailaddress@gmail.com", "Super2@17");
-                    //    //smtp.UseDefaultCredentials = true;
-                    //    smtp.Send(msg);
-                    //    //******************
-                    //    Settings.IsVerified = true;
+                        //phone or/and email verification before the end of procedure
+                        //***************
+                        MailMessage msg = new MailMessage();
+                        SmtpClient smtp = new SmtpClient();
+                        string emailId = "damir@onboardingsoftware.info";//id;
+                        msg.From = new MailAddress("damir.krkalic@edu.fit.ba");
+                        msg.To.Add(emailId);
+                        msg.Subject = "[Onboarding confirmation]";
+                        //For testing replace the local host path with your lost host path and while making online replace with your website domain name
+                        //string ActivationUrl = "http://localhost:8665/FetchUserId(emailId) & "&EmailId=" & emailId);
+                        msg.Body = "Thanks for showing interest and registering in <a href='https://www.godaddy.com/en-uk/whatsapp'> https://onboardingsoftwareapi20220128081003.azurewebsites.net.</a> " +
+                              " In order to complete the sign-up process, please click the confirmation link.";
+                        msg.IsBodyHtml = true;
+                        smtp.Credentials = new NetworkCredential("damir.krkalic@edu.fit.ba", "X38yb4k47banana");
+                        smtp.Port = 587;//manage TFA
+                        smtp.Host = "smtp.office365.com";
+                        smtp.EnableSsl = true;
+                        //NetworkCredential Credentials = new NetworkCredential("emailaddress@gmail.com", "Super2@17");
+                        //smtp.UseDefaultCredentials = true;
+                        smtp.Send(msg);
+                        //******************
+                        Settings.IsVerified = true;
                         Application.Current.MainPage = new AppShell();
                     }
                     else
@@ -171,7 +171,7 @@ namespace OnboardingSoftware.App.Views
             }
             catch(Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Fault", "We were unable to update your account.", "OK");
+                //await Application.Current.MainPage.DisplayAlert("Fault", "We were unable to update your account.", "OK");
                 Application.Current.MainPage = new AppShell();
             }
             finally

@@ -40,19 +40,19 @@
                     <StackLayout Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"  Orientation="Vertical">
                         <Label TextColor="Black" IsVisible="False" Text="{Binding ID}"/>
                         <StackLayout Orientation="Horizontal">
-                            <Label TextColor="Black" Text="Naziv:"/>
+                            <Label TextColor="Black" Text="Title:"/>
                             <Label TextColor="Black" Text="{Binding Naziv}"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label TextColor="Black" Text="Tip:"/>
+                            <Label TextColor="Black" Text="Type:"/>
                             <Label TextColor="Black" Text="{Binding Tip}"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label TextColor="Black" Text="Trajanje:"/>
+                            <Label TextColor="Black" Text="Duration:"/>
                             <Label TextColor="Black" Text="{Binding Trajanje}"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label TextColor="Black" Text="BrojPitanja:"/>
+                            <Label TextColor="Black" Text="Number of questions:"/>
                             <Label TextColor="Black" Text="{Binding BrojPitanja}"/>
                         </StackLayout>
                     </StackLayout>

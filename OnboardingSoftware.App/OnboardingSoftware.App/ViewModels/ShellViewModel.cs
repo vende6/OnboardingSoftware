@@ -62,7 +62,7 @@ namespace OnboardingSoftware.App.ViewModels
             client.DefaultRequestHeaders.Authorization =
     new AuthenticationHeaderValue("Bearer", Settings.AccessToken);
 
-            Uri uri = new Uri("https://onboardingsoftware.azurewebsites.net/");
+            Uri uri = new Uri("https://onboardingsoftwareapi20220128081003.azurewebsites.net/");
 
             HttpResponseMessage response = await client.GetAsync(uri + "api/testovi");
             if (response.IsSuccessStatusCode)
