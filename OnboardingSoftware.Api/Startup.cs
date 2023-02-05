@@ -53,34 +53,34 @@ namespace OnboardingSoftware.Api
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
  
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnboardingSoftware.Api", Version = "v1" });
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnboardingSoftware1.Api", Version = "v2" });
+            //    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            //    {
 
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                });
-                var security =
-                      new OpenApiSecurityRequirement
-                      {
-            {
-                new OpenApiSecurityScheme
-                {
-                    Reference = new OpenApiReference
-                    {
-                        Id = "Bearer",
-                        Type = ReferenceType.SecurityScheme
-                    },
-                    UnresolvedReference = true
-                },
-                new List<string>()
-            }
-                      };
-                c.AddSecurityRequirement(security);
-            });
+            //        Name = "Authorization",
+            //        In = ParameterLocation.Header,
+            //        Type = SecuritySchemeType.ApiKey,
+            //    });
+            //    var security =
+            //          new OpenApiSecurityRequirement
+            //          {
+            //{
+            //    new OpenApiSecurityScheme
+            //    {
+            //        Reference = new OpenApiReference
+            //        {
+            //            Id = "Bearer",
+            //            Type = ReferenceType.SecurityScheme
+            //        },
+            //        UnresolvedReference = true
+            //    },
+            //    new List<string>()
+            //}
+            //          };
+            //    c.AddSecurityRequirement(security);
+            //});
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IAplikantService, AplikantService>();
@@ -117,15 +117,15 @@ namespace OnboardingSoftware.Api
 
 
             app.UseDeveloperExceptionPage();
-            app.UseSwagger(c =>
-            {
-                c.SerializeAsV2 = true;
-            });
-            app.UseSwaggerUI(
-                 c => {
-                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "OnboardingSoftware.Api v1");
-                     c.RoutePrefix = string.Empty;
-                 });
+            //app.UseSwagger(c =>
+            //{
+            //    c.SerializeAsV2 = true;
+            //});
+            //app.UseSwaggerUI(
+            //     c => {
+            //         c.SwaggerEndpoint("/swagger/v1/swagger.json", "OnboardingSoftware2.Api v2");
+            //         c.RoutePrefix = string.Empty;
+            //     });
 
 
             app.UseHttpsRedirection();

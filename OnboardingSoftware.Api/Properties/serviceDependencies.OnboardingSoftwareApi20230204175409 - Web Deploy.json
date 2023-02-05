@@ -1,10 +1,5 @@
 {
   "dependencies": {
-    "apis2": {
-      "apiEndpoint": "https://onboardingsoftwareapi.azure-api.net/",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/OnboardingSoftwareApi/apis/OnboardingSoftwareApi",
-      "type": "apis.azure"
-    },
     "identityapp1": {
       "secretStore": "AzureAppSettings",
       "type": "identityapp.secretStore",
@@ -34,6 +29,11 @@
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/onboardingsoftwaredbserver/databases/OnboardingSoftware.Api_db",
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:Default2"
+    },
+    "apis2": {
+      "apiEndpoint": "https://onboardingsoftwareapi.azure-api.net/",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/OnboardingSoftwareApi/apis/OnboardingSoftwareApi",
+      "type": "apis.azure"
     }
   }
 }

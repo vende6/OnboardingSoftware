@@ -3,9 +3,6 @@
     "apis1": {
       "type": "apis"
     },
-    "apis2": {
-      "type": "apis"
-    },
     "identityapp1": {
       "type": "identityapp",
       "connectionId": "AzureAD:ClientSecret",
@@ -27,6 +24,9 @@
     "mssql2": {
       "type": "mssql",
       "connectionId": "ConnectionStrings:Default2"
+    },
+    "apis2": {
+      "type": "apis"
     }
   }
 }
