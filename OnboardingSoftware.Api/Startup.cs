@@ -25,6 +25,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using OnboardingSoftware.Core.Services.Associations;
 using OnboardingSoftware.Services.Associations;
+using System.Net;
 
 namespace OnboardingSoftware.Api
 {
@@ -40,7 +41,8 @@ namespace OnboardingSoftware.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            System.Net.ServicePointManager.SecurityProtocol |=
+            SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
             var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();
             services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
             services.AddAuth(jwtSettings);
