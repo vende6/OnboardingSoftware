@@ -9,6 +9,28 @@
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/OnboardingSoftwareApivau",
       "type": "secrets.keyVault",
       "connectionId": "VaultUri"
+    },
+    "mssql1": {
+      "secretStore": null,
+      "type": "mssql.onprem",
+      "connectionId": "ConnectionStrings:Default2",
+      "dynamicId": null
+    },
+    "mssql3": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Default"
+    },
+    "mssql4": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Default1"
+    },
+    "mssql2": {
+      "secretStore": null,
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/onboardingsoftwaredbserver/databases/OnboardingSoftware.Api_db",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:Default4"
     }
   }
 }

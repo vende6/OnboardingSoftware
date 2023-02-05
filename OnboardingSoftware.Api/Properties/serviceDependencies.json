@@ -6,6 +6,15 @@
     "secrets1": {
       "type": "secrets",
       "connectionId": "VaultUri"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Default2",
+      "dynamicId": null
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Default4"
     }
   }
 }

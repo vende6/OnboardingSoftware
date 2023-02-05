@@ -95,7 +95,7 @@ namespace OnboardingSoftware.Api
             services.AddTransient<IAplikantVjestinaService, AplikantVjestinaService>();
             services.AddTransient<IAplikantInteresService, AplikantInteresService>();
 
-            services.AddDbContext<OnboardingSoftwareDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default2"), x => x.MigrationsAssembly("OnboardingSoftware.Data")));
+            services.AddDbContext<OnboardingSoftwareDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default4"), x => x.MigrationsAssembly("OnboardingSoftware.Data")));
 
             services.AddIdentity<User, Role>(options =>
             {
