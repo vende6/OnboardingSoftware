@@ -36,7 +36,7 @@
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "name": "[concat(parameters('resourceGroupName'), 'Deployment', uniqueString(concat('OnboardingSoftwareApi5', subscription().subscriptionId)))]",
+      "name": "[concat(parameters('resourceGroupName'), 'Deployment', uniqueString(concat('OnboardingSoftwareApi', subscription().subscriptionId)))]",
       "resourceGroup": "[parameters('resourceGroupName')]",
       "apiVersion": "2019-10-01",
       "dependsOn": [
@@ -95,14 +95,14 @@
             },
             {
               "type": "Microsoft.ApiManagement/service/apis",
-              "name": "OnboardingSoftwareApi/OnboardingSoftwareApi5",
+              "name": "OnboardingSoftwareApi/OnboardingSoftwareApi",
               "properties": {
-                "displayName": "OnboardingSoftwareApi5",
+                "displayName": "OnboardingSoftware1.Api",
                 "apiRevision": "1",
                 "description": null,
                 "subscriptionRequired": true,
-                "serviceUrl": null,
-                "path": "OnboardingSoftwareApi5",
+                "serviceUrl": "https://onboardingsoftwareapi20230205005311.azurewebsites.net",
+                "path": "",
                 "protocols": [
                   "https"
                 ],

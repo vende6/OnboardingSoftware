@@ -1,20 +1,19 @@
 {
   "dependencies": {
-    "apis1": {
-      "type": "apis"
-    },
     "secrets1": {
       "type": "secrets",
       "connectionId": "VaultUri"
     },
-    "mssql1": {
-      "type": "mssql",
-      "connectionId": "ConnectionStrings:Default2",
-      "dynamicId": null
-    },
     "mssql2": {
       "type": "mssql",
       "connectionId": "ConnectionStrings:Default4"
+    },
+    "apis1": {
+      "type": "apis"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Default2"
     }
   }
 }
