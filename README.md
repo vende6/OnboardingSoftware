@@ -1,5 +1,8 @@
 ## Onboarding Software
 
+Presentation deck: https://1drv.ms/p/s!ArMkYivV1FDjrAafYiT7aXC3Sf-g?e=DvZKyH
+
+Description:
         - architectured with asp.net core 5.0, entity framework core and razor pages
         - n-layer architecture (core, application, infrastructure and presentation layers)
         - domain driven design (entities, repositories, domain/application services, dto's…)
