@@ -1,5 +1,6 @@
 ## Onboarding Software
 
+Intro: https://www.youtube.com/watch?v=ozKQf1RPIXc&ab_channel=DamirKrkalic
 Presentation deck: https://1drv.ms/p/s!ArMkYivV1FDjrAafYiT7aXC3Sf-g?e=DvZKyH
 
 Description:
