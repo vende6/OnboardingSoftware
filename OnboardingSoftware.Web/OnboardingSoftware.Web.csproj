@@ -38,7 +38,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OnboardingSoftware.Services\OnboardingSoftware.Services.csproj" />
+    <ProjectReference Include="..\OnboardingSoftware.Services\OnboardingSoftware.Services.csproj">
+      <ReferenceSourceTarget></ReferenceSourceTarget>
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>

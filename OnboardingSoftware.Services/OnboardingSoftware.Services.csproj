@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OnboardingSoftware.Core\OnboardingSoftware.Core.csproj" />
+    <ProjectReference Include="..\OnboardingSoftware.Core\OnboardingSoftware.Core.csproj">
+      <ReferenceSourceTarget></ReferenceSourceTarget>
+    </ProjectReference>
   </ItemGroup>
+
 
 </Project>
